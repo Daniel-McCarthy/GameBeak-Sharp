@@ -250,5 +250,26 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
+        void changeRamBanks(ushort bankNumber)
+        {
+            ushort externalAddress = (ushort)(ramBankNumber * (short)0x2000);
+
+            //Save Old Beak Ram Data to External Ram Array
+            for (int i = 0; i < 0x2000; i++)
+            {
+                externalRam[externalAddress + i] = ramMap[0xA000 + i];
+            }
+
+            ramBankNumber = bankNumber;
+            externalAddress = (ushort)(ramBankNumber * 0x2000);
+
+            //Load New External Ram data to Beak Ram
+            for (int i = 0; i < 0x2000; i++)
+            {
+                ramMap[0xA000 + i] = externalRam[externalAddress + i];
+            }
+
+        }
+
     }
 }
