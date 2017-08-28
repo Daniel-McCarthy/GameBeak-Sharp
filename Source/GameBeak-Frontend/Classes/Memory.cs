@@ -112,6 +112,43 @@ namespace GameBeak_Frontend.Classes
         }
 
 
+        bool loadRom(string path)
+        {
+            if (File.Exists(path))
+            {
+                byte[] romFile = File.ReadAllBytes(path);
+
+                if (romFile != null && romFile.Length > 0)
+                {
+                    if (romFile.Length <= 0x500000)
+                    {
+                        for (int i = 0; i < romFile.Length; i++)
+                        {
+                            rom[i] = rom[i];
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Rom too large. It does not fit in GameBoy's memory.");
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error: Rom was unable to be opened or contains no data.");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Rom does not exist.");
+                return false;
+            }
+
+            return true;
+        }
+
+
 
     }
 }
