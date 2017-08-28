@@ -955,5 +955,10 @@ namespace GameBeak_Frontend.Classes
             writeMemory((ushort)0xFF44, newLY);
         }
 
+        void setStackPointer(ushort nn)
+        {
+            stackPointer = nn;
+        }
+
     }
 }
