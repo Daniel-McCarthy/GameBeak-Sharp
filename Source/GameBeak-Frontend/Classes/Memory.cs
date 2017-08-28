@@ -337,5 +337,34 @@ namespace GameBeak_Frontend.Classes
 
         }
 
+        void writeMBC2Value(ushort address, byte value)
+        {
+            if (address >= 0x0000 && address <= 0x1FFF)
+            {
+                //Ram Enable/Disable
+                if ((value & 0x0F) == 0x0A)
+                {
+                    //Enable Ram
+                    ramEnabled = true;
+                }
+                else
+                {
+                    //Disable Ram
+                    ramEnabled = false;
+                }
+            }
+            else if (address >= 0x2000 && address <= 0x3FFF)
+            {
+                //Set Rom Bank Number 5 bits
+                byte newBankNumber = (byte)(value & 0x0F);
+
+                if (romBankNumber != newBankNumber)
+                {
+                    changeMBC2RomBanks(newBankNumber);
+                }
+
+            }
+        }
+
     }
 }
