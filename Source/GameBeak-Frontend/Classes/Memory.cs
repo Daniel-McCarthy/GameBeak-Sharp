@@ -567,5 +567,101 @@ namespace GameBeak_Frontend.Classes
             ramMap[address] = value;
         }
 
+        bool writeMemory(ushort address, byte value)
+        {
+            if (memoryControllerMode > 0 && address <= 0x7FFF)
+            {
+                if (memoryControllerMode <= 3)
+                {
+                    writeMBC1Value(address, value);
+                }
+                else if (memoryControllerMode <= 6)
+                {
+                    writeMBC2Value(address, value);
+                }
+                else if (memoryControllerMode <= 9)
+                {
+                    //8: Rom+Ram
+                    //9: Rom+Ram+Battery
+                }
+                else if (memoryControllerMode <= 0x0D)
+                {
+                    //0B: MMM01
+                    //0C: MMM01+Ram
+                    //0D: MMM01+Ram+Battery
+                }
+                else if (memoryControllerMode <= 0x10)
+                {
+                    //0F: MBC3+Timer+Battery
+                    //10: MBC3+Timer+Ram+Battery
+                    //11: MBC3
+                    //12: MBC3+Ram
+                    //13: MBC3+Ram+Battery
+
+                    //Add this later: MBC3 is not currently ready (RTC)
+                    writeMBC3Value(address, value);
+                }
+                else if (memoryControllerMode <= 0x1E)
+                {
+                    writeMBC5Value(address, value);
+                }
+                //TODO: Add more MBC controllers
+
+                return true;
+            }
+            else
+            {
+                if (address >= 0x8000 && address <= 0xFFFF)
+                {
+                    if (address == (ushort)0xFF46)
+				    {
+                        //Initiate DMA Transfer Register
+                        transferDMA(value);
+                        return true;
+                    }
+				    else if (address == (ushort)0xFF41)
+				    {
+                        //Set LCDC Status
+                        ramMap[address] = (byte)((ramMap[address] & 0x87) | (value & 0x78) | 0x80); //Bit 7 is always 1, Bit 0, 1, and 2 are read Only
+                        return true;                                                                 //&0x87 clears bits 3, 4, 5, 6 from Stat. &0xF8 clears all but bit bit 0, 1, 2, and 7 from value being written.
+                    }
+				    else if (address == (ushort)0xFF68)
+				    {
+                        //Set GBC Background Palette Index
+                        ramMap[address] = (byte)(0x40 | (value));
+                        //Bit 7: Increment on Write //Bit 6: Unused //Bit 5-0 Index (0-35)
+                        return true;
+                    }
+				    else
+				    {
+                        if (address >= 0xC000 && address <= 0xDDFF)
+                        {
+                            //ECHO. Anything written to here also gets written to CXXXX
+                            ramMap[address + 0x2000] = value;
+                        }
+                        else if (address >= 0xE000 && address <= 0xFDFF)
+                        {
+                            ramMap[address - 0x2000] = value;
+                        }
+
+                        ramMap[address] = value;
+
+                        if (ramMap[address] == value)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
     }
 }
