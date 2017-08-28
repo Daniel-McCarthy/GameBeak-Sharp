@@ -13,6 +13,12 @@ namespace GameBeak_Frontend.Classes
         private byte[] ramMap = new byte[0x10000];
         private byte[] externalRam = new byte[0x1E000];
         private byte[] rom = new byte[0x500000];
+        private string title;
+        private bool ramEnabled = false;
+        private ushort romBankNumber = 0;
+        private ushort ramBankNumber = 0; //originally byte
+        private bool bankingMode = false; //0: Rom 1: Ram
+        private int memoryControllerMode = 0;
 
         private short regAF = 0;
         private short regBC = 0;
