@@ -807,5 +807,133 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
+        byte getA()
+        {
+            return (byte)((regAF & 0xFF00) >> 8);
+        }
+
+        byte getF()
+        {
+            return (byte)(regAF & 0x00FF);
+        }
+
+        short getAF()
+        {
+            return regAF;
+        }
+
+        byte getB()
+        {
+            return (byte)((regBC & 0xFF00) >> 8);
+        }
+
+        byte getC()
+        {
+            return (byte)(regBC & 0x00FF);
+        }
+
+        short getBC()
+        {
+            return regBC;
+        }
+
+        byte getD()
+        {
+            return (byte)((regDE & 0xFF00) >> 8);
+        }
+
+        byte getE()
+        {
+            return (byte)(regDE & 0x00FF);
+        }
+
+        short getDE()
+        {
+            return regDE;
+        }
+
+        byte getH()
+        {
+            return (byte)((regHL & 0xFF00) >> 8);
+        }
+
+        byte getL()
+        {
+            return (byte)(regHL & 0x00FF);
+        }
+
+        short getHL()
+        {
+            return regHL;
+        }
+
+        void setA(byte newA)
+        {
+            regAF = (short)(regAF & 0x00FF);
+            regAF |= (short)(newA << 8);
+        }
+
+        void setF(byte newF)
+        {
+            regAF = (short)(regAF & 0xFF00);
+            regAF |= newF;
+        }
+
+        void setAF(short newAF)
+        {
+            regAF = (short)(newAF & 0xFFF0);
+        }
+
+        void setB(byte newB)
+        {
+            regBC = (short)(regBC & 0x00FF);
+            regBC |= (short)(newB << 8);
+        }
+
+        void setC(byte newC)
+        {
+            regBC = (short)(regBC & 0xFF00);
+            regBC |= newC;
+        }
+
+        void setBC(short newBC)
+        {
+            regBC = newBC;
+        }
+
+        void setD(byte newD)
+        {
+            regDE = (short)(regDE & 0x00FF);
+            regDE |= (short)(newD << 8);
+        }
+
+        void setE(byte newE)
+        {
+            regDE = (short)(regDE & 0xFF00);
+            regDE |= newE;
+        }
+
+        void setDE(short newDE)
+        {
+            regDE = newDE;
+        }
+
+        void setH(byte newH)
+        {
+            regHL = (short)(regHL & 0x00FF);
+            regHL |= (short)(newH << 8);
+        }
+
+        void setL(byte newL)
+        {
+            regHL = (short)(regHL & 0xFF00);
+            regHL |= newL;
+        }
+
+        void setHL(short newHL)
+        {
+            regHL = newHL;
+        }
+
     }
 }
