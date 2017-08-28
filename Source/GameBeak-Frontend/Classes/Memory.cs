@@ -935,5 +935,10 @@ namespace GameBeak_Frontend.Classes
             regHL = newHL;
         }
 
+        byte getLCDControl()
+        {
+            return readMemory(0xFF40);
+        }
+
     }
 }
