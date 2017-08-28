@@ -945,5 +945,15 @@ namespace GameBeak_Frontend.Classes
             return (((getLCDControl() & 0x80) >> 7) > 0); //Bit 7
         }
 
+        byte getLCDLY()
+        {
+            return readMemory((ushort)0xFF44);
+        }
+
+        void setLCDLY(byte newLY)
+        {
+            writeMemory((ushort)0xFF44, newLY);
+        }
+
     }
 }
