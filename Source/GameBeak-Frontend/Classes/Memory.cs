@@ -960,5 +960,19 @@ namespace GameBeak_Frontend.Classes
             stackPointer = nn;
         }
 
+        void clearRegistersFlagsAndMemory()
+        {
+            setAF(0x0000);
+            setBC(0x0000);
+            setDE(0x0000);
+            setHL(0x0000);
+            setStackPointer((ushort)0x0000);
+            
+            for(int i = 0; i < ramMap.Length; i++)
+            {
+                ramMap[i] = 0;
+            }
+        }
+
     }
 }
