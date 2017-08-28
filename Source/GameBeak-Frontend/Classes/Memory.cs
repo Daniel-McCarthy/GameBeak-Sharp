@@ -663,5 +663,149 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
+        void toggleZFlag()
+        {
+            byte flag = getF();
+            flag ^= 0x80; //Toggles left most bit
+            setF(flag);
+        }
+
+        void setZFlag(bool setting)
+        {
+            if (setting)
+            {
+                byte flag = getF();
+                flag |= 0x80; //Sets left most bit to 1
+                setF(flag);
+            }
+            else
+            {
+                byte flag = getF();
+                flag &= 0x7F; //Sets left most bit to 0
+                setF(flag);
+            }
+        }
+
+        bool getZFlag()
+        {
+            byte flag = getF();
+            if (((flag & 0x80) >> 7) == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        void toggleNFlag()
+        {
+            byte flag = getF();
+            flag ^= 0x40; //Toggles second to left most bit
+            setF(flag);
+        }
+
+        void setNFlag(bool setting)
+        {
+            if (setting)
+            {
+                byte flag = getF();
+                flag |= 0x40; //Sets second to left most bit to 1
+                setF(flag);
+            }
+            else
+            {
+                byte flag = getF();
+                flag &= 0xBF; //Sets second to left most bit to 0
+                setF(flag);
+            }
+        }
+
+        bool getNFlag()
+        {
+            byte flag = getF();
+            if (((flag & 0x40) >> 6) == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        void toggleHFlag()
+        {
+            byte flag = getF();
+            flag ^= 0x20; //Toggles third to left most bit
+            setF(flag);
+        }
+
+        void setHFlag(bool setting)
+        {
+            if (setting)
+            {
+                byte flag = getF();
+                flag |= 0x20; //Sets third to left most bit to 1
+                setF(flag);
+            }
+            else
+            {
+                byte flag = getF();
+                flag &= 0xDF; //Sets third to left most bit to 0
+                setF(flag);
+            }
+        }
+
+        bool getHFlag()
+        {
+            byte flag = getF();
+            if (((flag & 0x20) >> 5) == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        void toggleCFlag()
+        {
+            byte flag = getF();
+            flag ^= 0x10; //Toggles fourth to left most bit
+            setF(flag);
+        }
+
+        void setCFlag(bool setting)
+        {
+            if (setting)
+            {
+                byte flag = getF();
+                flag |= 0x10; //Sets fourth to left most bit to 1
+                setF(flag);
+            }
+            else
+            {
+                byte flag = getF();
+                flag &= 0xEF; //Sets fourth to left most bit to 0
+                setF(flag);
+            }
+        }
+
+        bool getCFlag()
+        {
+            byte flag = getF();
+            if (((flag & 0x10) >> 4) == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
