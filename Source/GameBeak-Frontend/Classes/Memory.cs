@@ -510,5 +510,36 @@ namespace GameBeak_Frontend.Classes
         }
 
 
+
+        byte readMemory(ushort address)
+        {
+            /*
+            if (accessBreakpoint && memoryPointer == accessBreakpointAddress)
+            {
+                paused = true;
+            }
+            */
+            if (address == 0xFF41)
+            {
+                return (byte)(ramMap[address] | 0x80);
+            }
+            else
+            {
+                return ramMap[address];
+            }
+        }
+
+        byte[] readMemory(int address, int bytes)
+        {
+            byte[] returnMemory = new byte[bytes];
+
+            for (int i = 0; i < bytes; i++)
+            {
+                returnMemory[i] = (byte)(ramMap[address + i]);
+            }
+
+            return returnMemory;
+        }
+
     }
 }
