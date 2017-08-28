@@ -940,5 +940,10 @@ namespace GameBeak_Frontend.Classes
             return readMemory(0xFF40);
         }
 
+        bool getLCDEnabled()
+        {
+            return (((getLCDControl() & 0x80) >> 7) > 0); //Bit 7
+        }
+
     }
 }
