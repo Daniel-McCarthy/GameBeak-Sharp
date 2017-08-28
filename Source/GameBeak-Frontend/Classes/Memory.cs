@@ -211,5 +211,27 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
+        void changeMBC3RomBanks(ushort bankNumber)
+        {
+            if (bankNumber == 0)
+            {
+                bankNumber++;
+            }
+
+            if ((bankNumber >= 0) && (bankNumber <= 0x7F))
+            {
+
+                int bankAddress = 0x4000 * bankNumber;
+
+                int fixedBankAddress = 0x4000;
+                for (int i = 0; i < 0x4000; i++)
+                {
+                    ramMap[fixedBankAddress + i] = rom[bankAddress + i];
+                }
+
+                romBankNumber = bankNumber;
+            }
+        }
+
     }
 }
