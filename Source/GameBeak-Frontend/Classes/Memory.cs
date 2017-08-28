@@ -974,5 +974,14 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
+        void clearRegistersAndFlags()
+        {
+            setAF(0x0000);
+            setBC(0x0000);
+            setDE(0x0000);
+            setHL(0x0000);
+            setStackPointer((ushort)0x0000);
+        }
+
     }
 }
