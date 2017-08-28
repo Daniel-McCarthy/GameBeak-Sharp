@@ -558,5 +558,14 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
+        void directMemoryWrite(ushort address, byte value)
+        {
+            /*
+                Write to Ram without ordinary restrictions. Only to be used by hardware emulating functions and not game instructions.
+            */
+
+            ramMap[address] = value;
+        }
+
     }
 }
