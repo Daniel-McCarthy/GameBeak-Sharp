@@ -150,5 +150,22 @@ namespace GameBeak_Frontend.Classes
 
 
 
+
+        void writeRom0ToRam()
+        {
+            for (int i = 0; i < 0x3FFF; i++)
+            {
+                ramMap[i] = rom[i];
+            }
+        }
+
+        void writeFullRomToRam()
+        {
+            for (int i = 0; i < 0x7FFF; i++)
+            {
+                ramMap[i] = rom[i];
+            }
+        }
+
     }
 }
