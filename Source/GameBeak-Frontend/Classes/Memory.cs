@@ -271,5 +271,71 @@ namespace GameBeak_Frontend.Classes
 
         }
 
+        void writeMBC1Value(ushort address, byte value)
+        {
+            if (address >= 0x0000 && address <= 0x1FFF)
+            {
+                //Ram Enable/Disable
+                if ((value & 0x0F) == 0x0A)
+                {
+                    //Enable Ram
+                    ramEnabled = true;
+                }
+                else
+                {
+                    //Disable Ram
+                    ramEnabled = false;
+                }
+            }
+            else if (address >= 0x2000 && address <= 0x3FFF)
+            {
+                //Set Rom Bank Number 5 bits
+                byte newBankNumber = (byte)((romBankNumber & 0xE0) | (value & 0x1F));
+
+                if (romBankNumber != newBankNumber)
+                {
+                    changeMBC1RomBanks(newBankNumber);
+                }
+
+            }
+            else if (address >= 0x4000 && address <= 0x5FFF)
+            {
+                //Set Ram Bank Number /OR/ Set Rom Bank Number 2 bits
+                if (!bankingMode)
+                {
+                    //Change Rom Bank
+                    byte newBankNumber = (byte)((romBankNumber & 0x1F) | ((value & 0x03) << 5));
+                    if (romBankNumber != newBankNumber)
+                    {
+                        changeMBC1RomBanks(newBankNumber);
+                    }
+                }
+                else
+                {
+                    //Change Ram Bank
+                    byte newBankNumber = (byte)(value & 0x03);
+
+                    if (ramBankNumber != newBankNumber)
+                    {
+                        changeRamBanks(newBankNumber);
+                    }
+                }
+
+            }
+            else if (address >= 0x6000 && address <= 0x7FFF)
+            {
+                //Rom Banking / Ram Banking Mode
+                if ((value & 0x01) > 0)
+                {
+                    bankingMode = true;
+                }
+                else
+                {
+                    bankingMode = false;
+                }
+            }
+
+        }
+
     }
 }
