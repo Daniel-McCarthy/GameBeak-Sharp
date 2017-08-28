@@ -541,5 +541,22 @@ namespace GameBeak_Frontend.Classes
             return returnMemory;
         }
 
+        //DMA Transfer
+        void transferDMA(byte address)
+        {
+            //TODO:This should occur over time, not all at once
+
+
+            if (address <= 0xF1)
+            {
+                ushort baseAddress = (ushort)(address << 8);//*= 100;
+
+                for (int i = 0; i < 160; i++)
+                {
+                    writeMemory((ushort)(0xFE00 + i), readMemory((ushort)(baseAddress + i)));
+                }
+            }
+        }
+
     }
 }
