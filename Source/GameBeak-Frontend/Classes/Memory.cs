@@ -10,6 +10,9 @@ namespace GameBeak_Frontend.Classes
 {
     class Memory
     {
+        private byte[] ramMap = new byte[0x10000];
+        private byte[] externalRam = new byte[0x1E000];
+        private byte[] rom = new byte[0x500000];
 
         private short regAF = 0;
         private short regBC = 0;
