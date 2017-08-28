@@ -16,6 +16,8 @@ namespace GameBeak_Frontend.Classes
         private short regDE = 0;
         private short regHL = 0;
 
+        private ushort stackPointer = 0;
+        private ushort memoryPointer = 0;
 
 
 
