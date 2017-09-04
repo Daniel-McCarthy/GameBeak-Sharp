@@ -29,7 +29,7 @@ namespace GameBeak_Frontend.Classes
         private ushort memoryPointer = 0;
 
 
-        void readRomHeader()
+        public void readRomHeader()
         {
 
             for (int i = 0; i < 16; i++)
@@ -112,7 +112,7 @@ namespace GameBeak_Frontend.Classes
         }
 
 
-        bool loadRom(string path)
+        public bool loadRom(string path)
         {
             if (File.Exists(path))
             {
@@ -151,7 +151,9 @@ namespace GameBeak_Frontend.Classes
 
 
 
-        void writeRom0ToRam()
+
+
+        public void writeRom0ToRam()
         {
             for (int i = 0; i < 0x3FFF; i++)
             {
@@ -159,7 +161,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void writeFullRomToRam()
+        public void writeFullRomToRam()
         {
             for (int i = 0; i < 0x7FFF; i++)
             {
@@ -167,7 +169,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void changeMBC1RomBanks(ushort bankNumber)
+        public void changeMBC1RomBanks(ushort bankNumber)
         {
             if (bankNumber == 0)
             {
@@ -189,7 +191,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void changeMBC2RomBanks(ushort bankNumber)
+        public void changeMBC2RomBanks(ushort bankNumber)
         {
             if (bankNumber == 0)
             {
@@ -211,7 +213,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void changeMBC3RomBanks(ushort bankNumber)
+        public void changeMBC3RomBanks(ushort bankNumber)
         {
             if (bankNumber == 0)
             {
@@ -233,7 +235,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void changeMBC5RomBanks(ushort bankNumber)
+        public void changeMBC5RomBanks(ushort bankNumber)
         {
             if ((bankNumber >= 0) && (bankNumber <= 0x1FF))
             {
@@ -250,7 +252,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void changeRamBanks(ushort bankNumber)
+        public void changeRamBanks(ushort bankNumber)
         {
             ushort externalAddress = (ushort)(ramBankNumber * (short)0x2000);
 
@@ -271,7 +273,7 @@ namespace GameBeak_Frontend.Classes
 
         }
 
-        void writeMBC1Value(ushort address, byte value)
+        public void writeMBC1Value(ushort address, byte value)
         {
             if (address >= 0x0000 && address <= 0x1FFF)
             {
@@ -337,7 +339,7 @@ namespace GameBeak_Frontend.Classes
 
         }
 
-        void writeMBC2Value(ushort address, byte value)
+        public void writeMBC2Value(ushort address, byte value)
         {
             if (address >= 0x0000 && address <= 0x1FFF)
             {
@@ -366,7 +368,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void writeMBC3Value(ushort address, byte value)
+        public void writeMBC3Value(ushort address, byte value)
         {
             if (address >= 0x0000 && address <= 0x1FFF)
             {
@@ -447,7 +449,7 @@ namespace GameBeak_Frontend.Classes
 
         }
 
-        void writeMBC5Value(ushort address, byte value)
+        public void writeMBC5Value(ushort address, byte value)
         {
             if (address >= 0x0000 && address <= 0x1FFF)
             {
@@ -511,7 +513,7 @@ namespace GameBeak_Frontend.Classes
 
 
 
-        byte readMemory(ushort address)
+        public byte readMemory(ushort address)
         {
             /*
             if (accessBreakpoint && memoryPointer == accessBreakpointAddress)
@@ -529,7 +531,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        byte[] readMemory(int address, int bytes)
+        public byte[] readMemory(int address, int bytes)
         {
             byte[] returnMemory = new byte[bytes];
 
@@ -542,7 +544,7 @@ namespace GameBeak_Frontend.Classes
         }
 
         //DMA Transfer
-        void transferDMA(byte address)
+        public void transferDMA(byte address)
         {
             //TODO:This should occur over time, not all at once
 
@@ -558,7 +560,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void directMemoryWrite(ushort address, byte value)
+        public void directMemoryWrite(ushort address, byte value)
         {
             /*
                 Write to Ram without ordinary restrictions. Only to be used by hardware emulating functions and not game instructions.
@@ -567,7 +569,7 @@ namespace GameBeak_Frontend.Classes
             ramMap[address] = value;
         }
 
-        bool writeMemory(ushort address, byte value)
+        public bool writeMemory(ushort address, byte value)
         {
             if (memoryControllerMode > 0 && address <= 0x7FFF)
             {
@@ -663,14 +665,14 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void toggleZFlag()
+        public void toggleZFlag()
         {
             byte flag = getF();
             flag ^= 0x80; //Toggles left most bit
             setF(flag);
         }
 
-        void setZFlag(bool setting)
+        public void setZFlag(bool setting)
         {
             if (setting)
             {
@@ -686,7 +688,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        bool getZFlag()
+        public bool getZFlag()
         {
             byte flag = getF();
             if (((flag & 0x80) >> 7) == 1)
@@ -699,14 +701,14 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void toggleNFlag()
+        public void toggleNFlag()
         {
             byte flag = getF();
             flag ^= 0x40; //Toggles second to left most bit
             setF(flag);
         }
 
-        void setNFlag(bool setting)
+        public void setNFlag(bool setting)
         {
             if (setting)
             {
@@ -722,7 +724,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        bool getNFlag()
+        public bool getNFlag()
         {
             byte flag = getF();
             if (((flag & 0x40) >> 6) == 1)
@@ -735,14 +737,14 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void toggleHFlag()
+        public void toggleHFlag()
         {
             byte flag = getF();
             flag ^= 0x20; //Toggles third to left most bit
             setF(flag);
         }
 
-        void setHFlag(bool setting)
+        public void setHFlag(bool setting)
         {
             if (setting)
             {
@@ -758,7 +760,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        bool getHFlag()
+        public bool getHFlag()
         {
             byte flag = getF();
             if (((flag & 0x20) >> 5) == 1)
@@ -771,14 +773,14 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void toggleCFlag()
+        public void toggleCFlag()
         {
             byte flag = getF();
             flag ^= 0x10; //Toggles fourth to left most bit
             setF(flag);
         }
 
-        void setCFlag(bool setting)
+        public void setCFlag(bool setting)
         {
             if (setting)
             {
@@ -794,7 +796,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        bool getCFlag()
+        public bool getCFlag()
         {
             byte flag = getF();
             if (((flag & 0x10) >> 4) == 1)
@@ -807,160 +809,160 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        byte getA()
+        public byte getA()
         {
             return (byte)((regAF & 0xFF00) >> 8);
         }
 
-        byte getF()
+        public byte getF()
         {
             return (byte)(regAF & 0x00FF);
         }
 
-        short getAF()
+        public short getAF()
         {
             return regAF;
         }
 
-        byte getB()
+        public byte getB()
         {
             return (byte)((regBC & 0xFF00) >> 8);
         }
 
-        byte getC()
+        public byte getC()
         {
             return (byte)(regBC & 0x00FF);
         }
 
-        short getBC()
+        public short getBC()
         {
             return regBC;
         }
 
-        byte getD()
+        public byte getD()
         {
             return (byte)((regDE & 0xFF00) >> 8);
         }
 
-        byte getE()
+        public byte getE()
         {
             return (byte)(regDE & 0x00FF);
         }
 
-        short getDE()
+        public short getDE()
         {
             return regDE;
         }
 
-        byte getH()
+        public byte getH()
         {
             return (byte)((regHL & 0xFF00) >> 8);
         }
 
-        byte getL()
+        public byte getL()
         {
             return (byte)(regHL & 0x00FF);
         }
 
-        short getHL()
+        public short getHL()
         {
             return regHL;
         }
 
-        void setA(byte newA)
+        public void setA(byte newA)
         {
             regAF = (short)(regAF & 0x00FF);
             regAF |= (short)(newA << 8);
         }
 
-        void setF(byte newF)
+        public void setF(byte newF)
         {
             regAF = (short)(regAF & 0xFF00);
             regAF |= newF;
         }
 
-        void setAF(short newAF)
+        public void setAF(short newAF)
         {
             regAF = (short)(newAF & 0xFFF0);
         }
 
-        void setB(byte newB)
+        public void setB(byte newB)
         {
             regBC = (short)(regBC & 0x00FF);
             regBC |= (short)(newB << 8);
         }
 
-        void setC(byte newC)
+        public void setC(byte newC)
         {
             regBC = (short)(regBC & 0xFF00);
             regBC |= newC;
         }
 
-        void setBC(short newBC)
+        public void setBC(short newBC)
         {
             regBC = newBC;
         }
 
-        void setD(byte newD)
+        public void setD(byte newD)
         {
             regDE = (short)(regDE & 0x00FF);
             regDE |= (short)(newD << 8);
         }
 
-        void setE(byte newE)
+        public void setE(byte newE)
         {
             regDE = (short)(regDE & 0xFF00);
             regDE |= newE;
         }
 
-        void setDE(short newDE)
+        public void setDE(short newDE)
         {
             regDE = newDE;
         }
 
-        void setH(byte newH)
+        public void setH(byte newH)
         {
             regHL = (short)(regHL & 0x00FF);
             regHL |= (short)(newH << 8);
         }
 
-        void setL(byte newL)
+        public void setL(byte newL)
         {
             regHL = (short)(regHL & 0xFF00);
             regHL |= newL;
         }
 
-        void setHL(short newHL)
+        public void setHL(short newHL)
         {
             regHL = newHL;
         }
 
-        byte getLCDControl()
+        public byte getLCDControl()
         {
             return readMemory(0xFF40);
         }
 
-        bool getLCDEnabled()
+        public bool getLCDEnabled()
         {
             return (((getLCDControl() & 0x80) >> 7) > 0); //Bit 7
         }
 
-        byte getLCDLY()
+        public byte getLCDLY()
         {
             return readMemory((ushort)0xFF44);
         }
 
-        void setLCDLY(byte newLY)
+        public void setLCDLY(byte newLY)
         {
             writeMemory((ushort)0xFF44, newLY);
         }
 
-        void setStackPointer(ushort nn)
+        public void setStackPointer(ushort nn)
         {
             stackPointer = nn;
         }
 
-        void clearRegistersFlagsAndMemory()
+        public void clearRegistersFlagsAndMemory()
         {
             setAF(0x0000);
             setBC(0x0000);
@@ -974,7 +976,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        void clearRegistersAndFlags()
+        public void clearRegistersAndFlags()
         {
             setAF(0x0000);
             setBC(0x0000);
@@ -983,7 +985,7 @@ namespace GameBeak_Frontend.Classes
             setStackPointer((ushort)0x0000);
         }
 
-        void initializeGameBoyValues()
+        public void initializeGameBoyValues()
         {
 
             setAF(0x01B0);
