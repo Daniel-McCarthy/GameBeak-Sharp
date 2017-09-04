@@ -9,5 +9,6 @@ namespace GameBeak_Frontend.Classes
     static class Core
     {
         public static Memory beakMemory = new Memory();
+        public static GPU beakGPU = new GPU();
     }
 }
