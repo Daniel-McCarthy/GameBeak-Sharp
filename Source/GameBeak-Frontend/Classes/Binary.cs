@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace GameBeak_Frontend.Classes
 {
-    class Binary
+    static class Binary
     {
 
-        public byte rotateLeft(byte number)
+        static public byte rotateLeft(byte number)
         {
             byte lostBit = (byte)((number & 0x80) >> 7);
             number <<= 1;
@@ -18,7 +18,7 @@ namespace GameBeak_Frontend.Classes
             return number;
         }
 
-        public byte rotateLeft(byte number, int shiftAmount)
+        static public byte rotateLeft(byte number, int shiftAmount)
         {
             for (int i = 0; i < shiftAmount; i++)
             {
@@ -28,7 +28,7 @@ namespace GameBeak_Frontend.Classes
             return number;
         }
 
-        byte rotateRight(byte number)
+        static public byte rotateRight(byte number)
         {
             byte lostBit = (byte)((number & 0x01) << 7);
             number >>= 1;
@@ -37,7 +37,7 @@ namespace GameBeak_Frontend.Classes
             return number;
         }
 
-        byte rotateRight(byte number, int shiftAmount)
+        static public byte rotateRight(byte number, int shiftAmount)
         {
             for (int i = 0; i < shiftAmount; i++)
             {
@@ -47,7 +47,7 @@ namespace GameBeak_Frontend.Classes
             return number;
         }
 
-        byte returnHalfNibble(byte data, int halfNibblePosition)
+        static public byte returnHalfNibble(byte data, int halfNibblePosition)
         {
             //Returns 2 bits from byte.
             //If halfNibble Position == 0, it will index 000000XX
@@ -58,7 +58,7 @@ namespace GameBeak_Frontend.Classes
             return (byte)((data & (3 << (halfNibblePosition * 2))) >> (halfNibblePosition * 2));
         }
 
-        byte reverseBits(byte number)
+        static public byte reverseBits(byte number)
         {
             number = (byte)(((number & 0xF0) >> 4) | ((number & 0x0F) << 4));
             number = (byte)(((number & 0xCC) >> 2) | ((number & 0x33) << 2));
@@ -66,7 +66,7 @@ namespace GameBeak_Frontend.Classes
             return number;
         }
 
-        public string hexToASCII(int value)
+        static public string hexToASCII(int value)
         {
             string output = "";
 
@@ -99,7 +99,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        public string hexToASCIIU(ushort value)
+        static public string hexToASCIIU(ushort value)
         {
             string output = "";
 
@@ -132,7 +132,7 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
-        public string hexToASCII(byte value)
+        static public string hexToASCII(byte value)
         {
             string output = "";
 
