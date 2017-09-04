@@ -11,6 +11,7 @@ namespace GameBeak_Frontend.Classes
 
         public static Color Black = new Color(0, 0, 0, 255);
         public static Color White = new Color(255, 255, 255, 255);
+        public static Color Clear = new Color(0, 0, 0, 0);
 
 
         public byte r;
