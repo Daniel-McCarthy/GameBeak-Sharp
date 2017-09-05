@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Diagnostics;
-using SFML;
-using SFML.Graphics;
-using SFML.Window;
+//using SFML;
+//using SFML.Graphics;
+//using SFML.Window;
 using System.Windows;
 
-using sf = SFML.Graphics;
+//using sf = SFML.Graphics;
+using Core = GameBeak_Frontend.Classes.Core;
+using GameBeak = GameBeak_Frontend.Classes;
 using System.Threading;
 
 
@@ -47,11 +49,14 @@ namespace GameBeak_Frontend
             {
                 byte[] rom = File.ReadAllBytes(filePath);
 
-                NativeMethods.setRom(rom, rom.Length);
+                //NativeMethods.setRom(rom, rom.Length);
+                Core.beakMemory.memoryPointer = 0;
+                Core.beakMemory.loadRom(rom);
 
                 NativeMethods.setPauseState(true);
 
-                emulatorThread = new Thread(NativeMethods.initiateEmulator);
+                //emulatorThread = new Thread(NativeMethods.initiateEmulator);
+                emulatorThread = new Thread(GameBeak_Frontend.Classes.GameBeak_Main.startEmulator);
                 emulatorThread.Start();
 
                 screenUpdateThread = new Thread(updateScreen);
