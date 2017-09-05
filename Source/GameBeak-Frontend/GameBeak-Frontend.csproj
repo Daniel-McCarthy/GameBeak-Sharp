@@ -59,6 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Binary.cs" />
+    <Compile Include="Classes\Color.cs" />
+    <Compile Include="Classes\Core.cs" />
+    <Compile Include="Classes\CPU.cs" />
+    <Compile Include="Classes\GameWindow.cs" />
+    <Compile Include="Classes\GPU.cs" />
+    <Compile Include="Classes\Image.cs" />
     <Compile Include="Classes\Memory.cs" />
     <Compile Include="Forms\AssemblyView.cs">
       <SubType>Form</SubType>
