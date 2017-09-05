@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Core = GameBeak_Frontend.Classes.Core;
+using GameBeak = GameBeak_Frontend.Classes;
+
 namespace GameBeak_Frontend
 {
 
@@ -40,7 +43,9 @@ namespace GameBeak_Frontend
                         richTextBox1.Text += " ";
                     }
 
-                    richTextBox1.Text += NativeMethods.readMemoryByte((short)(baseAddress + (y * 16) + x)).ToString("X2");
+                    //richTextBox1.Text += NativeMethods.readMemoryByte((short)(baseAddress + (y * 16) + x)).ToString("X2");
+
+                    richTextBox1.Text += Core.beakMemory.readMemory((ushort)(baseAddress + (y * 16) + x)).ToString("X2");
 
                 }
 
