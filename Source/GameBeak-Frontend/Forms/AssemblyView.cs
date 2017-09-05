@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
+using Core = GameBeak_Frontend.Classes.Core;
+using GameBeak = GameBeak_Frontend.Classes;
+
 namespace GameBeak_Frontend
 {
     public partial class AssemblyView : Form
@@ -35,22 +38,30 @@ namespace GameBeak_Frontend
             hlValue.Text = registerValues[3].ToString();
             */
 
-            afValue.Text = NativeMethods.getAF().ToString("X4");
-            bcValue.Text = NativeMethods.getBC().ToString("X4");
-            deValue.Text = NativeMethods.getDE().ToString("X4");
-            hlValue.Text = NativeMethods.getHL().ToString("X4");
+            //afValue.Text = NativeMethods.getAF().ToString("X4");
+            //bcValue.Text = NativeMethods.getBC().ToString("X4");
+            //deValue.Text = NativeMethods.getDE().ToString("X4");
+            //hlValue.Text = NativeMethods.getHL().ToString("X4");
+
+            afValue.Text = Core.beakMemory.getAF().ToString("X4");
+            bcValue.Text = Core.beakMemory.getBC().ToString("X4");
+            deValue.Text = Core.beakMemory.getDE().ToString("X4");
+            hlValue.Text = Core.beakMemory.getHL().ToString("X4");
         }
 
         void updatePCValues()
         {
-            short pc = NativeMethods.getPC();
-            pcValue.Text = pc.ToString("X4");
+            //short pc = NativeMethods.getPC();
+            //pcValue.Text = pc.ToString("X4");
+
+            pcValue.Text = Core.beakMemory.memoryPointer.ToString("X4");
         }
 
 
         void updateAssemblyDisplay()
         {
-            short address = NativeMethods.getPC();
+            //short address = NativeMethods.getPC();
+            short address = (short)Core.beakMemory.memoryPointer;
 
             int stringSize = 0;
 
@@ -63,7 +74,7 @@ namespace GameBeak_Frontend
                 if (address < short.MaxValue)
                 {
                     NativeMethods.disassembleAddress(ref address, disassembledAssembly, ref stringSize);
-
+                    //TODO: Port disassembleAddress to C#
                     listBox1.Items.Add(disassembledAssembly.ToString());
                 }
             }
@@ -74,7 +85,8 @@ namespace GameBeak_Frontend
 
         void updateFlagDisplay()
         {
-            short flagRegister = NativeMethods.getAF();
+            //short flagRegister = NativeMethods.getAF();
+            short flagRegister = Core.beakMemory.getAF();
 
             byte flagZ = (byte)((flagRegister & 0x80) >> 7);
             byte flagN = (byte)((flagRegister & 0x40) >> 6);
@@ -92,7 +104,9 @@ namespace GameBeak_Frontend
         private void stepButton_Click(object sender, EventArgs e)
         {
             //Call function in DLL to step emulator
-            NativeMethods.setStep();
+            //NativeMethods.setStep();
+            Core.step = true;
+
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
@@ -119,7 +133,8 @@ namespace GameBeak_Frontend
 
         private void pauseButton_Click(object sender, EventArgs e)
         {
-            NativeMethods.setPauseState(true);
+            //NativeMethods.setPauseState(true);
+            Core.paused = true;
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
@@ -128,7 +143,8 @@ namespace GameBeak_Frontend
 
         private void runButton_Click(object sender, EventArgs e)
         {
-            NativeMethods.setPauseState(false);
+            //NativeMethods.setPauseState(false);
+            Core.paused = false;
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
