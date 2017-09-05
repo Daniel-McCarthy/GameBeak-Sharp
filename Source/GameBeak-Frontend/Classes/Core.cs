@@ -46,5 +46,75 @@ namespace GameBeak_Frontend.Classes
         //extern KeyInput beakInput;
     }
 
+    public static class GameBeak_Main
+    {
+        public static void startEmulator()
+        {
+            Core.beakMemory.initializeGameBoyValues();
+            Core.beakMemory.readRomHeader();
+
+            int clocksSinceLastTimerTIMAIncrement = 0;
+            int clocksSinceLastTimerDIVIncrement = 0;
+            int clocksSinceLastScanLineComplete = 0;
+            int clocksSinceLastVBlank = 0;
+            int clocksSinceLastScreenRefresh = 0;
+
+            //Core.beakMemory.loadDecompressedNintendoLogoToMemory();
+
+            while(Core.run)
+            {
+                /*
+                if (breakPointEnabled)
+		        {
+			        if (memoryPointer == breakPointAt)
+			        {
+				        paused = true;
+			        }
+		        }
+                */
+
+                if (!Core.paused || Core.step)
+                {
+                    //Core.beakInput.readInput();
+
+                    
+                    //if (!cpu.checkForHaltOrInterrupt())
+                    if (!Core.beakCPU.checkForHaltOrInterrupt())
+                    {
+                        Core.beakCPU.selectOpcode(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                    }
+                    else
+                    {
+                        Core.beakCPU.selectOpcode(0); //Gets stuck at a halt without this, because no cycles are occuring (no opcode is running) the vblank interrupt never occurs
+                    }
+                    
+
+
+                    Core.step = false;
+                    Core.clocks += Core.beakCPU.tClock;
+
+                    Core.beakCPU.updateTIMA(Core.clocks, ref clocksSinceLastTimerTIMAIncrement, ref clocksSinceLastTimerDIVIncrement);
+                    Core.beakWindow.updateLCD(Core.clocks, ref clocksSinceLastScanLineComplete, ref clocksSinceLastScreenRefresh, ref clocksSinceLastVBlank);
+
+                    Core.beakCPU.mClock = 0;
+                    Core.beakCPU.tClock = 0;
+
+                    /*
+                    if (soundEnabled)
+                    {
+                        beakAudio.updateSound();
+                    }
+                    */
+
+                    /*
+                    if (checkForWriteBreakpoint(writeBreakpoint, writeBreakpointValue, breakpointValue, writeBreakpointAddress))
+                    {
+                        paused = true;
+                    }
+                    */
+
+                }
+            }
+        }
     }
 }
