@@ -72,7 +72,8 @@ namespace GameBeak_Frontend
         private void updateScreen()
         {
             while (NativeMethods.getRunState())
-            {  
+            {
+                /*
                 //Retrieve Image X/Y Sizes
                 int[] dimensions = new int[2];
                 Marshal.Copy(NativeMethods.getScreenDimensions(), dimensions, 0, 2);
@@ -88,17 +89,27 @@ namespace GameBeak_Frontend
 
                 //Create SFML image from X/Y Sizes and Pixel Data Bytes
                 sf.Image newScreen = new sf.Image((uint)dimensions[0], (uint)dimensions[1], pixelDataBytes);
+                */
+
+                GameBeak.Image newScreen = Core.beakWindow.screen;
 
                 //Convert SFML Image to Bitmap
-                Bitmap bmp = new Bitmap((int)newScreen.Size.X, (int)newScreen.Size.Y);
+                Tuple<int, int> screenSize = Core.beakWindow.screen.getSize();
 
-                for (int x = 0; x < newScreen.Size.X; x++)
+                //Bitmap bmp = new Bitmap((int)newScreen.Size.X, (int)newScreen.Size.Y);
+                Bitmap bmp = new Bitmap(screenSize.Item1, screenSize.Item2);
+
+                //for (int x = 0; x < newScreen.Size.X; x++)
+                for (int x = 0; x < screenSize.Item1; x++)
                 {
-                    for (int y = 0; y < newScreen.Size.Y; y++)
+                    //for (int y = 0; y < newScreen.Size.Y; y++)
+                    for (int y = 0; y < screenSize.Item2; y++)
                     {
-                        sf.Color pixel = newScreen.GetPixel((uint)x, (uint)y);
-                        int pixelColor = ((pixel.A << 24) | (pixel.R << 16) | (pixel.G << 8) | (pixel.B));
-                        bmp.SetPixel(x, y, System.Drawing.Color.FromArgb(pixelColor));
+                        //sf.Color pixel = newScreen.GetPixel((uint)x, (uint)y);
+                        GameBeak.Color pixel = newScreen.getPixel(x, y);
+                        uint pixelColor = pixel.getInt();
+                        //int pixelColor = ((pixel.A << 24) | (pixel.R << 16) | (pixel.G << 8) | (pixel.B));
+                        bmp.SetPixel(x, y, System.Drawing.Color.FromArgb((int)pixelColor));
                     }
                 }
 
