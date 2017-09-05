@@ -13,7 +13,7 @@ namespace GameBeak_Frontend.Classes
         private byte[] ramMap = new byte[0x10000];
         private byte[] externalRam = new byte[0x1E000];
         private byte[] rom = new byte[0x500000];
-        private string title;
+        private string title = "";
         private bool ramEnabled = false;
         private ushort romBankNumber = 0;
         private ushort ramBankNumber = 0; //originally byte
@@ -25,8 +25,8 @@ namespace GameBeak_Frontend.Classes
         private short regDE = 0;
         private short regHL = 0;
 
-        private ushort stackPointer = 0;
-        private ushort memoryPointer = 0;
+        public ushort stackPointer = 0;
+        public ushort memoryPointer = 0;
 
 
         public void readRomHeader()
