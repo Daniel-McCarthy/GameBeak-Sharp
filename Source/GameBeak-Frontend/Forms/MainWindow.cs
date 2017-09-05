@@ -53,7 +53,8 @@ namespace GameBeak_Frontend
                 Core.beakMemory.memoryPointer = 0;
                 Core.beakMemory.loadRom(rom);
 
-                NativeMethods.setPauseState(true);
+                //NativeMethods.setPauseState(true);
+                Core.paused = true;
 
                 //emulatorThread = new Thread(NativeMethods.initiateEmulator);
                 emulatorThread = new Thread(GameBeak_Frontend.Classes.GameBeak_Main.startEmulator);
