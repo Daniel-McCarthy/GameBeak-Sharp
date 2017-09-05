@@ -63,9 +63,9 @@ namespace GameBeak_Frontend
             //short address = NativeMethods.getPC();
             short address = (short)Core.beakMemory.memoryPointer;
 
-            int stringSize = 0;
+            //int stringSize = 0;
 
-            StringBuilder disassembledAssembly = new StringBuilder(100);
+            //StringBuilder disassembledAssembly = new StringBuilder(100);
 
             listBox1.Items.Clear();
 
@@ -73,9 +73,12 @@ namespace GameBeak_Frontend
             {
                 if (address < short.MaxValue)
                 {
-                    NativeMethods.disassembleAddress(ref address, disassembledAssembly, ref stringSize);
+                    //NativeMethods.disassembleAddress(ref address, disassembledAssembly, ref stringSize);
+                    Tuple<string,int> disassembly = disassembleAddress(address);
                     //TODO: Port disassembleAddress to C#
-                    listBox1.Items.Add(disassembledAssembly.ToString());
+                    //listBox1.Items.Add(disassembledAssembly.ToString());
+                    listBox1.Items.Add(disassembly.Item1);
+                    address += (short)disassembly.Item2;
                 }
             }
 
