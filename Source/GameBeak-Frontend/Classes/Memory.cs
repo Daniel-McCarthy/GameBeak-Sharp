@@ -148,16 +148,16 @@ namespace GameBeak_Frontend.Classes
             return true;
         }
 
-        public bool loadRom(byte[] rom)
+        public bool loadRom(byte[] romFile)
         {
 
-            if ((rom.Length == 0) && (rom.Length > 0))
+            if ((romFile.Length != 0) && (romFile.Length > 0))
             {
-                if (rom.Length <= 0x500000)
+                if (romFile.Length <= 0x500000)
                 {
-                    for (int i = 0; i < rom.Length; i++)
+                    for (int i = 0; i < romFile.Length; i++)
                     {
-                        rom[i] = rom[i];
+                        rom[i] = romFile[i];
                     }
                 }
                 else
