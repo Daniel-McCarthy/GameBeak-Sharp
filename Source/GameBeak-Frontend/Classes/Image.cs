@@ -16,7 +16,7 @@ namespace GameBeak_Frontend.Classes
 
 
         private Size sizeValues;
-        private List<Color> pixels;
+        private List<Color> pixels = new List<Color>();
 
         public Image()
         {
