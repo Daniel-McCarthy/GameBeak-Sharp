@@ -110,6 +110,8 @@ namespace GameBeak_Frontend
             //NativeMethods.setStep();
             Core.step = true;
 
+            System.Threading.Thread.Sleep(10);
+
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
