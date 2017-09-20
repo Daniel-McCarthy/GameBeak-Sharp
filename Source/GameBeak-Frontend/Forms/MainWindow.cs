@@ -50,7 +50,7 @@ namespace GameBeak_Frontend
                 byte[] rom = File.ReadAllBytes(filePath);
 
                 //NativeMethods.setRom(rom, rom.Length);
-                Core.beakMemory.memoryPointer = 0;
+                Core.beakMemory.memoryPointer = 0x0100;
                 Core.beakMemory.loadRom(rom);
 
                 //NativeMethods.setPauseState(true);

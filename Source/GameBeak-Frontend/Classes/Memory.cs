@@ -25,8 +25,8 @@ namespace GameBeak_Frontend.Classes
         private short regDE = 0;
         private short regHL = 0;
 
-        public ushort stackPointer = 0;
-        public ushort memoryPointer = 0;
+        public short stackPointer = 0;
+        public short memoryPointer = 0x0100;
 
 
         public void readRomHeader()
