@@ -81,7 +81,7 @@ namespace GameBeak_Frontend.Classes
                     //if (!cpu.checkForHaltOrInterrupt())
                     if (!Core.beakCPU.checkForHaltOrInterrupt())
                     {
-                        Core.beakCPU.selectOpcode(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                        Core.beakCPU.selectOpcode(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                     }
                     else
                     {

@@ -986,7 +986,7 @@ namespace GameBeak_Frontend.Classes
 
         public void setStackPointer(ushort nn)
         {
-            stackPointer = nn;
+            stackPointer = (short)nn;
         }
 
         public void clearRegistersFlagsAndMemory()

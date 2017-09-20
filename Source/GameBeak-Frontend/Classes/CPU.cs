@@ -48,7 +48,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 1:
                                 {
-                                    opcode01((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcode01((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 2:
@@ -73,7 +73,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 6:
                                 {
-                                    opcode06(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode06(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 7:
@@ -83,7 +83,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 8:
                                 {
-                                    opcode08((ushort)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcode08((ushort)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 9:
@@ -113,7 +113,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xE:
                                 {
-                                    opcode0E(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode0E(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0xF:
@@ -135,7 +135,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 1:
                                 {
-                                    opcode11((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcode11((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 2:
@@ -160,7 +160,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 6:
                                 {
-                                    opcode16(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode16(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 7:
@@ -200,7 +200,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xE:
                                 {
-                                    opcode1E(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode1E(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0xF:
@@ -217,12 +217,12 @@ namespace GameBeak_Frontend.Classes
                         {
                             case 0:
                                 {
-                                    opcode20(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode20(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 1:
                                 {
-                                    opcode21((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcode21((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 2:
@@ -247,7 +247,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 6:
                                 {
-                                    opcode26(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode26(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 7:
@@ -257,7 +257,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 8:
                                 {
-                                    opcode28(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode28(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 9:
@@ -287,7 +287,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xE:
                                 {
-                                    opcode2E(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode2E(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0xF:
@@ -304,12 +304,12 @@ namespace GameBeak_Frontend.Classes
                         {
                             case 0:
                                 {
-                                    opcode30(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode30(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 1:
                                 {
-                                    opcode31((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcode31((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 2:
@@ -334,7 +334,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 6:
                                 {
-                                    opcode36(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode36(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 7:
@@ -344,7 +344,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 8:
                                 {
-                                    opcode38(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode38(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 9:
@@ -374,7 +374,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xE:
                                 {
-                                    opcode3E(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode3E(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0xF:
@@ -1098,17 +1098,17 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0x02:
                                 {
-                                    opcodeC2((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeC2((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0x03:
                                 {
-                                    opcodeC3((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeC3((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0x04:
                                 {
-                                    opcodeC4((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeC4((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0x05:
@@ -1118,7 +1118,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0x06:
                                 {
-                                    opcodeC6(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeC6(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0x07:
@@ -1138,12 +1138,12 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0x0A:
                                 {
-                                    opcodeCA((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeCA((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0x0B:
                                 {
-                                    switch (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++))
+                                    switch (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++))
                                     {
 
                                         case 0x00: { opcodeCB00(); break; }
@@ -1408,17 +1408,17 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0x0C:
                                 {
-                                    opcodeCC((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeCC((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0x0D:
                                 {
-                                    opcodeCD((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeCD((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0x0E:
                                 {
-                                    opcodeCE(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeCE(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0x0F:
@@ -1446,7 +1446,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 2:
                                 {
-                                    opcodeD2((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeD2((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 3:
@@ -1456,7 +1456,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 4:
                                 {
-                                    opcodeD4((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeD4((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 5:
@@ -1466,7 +1466,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 6:
                                 {
-                                    opcodeD6(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeD6(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 7:
@@ -1486,7 +1486,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xA:
                                 {
-                                    opcodeDA((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeDA((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0xB:
@@ -1496,7 +1496,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xC:
                                 {
-                                    opcodeDC((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeDC((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0xD:
@@ -1506,7 +1506,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xE:
                                 {
-                                    opcodeDE(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeDE(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
 
                                 }
@@ -1524,7 +1524,7 @@ namespace GameBeak_Frontend.Classes
                         {
                             case 0:
                                 {
-                                    opcodeE0(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeE0(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 1:
@@ -1554,7 +1554,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 6:
                                 {
-                                    opcodeE6(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeE6(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 7:
@@ -1574,7 +1574,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xA:
                                 {
-                                    opcodeEA((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeEA((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0xB:
@@ -1594,7 +1594,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xE:
                                 {
-                                    opcodeEE(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeEE(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0xF:
@@ -1611,7 +1611,7 @@ namespace GameBeak_Frontend.Classes
                         {
                             case 0:
                                 {
-                                    opcodeF0(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeF0(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 1:
@@ -1642,7 +1642,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 6:
                                 {
-                                    opcodeF6(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeF6(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 7:
@@ -1652,7 +1652,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 8:
                                 {
-                                    opcodeF8(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeF8(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 9:
@@ -1662,7 +1662,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xA:
                                 {
-                                    opcodeFA((short)((Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++) << 8)));
+                                    opcodeFA((short)((Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++) << 8)));
                                     break;
                                 }
                             case 0xB:
@@ -1683,7 +1683,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 0xE:
                                 {
-                                    opcodeFE(Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeFE(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 0xF:
@@ -2352,7 +2352,7 @@ namespace GameBeak_Frontend.Classes
         public void opcode31(short nn)
         {
             //Load short into SP
-            Core.beakMemory.stackPointer = (ushort)nn;
+            Core.beakMemory.stackPointer = nn;
             mClock += 3;
             tClock += 12;
         }
@@ -4282,7 +4282,7 @@ namespace GameBeak_Frontend.Classes
             //RET if Not Zero
             if (!Core.beakMemory.getZFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer)));
+                Core.beakMemory.memoryPointer = (short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)));
                 Core.beakMemory.stackPointer += 2;
                 mClock += 5;
                 tClock += 20;
@@ -4297,7 +4297,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeC1()
         {
             //POP into BC
-            Core.beakMemory.setBC((short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer))));
+            Core.beakMemory.setBC((short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer))));
             Core.beakMemory.stackPointer += 2;
             mClock += 3;
             tClock += 12;
@@ -4308,7 +4308,7 @@ namespace GameBeak_Frontend.Classes
             //Jump if Not Zero
             if (!Core.beakMemory.getZFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 4;
                 tClock += 16;
             }
@@ -4322,7 +4322,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeC3(short nn)
         {
             //Jump to NNNN
-            Core.beakMemory.memoryPointer = (ushort)nn;
+            Core.beakMemory.memoryPointer = nn;
             mClock += 4;
             tClock += 16;
         }
@@ -4333,8 +4333,8 @@ namespace GameBeak_Frontend.Classes
             if (!Core.beakMemory.getZFlag())
             {
                 Core.beakMemory.stackPointer -= 2;
-                Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, Core.beakMemory.memoryPointer);
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 6;
                 tClock += 24;
             }
@@ -4349,7 +4349,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Push BC
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, Core.beakMemory.getBC());
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, Core.beakMemory.getBC());
             mClock += 4;
             tClock += 16;
         }
@@ -4382,7 +4382,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Reset to 00
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x00;
             mClock += 4;
             tClock += 16;
@@ -4394,7 +4394,7 @@ namespace GameBeak_Frontend.Classes
             //Ret if Zero
             if (Core.beakMemory.getZFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer))));
+                Core.beakMemory.memoryPointer = (short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer))));
                 Core.beakMemory.stackPointer += 2;
                 mClock += 5;
                 tClock += 20;
@@ -4409,7 +4409,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeC9()
         {
             //Ret
-            Core.beakMemory.memoryPointer = (ushort)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer)));
+            Core.beakMemory.memoryPointer = (short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)));
             Core.beakMemory.stackPointer += 2;
             mClock += 4;
             tClock += 16;
@@ -4420,7 +4420,7 @@ namespace GameBeak_Frontend.Classes
             //Jump to nn if Zero
             if (Core.beakMemory.getZFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 4;
                 tClock += 16;
             }
@@ -4437,8 +4437,8 @@ namespace GameBeak_Frontend.Classes
             if (Core.beakMemory.getZFlag())
             {
                 Core.beakMemory.stackPointer -= 2;
-                Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 6;
                 tClock += 24;
             }
@@ -4453,8 +4453,8 @@ namespace GameBeak_Frontend.Classes
         {
             //Call nn
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
-            Core.beakMemory.memoryPointer = (ushort)nn;
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.memoryPointer = nn;
             mClock += 6;
             tClock += 24;
         }
@@ -4488,7 +4488,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Reset to 08
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x08;
             mClock += 4;
             tClock += 16;
@@ -4499,7 +4499,7 @@ namespace GameBeak_Frontend.Classes
             //Ret if not Carry
             if (!Core.beakMemory.getCFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer)));
+                Core.beakMemory.memoryPointer = (short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)));
                 Core.beakMemory.stackPointer += 2;
                 mClock += 5;
                 tClock += 20;
@@ -4514,7 +4514,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeD1()
         {
             //POP DE
-            Core.beakMemory.setDE((short)(((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer)))));
+            Core.beakMemory.setDE((short)(((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)))));
             Core.beakMemory.stackPointer += 2;
             mClock += 3;
             tClock += 12;
@@ -4525,7 +4525,7 @@ namespace GameBeak_Frontend.Classes
             //Jump to nn if not Carry
             if (!Core.beakMemory.getCFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 4;
                 tClock += 16;
             }
@@ -4544,8 +4544,8 @@ namespace GameBeak_Frontend.Classes
             if (!Core.beakMemory.getCFlag())
             {
                 Core.beakMemory.stackPointer -= 2;
-                Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 6;
                 tClock += 24;
             }
@@ -4560,7 +4560,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Push DE
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, Core.beakMemory.getDE());
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, Core.beakMemory.getDE());
             mClock += 4;
             tClock += 16;
         }
@@ -4594,7 +4594,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Reset to 10
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x10;
             mClock += 4;
             tClock += 16;
@@ -4605,7 +4605,7 @@ namespace GameBeak_Frontend.Classes
             //Ret if Carry
             if (Core.beakMemory.getCFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer)));
+                Core.beakMemory.memoryPointer = (short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)));
                 Core.beakMemory.stackPointer += 2;
                 mClock += 5;
                 tClock += 20;
@@ -4620,7 +4620,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeD9()
         {
             //Return and enable Interrupts
-            Core.beakMemory.memoryPointer = (ushort)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)));
+            Core.beakMemory.memoryPointer = (short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)));
             Core.beakMemory.stackPointer += 2;
             interruptsEnabled = true;
             mClock += 4;
@@ -4632,7 +4632,7 @@ namespace GameBeak_Frontend.Classes
             //Jump to nn if Carry
             if (Core.beakMemory.getCFlag())
             {
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 4;
                 tClock += 16;
             }
@@ -4651,8 +4651,8 @@ namespace GameBeak_Frontend.Classes
             if (Core.beakMemory.getCFlag())
             {
                 Core.beakMemory.stackPointer -= 2;
-                Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
-                Core.beakMemory.memoryPointer = (ushort)nn;
+                Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+                Core.beakMemory.memoryPointer = nn;
                 mClock += 6;
                 tClock += 24;
             }
@@ -4694,7 +4694,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Reset to 18
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x18;
             mClock += 4;
             tClock += 16;
@@ -4711,7 +4711,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeE1()
         {
             //Pop HL
-            Core.beakMemory.setHL(((short)(Core.beakMemory.readMemory((ushort)((Core.beakMemory.stackPointer + 1) << 8)) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer)))));
+            Core.beakMemory.setHL(((short)(Core.beakMemory.readMemory((ushort)((Core.beakMemory.stackPointer + 1) << 8)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)))));
             Core.beakMemory.stackPointer += 2;
             mClock += 3;
             tClock += 12;
@@ -4733,7 +4733,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Push HL
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, Core.beakMemory.getHL());
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, Core.beakMemory.getHL());
             mClock += 4;
             tClock += 16;
         }
@@ -4755,7 +4755,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Reset to 20
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x20;
             mClock += 4;
             tClock += 16;
@@ -4773,8 +4773,8 @@ namespace GameBeak_Frontend.Classes
             }
 	        else
 	        {
-                Core.beakMemory.setHFlag(((Core.beakMemory.stackPointer & 0x0F) + ((char)n & 0x0F)) > 0x0F);
-                Core.beakMemory.setStackPointer((ushort)(Core.beakMemory.stackPointer + (char)n));
+                Core.beakMemory.setHFlag(((Core.beakMemory.stackPointer & 0x0F) + ((sbyte)n & 0x0F)) > 0x0F);
+                Core.beakMemory.setStackPointer((ushort)(Core.beakMemory.stackPointer + (sbyte)n));
                 //beakMemory.setHFlag((stackPointer & 0x00FF) == 0xF0);
                 Core.beakMemory.setCFlag(false);
             }
@@ -4789,7 +4789,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeE9()
         {
             //Jump to HL
-            Core.beakMemory.memoryPointer = (ushort)Core.beakMemory.getHL();
+            Core.beakMemory.memoryPointer = Core.beakMemory.getHL();
             mClock += 1;
             tClock += 4;
         }
@@ -4825,7 +4825,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Reset to 28
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x28;
             mClock += 4;
             tClock += 16;
@@ -4842,7 +4842,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeF1()
         {
             //Pop AF
-            Core.beakMemory.setAF((Core.beakMemory.readMemory((ushort)(((Core.beakMemory.stackPointer + 1) << 8) | (Core.beakMemory.readMemory(Core.beakMemory.stackPointer))))));
+            Core.beakMemory.setAF((Core.beakMemory.readMemory((ushort)(((Core.beakMemory.stackPointer + 1) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer))))));
             Core.beakMemory.stackPointer += 2;
             mClock += 3;
             tClock += 12;
@@ -4870,7 +4870,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Push AF
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, Core.beakMemory.getAF());
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, Core.beakMemory.getAF());
             mClock += 4;
             tClock += 16;
         }
@@ -4892,7 +4892,7 @@ namespace GameBeak_Frontend.Classes
         {
             //Reset to 30
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x30;
             mClock += 4;
             tClock += 16;
@@ -4924,7 +4924,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeF9()
         {
             //Load SP into HL
-            Core.beakMemory.stackPointer = (ushort)Core.beakMemory.getHL();
+            Core.beakMemory.stackPointer = Core.beakMemory.getHL();
             mClock += 2;
             tClock += 8;
         }
@@ -4973,7 +4973,7 @@ namespace GameBeak_Frontend.Classes
             //beakStack[--stackPointer] = memoryPointer;
             //beakMemory.writeMemory(--stackPointer, memoryPointer);
             Core.beakMemory.stackPointer -= 2;
-            Core.beakMemory.writeMemory(Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.stackPointer, (short)Core.beakMemory.memoryPointer);
             Core.beakMemory.memoryPointer = 0x38;
             mClock += 4;
             tClock += 16;
