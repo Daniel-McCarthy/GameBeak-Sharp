@@ -170,7 +170,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 8:
                                 {
-                                    opcode18((char)Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcode18((sbyte)Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 9:
@@ -1564,7 +1564,7 @@ namespace GameBeak_Frontend.Classes
                                 }
                             case 8:
                                 {
-                                    opcodeE8((char)Core.beakMemory.readMemory(Core.beakMemory.memoryPointer++));
+                                    opcodeE8((sbyte)Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
                                     break;
                                 }
                             case 9:
@@ -1987,10 +1987,10 @@ namespace GameBeak_Frontend.Classes
 
         }
 
-        public void opcode18(char n) //signed byte
+        public void opcode18(sbyte n) //signed byte
         {
             //Jump Relative to n
-            Core.beakMemory.memoryPointer += (char)n;
+            Core.beakMemory.memoryPointer += (sbyte)n;
             mClock += 3;
             tClock += 12;
         }
@@ -2099,7 +2099,7 @@ namespace GameBeak_Frontend.Classes
             //Jump Relative to n if Not Zero
             if (!Core.beakMemory.getZFlag())
             {
-                Core.beakMemory.memoryPointer += (char)n;
+                Core.beakMemory.memoryPointer += (sbyte)n;
                 mClock += 3;
                 tClock += 12;
 
@@ -2232,7 +2232,7 @@ namespace GameBeak_Frontend.Classes
             if (Core.beakMemory.getZFlag())
             {
                 //memoryPointer += (signed char)n;
-                Core.beakMemory.memoryPointer += (char)n;
+                Core.beakMemory.memoryPointer += (sbyte)n;
                 mClock += 3;
                 tClock += 12;
             }
@@ -2338,7 +2338,7 @@ namespace GameBeak_Frontend.Classes
             //Jump Relative to n if Not Carry
             if (!Core.beakMemory.getCFlag())
             {
-                Core.beakMemory.memoryPointer += (char)n;
+                Core.beakMemory.memoryPointer += (sbyte)n;
                 mClock += 3;
                 tClock += 12;
             }
@@ -2422,7 +2422,7 @@ namespace GameBeak_Frontend.Classes
             //Jump Relative to n if Carry
             if (Core.beakMemory.getCFlag())
             {
-                Core.beakMemory.memoryPointer += (char)n;
+                Core.beakMemory.memoryPointer += (sbyte)n;
                 mClock += 3;
                 tClock += 12;
             }
@@ -4761,13 +4761,13 @@ namespace GameBeak_Frontend.Classes
             tClock += 16;
         }
 
-        public void opcodeE8(char n)
+        public void opcodeE8(sbyte n)
         {
             //Add n to Stack Pointer
 
-            if ((Core.beakMemory.stackPointer + (char)n) > 0xFFFF)
+            if ((Core.beakMemory.stackPointer + (sbyte)n) > 0xFFFF)
 	        {
-                Core.beakMemory.setStackPointer(((ushort)(Core.beakMemory.stackPointer + (char)n - 65536)));//0xFFFF);
+                Core.beakMemory.setStackPointer(((ushort)(Core.beakMemory.stackPointer + (sbyte)n - 65536)));//0xFFFF);
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
