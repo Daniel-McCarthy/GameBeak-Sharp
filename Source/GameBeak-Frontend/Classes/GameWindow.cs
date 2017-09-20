@@ -9,8 +9,8 @@ namespace GameBeak_Frontend.Classes
     class GameWindow
     {
 
-        public Image screen = new Image();
-        private Image debugTileScreen = new Image();
+        public Image screen = new Image(160, 144);
+        private Image debugTileScreen = new Image(160, 144);
 
         private Color[] bgPixels = new Color[256 * 256];
         private Color[] windowPixels = new Color[256 * 256];
