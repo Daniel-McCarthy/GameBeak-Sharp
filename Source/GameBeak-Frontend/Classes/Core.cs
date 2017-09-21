@@ -79,7 +79,7 @@ namespace GameBeak_Frontend.Classes
                 {
                     for(int i = 0; i < Core.breakpoints.Count; i++)
                     {
-                        if(((Core.breakpoints.Count - 1) >= i + 1) && Core.beakMemory.memoryPointer == Core.breakpoints[i])
+                        if(((Core.breakpoints.Count) > i) && Core.beakMemory.memoryPointer == Core.breakpoints[i])
                         {
                             Core.paused = true;
                         }
@@ -100,7 +100,7 @@ namespace GameBeak_Frontend.Classes
                     {
                         Core.beakCPU.selectOpcode(0); //Gets stuck at a halt without this, because no cycles are occuring (no opcode is running) the vblank interrupt never occurs
                     }
-                    
+
 
 
                     Core.step = false;
