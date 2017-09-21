@@ -2268,21 +2268,24 @@ namespace GameBeak_Frontend
         //Draw Breakpoints/Disassembly Text
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            bool isEmpty = listBox1.Items[e.Index].ToString() == "";
-            bool isBreakpoint = isBreakPointSet(listBox1.Items[e.Index].ToString().Substring(0, 4));
+            if (e.Index >= 0)
+            {
+                bool isEmpty = listBox1.Items[e.Index].ToString() == "";
+                bool isBreakpoint = isBreakPointSet(listBox1.Items[e.Index].ToString().Substring(0, 4));
 
-            if (!isEmpty && isBreakpoint)
-            {
-                e.Graphics.FillRectangle(Brushes.Red, e.Bounds);
-            }
-            else
-            {
-                e.DrawBackground();
-            }
+                if (!isEmpty && isBreakpoint)
+                {
+                    e.Graphics.FillRectangle(Brushes.Red, e.Bounds);
+                }
+                else
+                {
+                    e.DrawBackground();
+                }
 
-            using (Brush textBrush = new SolidBrush(e.ForeColor))
-            {
-                e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds.Location);
+                using (Brush textBrush = new SolidBrush(e.ForeColor))
+                {
+                    e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds.Location);
+                }
             }
         }
     }
