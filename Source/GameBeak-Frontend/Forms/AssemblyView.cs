@@ -168,6 +168,9 @@ namespace GameBeak_Frontend
             //NativeMethods.setPauseState(false);
             Core.paused = false;
             Core.step = true;
+
+            System.Threading.Thread.Sleep(10);
+
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
