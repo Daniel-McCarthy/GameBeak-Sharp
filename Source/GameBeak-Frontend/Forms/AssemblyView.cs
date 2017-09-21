@@ -19,6 +19,9 @@ namespace GameBeak_Frontend
         public AssemblyView()
         {
             InitializeComponent();
+
+            listBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            listBox1.DrawItem += new DrawItemEventHandler(listBox1_DrawItem);
         }
 
         //Call this upon:
@@ -2245,5 +2248,41 @@ namespace GameBeak_Frontend
             }
         }
 
+        //Double Click List Item // Toggle Breakpoint
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            string address = listBox1.SelectedItem.ToString().Substring(0, 4);
+
+            if (isBreakPointSet(address))
+            {
+                removeBreakPoint(address);
+            }
+            else
+            {
+                addBreakPoint(address);
+            }
+
+        }
+
+        //Draw Breakpoints/Disassembly Text
+        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            bool isEmpty = listBox1.Items[e.Index].ToString() == "";
+            bool isBreakpoint = isBreakPointSet(listBox1.Items[e.Index].ToString().Substring(0, 4));
+
+            if (!isEmpty && isBreakpoint)
+            {
+                e.Graphics.FillRectangle(Brushes.Red, e.Bounds);
+            }
+            else
+            {
+                e.DrawBackground();
+            }
+
+            using (Brush textBrush = new SolidBrush(e.ForeColor))
+            {
+                e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds.Location);
+            }
+        }
     }
 }
