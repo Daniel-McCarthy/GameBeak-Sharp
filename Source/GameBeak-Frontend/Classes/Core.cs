@@ -40,6 +40,8 @@ namespace GameBeak_Frontend.Classes
         public static byte paletteSetting;
         //extern byte filterSetting;
 
+        public static bool breakPointEnabled = true;
+        public static List<short> breakpoints = new List<short>();
 
         //extern Audio beakAudio;
 
@@ -72,6 +74,17 @@ namespace GameBeak_Frontend.Classes
 			        }
 		        }
                 */
+
+                if (Core.breakPointEnabled)
+                {
+                    for(int i = 0; i < Core.breakpoints.Count; i++)
+                    {
+                        if(Core.beakMemory.memoryPointer == Core.breakpoints[i])
+                        {
+                            Core.paused = true;
+                        }
+                    }
+                }
 
                 if (!Core.paused || Core.step)
                 {
