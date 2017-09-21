@@ -2226,5 +2226,16 @@ namespace GameBeak_Frontend
             return false;
         }
 
+        public void removeBreakPoint(string address)
+        {
+            for (int i = 0; i < Core.breakpoints.Count; i++)
+            {
+                if (Core.breakpoints[i].ToString("X4") == address)
+                {
+                    Core.breakpoints.RemoveAt(i);
+                }
+            }
+        }
+
     }
 }
