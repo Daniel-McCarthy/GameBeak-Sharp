@@ -167,6 +167,7 @@ namespace GameBeak_Frontend
         {
             //NativeMethods.setPauseState(false);
             Core.paused = false;
+            Core.step = true;
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
