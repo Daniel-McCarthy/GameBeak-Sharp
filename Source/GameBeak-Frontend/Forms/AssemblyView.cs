@@ -104,6 +104,16 @@ namespace GameBeak_Frontend
 
         }
 
+        void updateStackDisplay()
+        {
+            short stackPointer = Core.beakMemory.stackPointer;
+            byte data = Core.beakMemory.readMemory((ushort)stackPointer);
+
+            spValue.Text = stackPointer.ToString("X4");
+            stackValue.Text = data.ToString("X2");
+            
+        }
+
         private void stepButton_Click(object sender, EventArgs e)
         {
             //Call function in DLL to step emulator
@@ -116,6 +126,7 @@ namespace GameBeak_Frontend
             updatePCValues();
             updateFlagDisplay();
             updateAssemblyDisplay();
+            updateStackDisplay();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -124,6 +135,7 @@ namespace GameBeak_Frontend
             updatePCValues();
             updateFlagDisplay();
             updateAssemblyDisplay();
+            updateStackDisplay();
         }
 
         private void AssemblyView_Load(object sender, EventArgs e)
@@ -132,6 +144,7 @@ namespace GameBeak_Frontend
             updatePCValues();
             updateFlagDisplay();
             updateAssemblyDisplay();
+            updateStackDisplay();
 
             listBox1.SelectedIndex = 0;
         }
@@ -144,6 +157,7 @@ namespace GameBeak_Frontend
             updatePCValues();
             updateFlagDisplay();
             updateAssemblyDisplay();
+            updateStackDisplay();
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -154,6 +168,7 @@ namespace GameBeak_Frontend
             updatePCValues();
             updateFlagDisplay();
             updateAssemblyDisplay();
+            updateStackDisplay();
         }
 
         private Tuple<string, int> disassembleAddress(short address)
