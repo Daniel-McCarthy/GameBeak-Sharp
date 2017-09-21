@@ -79,7 +79,7 @@ namespace GameBeak_Frontend.Classes
                 {
                     for(int i = 0; i < Core.breakpoints.Count; i++)
                     {
-                        if(Core.beakMemory.memoryPointer == Core.breakpoints[i])
+                        if(((Core.breakpoints.Count - 1) >= i + 1) && Core.beakMemory.memoryPointer == Core.breakpoints[i])
                         {
                             Core.paused = true;
                         }
