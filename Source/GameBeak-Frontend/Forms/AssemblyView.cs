@@ -2262,6 +2262,7 @@ namespace GameBeak_Frontend
                 addBreakPoint(address);
             }
 
+            updateAssemblyDisplay();
         }
 
         //Draw Breakpoints/Disassembly Text
