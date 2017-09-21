@@ -2237,5 +2237,13 @@ namespace GameBeak_Frontend
             }
         }
 
+        public void addBreakPoint(string address)
+        {
+            if(!isBreakPointSet(address))
+            {
+                Core.breakpoints.Add(short.Parse(address, System.Globalization.NumberStyles.HexNumber));
+            }
+        }
+
     }
 }
