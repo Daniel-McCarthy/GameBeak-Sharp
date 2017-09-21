@@ -2212,5 +2212,19 @@ namespace GameBeak_Frontend
         }
 
 
+        public bool isBreakPointSet(string address)
+        {
+            for(int i = 0; i < Core.breakpoints.Count; i++)
+            {
+
+                if (Core.breakpoints[i].ToString("X4") == address)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
     }
 }
