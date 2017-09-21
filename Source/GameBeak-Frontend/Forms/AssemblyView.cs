@@ -234,7 +234,7 @@ namespace GameBeak_Frontend
                                 }
                             case 6:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string argumentHex = argument.ToString("X2");
                                     opcodeString = "06 " + argumentHex + " ld b, " + argumentHex;
                                     bytesRead = 2;
@@ -286,7 +286,7 @@ namespace GameBeak_Frontend
                                 }
                             case 0xE:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string argumentHex = argument.ToString("X2");
                                     opcodeString = "0E " + argumentHex + " ld c, " + argumentHex;
                                     bytesRead = 2;
@@ -347,7 +347,7 @@ namespace GameBeak_Frontend
                                 }
                             case 6:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string argumentHex = argument.ToString("X2");
                                     opcodeString = "16 " + argumentHex + " ld d, " + argumentHex;
                                     bytesRead = 2;
@@ -402,7 +402,7 @@ namespace GameBeak_Frontend
                                 }
                             case 0xE:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string argumentHex = argument.ToString("X2");
                                     opcodeString = "1E " + argumentHex + " ld e, " + argumentHex;
                                     bytesRead = 2;
@@ -466,7 +466,7 @@ namespace GameBeak_Frontend
                                 }
                             case 6:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string argumentHex = argument.ToString("X2");
                                     opcodeString = "26 " + argumentHex + " ld h, " + argumentHex;
                                     bytesRead = 2;
@@ -581,8 +581,8 @@ namespace GameBeak_Frontend
                                 }
                             case 6:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
-                                    string argumentHex = argument.ToString("X4");
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    string argumentHex = argument.ToString("X2");
                                     opcodeString = "36 " + argumentHex + " ld (hl), " + argumentHex;
                                     bytesRead = 2;
                                     break;
@@ -635,8 +635,8 @@ namespace GameBeak_Frontend
                                 }
                             case 0xE:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
-                                    string argumentHex = argument.ToString("X4");
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    string argumentHex = argument.ToString("X2");
                                     opcodeString = "3E " + argumentHex + " ld a, " + argumentHex;
                                     bytesRead = 2;
                                     break;
@@ -2017,8 +2017,8 @@ namespace GameBeak_Frontend
                                 }
                             case 6:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
-                                    string argumentHex = argument.ToString("X4");
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    string argumentHex = argument.ToString("X2");
                                     opcodeString = "E6 " + argumentHex + " and a, " + argumentHex;
                                     bytesRead = 2;
                                     break;
@@ -2074,8 +2074,8 @@ namespace GameBeak_Frontend
                                 }
                             case 0xE:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
-                                    string argumentHex = argument.ToString("X4");
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    string argumentHex = argument.ToString("X2");
                                     opcodeString = "EE " + argumentHex + " xor a, " + argumentHex;
                                     bytesRead = 2;
                                     break;
