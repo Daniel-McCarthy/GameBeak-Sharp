@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace GameBeak_Frontend.Classes
         //extern byte filterSetting;
 
         public static bool breakPointEnabled = true;
-        public static List<short> breakpoints = new List<short>();
+        public static ConcurrentDictionary<string, short> breakpoints = new ConcurrentDictionary<string, short>();
 
         //extern Audio beakAudio;
 
@@ -75,15 +76,15 @@ namespace GameBeak_Frontend.Classes
 		        }
                 */
 
+                //short[] localBreakpoints = Core.breakpoints.ToArray();
+
                 if (Core.breakPointEnabled)
-                {
-                    for(int i = 0; i < Core.breakpoints.Count; i++)
+                { 
+                    if(Core.breakpoints.ContainsKey(Core.beakMemory.memoryPointer.ToString("X4")))
                     {
-                        if(((Core.breakpoints.Count) > i) && Core.beakMemory.memoryPointer == Core.breakpoints[i])
-                        {
-                            Core.paused = true;
-                        }
+                        Core.paused = true;
                     }
+                    
                 }
 
                 if (!Core.paused || Core.step)

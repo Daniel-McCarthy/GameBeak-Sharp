@@ -2221,34 +2221,20 @@ namespace GameBeak_Frontend
 
         public bool isBreakPointSet(string address)
         {
-            for(int i = 0; i < Core.breakpoints.Count; i++)
-            {
-
-                if (Core.breakpoints[i].ToString("X4") == address)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Core.breakpoints.ContainsKey(address);
         }
 
         public void removeBreakPoint(string address)
         {
-            for (int i = 0; i < Core.breakpoints.Count; i++)
-            {
-                if (Core.breakpoints[i].ToString("X4") == address)
-                {
-                    Core.breakpoints.RemoveAt(i);
-                }
-            }
+            short parsedAddress = short.Parse(address, System.Globalization.NumberStyles.HexNumber);
+            Core.breakpoints.TryRemove(address, out parsedAddress);
         }
 
         public void addBreakPoint(string address)
         {
             if(!isBreakPointSet(address))
             {
-                Core.breakpoints.Add(short.Parse(address, System.Globalization.NumberStyles.HexNumber));
+                Core.breakpoints.TryAdd(address ,short.Parse(address, System.Globalization.NumberStyles.HexNumber));
             }
         }
 
