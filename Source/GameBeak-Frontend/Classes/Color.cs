@@ -40,9 +40,14 @@ namespace GameBeak_Frontend.Classes
 	        a = newA;
         }
 
-        public uint getInt()
+        public uint getRGBAInt()
         {
             return (uint)((r << 24) | (g << 16) | (b << 8) | a);
+        }
+
+        public uint getARGBInt()
+        {
+            return (uint)((a << 24) | (r << 16) | (g << 8) | b);
         }
 
     }
