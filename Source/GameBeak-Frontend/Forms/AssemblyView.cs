@@ -110,7 +110,7 @@ namespace GameBeak_Frontend
         void updateStackDisplay()
         {
             short stackPointer = Core.beakMemory.stackPointer;
-            short data = (short)((Core.beakMemory.readMemory((ushort)stackPointer) << 8) | (Core.beakMemory.readMemory((ushort)(stackPointer + 1))));
+            short data = (short)((Core.beakMemory.readMemory((ushort)stackPointer)) | (Core.beakMemory.readMemory((ushort)(stackPointer + 1)) << 8));
 
             spValue.Text = stackPointer.ToString("X4");
             stackValue.Text = data.ToString("X4");
@@ -1900,8 +1900,8 @@ namespace GameBeak_Frontend
                                 }
                             case 6:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
-                                    string argumentHex = argument.ToString("X4");
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    string argumentHex = argument.ToString("X2");
                                     opcodeString = "D6 " + argumentHex + " sub a, " + argumentHex;
                                     bytesRead = 2;
                                     break;
@@ -1956,8 +1956,8 @@ namespace GameBeak_Frontend
                                 }
                             case 0xE:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
-                                    string argumentHex = argument.ToString("X4");
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    string argumentHex = argument.ToString("X2");
                                     opcodeString = "DE " + argumentHex + " sbc a, " + argumentHex;
                                     bytesRead = 2;
                                     break;
@@ -1977,8 +1977,8 @@ namespace GameBeak_Frontend
                         {
                             case 0:
                                 {
-                                    short argument = Core.beakMemory.readMemory((ushort)(address + 1));
-                                    string argumentHex = argument.ToString("X4");
+                                    byte argument = Core.beakMemory.readMemory((ushort)(address + 1));
+                                    string argumentHex = argument.ToString("X2");
                                     opcodeString = "E0 " + argumentHex + " ld (ff00 + " + argumentHex + "), a";
                                     bytesRead = 2;
                                     break;
