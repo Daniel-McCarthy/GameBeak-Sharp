@@ -96,6 +96,9 @@
     <EmbeddedResource Include="Forms\AssemblyView.resx">
       <DependentUpon>AssemblyView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GraphicView.resx">
+      <DependentUpon>GraphicView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

@@ -41,6 +41,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.graphicViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -84,7 +85,8 @@
             // 
             this.debuggerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.assemblyViewToolStripMenuItem,
-            this.memoryViewToolStripMenuItem});
+            this.memoryViewToolStripMenuItem,
+            this.graphicViewToolStripMenuItem});
             this.debuggerToolStripMenuItem.Name = "debuggerToolStripMenuItem";
             this.debuggerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.debuggerToolStripMenuItem.Text = "Debugger";
@@ -127,6 +129,13 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // graphicViewToolStripMenuItem
+            // 
+            this.graphicViewToolStripMenuItem.Name = "graphicViewToolStripMenuItem";
+            this.graphicViewToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.graphicViewToolStripMenuItem.Text = "Graphic View";
+            this.graphicViewToolStripMenuItem.Click += new System.EventHandler(this.graphicViewToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +173,7 @@
         private System.Windows.Forms.ToolStripMenuItem debuggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assemblyViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memoryViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem graphicViewToolStripMenuItem;
     }
 }
 
