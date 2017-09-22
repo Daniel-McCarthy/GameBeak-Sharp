@@ -72,5 +72,23 @@ namespace GameBeak_Frontend.Forms
             pictureBox1.Image = graphicScreen;
         }
 
+        void drawTile(int tileNumber, List<List<gb.Color>> tile)
+        {
+            int y = tileNumber / 20;
+            int x = tileNumber - (20 * y);
+
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    gb.Color color = tile[0][j];
+                    graphicScreen.SetPixel((x * 8) + j, (y * 8) + i, Color.FromArgb(color.a, color.r, color.g, color.b));
+                }
+
+                tile.Remove(tile.First());
+            }
+
+        }
+
     }
 }
