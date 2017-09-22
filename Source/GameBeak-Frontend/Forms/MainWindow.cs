@@ -19,8 +19,7 @@ using System.Windows;
 using Core = GameBeak_Frontend.Classes.Core;
 using GameBeak = GameBeak_Frontend.Classes;
 using System.Threading;
-
-
+using GameBeak_Frontend.Forms;
 
 namespace GameBeak_Frontend
 {
@@ -31,6 +30,7 @@ namespace GameBeak_Frontend
 
         private AssemblyView assemblyView;
         private MemoryView memoryView;
+        private GraphicView graphicView;
 
         public MainWindow()
         {
@@ -256,6 +256,21 @@ namespace GameBeak_Frontend
                 NativeMethods.setKeyInput(7, false);
             }
             
+        }
+
+        //Open Graphic View Window
+        private void graphicViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (graphicView == null || graphicView.IsDisposed)
+            {
+                graphicView = new GraphicView();
+                graphicView.Show();
+            }
+            else
+            {
+                graphicView.Show();
+                graphicView.BringToFront();
+            }
         }
     }
 
