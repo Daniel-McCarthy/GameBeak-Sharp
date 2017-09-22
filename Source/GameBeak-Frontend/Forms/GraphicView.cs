@@ -12,6 +12,8 @@ namespace GameBeak_Frontend.Forms
 {
     public partial class GraphicView : Form
     {
+        private Bitmap graphicScreen = new Bitmap(160, 160);
+
         public GraphicView()
         {
             InitializeComponent();
