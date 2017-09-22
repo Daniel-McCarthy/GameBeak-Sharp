@@ -4711,7 +4711,8 @@ namespace GameBeak_Frontend.Classes
         public void opcodeE1()
         {
             //Pop HL
-            Core.beakMemory.setHL(((short)(Core.beakMemory.readMemory((ushort)((Core.beakMemory.stackPointer + 1) << 8)) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer)))));
+
+            Core.beakMemory.setHL((short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer))) );
             Core.beakMemory.stackPointer += 2;
             mClock += 3;
             tClock += 12;
@@ -4842,7 +4843,7 @@ namespace GameBeak_Frontend.Classes
         public void opcodeF1()
         {
             //Pop AF
-            Core.beakMemory.setAF((Core.beakMemory.readMemory((ushort)(((Core.beakMemory.stackPointer + 1) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer))))));
+            Core.beakMemory.setAF((short)((Core.beakMemory.readMemory((ushort)(Core.beakMemory.stackPointer + 1)) << 8) | (Core.beakMemory.readMemory((ushort)Core.beakMemory.stackPointer))) );
             Core.beakMemory.stackPointer += 2;
             mClock += 3;
             tClock += 12;
