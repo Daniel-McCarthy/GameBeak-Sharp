@@ -34,5 +34,43 @@ namespace GameBeak_Frontend.Forms
             }
         }
 
+        private void drawTileView()
+        {
+            ushort baseAddress = 0x8000;
+
+            List<List<gb.Color>> tile = new List<List<gb.Color>>();
+
+            for (int i = 0; i < 360; i++)
+            {
+                tile.Clear();
+
+                ushort tileOffset = (ushort)(i * 16);
+
+                ushort tileAddress = (ushort)(baseAddress + tileOffset);
+
+                for (ushort j = 0; j < 16; j += 2)
+                {
+                    byte rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + j));
+                    byte rowHalf2 = Core.beakMemory.readMemory((ushort)(tileAddress + j + 1));
+
+                    List<gb.Color> row = new List<gb.Color>();
+
+                    for (int k = 0; k < 8; k++)
+                    {
+                        row.Add(Core.beakGPU.returnColor((((rowHalf1 & 0x80) >> 7)) | ((rowHalf2 & 0x80) >> 6)));
+                        rowHalf1 <<= 1;
+                        rowHalf2 <<= 1;
+                    }
+
+                    tile.Add(row);
+                }
+
+                drawTile(i, tile);
+
+            }
+
+            pictureBox1.Image = graphicScreen;
+        }
+
     }
 }
