@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Core = GameBeak_Frontend.Classes.Core;
+
+using gb = GameBeak_Frontend.Classes;
 
 namespace GameBeak_Frontend.Forms
 {
@@ -18,5 +21,18 @@ namespace GameBeak_Frontend.Forms
         {
             InitializeComponent();
         }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            if(tileViewRadioButton.Enabled)
+            {
+                drawTileView();
+            }
+            else
+            {
+                drawFullView();
+            }
+        }
+
     }
 }
