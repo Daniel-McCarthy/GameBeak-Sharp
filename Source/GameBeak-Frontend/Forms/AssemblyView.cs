@@ -110,10 +110,10 @@ namespace GameBeak_Frontend
         void updateStackDisplay()
         {
             short stackPointer = Core.beakMemory.stackPointer;
-            byte data = Core.beakMemory.readMemory((ushort)stackPointer);
+            short data = (short)((Core.beakMemory.readMemory((ushort)stackPointer) << 8) | (Core.beakMemory.readMemory((ushort)(stackPointer + 1))));
 
             spValue.Text = stackPointer.ToString("X4");
-            stackValue.Text = data.ToString("X2");
+            stackValue.Text = data.ToString("X4");
             
         }
 
@@ -364,7 +364,7 @@ namespace GameBeak_Frontend
                                     short argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string argumentHex = argument.ToString("X2");
 
-                                    string jumpAddress = ((sbyte)argument + address + 2).ToString("X4");
+                                    string jumpAddress = ((short)((sbyte)argument + address + 2)).ToString("X4");
                                     jumpAddress = jumpAddress.Substring(jumpAddress.Length - 2, 2);
                                     opcodeString = "18 " + argumentHex + " jr " + jumpAddress;
                                     bytesRead = 2;
@@ -425,7 +425,7 @@ namespace GameBeak_Frontend
                                 {
                                     short argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string hexArgument = argument.ToString("X2");
-                                    string jumpAddress = ((sbyte)argument + address + 2).ToString("X4");
+                                    string jumpAddress = ((short)(((sbyte)argument + address + 2))).ToString("X4");
                                     opcodeString = "20 " + hexArgument + " jr nz, " + jumpAddress;
                                     bytesRead = 2;
                                     break;
@@ -482,7 +482,7 @@ namespace GameBeak_Frontend
                                 {
                                     short argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string hexArgument = argument.ToString("X4");
-                                    string jumpAddress = ((sbyte)argument + address + 2).ToString("X4");
+                                    string jumpAddress = ((short)((sbyte)argument + address + 2)).ToString("X4");
                                     opcodeString = "28 " + hexArgument + " jr z, " + jumpAddress;
                                     bytesRead = 2;
                                     break;
@@ -542,7 +542,7 @@ namespace GameBeak_Frontend
                                 {
                                     short argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string argumentHex = argument.ToString("X4");
-                                    string jumpAddress = ((sbyte)argument + address + 2).ToString("X4");
+                                    string jumpAddress = ((short)((sbyte)argument + address + 2)).ToString("X4");
                                     opcodeString = "30 " + argumentHex + " jr nc, " + jumpAddress;
                                     bytesRead = 2;
                                     break;
@@ -598,7 +598,7 @@ namespace GameBeak_Frontend
                                     short argument = Core.beakMemory.readMemory((ushort)(address + 1));
                                     string hexArgument = argument.ToString("X2");
 
-                                    string jumpAddress = ((sbyte)argument + address + 2).ToString("X4");
+                                    string jumpAddress = ((short)((sbyte)argument + address + 2)).ToString("X4");
                                     opcodeString = "38 " + hexArgument + " jr c, " + jumpAddress;
                                     bytesRead = 2;
                                     break;
