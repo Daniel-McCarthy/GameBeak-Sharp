@@ -84,7 +84,7 @@ namespace GameBeak_Frontend.Classes
 
             for (int i = 0; i < numberOfPixels; i++)
             {
-                pixelInts[i] = pixels[i].getInt();
+                pixelInts[i] = pixels[i].getARGBInt();
             }
 
             return pixelInts;
