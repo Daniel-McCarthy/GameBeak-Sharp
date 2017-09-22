@@ -71,7 +71,7 @@ namespace GameBeak_Frontend
 
         private void updateScreen()
         {
-            while (NativeMethods.getRunState())
+            while (Core.run)
             {
                 /*
                 //Retrieve Image X/Y Sizes
