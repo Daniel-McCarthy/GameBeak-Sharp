@@ -15,7 +15,8 @@ namespace GameBeak_Frontend.Forms
 {
     public partial class GraphicView : Form
     {
-        private Bitmap graphicScreen = new Bitmap(160, 160);
+        private Bitmap tileScreen = new Bitmap(160, 160);
+        private Bitmap fullScreen = new Bitmap(256, 256);
 
         public GraphicView()
         {
@@ -69,7 +70,7 @@ namespace GameBeak_Frontend.Forms
 
             }
 
-            pictureBox1.Image = graphicScreen;
+            pictureBox1.Image = tileScreen;
         }
 
         void drawTile(int tileNumber, List<List<gb.Color>> tile)
@@ -82,7 +83,7 @@ namespace GameBeak_Frontend.Forms
                 for (int j = 0; j < 8; j++)
                 {
                     gb.Color color = tile[0][j];
-                    graphicScreen.SetPixel((x * 8) + j, (y * 8) + i, Color.FromArgb(color.a, color.r, color.g, color.b));
+                    tileScreen.SetPixel((x * 8) + j, (y * 8) + i, Color.FromArgb(color.a, color.r, color.g, color.b));
                 }
 
                 tile.Remove(tile.First());
