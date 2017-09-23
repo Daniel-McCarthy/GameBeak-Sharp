@@ -106,48 +106,6 @@ namespace GameBeak_Frontend.Classes
             return (getLCDControl() & 0x01) > 0;
         }
 
-        //Draw All Tiles: Draws each tile directly from vram in the order they are in Vram. Prints out each tile that is loaded into memory
-        public void drawAllTiles()
-        {
-            ushort baseAddress = 0x8000;
-
-            List<List<Color>> tile = new List<List<Color>>();
-
-            for (int i = 0; i < 360; i++)
-            {
-                tile.Clear();
-
-                ushort tileOffset = (ushort)(i * 16);
-
-                ushort tileAddress = (ushort)(baseAddress + tileOffset);
-
-                for (ushort j = 0; j < 16; j += 2)
-                {
-                    byte rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + j));
-                    byte rowHalf2 = Core. beakMemory.readMemory((ushort)(tileAddress + j + 1));
-
-                    List<Color> row = new List<Color>();
-
-                    for (int k = 0; k < 8; k++)
-                    {
-                        int test = rowHalf1 & 0x01;
-                        int test2 = rowHalf2 & 0x01;
-                        int test3 = ((rowHalf1 & 0x01) << 1) | (rowHalf2 & 0x01);
-                        Color test4 = returnColor(((rowHalf1 & 0x01) << 1) | (rowHalf2 & 0x01));
-
-                        row.Add(returnColor((((rowHalf1 & 0x80) >> 7)) | ((rowHalf2 & 0x80) >> 6)));
-                        rowHalf1 <<= 1;
-                        rowHalf2 <<= 1;
-                    }
-
-                    tile.Add(row);
-                }
-
-                drawDebugTile(i, tile);
-
-            }
-        }
-
         //DrawLineFromMap: Draws a single specific line of the background map
         public void drawLineFromBGMap(int lineY)
         {
@@ -403,27 +361,6 @@ namespace GameBeak_Frontend.Classes
                     }
                 }
             }
-        }
-
-        //DrawTile: Draws tile data as given to location of tile number given
-        public void drawDebugTile(int tileNumber, List<List<Color>> tile)
-        {
-            //int y = tileNumber / 32;
-            //int x = tileNumber - (32 * y);
-
-            int y = tileNumber / 20;
-            int x = tileNumber - (20 * y);
-
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    Core.beakWindow.setDebugPixel((x * 8) + j, (y * 8) + i, tile[0][j]);
-                }
-
-                tile.Remove(tile.First());
-            }
-
         }
 
         public byte getScrollX()
