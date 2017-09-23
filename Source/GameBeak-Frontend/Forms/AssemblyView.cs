@@ -117,6 +117,13 @@ namespace GameBeak_Frontend
             
         }
 
+        void updateInterruptDisplay()
+        {
+            imeValueLabel.Text = (Core.beakCPU.interruptsEnabled) ? 1.ToString("X2") : 0.ToString("X2");
+            ieValueLabel.Text = Core.beakMemory.readMemory(0xFFFF).ToString("X2");
+            ifValueLabel.Text = Core.beakMemory.readMemory(0xFF0F).ToString("X2");
+        }
+
         private void stepButton_Click(object sender, EventArgs e)
         {
             //Call function in DLL to step emulator
@@ -148,6 +155,7 @@ namespace GameBeak_Frontend
             updateFlagDisplay();
             updateAssemblyDisplay();
             updateStackDisplay();
+            updateInterruptDisplay();
 
             listBox1.SelectedIndex = 0;
         }
@@ -161,6 +169,7 @@ namespace GameBeak_Frontend
             updateFlagDisplay();
             updateAssemblyDisplay();
             updateStackDisplay();
+            updateInterruptDisplay();
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -176,6 +185,7 @@ namespace GameBeak_Frontend
             updateFlagDisplay();
             updateAssemblyDisplay();
             updateStackDisplay();
+            updateInterruptDisplay();
         }
 
         private Tuple<string, int> disassembleAddress(short address)
