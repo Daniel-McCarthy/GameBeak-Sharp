@@ -40,6 +40,25 @@ namespace GameBeak_Frontend.Classes
 	        a = newA;
         }
 
+        public Color(byte newR, byte newG, byte newB, byte newA, bool isARGBFormat)
+        {
+            if (isARGBFormat)
+            {
+                r = newG;
+                g = newB;
+                b = newA;
+                a = newR;
+            }
+            else
+            {
+                r = newR;
+                g = newG;
+                b = newB;
+                a = newA;
+            }
+        
+        }
+
         public uint getRGBAInt()
         {
             return (uint)((r << 24) | (g << 16) | (b << 8) | a);
