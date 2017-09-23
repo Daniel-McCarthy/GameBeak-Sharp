@@ -22,9 +22,6 @@ namespace GameBeak_Frontend.Classes
             lightestPink, lightPink, darkPink, darkestPink
         };
 
-        public bool screenUpdated = false;
-        public bool screenDrawing = false;
-
 
         public byte getLCDStatus()
         {

@@ -80,10 +80,7 @@ namespace GameBeak_Frontend.Classes
                         {
                             if (Core.beakMemory.getLCDEnabled())
                             {
-                                Core.beakGPU.screenDrawing = true;
                                 drawScreenFromMaps(Core.beakGPU.getScrollX(), Core.beakGPU.getScrollY());
-                                Core.beakGPU.screenUpdated = true;
-                                Core.beakGPU.screenDrawing = false;
 
                                 Core.mainWindow.updateScreen();
                             }
