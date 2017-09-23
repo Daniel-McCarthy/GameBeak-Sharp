@@ -55,7 +55,7 @@ namespace GameBeak_Frontend.Classes
 
         public Color getPixel(int x, int y)
         {
-            return pixels[x + (x * y)];
+            return pixels[x + (sizeValues.x * y)];
         }
 
         public bool setPixel(int x, int y, Color pixel)
