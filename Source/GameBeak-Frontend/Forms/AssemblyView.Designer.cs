@@ -434,7 +434,7 @@
             // 
             this.ieValueLabel.AutoSize = true;
             this.ieValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ieValueLabel.Location = new System.Drawing.Point(63, 29);
+            this.ieValueLabel.Location = new System.Drawing.Point(51, 29);
             this.ieValueLabel.Name = "ieValueLabel";
             this.ieValueLabel.Size = new System.Drawing.Size(0, 16);
             this.ieValueLabel.TabIndex = 9;
@@ -443,7 +443,7 @@
             // 
             this.imeValueLabel.AutoSize = true;
             this.imeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imeValueLabel.Location = new System.Drawing.Point(63, 13);
+            this.imeValueLabel.Location = new System.Drawing.Point(51, 13);
             this.imeValueLabel.Name = "imeValueLabel";
             this.imeValueLabel.Size = new System.Drawing.Size(0, 16);
             this.imeValueLabel.TabIndex = 8;
@@ -452,7 +452,7 @@
             // 
             this.ieLabel.AutoSize = true;
             this.ieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ieLabel.Location = new System.Drawing.Point(6, 29);
+            this.ieLabel.Location = new System.Drawing.Point(13, 29);
             this.ieLabel.Name = "ieLabel";
             this.ieLabel.Size = new System.Drawing.Size(26, 16);
             this.ieLabel.TabIndex = 6;
@@ -462,7 +462,7 @@
             // 
             this.imeLabel.AutoSize = true;
             this.imeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imeLabel.Location = new System.Drawing.Point(7, 13);
+            this.imeLabel.Location = new System.Drawing.Point(3, 13);
             this.imeLabel.Name = "imeLabel";
             this.imeLabel.Size = new System.Drawing.Size(38, 16);
             this.imeLabel.TabIndex = 5;
@@ -472,7 +472,7 @@
             // 
             this.ifValueLabel.AutoSize = true;
             this.ifValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ifValueLabel.Location = new System.Drawing.Point(64, 45);
+            this.ifValueLabel.Location = new System.Drawing.Point(52, 45);
             this.ifValueLabel.Name = "ifValueLabel";
             this.ifValueLabel.Size = new System.Drawing.Size(0, 16);
             this.ifValueLabel.TabIndex = 11;
@@ -481,7 +481,7 @@
             // 
             this.ifLabel.AutoSize = true;
             this.ifLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ifLabel.Location = new System.Drawing.Point(7, 45);
+            this.ifLabel.Location = new System.Drawing.Point(14, 45);
             this.ifLabel.Name = "ifLabel";
             this.ifLabel.Size = new System.Drawing.Size(25, 16);
             this.ifLabel.TabIndex = 10;
