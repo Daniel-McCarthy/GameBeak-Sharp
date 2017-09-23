@@ -69,54 +69,24 @@ namespace GameBeak_Frontend
             }
         }
 
-        private void updateScreen()
+        public void updateScreen()
         {
-            while (Core.run)
+
+            //Convert SFML Image to Bitmap
+            Tuple<int, int> screenSize = Core.beakWindow.screen.getSize();
+
+            Bitmap bmp = new Bitmap(screenSize.Item1, screenSize.Item2);
+
+            for (int x = 0; x < screenSize.Item1; x++)
             {
-                /*
-                //Retrieve Image X/Y Sizes
-                int[] dimensions = new int[2];
-                Marshal.Copy(NativeMethods.getScreenDimensions(), dimensions, 0, 2);
-
-                //Retrieve Image Pixel Data
-                int pixelCount = (dimensions[0] * dimensions[1]);
-                int[] pixelDataInts = new int[pixelCount];
-                NativeMethods.getScreenPixelData(pixelDataInts);
-
-                //Convert Image Pixel Data to Bytes
-                byte[] pixelDataBytes = new byte[pixelCount * sizeof(int)];
-                Buffer.BlockCopy(pixelDataInts, 0, pixelDataBytes, 0, pixelDataBytes.Length);
-
-                //Create SFML image from X/Y Sizes and Pixel Data Bytes
-                sf.Image newScreen = new sf.Image((uint)dimensions[0], (uint)dimensions[1], pixelDataBytes);
-                */
-
-                GameBeak.Image newScreen = Core.beakWindow.screen;
-
-                //Convert SFML Image to Bitmap
-                Tuple<int, int> screenSize = Core.beakWindow.screen.getSize();
-
-                //Bitmap bmp = new Bitmap((int)newScreen.Size.X, (int)newScreen.Size.Y);
-                Bitmap bmp = new Bitmap(screenSize.Item1, screenSize.Item2);
-
-                //for (int x = 0; x < newScreen.Size.X; x++)
-                for (int x = 0; x < screenSize.Item1; x++)
+                for (int y = 0; y < screenSize.Item2; y++)
                 {
-                    //for (int y = 0; y < newScreen.Size.Y; y++)
-                    for (int y = 0; y < screenSize.Item2; y++)
-                    {
-                        //sf.Color pixel = newScreen.GetPixel((uint)x, (uint)y);
-                        GameBeak.Color pixel = newScreen.getPixel(x, y);
-                        uint pixelColor = pixel.getInt();
-                        //int pixelColor = ((pixel.A << 24) | (pixel.R << 16) | (pixel.G << 8) | (pixel.B));
-                        bmp.SetPixel(x, y, System.Drawing.Color.FromArgb((int)pixelColor));
-                    }
+                    Color pixel = Color.FromArgb((int)Core.beakWindow.screen.getPixel(x, y).getARGBInt());
+                    bmp.SetPixel(x, y, pixel);
                 }
 
-                pictureBox1.Image = bmp;
+            pictureBox1.Image = bmp;
                 
-                Thread.Sleep(8);
-            }
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)

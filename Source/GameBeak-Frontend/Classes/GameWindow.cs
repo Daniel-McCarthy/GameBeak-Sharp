@@ -93,6 +93,8 @@ namespace GameBeak_Frontend.Classes
                                 drawScreenFromMaps(Core.beakGPU.getScrollX(), Core.beakGPU.getScrollY());
                                 Core.beakGPU.screenUpdated = true;
                                 Core.beakGPU.screenDrawing = false;
+
+                                Core.mainWindow.updateScreen();
                             }
                             refreshClocksSinceLastUpdate = clocks;
                         }
