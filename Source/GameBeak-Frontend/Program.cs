@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Core = GameBeak_Frontend.Classes.Core;
 
 namespace GameBeak_Frontend
 {
@@ -16,7 +17,7 @@ namespace GameBeak_Frontend
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            Application.Run(Core.mainWindow);
         }
     }
 }

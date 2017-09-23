@@ -15,6 +15,7 @@ namespace GameBeak_Frontend.Classes
             beakGPU = new GPU();
             beakWindow = new GameWindow();
             beakCPU = new CPU();
+            mainWindow = new MainWindow();
 
             clocks = 4500;
 
@@ -24,8 +25,9 @@ namespace GameBeak_Frontend.Classes
             enableInterruptsNextCycle = false;
             paletteSetting = 0;
         }
-        
 
+
+        public static MainWindow mainWindow;
         public static Memory beakMemory;
         public static GPU beakGPU;
         public static GameWindow beakWindow;
