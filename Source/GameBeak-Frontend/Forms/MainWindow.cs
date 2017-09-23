@@ -26,7 +26,6 @@ namespace GameBeak_Frontend
     public partial class MainWindow : Form
     {
         private Thread emulatorThread;
-        private Thread screenUpdateThread;
 
         private AssemblyView assemblyView;
         private MemoryView memoryView;
@@ -60,8 +59,6 @@ namespace GameBeak_Frontend
                 emulatorThread = new Thread(GameBeak_Frontend.Classes.GameBeak_Main.startEmulator);
                 emulatorThread.Start();
 
-                screenUpdateThread = new Thread(updateScreen);
-                screenUpdateThread.Start();
             }
             else
             {
@@ -84,6 +81,7 @@ namespace GameBeak_Frontend
                     Color pixel = Color.FromArgb((int)Core.beakWindow.screen.getPixel(x, y).getARGBInt());
                     bmp.SetPixel(x, y, pixel);
                 }
+            }
 
             pictureBox1.Image = bmp;
                 
@@ -95,9 +93,6 @@ namespace GameBeak_Frontend
 
             if(emulatorThread != null)
                 emulatorThread.Abort();
-
-            if(screenUpdateThread != null)
-                screenUpdateThread.Abort();
         }
 
         private void assemblyViewToolStripMenuItem_Click(object sender, EventArgs e)
