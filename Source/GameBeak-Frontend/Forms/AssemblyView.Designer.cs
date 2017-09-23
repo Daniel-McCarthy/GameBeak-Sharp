@@ -61,11 +61,19 @@
             this.spValuesLabel = new System.Windows.Forms.Label();
             this.spLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.interruptGroupBox = new System.Windows.Forms.GroupBox();
+            this.ieValueLabel = new System.Windows.Forms.Label();
+            this.imeValueLabel = new System.Windows.Forms.Label();
+            this.ieLabel = new System.Windows.Forms.Label();
+            this.imeLabel = new System.Windows.Forms.Label();
+            this.ifValueLabel = new System.Windows.Forms.Label();
+            this.ifLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.interruptGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -115,6 +123,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.interruptGroupBox);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
@@ -352,7 +361,7 @@
             this.groupBox2.Controls.Add(this.spLabel);
             this.groupBox2.Location = new System.Drawing.Point(3, 103);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(227, 68);
+            this.groupBox2.Size = new System.Drawing.Size(125, 68);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Stack Values";
@@ -405,6 +414,79 @@
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // interruptGroupBox
+            // 
+            this.interruptGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(138)))), ((int)(((byte)(235)))));
+            this.interruptGroupBox.Controls.Add(this.ifValueLabel);
+            this.interruptGroupBox.Controls.Add(this.ifLabel);
+            this.interruptGroupBox.Controls.Add(this.ieValueLabel);
+            this.interruptGroupBox.Controls.Add(this.imeValueLabel);
+            this.interruptGroupBox.Controls.Add(this.ieLabel);
+            this.interruptGroupBox.Controls.Add(this.imeLabel);
+            this.interruptGroupBox.Location = new System.Drawing.Point(134, 103);
+            this.interruptGroupBox.Name = "interruptGroupBox";
+            this.interruptGroupBox.Size = new System.Drawing.Size(96, 68);
+            this.interruptGroupBox.TabIndex = 10;
+            this.interruptGroupBox.TabStop = false;
+            this.interruptGroupBox.Text = "Interrupt Values";
+            // 
+            // ieValueLabel
+            // 
+            this.ieValueLabel.AutoSize = true;
+            this.ieValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ieValueLabel.Location = new System.Drawing.Point(63, 29);
+            this.ieValueLabel.Name = "ieValueLabel";
+            this.ieValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.ieValueLabel.TabIndex = 9;
+            // 
+            // imeValueLabel
+            // 
+            this.imeValueLabel.AutoSize = true;
+            this.imeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imeValueLabel.Location = new System.Drawing.Point(63, 13);
+            this.imeValueLabel.Name = "imeValueLabel";
+            this.imeValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.imeValueLabel.TabIndex = 8;
+            // 
+            // ieLabel
+            // 
+            this.ieLabel.AutoSize = true;
+            this.ieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ieLabel.Location = new System.Drawing.Point(6, 29);
+            this.ieLabel.Name = "ieLabel";
+            this.ieLabel.Size = new System.Drawing.Size(26, 16);
+            this.ieLabel.TabIndex = 6;
+            this.ieLabel.Text = "IE:";
+            // 
+            // imeLabel
+            // 
+            this.imeLabel.AutoSize = true;
+            this.imeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imeLabel.Location = new System.Drawing.Point(7, 13);
+            this.imeLabel.Name = "imeLabel";
+            this.imeLabel.Size = new System.Drawing.Size(38, 16);
+            this.imeLabel.TabIndex = 5;
+            this.imeLabel.Text = "IME:";
+            // 
+            // ifValueLabel
+            // 
+            this.ifValueLabel.AutoSize = true;
+            this.ifValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ifValueLabel.Location = new System.Drawing.Point(64, 45);
+            this.ifValueLabel.Name = "ifValueLabel";
+            this.ifValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.ifValueLabel.TabIndex = 11;
+            // 
+            // ifLabel
+            // 
+            this.ifLabel.AutoSize = true;
+            this.ifLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ifLabel.Location = new System.Drawing.Point(7, 45);
+            this.ifLabel.Name = "ifLabel";
+            this.ifLabel.Size = new System.Drawing.Size(25, 16);
+            this.ifLabel.TabIndex = 10;
+            this.ifLabel.Text = "IF:";
+            // 
             // AssemblyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,6 +513,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.interruptGroupBox.ResumeLayout(false);
+            this.interruptGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -468,5 +552,12 @@
         private System.Windows.Forms.Label hFlagValue;
         private System.Windows.Forms.Label nFlagValue;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.GroupBox interruptGroupBox;
+        private System.Windows.Forms.Label ieValueLabel;
+        private System.Windows.Forms.Label imeValueLabel;
+        private System.Windows.Forms.Label ieLabel;
+        private System.Windows.Forms.Label imeLabel;
+        private System.Windows.Forms.Label ifValueLabel;
+        private System.Windows.Forms.Label ifLabel;
     }
 }
