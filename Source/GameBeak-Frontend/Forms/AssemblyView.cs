@@ -24,28 +24,8 @@ namespace GameBeak_Frontend
             listBox1.DrawItem += new DrawItemEventHandler(listBox1_DrawItem);
         }
 
-        //Call this upon:
-        //Stepping
-        //Pausing
-        //Gaining Window Focus
-        //More?
         void updateDisplayValues()
-        {
-            /*
-            int[] registerValues = new int[4];
-            Marshal.Copy(NativeMethods.getRegisters(), registerValues, 0, 4);
-
-            afValue.Text = registerValues[0].ToString();
-            bcValue.Text = registerValues[1].ToString();
-            deValue.Text = registerValues[2].ToString();
-            hlValue.Text = registerValues[3].ToString();
-            */
-
-            //afValue.Text = NativeMethods.getAF().ToString("X4");
-            //bcValue.Text = NativeMethods.getBC().ToString("X4");
-            //deValue.Text = NativeMethods.getDE().ToString("X4");
-            //hlValue.Text = NativeMethods.getHL().ToString("X4");
-
+        { 
             afValue.Text = Core.beakMemory.getAF().ToString("X4");
             bcValue.Text = Core.beakMemory.getBC().ToString("X4");
             deValue.Text = Core.beakMemory.getDE().ToString("X4");
@@ -54,9 +34,6 @@ namespace GameBeak_Frontend
 
         void updatePCValues()
         {
-            //short pc = NativeMethods.getPC();
-            //pcValue.Text = pc.ToString("X4");
-
             pcValue.Text = Core.beakMemory.memoryPointer.ToString("X4");
         }
 
@@ -162,7 +139,6 @@ namespace GameBeak_Frontend
 
         private void pauseButton_Click(object sender, EventArgs e)
         {
-            //NativeMethods.setPauseState(true);
             Core.paused = true;
             updateDisplayValues();
             updatePCValues();
@@ -174,7 +150,6 @@ namespace GameBeak_Frontend
 
         private void runButton_Click(object sender, EventArgs e)
         {
-            //NativeMethods.setPauseState(false);
             Core.paused = false;
             Core.step = true;
 
