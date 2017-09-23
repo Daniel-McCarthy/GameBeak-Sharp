@@ -10,7 +10,6 @@ namespace GameBeak_Frontend.Classes
     {
 
         public Image screen = new Image(160, 144);
-        private Image debugTileScreen = new Image(160, 144);
 
         private Color[] bgPixels = new Color[256 * 256];
         private Color[] windowPixels = new Color[256 * 256];
@@ -21,10 +20,6 @@ namespace GameBeak_Frontend.Classes
 
         public GameWindow()
         {
-
-            Image screen = new Image(160, 144, Core.beakGPU.returnColor(0));
-            Image debugTileScreen = new Image(160, 144, Core.beakGPU.returnColor(0));
-
             Color pink = Core.beakGPU.returnColor(0, 0);
 
             for (int i = 0; i < (256 * 256); i++)
@@ -38,10 +33,6 @@ namespace GameBeak_Frontend.Classes
 
         public GameWindow(string title, int width, int height)
         {
-
-            Image screen = new Image(160, 144, Core.beakGPU.returnColor(0));
-            Image debugTileScreen = new Image(160, 144, Core.beakGPU.returnColor(0));
-
             Color pink = Core.beakGPU.returnColor(0, 0);
 
             for (int i = 0; i < (256 * 256); i++)
@@ -297,15 +288,10 @@ namespace GameBeak_Frontend.Classes
             spritePixels[x + (y * 256)] = color;
         }
 
-        public void setDebugPixel(int x, int y, Color color)
-        {
-            //tileDebugPixels[x + (y * 256)] = color;
-            debugTileScreen.setPixel(x, y, color);
-        }
-
         public void drawScreenFromMaps(int scrollX, int scrollY)
         {
 
+            
             if (Core.beakGPU.getBackGroundEnabled())
             {
 
@@ -326,7 +312,8 @@ namespace GameBeak_Frontend.Classes
 
                 }
             }
-
+            
+            
             if (Core.beakGPU.getWindowEnabled())
             {
                 //Draw Window
@@ -373,8 +360,7 @@ namespace GameBeak_Frontend.Classes
                 }
 
             }
-
-
+            
             //Draw Sprites
             if (Core.beakGPU.getSpriteEnabled())
             {
@@ -407,7 +393,7 @@ namespace GameBeak_Frontend.Classes
             {
                 spritePixels[i].a = 0;
             }
-
+            
 
         }
 
