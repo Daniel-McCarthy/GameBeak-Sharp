@@ -91,5 +91,18 @@ namespace GameBeak_Frontend.Forms
 
         }
 
+        private void drawFullView()
+        {
+            for (int i = 0; i < (256 * 256); i++)
+            {
+                int y = (i / 256);
+                int x = (i - (256 * y));
+
+                gb.Color pixel = Core.beakWindow.getBGPixel(x, y);
+                fullScreen.SetPixel(x, y, Color.FromArgb(pixel.a, pixel.r, pixel.g, pixel.b));
+            }
+
+            pictureBox1.Image = fullScreen;
+        }
     }
 }
