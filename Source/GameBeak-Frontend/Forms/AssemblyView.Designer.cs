@@ -68,6 +68,14 @@
             this.imeLabel = new System.Windows.Forms.Label();
             this.ifValueLabel = new System.Windows.Forms.Label();
             this.ifLabel = new System.Windows.Forms.Label();
+            this.lcdcLabel = new System.Windows.Forms.Label();
+            this.lcdStatLabel = new System.Windows.Forms.Label();
+            this.lcdLYLabel = new System.Windows.Forms.Label();
+            this.lcdModeLabel = new System.Windows.Forms.Label();
+            this.lcdModeValueLabel = new System.Windows.Forms.Label();
+            this.lcdLYValueLabel = new System.Windows.Forms.Label();
+            this.lcdStatValueLabel = new System.Windows.Forms.Label();
+            this.lcdcValueLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -230,6 +238,14 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(138)))), ((int)(((byte)(235)))));
+            this.groupBox3.Controls.Add(this.lcdModeValueLabel);
+            this.groupBox3.Controls.Add(this.lcdLYValueLabel);
+            this.groupBox3.Controls.Add(this.lcdStatValueLabel);
+            this.groupBox3.Controls.Add(this.lcdcValueLabel);
+            this.groupBox3.Controls.Add(this.lcdModeLabel);
+            this.groupBox3.Controls.Add(this.lcdLYLabel);
+            this.groupBox3.Controls.Add(this.lcdStatLabel);
+            this.groupBox3.Controls.Add(this.lcdcLabel);
             this.groupBox3.Controls.Add(this.pcValue);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(3, 177);
@@ -487,6 +503,82 @@
             this.ifLabel.TabIndex = 10;
             this.ifLabel.Text = "IF:";
             // 
+            // lcdcLabel
+            // 
+            this.lcdcLabel.AutoSize = true;
+            this.lcdcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdcLabel.Location = new System.Drawing.Point(13, 32);
+            this.lcdcLabel.Name = "lcdcLabel";
+            this.lcdcLabel.Size = new System.Drawing.Size(99, 16);
+            this.lcdcLabel.TabIndex = 6;
+            this.lcdcLabel.Text = "LCDC (FF40):";
+            // 
+            // lcdStatLabel
+            // 
+            this.lcdStatLabel.AutoSize = true;
+            this.lcdStatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdStatLabel.Location = new System.Drawing.Point(13, 48);
+            this.lcdStatLabel.Name = "lcdStatLabel";
+            this.lcdStatLabel.Size = new System.Drawing.Size(120, 16);
+            this.lcdStatLabel.TabIndex = 7;
+            this.lcdStatLabel.Text = "LCD Stat (FF41):";
+            // 
+            // lcdLYLabel
+            // 
+            this.lcdLYLabel.AutoSize = true;
+            this.lcdLYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdLYLabel.Location = new System.Drawing.Point(13, 64);
+            this.lcdLYLabel.Name = "lcdLYLabel";
+            this.lcdLYLabel.Size = new System.Drawing.Size(111, 16);
+            this.lcdLYLabel.TabIndex = 8;
+            this.lcdLYLabel.Text = "LCD LY (FF44):";
+            // 
+            // lcdModeLabel
+            // 
+            this.lcdModeLabel.AutoSize = true;
+            this.lcdModeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdModeLabel.Location = new System.Drawing.Point(13, 80);
+            this.lcdModeLabel.Name = "lcdModeLabel";
+            this.lcdModeLabel.Size = new System.Drawing.Size(84, 16);
+            this.lcdModeLabel.TabIndex = 9;
+            this.lcdModeLabel.Text = "LCD Mode:";
+            // 
+            // lcdModeValueLabel
+            // 
+            this.lcdModeValueLabel.AutoSize = true;
+            this.lcdModeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdModeValueLabel.Location = new System.Drawing.Point(131, 80);
+            this.lcdModeValueLabel.Name = "lcdModeValueLabel";
+            this.lcdModeValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdModeValueLabel.TabIndex = 13;
+            // 
+            // lcdLYValueLabel
+            // 
+            this.lcdLYValueLabel.AutoSize = true;
+            this.lcdLYValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdLYValueLabel.Location = new System.Drawing.Point(131, 64);
+            this.lcdLYValueLabel.Name = "lcdLYValueLabel";
+            this.lcdLYValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdLYValueLabel.TabIndex = 12;
+            // 
+            // lcdStatValueLabel
+            // 
+            this.lcdStatValueLabel.AutoSize = true;
+            this.lcdStatValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdStatValueLabel.Location = new System.Drawing.Point(131, 48);
+            this.lcdStatValueLabel.Name = "lcdStatValueLabel";
+            this.lcdStatValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdStatValueLabel.TabIndex = 11;
+            // 
+            // lcdcValueLabel
+            // 
+            this.lcdcValueLabel.AutoSize = true;
+            this.lcdcValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdcValueLabel.Location = new System.Drawing.Point(131, 32);
+            this.lcdcValueLabel.Name = "lcdcValueLabel";
+            this.lcdcValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdcValueLabel.TabIndex = 10;
+            // 
             // AssemblyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,5 +651,13 @@
         private System.Windows.Forms.Label imeLabel;
         private System.Windows.Forms.Label ifValueLabel;
         private System.Windows.Forms.Label ifLabel;
+        private System.Windows.Forms.Label lcdModeLabel;
+        private System.Windows.Forms.Label lcdLYLabel;
+        private System.Windows.Forms.Label lcdStatLabel;
+        private System.Windows.Forms.Label lcdcLabel;
+        private System.Windows.Forms.Label lcdModeValueLabel;
+        private System.Windows.Forms.Label lcdLYValueLabel;
+        private System.Windows.Forms.Label lcdStatValueLabel;
+        private System.Windows.Forms.Label lcdcValueLabel;
     }
 }
