@@ -101,6 +101,15 @@ namespace GameBeak_Frontend
             ifValueLabel.Text = Core.beakMemory.readMemory(0xFF0F).ToString("X2");
         }
 
+        void updateLCDValuesDisplay()
+        {
+            
+            lcdcValueLabel.Text = Core.beakGPU.getLCDControl().ToString("X2");
+            lcdStatValueLabel.Text = Core.beakGPU.getLCDStatus().ToString("X2");
+            lcdLYValueLabel.Text = Core.beakGPU.getLCDLY().ToString("X2");
+            lcdModeValueLabel.Text = Core.beakGPU.getLCDMode().ToString("X2");
+        }
+
         private void stepButton_Click(object sender, EventArgs e)
         {
             //Call function in DLL to step emulator
@@ -133,6 +142,7 @@ namespace GameBeak_Frontend
             updateAssemblyDisplay();
             updateStackDisplay();
             updateInterruptDisplay();
+            updateLCDValuesDisplay();
 
             listBox1.SelectedIndex = 0;
         }
@@ -146,6 +156,7 @@ namespace GameBeak_Frontend
             updateAssemblyDisplay();
             updateStackDisplay();
             updateInterruptDisplay();
+            updateLCDValuesDisplay();
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -161,6 +172,7 @@ namespace GameBeak_Frontend
             updateAssemblyDisplay();
             updateStackDisplay();
             updateInterruptDisplay();
+            updateLCDValuesDisplay();
         }
 
         private Tuple<string, int> disassembleAddress(short address)
