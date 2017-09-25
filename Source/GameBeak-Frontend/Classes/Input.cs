@@ -166,6 +166,53 @@ namespace GameBeak_Frontend.Classes
             Core.beakMemory.writeMemory(0xFF00, keyInput);
         }
 
+        public void setKeyInput(int keyCode, bool enabled)
+        {
+
+            switch (keyCode)
+            {
+                case 0:
+                    {
+                        keyUp = enabled;
+                        break;
+                    }
+                case 1:
+                    {
+                        keyDown = enabled;
+                        break;
+                    }
+                case 2:
+                    {
+                        keyLeft = enabled;
+                        break;
+                    }
+                case 3:
+                    {
+                        keyRight = enabled;
+                        break;
+                    }
+                case 4:
+                    {
+                        keyStart = enabled;
+                        break;
+                    }
+                case 5:
+                    {
+                        keySelect = enabled;
+                        break;
+                    }
+                case 6:
+                    {
+                        keyA = enabled;
+                        break;
+                    }
+                case 7:
+                    {
+                        keyB = enabled;
+                        break;
+                    }
+            }
+        }
 
 
     }
