@@ -25,6 +25,11 @@ namespace GameBeak_Frontend.Classes
         bool keyA = false;
         bool keyB = false;
 
+        byte getKeyInput()
+        {
+            return Core.beakMemory.readMemory(0xFF00);
+        }
+
 
 
     }
