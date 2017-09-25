@@ -16,6 +16,7 @@ namespace GameBeak_Frontend.Classes
             beakWindow = new GameWindow();
             beakCPU = new CPU();
             mainWindow = new MainWindow();
+            beakInput = new Input();
 
             clocks = 4500;
 
@@ -32,6 +33,7 @@ namespace GameBeak_Frontend.Classes
         public static GPU beakGPU;
         public static GameWindow beakWindow;
         public static CPU beakCPU;
+        public static Input beakInput;
 
         public static int clocks;
 
@@ -91,7 +93,7 @@ namespace GameBeak_Frontend.Classes
 
                 if (!Core.paused || Core.step)
                 {
-                    //Core.beakInput.readInput();
+                    Core.beakInput.readInput();
 
                     
                     //if (!cpu.checkForHaltOrInterrupt())
