@@ -44,6 +44,18 @@ namespace GameBeak_Frontend.Classes
             }
         }
 
+        public void resetScreens()
+        {
+            Color pink = Core.beakGPU.returnColor(0, 0);
+
+            for (int i = 0; i < (256 * 256); i++)
+            {
+                bgPixels[i] = pink;
+                windowPixels[i] = pink;
+                spritePixels[i] = pink;
+            }
+        }
+
 
         public void updateLCD(int clocks, ref int lineClocksSinceLastUpdate, ref int refreshClocksSinceLastUpdate, ref int clocksSinceLastVBlank)
         {
