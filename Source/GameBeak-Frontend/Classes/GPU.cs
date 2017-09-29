@@ -395,11 +395,11 @@ namespace GameBeak_Frontend.Classes
             //Color number decides which color slot is selected from the palette data.
             //The value returned from the palette data is then used to index from the emulator's palette array.
 
-            //unsigned char paletteData = beakMemory.readMemory(0xFF47 + palette);
-            //colorNumber = (paletteData & (3 << (colorNumber * 2))) >> (colorNumber * 2);//(colorNumber + 1);
-            //return gameBeakPalette[colorNumber + paletteSetting << 2)];
+            byte paletteData = Core.beakMemory.readMemory((ushort)(0xFF47 + palette));
+            colorNumber = (paletteData & (3 << (colorNumber * 2))) >> (colorNumber * 2);//(colorNumber + 1);
+            return new Color(gameBeakPalette[colorNumber + (Core.paletteSetting << 2)]);
 
-            return gameBeakPalette[((Core.beakMemory.readMemory((ushort)(0xFF47 + palette)) & (3 << (colorNumber * 2))) >> (colorNumber * 2)) + (Core.paletteSetting * 12) + (palette << 2)];
+            //return gameBeakPalette[((Core.beakMemory.readMemory((ushort)(0xFF47 + palette)) & (3 << (colorNumber * 2))) >> (colorNumber * 2)) + (Core.paletteSetting * 12) + (palette << 2)];
 
 
             //The palette variable is being used to select the memory location of the palette
