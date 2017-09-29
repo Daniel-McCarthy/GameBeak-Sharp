@@ -34,6 +34,13 @@
             this.runButton = new System.Windows.Forms.Button();
             this.pauseButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.interruptGroupBox = new System.Windows.Forms.GroupBox();
+            this.ifValueLabel = new System.Windows.Forms.Label();
+            this.ifLabel = new System.Windows.Forms.Label();
+            this.ieValueLabel = new System.Windows.Forms.Label();
+            this.imeValueLabel = new System.Windows.Forms.Label();
+            this.ieLabel = new System.Windows.Forms.Label();
+            this.imeLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.nFlagValue = new System.Windows.Forms.Label();
             this.zFlagLabel = new System.Windows.Forms.Label();
@@ -44,6 +51,14 @@
             this.hFlagValue = new System.Windows.Forms.Label();
             this.nFlagLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lcdModeValueLabel = new System.Windows.Forms.Label();
+            this.lcdLYValueLabel = new System.Windows.Forms.Label();
+            this.lcdStatValueLabel = new System.Windows.Forms.Label();
+            this.lcdcValueLabel = new System.Windows.Forms.Label();
+            this.lcdModeLabel = new System.Windows.Forms.Label();
+            this.lcdLYLabel = new System.Windows.Forms.Label();
+            this.lcdStatLabel = new System.Windows.Forms.Label();
+            this.lcdcLabel = new System.Windows.Forms.Label();
             this.pcValue = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,27 +76,13 @@
             this.spValuesLabel = new System.Windows.Forms.Label();
             this.spLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
-            this.interruptGroupBox = new System.Windows.Forms.GroupBox();
-            this.ieValueLabel = new System.Windows.Forms.Label();
-            this.imeValueLabel = new System.Windows.Forms.Label();
-            this.ieLabel = new System.Windows.Forms.Label();
-            this.imeLabel = new System.Windows.Forms.Label();
-            this.ifValueLabel = new System.Windows.Forms.Label();
-            this.ifLabel = new System.Windows.Forms.Label();
-            this.lcdcLabel = new System.Windows.Forms.Label();
-            this.lcdStatLabel = new System.Windows.Forms.Label();
-            this.lcdLYLabel = new System.Windows.Forms.Label();
-            this.lcdModeLabel = new System.Windows.Forms.Label();
-            this.lcdModeValueLabel = new System.Windows.Forms.Label();
-            this.lcdLYValueLabel = new System.Windows.Forms.Label();
-            this.lcdStatValueLabel = new System.Windows.Forms.Label();
-            this.lcdcValueLabel = new System.Windows.Forms.Label();
+            this.resetButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.interruptGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.interruptGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -101,7 +102,7 @@
             // 
             this.stepButton.Location = new System.Drawing.Point(255, 310);
             this.stepButton.Name = "stepButton";
-            this.stepButton.Size = new System.Drawing.Size(99, 44);
+            this.stepButton.Size = new System.Drawing.Size(74, 44);
             this.stepButton.TabIndex = 4;
             this.stepButton.Text = "Step";
             this.stepButton.UseVisualStyleBackColor = true;
@@ -109,9 +110,9 @@
             // 
             // runButton
             // 
-            this.runButton.Location = new System.Drawing.Point(454, 310);
+            this.runButton.Location = new System.Drawing.Point(410, 310);
             this.runButton.Name = "runButton";
-            this.runButton.Size = new System.Drawing.Size(81, 44);
+            this.runButton.Size = new System.Drawing.Size(67, 44);
             this.runButton.TabIndex = 5;
             this.runButton.Text = "Run";
             this.runButton.UseVisualStyleBackColor = true;
@@ -119,9 +120,9 @@
             // 
             // pauseButton
             // 
-            this.pauseButton.Location = new System.Drawing.Point(541, 310);
+            this.pauseButton.Location = new System.Drawing.Point(483, 310);
             this.pauseButton.Name = "pauseButton";
-            this.pauseButton.Size = new System.Drawing.Size(88, 44);
+            this.pauseButton.Size = new System.Drawing.Size(71, 44);
             this.pauseButton.TabIndex = 6;
             this.pauseButton.Text = "Pause";
             this.pauseButton.UseVisualStyleBackColor = true;
@@ -140,6 +141,79 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 342);
             this.panel1.TabIndex = 3;
+            // 
+            // interruptGroupBox
+            // 
+            this.interruptGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(138)))), ((int)(((byte)(235)))));
+            this.interruptGroupBox.Controls.Add(this.ifValueLabel);
+            this.interruptGroupBox.Controls.Add(this.ifLabel);
+            this.interruptGroupBox.Controls.Add(this.ieValueLabel);
+            this.interruptGroupBox.Controls.Add(this.imeValueLabel);
+            this.interruptGroupBox.Controls.Add(this.ieLabel);
+            this.interruptGroupBox.Controls.Add(this.imeLabel);
+            this.interruptGroupBox.Location = new System.Drawing.Point(134, 103);
+            this.interruptGroupBox.Name = "interruptGroupBox";
+            this.interruptGroupBox.Size = new System.Drawing.Size(96, 68);
+            this.interruptGroupBox.TabIndex = 10;
+            this.interruptGroupBox.TabStop = false;
+            this.interruptGroupBox.Text = "Interrupt Values";
+            // 
+            // ifValueLabel
+            // 
+            this.ifValueLabel.AutoSize = true;
+            this.ifValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ifValueLabel.Location = new System.Drawing.Point(52, 45);
+            this.ifValueLabel.Name = "ifValueLabel";
+            this.ifValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.ifValueLabel.TabIndex = 11;
+            // 
+            // ifLabel
+            // 
+            this.ifLabel.AutoSize = true;
+            this.ifLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ifLabel.Location = new System.Drawing.Point(14, 45);
+            this.ifLabel.Name = "ifLabel";
+            this.ifLabel.Size = new System.Drawing.Size(25, 16);
+            this.ifLabel.TabIndex = 10;
+            this.ifLabel.Text = "IF:";
+            // 
+            // ieValueLabel
+            // 
+            this.ieValueLabel.AutoSize = true;
+            this.ieValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ieValueLabel.Location = new System.Drawing.Point(51, 29);
+            this.ieValueLabel.Name = "ieValueLabel";
+            this.ieValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.ieValueLabel.TabIndex = 9;
+            // 
+            // imeValueLabel
+            // 
+            this.imeValueLabel.AutoSize = true;
+            this.imeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imeValueLabel.Location = new System.Drawing.Point(51, 13);
+            this.imeValueLabel.Name = "imeValueLabel";
+            this.imeValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.imeValueLabel.TabIndex = 8;
+            // 
+            // ieLabel
+            // 
+            this.ieLabel.AutoSize = true;
+            this.ieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ieLabel.Location = new System.Drawing.Point(13, 29);
+            this.ieLabel.Name = "ieLabel";
+            this.ieLabel.Size = new System.Drawing.Size(26, 16);
+            this.ieLabel.TabIndex = 6;
+            this.ieLabel.Text = "IE:";
+            // 
+            // imeLabel
+            // 
+            this.imeLabel.AutoSize = true;
+            this.imeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imeLabel.Location = new System.Drawing.Point(3, 13);
+            this.imeLabel.Name = "imeLabel";
+            this.imeLabel.Size = new System.Drawing.Size(38, 16);
+            this.imeLabel.TabIndex = 5;
+            this.imeLabel.Text = "IME:";
             // 
             // groupBox4
             // 
@@ -254,6 +328,82 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Other Values";
+            // 
+            // lcdModeValueLabel
+            // 
+            this.lcdModeValueLabel.AutoSize = true;
+            this.lcdModeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdModeValueLabel.Location = new System.Drawing.Point(131, 80);
+            this.lcdModeValueLabel.Name = "lcdModeValueLabel";
+            this.lcdModeValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdModeValueLabel.TabIndex = 13;
+            // 
+            // lcdLYValueLabel
+            // 
+            this.lcdLYValueLabel.AutoSize = true;
+            this.lcdLYValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdLYValueLabel.Location = new System.Drawing.Point(131, 64);
+            this.lcdLYValueLabel.Name = "lcdLYValueLabel";
+            this.lcdLYValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdLYValueLabel.TabIndex = 12;
+            // 
+            // lcdStatValueLabel
+            // 
+            this.lcdStatValueLabel.AutoSize = true;
+            this.lcdStatValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdStatValueLabel.Location = new System.Drawing.Point(131, 48);
+            this.lcdStatValueLabel.Name = "lcdStatValueLabel";
+            this.lcdStatValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdStatValueLabel.TabIndex = 11;
+            // 
+            // lcdcValueLabel
+            // 
+            this.lcdcValueLabel.AutoSize = true;
+            this.lcdcValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdcValueLabel.Location = new System.Drawing.Point(131, 32);
+            this.lcdcValueLabel.Name = "lcdcValueLabel";
+            this.lcdcValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.lcdcValueLabel.TabIndex = 10;
+            // 
+            // lcdModeLabel
+            // 
+            this.lcdModeLabel.AutoSize = true;
+            this.lcdModeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdModeLabel.Location = new System.Drawing.Point(13, 80);
+            this.lcdModeLabel.Name = "lcdModeLabel";
+            this.lcdModeLabel.Size = new System.Drawing.Size(84, 16);
+            this.lcdModeLabel.TabIndex = 9;
+            this.lcdModeLabel.Text = "LCD Mode:";
+            // 
+            // lcdLYLabel
+            // 
+            this.lcdLYLabel.AutoSize = true;
+            this.lcdLYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdLYLabel.Location = new System.Drawing.Point(13, 64);
+            this.lcdLYLabel.Name = "lcdLYLabel";
+            this.lcdLYLabel.Size = new System.Drawing.Size(111, 16);
+            this.lcdLYLabel.TabIndex = 8;
+            this.lcdLYLabel.Text = "LCD LY (FF44):";
+            // 
+            // lcdStatLabel
+            // 
+            this.lcdStatLabel.AutoSize = true;
+            this.lcdStatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdStatLabel.Location = new System.Drawing.Point(13, 48);
+            this.lcdStatLabel.Name = "lcdStatLabel";
+            this.lcdStatLabel.Size = new System.Drawing.Size(120, 16);
+            this.lcdStatLabel.TabIndex = 7;
+            this.lcdStatLabel.Text = "LCD Stat (FF41):";
+            // 
+            // lcdcLabel
+            // 
+            this.lcdcLabel.AutoSize = true;
+            this.lcdcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcdcLabel.Location = new System.Drawing.Point(13, 32);
+            this.lcdcLabel.Name = "lcdcLabel";
+            this.lcdcLabel.Size = new System.Drawing.Size(99, 16);
+            this.lcdcLabel.TabIndex = 6;
+            this.lcdcLabel.Text = "LCDC (FF40):";
             // 
             // pcValue
             // 
@@ -422,162 +572,23 @@
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(360, 310);
+            this.refreshButton.Location = new System.Drawing.Point(335, 310);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(88, 44);
+            this.refreshButton.Size = new System.Drawing.Size(69, 44);
             this.refreshButton.TabIndex = 7;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
-            // interruptGroupBox
+            // resetButton
             // 
-            this.interruptGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(138)))), ((int)(((byte)(235)))));
-            this.interruptGroupBox.Controls.Add(this.ifValueLabel);
-            this.interruptGroupBox.Controls.Add(this.ifLabel);
-            this.interruptGroupBox.Controls.Add(this.ieValueLabel);
-            this.interruptGroupBox.Controls.Add(this.imeValueLabel);
-            this.interruptGroupBox.Controls.Add(this.ieLabel);
-            this.interruptGroupBox.Controls.Add(this.imeLabel);
-            this.interruptGroupBox.Location = new System.Drawing.Point(134, 103);
-            this.interruptGroupBox.Name = "interruptGroupBox";
-            this.interruptGroupBox.Size = new System.Drawing.Size(96, 68);
-            this.interruptGroupBox.TabIndex = 10;
-            this.interruptGroupBox.TabStop = false;
-            this.interruptGroupBox.Text = "Interrupt Values";
-            // 
-            // ieValueLabel
-            // 
-            this.ieValueLabel.AutoSize = true;
-            this.ieValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ieValueLabel.Location = new System.Drawing.Point(51, 29);
-            this.ieValueLabel.Name = "ieValueLabel";
-            this.ieValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.ieValueLabel.TabIndex = 9;
-            // 
-            // imeValueLabel
-            // 
-            this.imeValueLabel.AutoSize = true;
-            this.imeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imeValueLabel.Location = new System.Drawing.Point(51, 13);
-            this.imeValueLabel.Name = "imeValueLabel";
-            this.imeValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.imeValueLabel.TabIndex = 8;
-            // 
-            // ieLabel
-            // 
-            this.ieLabel.AutoSize = true;
-            this.ieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ieLabel.Location = new System.Drawing.Point(13, 29);
-            this.ieLabel.Name = "ieLabel";
-            this.ieLabel.Size = new System.Drawing.Size(26, 16);
-            this.ieLabel.TabIndex = 6;
-            this.ieLabel.Text = "IE:";
-            // 
-            // imeLabel
-            // 
-            this.imeLabel.AutoSize = true;
-            this.imeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imeLabel.Location = new System.Drawing.Point(3, 13);
-            this.imeLabel.Name = "imeLabel";
-            this.imeLabel.Size = new System.Drawing.Size(38, 16);
-            this.imeLabel.TabIndex = 5;
-            this.imeLabel.Text = "IME:";
-            // 
-            // ifValueLabel
-            // 
-            this.ifValueLabel.AutoSize = true;
-            this.ifValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ifValueLabel.Location = new System.Drawing.Point(52, 45);
-            this.ifValueLabel.Name = "ifValueLabel";
-            this.ifValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.ifValueLabel.TabIndex = 11;
-            // 
-            // ifLabel
-            // 
-            this.ifLabel.AutoSize = true;
-            this.ifLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ifLabel.Location = new System.Drawing.Point(14, 45);
-            this.ifLabel.Name = "ifLabel";
-            this.ifLabel.Size = new System.Drawing.Size(25, 16);
-            this.ifLabel.TabIndex = 10;
-            this.ifLabel.Text = "IF:";
-            // 
-            // lcdcLabel
-            // 
-            this.lcdcLabel.AutoSize = true;
-            this.lcdcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdcLabel.Location = new System.Drawing.Point(13, 32);
-            this.lcdcLabel.Name = "lcdcLabel";
-            this.lcdcLabel.Size = new System.Drawing.Size(99, 16);
-            this.lcdcLabel.TabIndex = 6;
-            this.lcdcLabel.Text = "LCDC (FF40):";
-            // 
-            // lcdStatLabel
-            // 
-            this.lcdStatLabel.AutoSize = true;
-            this.lcdStatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdStatLabel.Location = new System.Drawing.Point(13, 48);
-            this.lcdStatLabel.Name = "lcdStatLabel";
-            this.lcdStatLabel.Size = new System.Drawing.Size(120, 16);
-            this.lcdStatLabel.TabIndex = 7;
-            this.lcdStatLabel.Text = "LCD Stat (FF41):";
-            // 
-            // lcdLYLabel
-            // 
-            this.lcdLYLabel.AutoSize = true;
-            this.lcdLYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdLYLabel.Location = new System.Drawing.Point(13, 64);
-            this.lcdLYLabel.Name = "lcdLYLabel";
-            this.lcdLYLabel.Size = new System.Drawing.Size(111, 16);
-            this.lcdLYLabel.TabIndex = 8;
-            this.lcdLYLabel.Text = "LCD LY (FF44):";
-            // 
-            // lcdModeLabel
-            // 
-            this.lcdModeLabel.AutoSize = true;
-            this.lcdModeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdModeLabel.Location = new System.Drawing.Point(13, 80);
-            this.lcdModeLabel.Name = "lcdModeLabel";
-            this.lcdModeLabel.Size = new System.Drawing.Size(84, 16);
-            this.lcdModeLabel.TabIndex = 9;
-            this.lcdModeLabel.Text = "LCD Mode:";
-            // 
-            // lcdModeValueLabel
-            // 
-            this.lcdModeValueLabel.AutoSize = true;
-            this.lcdModeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdModeValueLabel.Location = new System.Drawing.Point(131, 80);
-            this.lcdModeValueLabel.Name = "lcdModeValueLabel";
-            this.lcdModeValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.lcdModeValueLabel.TabIndex = 13;
-            // 
-            // lcdLYValueLabel
-            // 
-            this.lcdLYValueLabel.AutoSize = true;
-            this.lcdLYValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdLYValueLabel.Location = new System.Drawing.Point(131, 64);
-            this.lcdLYValueLabel.Name = "lcdLYValueLabel";
-            this.lcdLYValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.lcdLYValueLabel.TabIndex = 12;
-            // 
-            // lcdStatValueLabel
-            // 
-            this.lcdStatValueLabel.AutoSize = true;
-            this.lcdStatValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdStatValueLabel.Location = new System.Drawing.Point(131, 48);
-            this.lcdStatValueLabel.Name = "lcdStatValueLabel";
-            this.lcdStatValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.lcdStatValueLabel.TabIndex = 11;
-            // 
-            // lcdcValueLabel
-            // 
-            this.lcdcValueLabel.AutoSize = true;
-            this.lcdcValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcdcValueLabel.Location = new System.Drawing.Point(131, 32);
-            this.lcdcValueLabel.Name = "lcdcValueLabel";
-            this.lcdcValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.lcdcValueLabel.TabIndex = 10;
+            this.resetButton.Location = new System.Drawing.Point(560, 310);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(69, 44);
+            this.resetButton.TabIndex = 8;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // AssemblyView
             // 
@@ -585,6 +596,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(122)))), ((int)(((byte)(175)))));
             this.ClientSize = new System.Drawing.Size(641, 360);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.runButton);
@@ -597,6 +609,8 @@
             this.Text = "GameBeak - Assembly View";
             this.Load += new System.EventHandler(this.AssemblyView_Load);
             this.panel1.ResumeLayout(false);
+            this.interruptGroupBox.ResumeLayout(false);
+            this.interruptGroupBox.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -605,8 +619,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.interruptGroupBox.ResumeLayout(false);
-            this.interruptGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -659,5 +671,6 @@
         private System.Windows.Forms.Label lcdLYValueLabel;
         private System.Windows.Forms.Label lcdStatValueLabel;
         private System.Windows.Forms.Label lcdcValueLabel;
+        private System.Windows.Forms.Button resetButton;
     }
 }
