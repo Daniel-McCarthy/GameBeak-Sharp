@@ -11,7 +11,7 @@ namespace GameBeak_Frontend.Classes
         public bool interrupt = false;
         public bool halt = false;
         public bool stop = false; //Button input should set this back to false
-        private bool repeat = false;
+        public bool repeat = false;
 
         public bool interruptsEnabled = true;
         public int tClock = 0;
