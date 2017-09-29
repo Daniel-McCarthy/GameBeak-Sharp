@@ -1022,32 +1022,16 @@ namespace GameBeak_Frontend.Classes
             setStackPointer((ushort)0xFFFE);
 
             Random random1 = new Random();
-            for (ushort i = 0xC000; i < 0xDFFF; i ++)
+            for (ushort i = 0xC000; i < 0xDFFF; i++)
             {
                 byte randNum = (byte)random1.Next(0xFF);
-
-                for (int j = 0; j < 2; j++)
-                {
-                    if (i < 0xDFFF)
-                    {
-                        writeMemory(i, randNum);
-                        randNum >>= 8;
-                    }
-                }
+                writeMemory(i, randNum);
             }
 
-            for (ushort i = 0xFF80; i < 0xFFFE; i += 2)
+            for (ushort i = 0xFF80; i < 0xFFFF; i++)
             {
                 byte randNum = (byte)random1.Next(0xFF);
-
-                for (int j = 0; j < 2; j++)
-                {
-                    if (i < 0xFFFE)
-                    {
-                        writeMemory(i, randNum);
-                        randNum >>= 8;
-                    }
-                }
+                writeMemory(i, randNum);
             }
 
             ramMap[(ushort)0xFF00] = ((byte)0xCF); //Joypad
