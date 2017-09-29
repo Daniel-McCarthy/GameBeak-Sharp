@@ -20,7 +20,8 @@ namespace GameBeak_Frontend.Classes
 
         public GameWindow()
         {
-            Color pink = Core.beakGPU.returnColor(0, 0);
+            Color pink = new Color(Core.beakGPU.returnColor(0, 0));
+            //This creates a new Color from existing values so that the original color is not modified
 
             for (int i = 0; i < (256 * 256); i++)
             {
