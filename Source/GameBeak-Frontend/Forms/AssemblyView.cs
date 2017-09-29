@@ -2275,5 +2275,26 @@ namespace GameBeak_Frontend
                 }
             }
         }
+
+        //Reset Game
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            Core.paused = true;
+            Core.beakWindow.resetScreens();
+            Core.beakMemory.initializeGameBoyValues();
+            Core.beakMemory.memoryPointer = 0x100;
+
+            Core.beakCPU.interrupt = false;
+            Core.beakCPU.halt = false;
+            Core.beakCPU.stop = false;
+            Core.beakCPU.repeat = false;
+            Core.beakCPU.interruptsEnabled = true;
+            Core.beakCPU.tClock = 0;
+            Core.beakCPU.mClock = 0;
+
+            //May need to reset more values in memory, like rom bank values, and perhaps some gpu values
+
+            Core.paused = false;
+        }
     }
 }
