@@ -59,6 +59,14 @@ namespace GameBeak_Frontend.Classes
         
         }
 
+        public Color(Color newColor)
+        {
+            r = newColor.r;
+            g = newColor.g;
+            b = newColor.b;
+            a = newColor.a;
+        }
+
         public uint getRGBAInt()
         {
             return (uint)((r << 24) | (g << 16) | (b << 8) | a);
