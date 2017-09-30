@@ -25,14 +25,7 @@ namespace GameBeak_Frontend.Forms
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            if(tileViewRadioButton.Checked)
-            {
-                drawTileView();
-            }
-            else
-            {
-                drawFullView();
-            }
+            refresh();
         }
 
         private void drawTileView()
