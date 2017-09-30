@@ -108,6 +108,8 @@ namespace GameBeak_Frontend
             lcdStatValueLabel.Text = Core.beakGPU.getLCDStatus().ToString("X2");
             lcdLYValueLabel.Text = Core.beakGPU.getLCDLY().ToString("X2");
             lcdModeValueLabel.Text = Core.beakGPU.getLCDMode().ToString("X2");
+            scrollXValueLabel.Text = Core.beakGPU.getScrollX().ToString("X2");
+            scrollYValueLabel.Text = Core.beakGPU.getScrollY().ToString("X2");
         }
 
         private void stepButton_Click(object sender, EventArgs e)
@@ -123,6 +125,8 @@ namespace GameBeak_Frontend
             updateFlagDisplay();
             updateAssemblyDisplay();
             updateStackDisplay();
+            updateInterruptDisplay();
+            updateLCDValuesDisplay();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -132,6 +136,8 @@ namespace GameBeak_Frontend
             updateFlagDisplay();
             updateAssemblyDisplay();
             updateStackDisplay();
+            updateInterruptDisplay();
+            updateLCDValuesDisplay();
         }
 
         private void AssemblyView_Load(object sender, EventArgs e)
