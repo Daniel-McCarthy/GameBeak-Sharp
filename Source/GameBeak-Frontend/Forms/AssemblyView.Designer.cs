@@ -77,6 +77,10 @@
             this.spLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
+            this.scrollXLabel = new System.Windows.Forms.Label();
+            this.scrollYLabel = new System.Windows.Forms.Label();
+            this.scrollYValueLabel = new System.Windows.Forms.Label();
+            this.scrollXValueLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.interruptGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -312,6 +316,10 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(138)))), ((int)(((byte)(235)))));
+            this.groupBox3.Controls.Add(this.scrollYValueLabel);
+            this.groupBox3.Controls.Add(this.scrollXValueLabel);
+            this.groupBox3.Controls.Add(this.scrollYLabel);
+            this.groupBox3.Controls.Add(this.scrollXLabel);
             this.groupBox3.Controls.Add(this.lcdModeValueLabel);
             this.groupBox3.Controls.Add(this.lcdLYValueLabel);
             this.groupBox3.Controls.Add(this.lcdStatValueLabel);
@@ -590,6 +598,44 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // scrollXLabel
+            // 
+            this.scrollXLabel.AutoSize = true;
+            this.scrollXLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollXLabel.Location = new System.Drawing.Point(13, 97);
+            this.scrollXLabel.Name = "scrollXLabel";
+            this.scrollXLabel.Size = new System.Drawing.Size(113, 16);
+            this.scrollXLabel.TabIndex = 14;
+            this.scrollXLabel.Text = "Scroll X (FF43):";
+            // 
+            // scrollYLabel
+            // 
+            this.scrollYLabel.AutoSize = true;
+            this.scrollYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollYLabel.Location = new System.Drawing.Point(13, 113);
+            this.scrollYLabel.Name = "scrollYLabel";
+            this.scrollYLabel.Size = new System.Drawing.Size(114, 16);
+            this.scrollYLabel.TabIndex = 15;
+            this.scrollYLabel.Text = "Scroll Y (FF42):";
+            // 
+            // scrollYValueLabel
+            // 
+            this.scrollYValueLabel.AutoSize = true;
+            this.scrollYValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollYValueLabel.Location = new System.Drawing.Point(128, 116);
+            this.scrollYValueLabel.Name = "scrollYValueLabel";
+            this.scrollYValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.scrollYValueLabel.TabIndex = 17;
+            // 
+            // scrollXValueLabel
+            // 
+            this.scrollXValueLabel.AutoSize = true;
+            this.scrollXValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollXValueLabel.Location = new System.Drawing.Point(128, 100);
+            this.scrollXValueLabel.Name = "scrollXValueLabel";
+            this.scrollXValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.scrollXValueLabel.TabIndex = 16;
+            // 
             // AssemblyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -672,5 +718,9 @@
         private System.Windows.Forms.Label lcdStatValueLabel;
         private System.Windows.Forms.Label lcdcValueLabel;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Label scrollYLabel;
+        private System.Windows.Forms.Label scrollXLabel;
+        private System.Windows.Forms.Label scrollYValueLabel;
+        private System.Windows.Forms.Label scrollXValueLabel;
     }
 }
