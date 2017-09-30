@@ -33,6 +33,7 @@
             this.tileViewRadioButton = new System.Windows.Forms.RadioButton();
             this.fullViewRadioButton = new System.Windows.Forms.RadioButton();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.spriteViewRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.tileViewRadioButton.TabStop = true;
             this.tileViewRadioButton.Text = "Tile View";
             this.tileViewRadioButton.UseVisualStyleBackColor = true;
+            this.tileViewRadioButton.CheckedChanged += new System.EventHandler(this.tileViewRadioButton_CheckedChanged);
             // 
             // fullViewRadioButton
             // 
@@ -66,10 +68,11 @@
             this.fullViewRadioButton.TabStop = true;
             this.fullViewRadioButton.Text = "Full View";
             this.fullViewRadioButton.UseVisualStyleBackColor = true;
+            this.fullViewRadioButton.CheckedChanged += new System.EventHandler(this.fullViewRadioButton_CheckedChanged);
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(102, 277);
+            this.refreshButton.Location = new System.Drawing.Point(102, 289);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 23);
             this.refreshButton.TabIndex = 3;
@@ -77,11 +80,24 @@
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // spriteViewRadioButton
+            // 
+            this.spriteViewRadioButton.AutoSize = true;
+            this.spriteViewRadioButton.Location = new System.Drawing.Point(101, 266);
+            this.spriteViewRadioButton.Name = "spriteViewRadioButton";
+            this.spriteViewRadioButton.Size = new System.Drawing.Size(78, 17);
+            this.spriteViewRadioButton.TabIndex = 4;
+            this.spriteViewRadioButton.TabStop = true;
+            this.spriteViewRadioButton.Text = "Sprite View";
+            this.spriteViewRadioButton.UseVisualStyleBackColor = true;
+            this.spriteViewRadioButton.CheckedChanged += new System.EventHandler(this.spriteViewRadioButton_CheckedChanged);
+            // 
             // GraphicView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 312);
+            this.ClientSize = new System.Drawing.Size(284, 319);
+            this.Controls.Add(this.spriteViewRadioButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.fullViewRadioButton);
             this.Controls.Add(this.tileViewRadioButton);
@@ -102,5 +118,6 @@
         private System.Windows.Forms.RadioButton tileViewRadioButton;
         private System.Windows.Forms.RadioButton fullViewRadioButton;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.RadioButton spriteViewRadioButton;
     }
 }
