@@ -104,5 +104,27 @@ namespace GameBeak_Frontend.Forms
 
             pictureBox1.Image = fullScreen;
         }
+
+        private void refresh()
+        {
+            if (canvasMode)
+            {
+                pictureBox1.Visible = true;
+
+                if (tileViewRadioButton.Checked)
+                {
+                    drawTileView();
+                }
+                else
+                {
+                    drawFullView();
+                }
+            }
+            else
+            {
+                pictureBox1.Visible = false;
+            }
+        }
+
     }
 }
