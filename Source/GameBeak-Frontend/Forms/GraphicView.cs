@@ -17,6 +17,7 @@ namespace GameBeak_Frontend.Forms
     {
         private Bitmap tileScreen = new Bitmap(160, 160);
         private Bitmap fullScreen = new Bitmap(256, 256);
+        private bool canvasMode = true;
 
         public GraphicView()
         {
@@ -138,5 +139,19 @@ namespace GameBeak_Frontend.Forms
             }
         }
 
+        private void tileViewRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            updateRadioButtons();
+        }
+
+        private void spriteViewRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            updateRadioButtons();
+        }
+
+        private void fullViewRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            updateRadioButtons();
+        }
     }
 }
