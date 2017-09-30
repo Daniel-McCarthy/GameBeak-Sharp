@@ -148,6 +148,72 @@ namespace GameBeak_Frontend.Forms
             pictureBox1.Image = fullScreen;
         }
 
+        private void updateSpriteView()
+        {
+            byte pageShift = (byte)(spritePage * 16);
+
+            //Sprite 1
+            byte shift = (byte)(pageShift + 4);
+
+            byte spriteY = Core.beakMemory.readMemory((ushort)(0xFE00 + shift));
+            byte spriteX = Core.beakMemory.readMemory((ushort)(0xFE01 + shift));
+            byte tileNumber = Core.beakMemory.readMemory((ushort)(0xFE02 + shift));
+
+            sprite1XPosValueLabel.Text = spriteX.ToString("X2");
+            sprite1YPosValueLabel.Text = spriteY.ToString("X2");
+            sprite1TileNumberValueLabel.Text = tileNumber.ToString("X2");
+
+            sprite1OAMAddressValueLabel.Text = 0xFE00.ToString("X4");
+
+            drawSpriteIcon(sprite1PictureBox, tileNumber);
+
+            //Sprite 2
+            shift = (byte)(pageShift + 8);
+
+            spriteY = Core.beakMemory.readMemory((ushort)(0xFE00 + shift));
+            spriteX = Core.beakMemory.readMemory((ushort)(0xFE01 + shift));
+            tileNumber = Core.beakMemory.readMemory((ushort)(0xFE02 + shift));
+
+            sprite2XPosValueLabel.Text = spriteX.ToString("X2");
+            sprite2YPosValueLabel.Text = spriteY.ToString("X2");
+            sprite2TileNumberValueLabel.Text = tileNumber.ToString("X2");
+
+            sprite2OAMAddressValueLabel.Text = 0xFE04.ToString("X4");
+
+            drawSpriteIcon(sprite2PictureBox, tileNumber);
+
+
+            //Sprite 3
+            shift = (byte)(pageShift + 12);
+
+            spriteY = Core.beakMemory.readMemory((ushort)(0xFE00 + shift));
+            spriteX = Core.beakMemory.readMemory((ushort)(0xFE01 + shift));
+            tileNumber = Core.beakMemory.readMemory((ushort)(0xFE02 + shift));
+
+            sprite3XPosValueLabel.Text = spriteX.ToString("X2");
+            sprite3YPosValueLabel.Text = spriteY.ToString("X2");
+            sprite3TileNumberValueLabel.Text = tileNumber.ToString("X2");
+
+            sprite1OAMAddressValueLabel.Text = 0xFE08.ToString("X4");
+
+            drawSpriteIcon(sprite3PictureBox, tileNumber);
+
+            //Sprite 4
+            shift = (byte)(pageShift + 16);
+
+            spriteY = Core.beakMemory.readMemory((ushort)(0xFE00 + shift));
+            spriteX = Core.beakMemory.readMemory((ushort)(0xFE01 + shift));
+            tileNumber = Core.beakMemory.readMemory((ushort)(0xFE02 + shift));
+
+            sprite4XPosValueLabel.Text = spriteX.ToString("X2");
+            sprite4YPosValueLabel.Text = spriteY.ToString("X2");
+            sprite4TileNumberValueLabel.Text = tileNumber.ToString("X2");
+
+            sprite1OAMAddressValueLabel.Text = 0xFE10.ToString("X4");
+
+            drawSpriteIcon(sprite4PictureBox, tileNumber);
+        }
+
         private void updateRadioButtons()
         {
             bool tileViewChecked = tileViewRadioButton.Checked;
@@ -157,7 +223,6 @@ namespace GameBeak_Frontend.Forms
             if(tileViewChecked ||  fullViewChecked)
             {
                 canvasMode = true;
-
             }
             else
             {
@@ -187,6 +252,7 @@ namespace GameBeak_Frontend.Forms
             }
             else
             {
+                updateSpriteView();
                 spriteViewGroupBox.Visible = true;
                 spriteViewGroupBox.Enabled = true;
                 pictureBox1.Visible = false;
