@@ -122,6 +122,9 @@ namespace GameBeak_Frontend.Forms
         {
             if (canvasMode)
             {
+                spriteViewGroupBox.Visible = false;
+                spriteViewGroupBox.Enabled = false;
+
                 pictureBox1.Visible = true;
 
                 if (tileViewRadioButton.Checked)
@@ -135,6 +138,8 @@ namespace GameBeak_Frontend.Forms
             }
             else
             {
+                spriteViewGroupBox.Visible = true;
+                spriteViewGroupBox.Enabled = true;
                 pictureBox1.Visible = false;
             }
         }
