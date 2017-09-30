@@ -131,6 +131,9 @@ namespace GameBeak_Frontend
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
+
+            System.Threading.Thread.Sleep(10);
+
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
@@ -156,6 +159,9 @@ namespace GameBeak_Frontend
         private void pauseButton_Click(object sender, EventArgs e)
         {
             Core.paused = true;
+
+            System.Threading.Thread.Sleep(10);
+
             updateDisplayValues();
             updatePCValues();
             updateFlagDisplay();
