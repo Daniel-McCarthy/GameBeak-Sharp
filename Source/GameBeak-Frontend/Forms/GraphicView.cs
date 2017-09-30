@@ -98,6 +98,25 @@ namespace GameBeak_Frontend.Forms
             pictureBox1.Image = fullScreen;
         }
 
+        private void updateRadioButtons()
+        {
+            bool tileViewChecked = tileViewRadioButton.Checked;
+            bool spriteViewChecked = spriteViewRadioButton.Checked;
+            bool fullViewChecked = fullViewRadioButton.Checked;
+
+            if(tileViewChecked ||  fullViewChecked)
+            {
+                canvasMode = true;
+
+            }
+            else
+            {
+                canvasMode = false;
+            }
+
+            refresh();
+        }
+
         private void refresh()
         {
             if (canvasMode)
