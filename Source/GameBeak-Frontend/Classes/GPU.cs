@@ -382,7 +382,7 @@ namespace GameBeak_Frontend.Classes
 
         public Color returnColor(int colorNumber)
         {
-            return gameBeakPalette[colorNumber + (Core.paletteSetting * 12)];
+            return new Color(gameBeakPalette[colorNumber + (Core.paletteSetting * 12)]);
         }
 
         public Color returnColor(int colorNumber, int palette)

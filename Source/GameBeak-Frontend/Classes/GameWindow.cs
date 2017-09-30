@@ -25,9 +25,9 @@ namespace GameBeak_Frontend.Classes
 
             for (int i = 0; i < (256 * 256); i++)
             {
-                bgPixels[i] = pink;
-                windowPixels[i] = pink;
-                spritePixels[i] = pink;
+                bgPixels[i] = new Color(pink);
+                windowPixels[i] = new Color(pink);
+                spritePixels[i] = new Color(pink);
             }
         }
 
@@ -38,9 +38,9 @@ namespace GameBeak_Frontend.Classes
 
             for (int i = 0; i < (256 * 256); i++)
             {
-                bgPixels[i] = pink;
-                windowPixels[i] = pink;
-                spritePixels[i] = pink;
+                bgPixels[i] = new Color(pink);
+                windowPixels[i] = new Color(pink);
+                spritePixels[i] = new Color(pink);
             }
         }
 
@@ -50,9 +50,9 @@ namespace GameBeak_Frontend.Classes
 
             for (int i = 0; i < (256 * 256); i++)
             {
-                bgPixels[i] = pink;
-                windowPixels[i] = pink;
-                spritePixels[i] = pink;
+                bgPixels[i] = new Color(pink);
+                windowPixels[i] = new Color(pink);
+                spritePixels[i] = new Color(pink);
             }
         }
 
@@ -110,7 +110,7 @@ namespace GameBeak_Frontend.Classes
 
                         for(int i = 0; i < spritePixels.Length; i++)
                         {
-                            spritePixels[i] = Color.Clear;
+                            spritePixels[i] = new Color(Color.Clear);
                         }
                     }
                     else
@@ -280,22 +280,22 @@ namespace GameBeak_Frontend.Classes
 
         public void setBGPixel(int x, int y, Color color)
         {
-            bgPixels[x + (y * 256)] = color;
+            bgPixels[x + (y * 256)] = new Color(color);
         }
 
         public Color getBGPixel(int x, int y)
         {
-            return bgPixels[x + (y * 256)];
+            return new Color(bgPixels[x + (y * 256)]);
         }
 
         public void setWindowPixel(int x, int y, Color color)
         {
-            windowPixels[x + (y * 256)] = color;
+            windowPixels[x + (y * 256)] =  new Color(color);
         }
 
         public void setSpritePixel(int x, int y, Color color)
         {
-            spritePixels[x + (y * 256)] = color;
+            spritePixels[x + (y * 256)] = new Color(color);
         }
 
         public void drawScreenFromMaps(int scrollX, int scrollY)
@@ -317,7 +317,7 @@ namespace GameBeak_Frontend.Classes
                     {
                         y = (byte)(scrollY + j);
 
-                        screen.setPixel(i, j, bgPixels[x + (y * 256)]);
+                        screen.setPixel(i, j, new Color(bgPixels[x + (y * 256)]));
                     }
 
                 }
@@ -362,7 +362,7 @@ namespace GameBeak_Frontend.Classes
                     {
                         for (int j = 0; (j + y + yShift) < 144; j++)
                         {
-                            screen.setPixel((x + xShift + i), (y + yShift + j), windowPixels[(xShift + i) + ((yShift + j) * 256)]);
+                            screen.setPixel((x + xShift + i), (y + yShift + j), new Color(windowPixels[(xShift + i) + ((yShift + j) * 256)]));
                         }
 
                     }
@@ -380,7 +380,7 @@ namespace GameBeak_Frontend.Classes
                 {
                     if (spritePixels[((x) + ((y) * 256))].a != 0)
                     {
-                        screen.setPixel(x, y, spritePixels[(x) + (y * 256)]);
+                        screen.setPixel(x, y, new Color(spritePixels[(x) + (y * 256)]));
 
                     }
 
@@ -419,7 +419,7 @@ namespace GameBeak_Frontend.Classes
 
                     for (int y = 0; y < 256; y++)
                     {
-                        fullScreen.setPixel(x, y, bgPixels[x + (y * 256)]);
+                        fullScreen.setPixel(x, y, new Color(bgPixels[x + (y * 256)]));
                     }
 
                 }
@@ -484,7 +484,7 @@ namespace GameBeak_Frontend.Classes
                     if (spritePixels[((x) + ((y) * 256))].a != 0)
                     {
                         //fullScreen.setPixel(beakGPU.getScrollX() + x, beakGPU.getScrollY() + y, spritePixels[(x)+(y * 256)]);
-                        fullScreen.setPixel(x, y, spritePixels[(x) + (y * 256)]);
+                        fullScreen.setPixel(x, y, new Color(spritePixels[(x) + (y * 256)]));
                     }
 
                     if (x < 255)
