@@ -166,7 +166,7 @@
             // 
             this.ifValueLabel.AutoSize = true;
             this.ifValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ifValueLabel.Location = new System.Drawing.Point(52, 45);
+            this.ifValueLabel.Location = new System.Drawing.Point(51, 45);
             this.ifValueLabel.Name = "ifValueLabel";
             this.ifValueLabel.Size = new System.Drawing.Size(0, 16);
             this.ifValueLabel.TabIndex = 11;
@@ -622,7 +622,7 @@
             // 
             this.scrollYValueLabel.AutoSize = true;
             this.scrollYValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scrollYValueLabel.Location = new System.Drawing.Point(128, 116);
+            this.scrollYValueLabel.Location = new System.Drawing.Point(131, 116);
             this.scrollYValueLabel.Name = "scrollYValueLabel";
             this.scrollYValueLabel.Size = new System.Drawing.Size(0, 16);
             this.scrollYValueLabel.TabIndex = 17;
@@ -631,7 +631,7 @@
             // 
             this.scrollXValueLabel.AutoSize = true;
             this.scrollXValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scrollXValueLabel.Location = new System.Drawing.Point(128, 100);
+            this.scrollXValueLabel.Location = new System.Drawing.Point(131, 100);
             this.scrollXValueLabel.Name = "scrollXValueLabel";
             this.scrollXValueLabel.Size = new System.Drawing.Size(0, 16);
             this.scrollXValueLabel.TabIndex = 16;
