@@ -347,7 +347,7 @@ namespace GameBeak_Frontend.Classes
                             {
                                 if (!priority || (priority && (Core.beakWindow.getBGPixel(scrollX + x + j, lineY + scrollY) == bgColor)))
                                 {
-                                    Core.beakWindow.setSpritePixel(x + j, lineY, returnColor(colorNumber, Convert.ToInt32(palette) + 1)); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
+                                    Core.beakWindow.setSpritePixel(x + j, lineY, returnColor(colorNumber, ((palette) ? 1 : 0) + 1)); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
                                 }
                             }
 
