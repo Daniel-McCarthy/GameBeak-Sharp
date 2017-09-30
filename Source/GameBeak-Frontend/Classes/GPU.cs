@@ -297,12 +297,12 @@ namespace GameBeak_Frontend.Classes
 
             for (int i = 0; i < 40; i++)
             {
-                y = Core.beakMemory.readMemory((ushort)((mapAddress + (i * 4)) - 16));
+                y = Core.beakMemory.readMemory((ushort)((mapAddress + (i * 4)))) - 16;
 
                 if (y > -8)
                 {
 
-                    x = Core.beakMemory.readMemory((ushort)((mapAddress + (i * 4) + 1) - 8));
+                    x = (byte)(Core.beakMemory.readMemory((ushort)((mapAddress + (i * 4) + 1))) - 8);
 
                     bool isSpriteOnLine = (y <= lineY) && ((y + ((spriteSize == false) ? 8 : 16)) > lineY);
                     //(y <= lineY)  if the start of the sprite is at lineY or before it
