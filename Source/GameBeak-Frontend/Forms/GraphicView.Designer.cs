@@ -120,7 +120,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Menu;
+            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox2.Location = new System.Drawing.Point(6, 19);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
@@ -168,7 +168,7 @@
             // sprite1TileNumberLabel
             // 
             this.sprite1TileNumberLabel.AutoSize = true;
-            this.sprite1TileNumberLabel.Location = new System.Drawing.Point(94, 19);
+            this.sprite1TileNumberLabel.Location = new System.Drawing.Point(94, 20);
             this.sprite1TileNumberLabel.Name = "sprite1TileNumberLabel";
             this.sprite1TileNumberLabel.Size = new System.Drawing.Size(37, 13);
             this.sprite1TileNumberLabel.TabIndex = 3;
@@ -177,7 +177,7 @@
             // sprite1OAMAddressLabel
             // 
             this.sprite1OAMAddressLabel.AutoSize = true;
-            this.sprite1OAMAddressLabel.Location = new System.Drawing.Point(147, 19);
+            this.sprite1OAMAddressLabel.Location = new System.Drawing.Point(147, 20);
             this.sprite1OAMAddressLabel.Name = "sprite1OAMAddressLabel";
             this.sprite1OAMAddressLabel.Size = new System.Drawing.Size(34, 13);
             this.sprite1OAMAddressLabel.TabIndex = 4;
@@ -186,7 +186,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(147, 38);
+            this.label1.Location = new System.Drawing.Point(147, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 5;
@@ -211,7 +211,7 @@
             // sprite1TileNumberValueLabel
             // 
             this.sprite1TileNumberValueLabel.AutoSize = true;
-            this.sprite1TileNumberValueLabel.Location = new System.Drawing.Point(132, 20);
+            this.sprite1TileNumberValueLabel.Location = new System.Drawing.Point(132, 21);
             this.sprite1TileNumberValueLabel.Name = "sprite1TileNumberValueLabel";
             this.sprite1TileNumberValueLabel.Size = new System.Drawing.Size(0, 13);
             this.sprite1TileNumberValueLabel.TabIndex = 7;
@@ -219,7 +219,7 @@
             // sprite1TileAddressValueLabel
             // 
             this.sprite1TileAddressValueLabel.AutoSize = true;
-            this.sprite1TileAddressValueLabel.Location = new System.Drawing.Point(198, 39);
+            this.sprite1TileAddressValueLabel.Location = new System.Drawing.Point(198, 38);
             this.sprite1TileAddressValueLabel.Name = "sprite1TileAddressValueLabel";
             this.sprite1TileAddressValueLabel.Size = new System.Drawing.Size(0, 13);
             this.sprite1TileAddressValueLabel.TabIndex = 9;
@@ -227,7 +227,7 @@
             // sprite1OAMAddressValueLabel
             // 
             this.sprite1OAMAddressValueLabel.AutoSize = true;
-            this.sprite1OAMAddressValueLabel.Location = new System.Drawing.Point(198, 20);
+            this.sprite1OAMAddressValueLabel.Location = new System.Drawing.Point(198, 21);
             this.sprite1OAMAddressValueLabel.Name = "sprite1OAMAddressValueLabel";
             this.sprite1OAMAddressValueLabel.Size = new System.Drawing.Size(0, 13);
             this.sprite1OAMAddressValueLabel.TabIndex = 8;
