@@ -17,7 +17,10 @@ namespace GameBeak_Frontend.Forms
     {
         private Bitmap tileScreen = new Bitmap(160, 160);
         private Bitmap fullScreen = new Bitmap(256, 256);
+        private Bitmap spritePreview = new Bitmap(8, 8);
         private bool canvasMode = true;
+
+        private byte spritePage = 0;
 
         public GraphicView()
         {
@@ -83,6 +86,52 @@ namespace GameBeak_Frontend.Forms
                 tile.Remove(tile.First());
             }
 
+        }
+
+        void drawSpriteIcon(PictureBox pictureBox, byte tileNumber)
+        {
+            ushort baseAddress = 0x8000;
+
+            List<List<gb.Color>> tile = new List<List<gb.Color>>();
+
+
+            ushort tileOffset = (ushort)(tileNumber * 16);
+
+            ushort tileAddress = (ushort)(baseAddress + tileOffset);
+
+            for (ushort j = 0; j < 16; j += 2)
+            {
+                byte rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + j));
+                byte rowHalf2 = Core.beakMemory.readMemory((ushort)(tileAddress + j + 1));
+
+                List<gb.Color> row = new List<gb.Color>();
+
+                for (int k = 0; k < 8; k++)
+                {
+                    row.Add(Core.beakGPU.returnColor((((rowHalf1 & 0x80) >> 7)) | ((rowHalf2 & 0x80) >> 6)));
+                    rowHalf1 <<= 1;
+                    rowHalf2 <<= 1;
+                }
+
+                tile.Add(row);
+            }
+
+       
+            //Draw Tile to Picture Box
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    gb.Color color = tile[0][j];
+                    spritePreview.SetPixel(j, i, Color.FromArgb(color.a, color.r, color.g, color.b));
+                }
+
+                tile.Remove(tile.First());
+            }
+
+
+
+            pictureBox.Image = new Bitmap(spritePreview, new Size (spritePreview.Width * 4, spritePreview.Height * 4));
         }
 
         private void drawFullView()
