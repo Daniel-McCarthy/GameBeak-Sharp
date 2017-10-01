@@ -18,6 +18,8 @@ namespace GameBeak_Frontend.Classes
         private int gpuMode = 1; //BGB defaults this to 1, V-Blank. This should be true.
         private bool poweringOn = true;
 
+        private Task screenUpdate;
+
         public GameWindow()
         {
             Color pink = new Color(Core.beakGPU.returnColor(0, 0));
@@ -95,7 +97,10 @@ namespace GameBeak_Frontend.Classes
                             {
                                 drawScreenFromMaps(Core.beakGPU.getScrollX(), Core.beakGPU.getScrollY());
 
-                                Core.mainWindow.updateScreen();
+                                if (screenUpdate == null || screenUpdate.IsCompleted)
+                                {
+                                    screenUpdate = Task.Run(() => Core.mainWindow.updateScreen());
+                                }
                             }
                             refreshClocksSinceLastUpdate = clocks;
                         }
