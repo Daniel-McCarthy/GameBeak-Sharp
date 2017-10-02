@@ -325,5 +325,11 @@ namespace GameBeak_Frontend.Forms
             setPreviewColor(bp1ColorPreview3, palettes[(index * 12) + 10]);
             setPreviewColor(bp1ColorPreview4, palettes[(index * 12) + 11]);
         }
+
+        //Select Palette
+        private void paletteNameListBox_DoubleClick(object sender, EventArgs e)
+        {
+            setPalette();
+        }
     }
 }
