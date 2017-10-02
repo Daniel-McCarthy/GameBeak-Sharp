@@ -27,6 +27,93 @@ namespace GameBeak_Frontend.Forms
             preview.BackColor = previewColor;
         }
 
+        public void loadPalettesFromXML(FileStream inputFile)
+        {
+            string line;
+            List<byte> colorValues = new List<byte>();
+
+            StreamReader fileReader = new StreamReader(inputFile);
+
+            while (!fileReader.EndOfStream)
+            {
+                line = fileReader.ReadLine();
+
+                if(line.Contains("<name>"))
+                {
+                    int first = line.IndexOf('>') + 1;
+                    int last = line.LastIndexOf('<');
+
+                    paletteNames.Add(line.Substring(first, last - first));
+                }
+
+                bool test1 = (line.Contains("<bgp>")) && (line.Contains("</bgp>"));
+                bool test2 = (line.Contains("<0bp0>")) && (line.Contains("</0bp0>"));
+                bool test3 = (line.Contains("<0bp1>")) && (line.Contains("</0bp1>"));
+
+                if (test1 || test2 || test3)
+                {
+                    int first = line.IndexOf('>') + 1;
+                    int last = line.LastIndexOf('<');
+
+                    line = line.Substring(first, last - first);
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        byte r = byte.Parse(line.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+                        byte g = byte.Parse(line.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+                        byte b = byte.Parse(line.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+
+                        colorValues.Add(r);
+                        colorValues.Add(g);
+                        colorValues.Add(b);
+
+                        if (line.Length > 8)
+                        {
+                            line = line.Substring(9, line.Length - 9);
+                        }
+                    }
+
+                }
+            }
+            if ((colorValues.Count / 36) > 0)
+            {
+                int paletteOffset = 0;
+                int colorOffset = 0;
+
+                while (colorValues.Count >= (4 * 3))
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        byte r = colorValues.First();
+                        colorValues.RemoveAt(0);
+                        byte g = colorValues.First();
+                        colorValues.RemoveAt(0);
+                        byte b = colorValues.First();
+                        colorValues.RemoveAt(0);
+
+                        Color color = Color.FromArgb((255 << 24) | (r << 16) | (g << 8) | b);
+
+
+                        palettes.Add(color);
+
+                        if (colorOffset >= 3)
+                        {
+                            colorOffset = 0;
+                        }
+                        else
+                        {
+                            colorOffset++;
+                        }
+                    }
+
+                    paletteOffset++;
+                }
+            }
+
+            fileReader.Close();
+            inputFile.Close();
+        }
+
         public FileStream openCreatePalettesXML()
         {
             //open XML palette file
