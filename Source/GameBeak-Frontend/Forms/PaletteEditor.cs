@@ -22,6 +22,13 @@ namespace GameBeak_Frontend.Forms
         }
 
 
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            setPalette();
+            this.Close();
+        }
+
+
         private void PaletteEditor_Load(object sender, EventArgs e)
         {
             FileStream palettesFile = openCreatePalettesXML();
