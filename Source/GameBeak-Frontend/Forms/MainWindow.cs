@@ -30,6 +30,7 @@ namespace GameBeak_Frontend
         private AssemblyView assemblyView;
         private MemoryView memoryView;
         private GraphicView graphicView;
+        private PaletteEditor paletteEditor;
 
         public MainWindow()
         {
@@ -236,7 +237,20 @@ namespace GameBeak_Frontend
                 graphicView.BringToFront();
             }
         }
+
+        private void paletteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (paletteEditor == null || paletteEditor.IsDisposed)
+            {
+                paletteEditor = new PaletteEditor();
+                paletteEditor.Show();
+            }
+            else
+            {
+                paletteEditor.Show();
+                paletteEditor.BringToFront();
+            }
+        }
     }
 
-    }
 }

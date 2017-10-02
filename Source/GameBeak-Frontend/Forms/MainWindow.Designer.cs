@@ -37,11 +37,12 @@
             this.debuggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assemblyViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memoryViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graphicViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.graphicViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paletteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -77,6 +78,8 @@
             // 
             // settingsToolStripMenuItem
             // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paletteToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -105,6 +108,13 @@
             this.memoryViewToolStripMenuItem.Text = "Memory View";
             this.memoryViewToolStripMenuItem.Click += new System.EventHandler(this.memoryViewToolStripMenuItem_Click);
             // 
+            // graphicViewToolStripMenuItem
+            // 
+            this.graphicViewToolStripMenuItem.Name = "graphicViewToolStripMenuItem";
+            this.graphicViewToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.graphicViewToolStripMenuItem.Text = "Graphic View";
+            this.graphicViewToolStripMenuItem.Click += new System.EventHandler(this.graphicViewToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -129,12 +139,12 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // graphicViewToolStripMenuItem
+            // paletteToolStripMenuItem
             // 
-            this.graphicViewToolStripMenuItem.Name = "graphicViewToolStripMenuItem";
-            this.graphicViewToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.graphicViewToolStripMenuItem.Text = "Graphic View";
-            this.graphicViewToolStripMenuItem.Click += new System.EventHandler(this.graphicViewToolStripMenuItem_Click);
+            this.paletteToolStripMenuItem.Name = "paletteToolStripMenuItem";
+            this.paletteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.paletteToolStripMenuItem.Text = "Palette";
+            this.paletteToolStripMenuItem.Click += new System.EventHandler(this.paletteToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -174,6 +184,7 @@
         private System.Windows.Forms.ToolStripMenuItem assemblyViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memoryViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem graphicViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paletteToolStripMenuItem;
     }
 }
 
