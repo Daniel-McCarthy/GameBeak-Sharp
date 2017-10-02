@@ -21,6 +21,12 @@ namespace GameBeak_Frontend.Forms
             InitializeComponent();
         }
 
+
+        private void setPreviewColor(PictureBox preview, Color previewColor)
+        {
+            preview.BackColor = previewColor;
+        }
+
         public FileStream openCreatePalettesXML()
         {
             //open XML palette file
