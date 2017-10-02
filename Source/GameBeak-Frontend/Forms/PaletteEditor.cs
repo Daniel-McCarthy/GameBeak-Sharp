@@ -303,6 +303,10 @@ namespace GameBeak_Frontend.Forms
 
         }
 
+        private void paletteNameListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setPalettePreviews(paletteNameListBox.SelectedIndex);
+        }
 
         private void setPalettePreviews(int index)
         {

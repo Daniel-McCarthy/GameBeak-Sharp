@@ -118,6 +118,7 @@
             this.paletteNameListBox.Name = "paletteNameListBox";
             this.paletteNameListBox.Size = new System.Drawing.Size(224, 95);
             this.paletteNameListBox.TabIndex = 0;
+            this.paletteNameListBox.SelectedIndexChanged += new System.EventHandler(this.paletteNameListBox_SelectedIndexChanged);
             // 
             // bgColorPreview1
             // 
