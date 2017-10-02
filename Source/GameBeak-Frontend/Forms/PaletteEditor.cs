@@ -317,5 +317,22 @@ namespace GameBeak_Frontend.Forms
         }
 
 
+        private void setPalettePreviews(int index)
+        {
+            setPreviewColor(bgColorPreview1, palettes[(index * 12) + 0]);
+            setPreviewColor(bgColorPreview2, palettes[(index * 12) + 1]);
+            setPreviewColor(bgColorPreview3, palettes[(index * 12) + 2]);
+            setPreviewColor(bgColorPreview4, palettes[(index * 12) + 3]);
+
+            setPreviewColor(bp0ColorPreview1, palettes[(index * 12) + 4]);
+            setPreviewColor(bp0ColorPreview2, palettes[(index * 12) + 5]);
+            setPreviewColor(bp0ColorPreview3, palettes[(index * 12) + 6]);
+            setPreviewColor(bp0ColorPreview4, palettes[(index * 12) + 7]);
+
+            setPreviewColor(bp1ColorPreview1, palettes[(index * 12) + 8]);
+            setPreviewColor(bp1ColorPreview2, palettes[(index * 12) + 9]);
+            setPreviewColor(bp1ColorPreview3, palettes[(index * 12) + 10]);
+            setPreviewColor(bp1ColorPreview4, palettes[(index * 12) + 11]);
+        }
     }
 }
