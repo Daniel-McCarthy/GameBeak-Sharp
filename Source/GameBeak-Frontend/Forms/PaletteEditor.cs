@@ -24,6 +24,26 @@ namespace GameBeak_Frontend.Forms
             InitializeComponent();
         }
 
+        private void setPalette()
+        {
+            int index = paletteNameListBox.SelectedIndex;
+
+            Core.beakGPU.gameBeakPalette[0] = convertColor(palettes[(index * 12) + 0]);
+            Core.beakGPU.gameBeakPalette[1] = convertColor(palettes[(index * 12) + 1]);
+            Core.beakGPU.gameBeakPalette[2] = convertColor(palettes[(index * 12) + 2]);
+            Core.beakGPU.gameBeakPalette[3] = convertColor(palettes[(index * 12) + 3]);
+
+            Core.beakGPU.gameBeakPalette[4] = convertColor(palettes[(index * 12) + 4]);
+            Core.beakGPU.gameBeakPalette[5] = convertColor(palettes[(index * 12) + 5]);
+            Core.beakGPU.gameBeakPalette[6] = convertColor(palettes[(index * 12) + 6]);
+            Core.beakGPU.gameBeakPalette[7] = convertColor(palettes[(index * 12) + 7]);
+
+            Core.beakGPU.gameBeakPalette[8] = convertColor(palettes[(index * 12) + 8]);
+            Core.beakGPU.gameBeakPalette[9] = convertColor(palettes[(index * 12) + 9]);
+            Core.beakGPU.gameBeakPalette[10] = convertColor(palettes[(index * 12) + 10]);
+            Core.beakGPU.gameBeakPalette[11] = convertColor(palettes[(index * 12) + 11]);
+
+        }
 
         private GameBeak.Color convertColor(Color color)
         {
