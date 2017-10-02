@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+using Core = GameBeak_Frontend.Classes.Core;
+using GameBeak = GameBeak_Frontend.Classes;
+
 namespace GameBeak_Frontend.Forms
 {
     public partial class PaletteEditor : Form
@@ -21,6 +24,11 @@ namespace GameBeak_Frontend.Forms
             InitializeComponent();
         }
 
+
+        private GameBeak.Color convertColor(Color color)
+        {
+            return new GameBeak.Color(color.R, color.G, color.B, color.A);
+        }
 
         private void okButton_Click(object sender, EventArgs e)
         {
