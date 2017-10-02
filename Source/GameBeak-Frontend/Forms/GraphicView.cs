@@ -141,7 +141,7 @@ namespace GameBeak_Frontend.Forms
                 int y = (i / 256);
                 int x = (i - (256 * y));
 
-                gb.Color pixel = Core.beakWindow.getBGPixel(x, y);
+                gb.Color pixel = Core.beakWindow.getBGPixel((byte)x, (byte)y);
                 fullScreen.SetPixel(x, y, Color.FromArgb(pixel.a, pixel.r, pixel.g, pixel.b));
             }
 

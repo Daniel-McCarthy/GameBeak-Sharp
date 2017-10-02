@@ -170,7 +170,7 @@ namespace GameBeak_Frontend.Classes
 
                 for (int j = 0; j < 8; j++)
                 {
-                    Core.beakWindow.setBGPixel((i * 8) + j, lineY, returnColor(((rowHalf1 & 0x80) >> 7) | ((rowHalf2 & 0x80) >> 6), 0));
+                    Core.beakWindow.setBGPixel((byte)((i * 8) + j), (byte)lineY, returnColor(((rowHalf1 & 0x80) >> 7) | ((rowHalf2 & 0x80) >> 6), 0));
                     rowHalf1 <<= 1;
                     rowHalf2 <<= 1;
 
@@ -246,7 +246,7 @@ namespace GameBeak_Frontend.Classes
 
                 for (int j = 0; j < 8; j++)
                 {
-                    Core.beakWindow.setWindowPixel((i * 8) + j, lineY, returnColor(((rowHalf1 & 0x80) >> 7) | ((rowHalf2 & 0x80) >> 6), 0));
+                    Core.beakWindow.setWindowPixel((byte)((i * 8) + j), (byte)lineY, returnColor(((rowHalf1 & 0x80) >> 7) | ((rowHalf2 & 0x80) >> 6), 0));
                     rowHalf1 &= 0x7F;
                     rowHalf1 <<= 1;
                     rowHalf2 &= 0x7F;
@@ -345,9 +345,9 @@ namespace GameBeak_Frontend.Classes
 
                             if (colorNumber > 0)
                             {
-                                if (!priority || (priority && (Core.beakWindow.getBGPixel(scrollX + x + j, lineY + scrollY) == bgColor)))
+                                if (!priority || (priority && (Core.beakWindow.getBGPixel((byte)(scrollX + x + j), (byte)(lineY + scrollY)) == bgColor)))
                                 {
-                                    Core.beakWindow.setSpritePixel(x + j, lineY, returnColor(colorNumber, ((palette) ? 1 : 0) + 1)); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
+                                    Core.beakWindow.setSpritePixel((byte)(x + j), (byte)lineY, returnColor(colorNumber, ((palette) ? 1 : 0) + 1)); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
                                 }
                             }
 
