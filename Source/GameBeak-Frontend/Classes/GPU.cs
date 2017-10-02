@@ -15,7 +15,7 @@ namespace GameBeak_Frontend.Classes
         private static Color lightPink = new Color(255, 214, 245, 255); //Light Pink //FFD6F5FF
         private static Color lightestPink = new Color(255, 241, 254, 255); //Pink WHITE //FFF1FEFF
 
-        private List<Color> gameBeakPalette = new List<Color>
+        public List<Color> gameBeakPalette = new List<Color>
         {
             lightestPink, lightPink, darkPink, darkestPink,
             lightestPink, lightPink, darkPink, darkestPink,
