@@ -210,7 +210,7 @@ namespace GameBeak_Frontend.Classes
                     {
                         if (Core.beakGPU.getBackGroundEnabled())
                         {
-                            Core.beakGPU.drawLineFromBGMap(Core.beakGPU.getScrollY() + ly);
+                            Core.beakGPU.drawLineFromBGMap((byte)(Core.beakGPU.getScrollY() + ly));
                         }
                     }
                 }
@@ -283,27 +283,27 @@ namespace GameBeak_Frontend.Classes
 
         }
 
-        public void setBGPixel(int x, int y, Color color)
+        public void setBGPixel(byte x, byte y, Color color)
         {
             bgPixels[x + (y * 256)] = new Color(color);
         }
 
-        public Color getBGPixel(int x, int y)
+        public Color getBGPixel(byte x, byte y)
         {
             return new Color(bgPixels[x + (y * 256)]);
         }
 
-        public void setWindowPixel(int x, int y, Color color)
+        public void setWindowPixel(byte x, byte y, Color color)
         {
             windowPixels[x + (y * 256)] =  new Color(color);
         }
 
-        public void setSpritePixel(int x, int y, Color color)
+        public void setSpritePixel(byte x, byte y, Color color)
         {
             spritePixels[x + (y * 256)] = new Color(color);
         }
 
-        public void drawScreenFromMaps(int scrollX, int scrollY)
+        public void drawScreenFromMaps(byte scrollX, byte scrollY)
         {
 
             
