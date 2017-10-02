@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace GameBeak_Frontend.Classes
 {
@@ -17,6 +18,8 @@ namespace GameBeak_Frontend.Classes
         private Color[] tileDebugPixels = new Color[256 * 256];
         private int gpuMode = 1; //BGB defaults this to 1, V-Blank. This should be true.
         private bool poweringOn = true;
+
+        private Stopwatch screenUpdateWatch = new Stopwatch();
 
         private Task screenUpdate;
 
@@ -101,6 +104,23 @@ namespace GameBeak_Frontend.Classes
                                 {
                                     screenUpdate = Task.Run(() => Core.mainWindow.updateScreen());
                                 }
+
+                                screenUpdateWatch.Stop();
+                                if(screenUpdateWatch.ElapsedMilliseconds == 0)
+                                {
+                                    screenUpdateWatch.Start();
+                                }
+                                else
+                                {
+                                    
+                                    if(screenUpdateWatch.ElapsedMilliseconds < 19)
+                                    {
+                                        Thread.Sleep((int)(19 - screenUpdateWatch.ElapsedMilliseconds));
+                                    }
+
+                                    screenUpdateWatch.Restart();
+                                }
+
                             }
                             refreshClocksSinceLastUpdate = clocks;
                         }
