@@ -28,6 +28,10 @@ namespace GameBeak_Frontend.Forms
             this.Close();
         }
 
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void PaletteEditor_Load(object sender, EventArgs e)
         {
