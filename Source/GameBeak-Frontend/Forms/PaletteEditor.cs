@@ -72,20 +72,7 @@ namespace GameBeak_Frontend.Forms
             }
 
             //Set first palette to preview
-            setPreviewColor(bgColorPreview1, palettes[0]);
-            setPreviewColor(bgColorPreview2, palettes[1]);
-            setPreviewColor(bgColorPreview3, palettes[2]);
-            setPreviewColor(bgColorPreview4, palettes[3]);
-
-            setPreviewColor(bp0ColorPreview1, palettes[4]);
-            setPreviewColor(bp0ColorPreview2, palettes[5]);
-            setPreviewColor(bp0ColorPreview3, palettes[6]);
-            setPreviewColor(bp0ColorPreview4, palettes[7]);
-
-            setPreviewColor(bp1ColorPreview1, palettes[8]);
-            setPreviewColor(bp1ColorPreview2, palettes[9]);
-            setPreviewColor(bp1ColorPreview3, palettes[10]);
-            setPreviewColor(bp1ColorPreview4, palettes[11]);
+            setPalettePreviews(0);
 
             paletteNameListBox.SelectedIndex = 0;
         }
