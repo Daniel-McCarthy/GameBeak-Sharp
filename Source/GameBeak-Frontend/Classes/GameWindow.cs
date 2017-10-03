@@ -352,22 +352,22 @@ namespace GameBeak_Frontend.Classes
             if (Core.beakGPU.getWindowEnabled())
             {
                 //Draw Window
-                byte winX = (byte)(Core.beakGPU.getWindowX() - 7);
-                byte winY = (byte)(Core.beakGPU.getWindowY());
+                int winX = (Core.beakGPU.getWindowX() - 7);
+                int winY = (Core.beakGPU.getWindowY());
 
                 bool yTest = (winY <= 144) && ((winY + 256) >= 0);
                 bool xTest = (winX < 160) && ((winX + 256) > 0);
 
                 if (xTest && yTest)
                 {
-                    byte xShift = 0;
-                    byte yShift = 0;
-                    byte x = 0;
-                    byte y = 0;
+                    int xShift = 0;
+                    int yShift = 0;
+                    int x = 0;
+                    int y = 0;
 
                     if (winX < 0)
                     {
-                        xShift = (byte)(0 - winX);
+                        xShift = (0 - winX);
                     }
                     else
                     {
@@ -376,7 +376,7 @@ namespace GameBeak_Frontend.Classes
 
                     if (winY < 0)
                     {
-                        yShift = (byte)(0 - winY);
+                        yShift = (0 - winY);
                     }
                     else
                     {
@@ -453,22 +453,22 @@ namespace GameBeak_Frontend.Classes
             if (Core.beakGPU.getWindowEnabled())
             {
                 //Draw Window
-                byte winX = (byte)(Core.beakGPU.getWindowX() - 7);
-                byte winY = Core.beakGPU.getWindowY();
+                int winX = (Core.beakGPU.getWindowX() - 7);
+                int winY = Core.beakGPU.getWindowY();
 
                 bool yTest = (winY <= 256) && ((winY + 256) >= 0);
                 bool xTest = (winX < 256) && ((winX + 256) > 0);
 
                 if (xTest && yTest)
                 {
-                    byte xShift = 0;
-                    byte yShift = 0;
-                    byte x = 0;
-                    byte y = 0;
+                    int xShift = 0;
+                    int yShift = 0;
+                    int x = 0;
+                    int y = 0;
 
                     if (winX < 0)
                     {
-                        xShift = (byte)(0 - winX);
+                        xShift = (0 - winX);
                     }
                     else
                     {
@@ -477,7 +477,7 @@ namespace GameBeak_Frontend.Classes
 
                     if (winY < 0)
                     {
-                        yShift = (byte)(0 - winY);
+                        yShift = (0 - winY);
                     }
                     else
                     {
