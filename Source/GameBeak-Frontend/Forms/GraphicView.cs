@@ -278,5 +278,23 @@ namespace GameBeak_Frontend.Forms
         {
             updateRadioButtons();
         }
+
+        private void pageLeftButton_Click(object sender, EventArgs e)
+        {
+            if (spritePage > 0)
+            {
+                spritePage--;
+                refresh();
+            }
+        }
+
+        private void pageRightButton_Click(object sender, EventArgs e)
+        {
+            if(spritePage < 16)
+            {
+                spritePage++;
+                refresh();
+            }
+        }
     }
 }
