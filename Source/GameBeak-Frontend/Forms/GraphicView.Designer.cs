@@ -35,42 +35,6 @@
             this.refreshButton = new System.Windows.Forms.Button();
             this.spriteViewRadioButton = new System.Windows.Forms.RadioButton();
             this.spriteViewGroupBox = new System.Windows.Forms.GroupBox();
-            this.sprite1GroupBox = new System.Windows.Forms.GroupBox();
-            this.sprite1TileAddressValueLabel = new System.Windows.Forms.Label();
-            this.sprite1OAMAddressValueLabel = new System.Windows.Forms.Label();
-            this.sprite1TileNumberValueLabel = new System.Windows.Forms.Label();
-            this.sprite1YPosValueLabel = new System.Windows.Forms.Label();
-            this.sprite1XPosValueLabel = new System.Windows.Forms.Label();
-            this.sprite1TilePosLabel = new System.Windows.Forms.Label();
-            this.sprite1OAMAddressLabel = new System.Windows.Forms.Label();
-            this.sprite1TileNumberLabel = new System.Windows.Forms.Label();
-            this.sprite1YPosLabel = new System.Windows.Forms.Label();
-            this.sprite1XPosLabel = new System.Windows.Forms.Label();
-            this.sprite1PictureBox = new System.Windows.Forms.PictureBox();
-            this.sprite2GroupBox = new System.Windows.Forms.GroupBox();
-            this.sprite2TileAddressValueLabel = new System.Windows.Forms.Label();
-            this.sprite2OAMAddressValueLabel = new System.Windows.Forms.Label();
-            this.sprite2TileNumberValueLabel = new System.Windows.Forms.Label();
-            this.sprite2YPosValueLabel = new System.Windows.Forms.Label();
-            this.sprite2XPosValueLabel = new System.Windows.Forms.Label();
-            this.sprite2TilePosLabel = new System.Windows.Forms.Label();
-            this.sprite2OAMAddressLabel = new System.Windows.Forms.Label();
-            this.sprite2TileNumberLabel = new System.Windows.Forms.Label();
-            this.sprite2YPosLabel = new System.Windows.Forms.Label();
-            this.sprite2XPosLabel = new System.Windows.Forms.Label();
-            this.sprite2PictureBox = new System.Windows.Forms.PictureBox();
-            this.sprite3GroupBox = new System.Windows.Forms.GroupBox();
-            this.sprite3TileAddressValueLabel = new System.Windows.Forms.Label();
-            this.sprite3OAMAddressValueLabel = new System.Windows.Forms.Label();
-            this.sprite3TileNumberValueLabel = new System.Windows.Forms.Label();
-            this.sprite3YPosValueLabel = new System.Windows.Forms.Label();
-            this.sprite3XPosValueLabel = new System.Windows.Forms.Label();
-            this.sprite3TilePosLabel = new System.Windows.Forms.Label();
-            this.sprite3OAMAddressLabel = new System.Windows.Forms.Label();
-            this.sprite3TileNumberLabel = new System.Windows.Forms.Label();
-            this.sprite3YPosLabel = new System.Windows.Forms.Label();
-            this.sprite3XPosLabel = new System.Windows.Forms.Label();
-            this.sprite3PictureBox = new System.Windows.Forms.PictureBox();
             this.sprite4GroupBox = new System.Windows.Forms.GroupBox();
             this.sprite4TileAddressValueLabel = new System.Windows.Forms.Label();
             this.sprite4OAMAddressValueLabel = new System.Windows.Forms.Label();
@@ -83,16 +47,54 @@
             this.sprite4YPosLabel = new System.Windows.Forms.Label();
             this.sprite4XPosLabel = new System.Windows.Forms.Label();
             this.sprite4PictureBox = new System.Windows.Forms.PictureBox();
+            this.sprite3GroupBox = new System.Windows.Forms.GroupBox();
+            this.sprite3TileAddressValueLabel = new System.Windows.Forms.Label();
+            this.sprite3OAMAddressValueLabel = new System.Windows.Forms.Label();
+            this.sprite3TileNumberValueLabel = new System.Windows.Forms.Label();
+            this.sprite3YPosValueLabel = new System.Windows.Forms.Label();
+            this.sprite3XPosValueLabel = new System.Windows.Forms.Label();
+            this.sprite3TilePosLabel = new System.Windows.Forms.Label();
+            this.sprite3OAMAddressLabel = new System.Windows.Forms.Label();
+            this.sprite3TileNumberLabel = new System.Windows.Forms.Label();
+            this.sprite3YPosLabel = new System.Windows.Forms.Label();
+            this.sprite3XPosLabel = new System.Windows.Forms.Label();
+            this.sprite3PictureBox = new System.Windows.Forms.PictureBox();
+            this.sprite2GroupBox = new System.Windows.Forms.GroupBox();
+            this.sprite2TileAddressValueLabel = new System.Windows.Forms.Label();
+            this.sprite2OAMAddressValueLabel = new System.Windows.Forms.Label();
+            this.sprite2TileNumberValueLabel = new System.Windows.Forms.Label();
+            this.sprite2YPosValueLabel = new System.Windows.Forms.Label();
+            this.sprite2XPosValueLabel = new System.Windows.Forms.Label();
+            this.sprite2TilePosLabel = new System.Windows.Forms.Label();
+            this.sprite2OAMAddressLabel = new System.Windows.Forms.Label();
+            this.sprite2TileNumberLabel = new System.Windows.Forms.Label();
+            this.sprite2YPosLabel = new System.Windows.Forms.Label();
+            this.sprite2XPosLabel = new System.Windows.Forms.Label();
+            this.sprite2PictureBox = new System.Windows.Forms.PictureBox();
+            this.sprite1GroupBox = new System.Windows.Forms.GroupBox();
+            this.sprite1TileAddressValueLabel = new System.Windows.Forms.Label();
+            this.sprite1OAMAddressValueLabel = new System.Windows.Forms.Label();
+            this.sprite1TileNumberValueLabel = new System.Windows.Forms.Label();
+            this.sprite1YPosValueLabel = new System.Windows.Forms.Label();
+            this.sprite1XPosValueLabel = new System.Windows.Forms.Label();
+            this.sprite1TilePosLabel = new System.Windows.Forms.Label();
+            this.sprite1OAMAddressLabel = new System.Windows.Forms.Label();
+            this.sprite1TileNumberLabel = new System.Windows.Forms.Label();
+            this.sprite1YPosLabel = new System.Windows.Forms.Label();
+            this.sprite1XPosLabel = new System.Windows.Forms.Label();
+            this.sprite1PictureBox = new System.Windows.Forms.PictureBox();
+            this.pageLeftButton = new System.Windows.Forms.Button();
+            this.pageRightButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.spriteViewGroupBox.SuspendLayout();
-            this.sprite1GroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprite1PictureBox)).BeginInit();
-            this.sprite2GroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprite2PictureBox)).BeginInit();
-            this.sprite3GroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprite3PictureBox)).BeginInit();
             this.sprite4GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprite4PictureBox)).BeginInit();
+            this.sprite3GroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sprite3PictureBox)).BeginInit();
+            this.sprite2GroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sprite2PictureBox)).BeginInit();
+            this.sprite1GroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sprite1PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -162,351 +164,6 @@
             this.spriteViewGroupBox.TabIndex = 5;
             this.spriteViewGroupBox.TabStop = false;
             this.spriteViewGroupBox.Text = "Sprite View";
-            // 
-            // sprite1GroupBox
-            // 
-            this.sprite1GroupBox.Controls.Add(this.sprite1TileAddressValueLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1OAMAddressValueLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1TileNumberValueLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1YPosValueLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1XPosValueLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1TilePosLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1OAMAddressLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1TileNumberLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1YPosLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1XPosLabel);
-            this.sprite1GroupBox.Controls.Add(this.sprite1PictureBox);
-            this.sprite1GroupBox.Location = new System.Drawing.Point(6, 19);
-            this.sprite1GroupBox.Name = "sprite1GroupBox";
-            this.sprite1GroupBox.Size = new System.Drawing.Size(248, 53);
-            this.sprite1GroupBox.TabIndex = 1;
-            this.sprite1GroupBox.TabStop = false;
-            this.sprite1GroupBox.Text = "1";
-            // 
-            // sprite1TileAddressValueLabel
-            // 
-            this.sprite1TileAddressValueLabel.AutoSize = true;
-            this.sprite1TileAddressValueLabel.Location = new System.Drawing.Point(209, 34);
-            this.sprite1TileAddressValueLabel.Name = "sprite1TileAddressValueLabel";
-            this.sprite1TileAddressValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite1TileAddressValueLabel.TabIndex = 9;
-            // 
-            // sprite1OAMAddressValueLabel
-            // 
-            this.sprite1OAMAddressValueLabel.AutoSize = true;
-            this.sprite1OAMAddressValueLabel.Location = new System.Drawing.Point(209, 17);
-            this.sprite1OAMAddressValueLabel.Name = "sprite1OAMAddressValueLabel";
-            this.sprite1OAMAddressValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite1OAMAddressValueLabel.TabIndex = 8;
-            // 
-            // sprite1TileNumberValueLabel
-            // 
-            this.sprite1TileNumberValueLabel.AutoSize = true;
-            this.sprite1TileNumberValueLabel.Location = new System.Drawing.Point(135, 17);
-            this.sprite1TileNumberValueLabel.Name = "sprite1TileNumberValueLabel";
-            this.sprite1TileNumberValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite1TileNumberValueLabel.TabIndex = 7;
-            // 
-            // sprite1YPosValueLabel
-            // 
-            this.sprite1YPosValueLabel.AutoSize = true;
-            this.sprite1YPosValueLabel.Location = new System.Drawing.Point(81, 35);
-            this.sprite1YPosValueLabel.Name = "sprite1YPosValueLabel";
-            this.sprite1YPosValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite1YPosValueLabel.TabIndex = 6;
-            // 
-            // sprite1XPosValueLabel
-            // 
-            this.sprite1XPosValueLabel.AutoSize = true;
-            this.sprite1XPosValueLabel.Location = new System.Drawing.Point(81, 16);
-            this.sprite1XPosValueLabel.Name = "sprite1XPosValueLabel";
-            this.sprite1XPosValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite1XPosValueLabel.TabIndex = 2;
-            // 
-            // sprite1TilePosLabel
-            // 
-            this.sprite1TilePosLabel.AutoSize = true;
-            this.sprite1TilePosLabel.Location = new System.Drawing.Point(158, 33);
-            this.sprite1TilePosLabel.Name = "sprite1TilePosLabel";
-            this.sprite1TilePosLabel.Size = new System.Drawing.Size(48, 13);
-            this.sprite1TilePosLabel.TabIndex = 5;
-            this.sprite1TilePosLabel.Text = "Tile Pos:";
-            // 
-            // sprite1OAMAddressLabel
-            // 
-            this.sprite1OAMAddressLabel.AutoSize = true;
-            this.sprite1OAMAddressLabel.Location = new System.Drawing.Point(158, 16);
-            this.sprite1OAMAddressLabel.Name = "sprite1OAMAddressLabel";
-            this.sprite1OAMAddressLabel.Size = new System.Drawing.Size(34, 13);
-            this.sprite1OAMAddressLabel.TabIndex = 4;
-            this.sprite1OAMAddressLabel.Text = "OAM:";
-            // 
-            // sprite1TileNumberLabel
-            // 
-            this.sprite1TileNumberLabel.AutoSize = true;
-            this.sprite1TileNumberLabel.Location = new System.Drawing.Point(99, 16);
-            this.sprite1TileNumberLabel.Name = "sprite1TileNumberLabel";
-            this.sprite1TileNumberLabel.Size = new System.Drawing.Size(37, 13);
-            this.sprite1TileNumberLabel.TabIndex = 3;
-            this.sprite1TileNumberLabel.Text = "Tile #:";
-            // 
-            // sprite1YPosLabel
-            // 
-            this.sprite1YPosLabel.AutoSize = true;
-            this.sprite1YPosLabel.Location = new System.Drawing.Point(41, 34);
-            this.sprite1YPosLabel.Name = "sprite1YPosLabel";
-            this.sprite1YPosLabel.Size = new System.Drawing.Size(38, 13);
-            this.sprite1YPosLabel.TabIndex = 2;
-            this.sprite1YPosLabel.Text = "Y Pos:";
-            // 
-            // sprite1XPosLabel
-            // 
-            this.sprite1XPosLabel.AutoSize = true;
-            this.sprite1XPosLabel.Location = new System.Drawing.Point(41, 15);
-            this.sprite1XPosLabel.Name = "sprite1XPosLabel";
-            this.sprite1XPosLabel.Size = new System.Drawing.Size(38, 13);
-            this.sprite1XPosLabel.TabIndex = 1;
-            this.sprite1XPosLabel.Text = "X Pos:";
-            // 
-            // sprite1PictureBox
-            // 
-            this.sprite1PictureBox.BackColor = System.Drawing.Color.LightGray;
-            this.sprite1PictureBox.Location = new System.Drawing.Point(6, 16);
-            this.sprite1PictureBox.Name = "sprite1PictureBox";
-            this.sprite1PictureBox.Size = new System.Drawing.Size(32, 32);
-            this.sprite1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sprite1PictureBox.TabIndex = 0;
-            this.sprite1PictureBox.TabStop = false;
-            // 
-            // sprite2GroupBox
-            // 
-            this.sprite2GroupBox.Controls.Add(this.sprite2TileAddressValueLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2OAMAddressValueLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2TileNumberValueLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2YPosValueLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2XPosValueLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2TilePosLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2OAMAddressLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2TileNumberLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2YPosLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2XPosLabel);
-            this.sprite2GroupBox.Controls.Add(this.sprite2PictureBox);
-            this.sprite2GroupBox.Location = new System.Drawing.Point(6, 73);
-            this.sprite2GroupBox.Name = "sprite2GroupBox";
-            this.sprite2GroupBox.Size = new System.Drawing.Size(248, 53);
-            this.sprite2GroupBox.TabIndex = 10;
-            this.sprite2GroupBox.TabStop = false;
-            this.sprite2GroupBox.Text = "2";
-            // 
-            // sprite2TileAddressValueLabel
-            // 
-            this.sprite2TileAddressValueLabel.AutoSize = true;
-            this.sprite2TileAddressValueLabel.Location = new System.Drawing.Point(209, 34);
-            this.sprite2TileAddressValueLabel.Name = "sprite2TileAddressValueLabel";
-            this.sprite2TileAddressValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite2TileAddressValueLabel.TabIndex = 9;
-            // 
-            // sprite2OAMAddressValueLabel
-            // 
-            this.sprite2OAMAddressValueLabel.AutoSize = true;
-            this.sprite2OAMAddressValueLabel.Location = new System.Drawing.Point(209, 17);
-            this.sprite2OAMAddressValueLabel.Name = "sprite2OAMAddressValueLabel";
-            this.sprite2OAMAddressValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite2OAMAddressValueLabel.TabIndex = 8;
-            // 
-            // sprite2TileNumberValueLabel
-            // 
-            this.sprite2TileNumberValueLabel.AutoSize = true;
-            this.sprite2TileNumberValueLabel.Location = new System.Drawing.Point(135, 17);
-            this.sprite2TileNumberValueLabel.Name = "sprite2TileNumberValueLabel";
-            this.sprite2TileNumberValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite2TileNumberValueLabel.TabIndex = 7;
-            // 
-            // sprite2YPosValueLabel
-            // 
-            this.sprite2YPosValueLabel.AutoSize = true;
-            this.sprite2YPosValueLabel.Location = new System.Drawing.Point(81, 35);
-            this.sprite2YPosValueLabel.Name = "sprite2YPosValueLabel";
-            this.sprite2YPosValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite2YPosValueLabel.TabIndex = 6;
-            // 
-            // sprite2XPosValueLabel
-            // 
-            this.sprite2XPosValueLabel.AutoSize = true;
-            this.sprite2XPosValueLabel.Location = new System.Drawing.Point(81, 16);
-            this.sprite2XPosValueLabel.Name = "sprite2XPosValueLabel";
-            this.sprite2XPosValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite2XPosValueLabel.TabIndex = 2;
-            // 
-            // sprite2TilePosLabel
-            // 
-            this.sprite2TilePosLabel.AutoSize = true;
-            this.sprite2TilePosLabel.Location = new System.Drawing.Point(158, 33);
-            this.sprite2TilePosLabel.Name = "sprite2TilePosLabel";
-            this.sprite2TilePosLabel.Size = new System.Drawing.Size(48, 13);
-            this.sprite2TilePosLabel.TabIndex = 5;
-            this.sprite2TilePosLabel.Text = "Tile Pos:";
-            // 
-            // sprite2OAMAddressLabel
-            // 
-            this.sprite2OAMAddressLabel.AutoSize = true;
-            this.sprite2OAMAddressLabel.Location = new System.Drawing.Point(158, 16);
-            this.sprite2OAMAddressLabel.Name = "sprite2OAMAddressLabel";
-            this.sprite2OAMAddressLabel.Size = new System.Drawing.Size(34, 13);
-            this.sprite2OAMAddressLabel.TabIndex = 4;
-            this.sprite2OAMAddressLabel.Text = "OAM:";
-            // 
-            // sprite2TileNumberLabel
-            // 
-            this.sprite2TileNumberLabel.AutoSize = true;
-            this.sprite2TileNumberLabel.Location = new System.Drawing.Point(99, 16);
-            this.sprite2TileNumberLabel.Name = "sprite2TileNumberLabel";
-            this.sprite2TileNumberLabel.Size = new System.Drawing.Size(37, 13);
-            this.sprite2TileNumberLabel.TabIndex = 3;
-            this.sprite2TileNumberLabel.Text = "Tile #:";
-            // 
-            // sprite2YPosLabel
-            // 
-            this.sprite2YPosLabel.AutoSize = true;
-            this.sprite2YPosLabel.Location = new System.Drawing.Point(41, 34);
-            this.sprite2YPosLabel.Name = "sprite2YPosLabel";
-            this.sprite2YPosLabel.Size = new System.Drawing.Size(38, 13);
-            this.sprite2YPosLabel.TabIndex = 2;
-            this.sprite2YPosLabel.Text = "Y Pos:";
-            // 
-            // sprite2XPosLabel
-            // 
-            this.sprite2XPosLabel.AutoSize = true;
-            this.sprite2XPosLabel.Location = new System.Drawing.Point(41, 15);
-            this.sprite2XPosLabel.Name = "sprite2XPosLabel";
-            this.sprite2XPosLabel.Size = new System.Drawing.Size(38, 13);
-            this.sprite2XPosLabel.TabIndex = 1;
-            this.sprite2XPosLabel.Text = "X Pos:";
-            // 
-            // sprite2PictureBox
-            // 
-            this.sprite2PictureBox.BackColor = System.Drawing.Color.LightGray;
-            this.sprite2PictureBox.Location = new System.Drawing.Point(6, 16);
-            this.sprite2PictureBox.Name = "sprite2PictureBox";
-            this.sprite2PictureBox.Size = new System.Drawing.Size(32, 32);
-            this.sprite2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sprite2PictureBox.TabIndex = 0;
-            this.sprite2PictureBox.TabStop = false;
-            // 
-            // sprite3GroupBox
-            // 
-            this.sprite3GroupBox.Controls.Add(this.sprite3TileAddressValueLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3OAMAddressValueLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3TileNumberValueLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3YPosValueLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3XPosValueLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3TilePosLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3OAMAddressLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3TileNumberLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3YPosLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3XPosLabel);
-            this.sprite3GroupBox.Controls.Add(this.sprite3PictureBox);
-            this.sprite3GroupBox.Location = new System.Drawing.Point(6, 127);
-            this.sprite3GroupBox.Name = "sprite3GroupBox";
-            this.sprite3GroupBox.Size = new System.Drawing.Size(248, 53);
-            this.sprite3GroupBox.TabIndex = 11;
-            this.sprite3GroupBox.TabStop = false;
-            this.sprite3GroupBox.Text = "3";
-            // 
-            // sprite3TileAddressValueLabel
-            // 
-            this.sprite3TileAddressValueLabel.AutoSize = true;
-            this.sprite3TileAddressValueLabel.Location = new System.Drawing.Point(209, 34);
-            this.sprite3TileAddressValueLabel.Name = "sprite3TileAddressValueLabel";
-            this.sprite3TileAddressValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite3TileAddressValueLabel.TabIndex = 9;
-            // 
-            // sprite3OAMAddressValueLabel
-            // 
-            this.sprite3OAMAddressValueLabel.AutoSize = true;
-            this.sprite3OAMAddressValueLabel.Location = new System.Drawing.Point(209, 17);
-            this.sprite3OAMAddressValueLabel.Name = "sprite3OAMAddressValueLabel";
-            this.sprite3OAMAddressValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite3OAMAddressValueLabel.TabIndex = 8;
-            // 
-            // sprite3TileNumberValueLabel
-            // 
-            this.sprite3TileNumberValueLabel.AutoSize = true;
-            this.sprite3TileNumberValueLabel.Location = new System.Drawing.Point(135, 17);
-            this.sprite3TileNumberValueLabel.Name = "sprite3TileNumberValueLabel";
-            this.sprite3TileNumberValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite3TileNumberValueLabel.TabIndex = 7;
-            // 
-            // sprite3YPosValueLabel
-            // 
-            this.sprite3YPosValueLabel.AutoSize = true;
-            this.sprite3YPosValueLabel.Location = new System.Drawing.Point(81, 35);
-            this.sprite3YPosValueLabel.Name = "sprite3YPosValueLabel";
-            this.sprite3YPosValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite3YPosValueLabel.TabIndex = 6;
-            // 
-            // sprite3XPosValueLabel
-            // 
-            this.sprite3XPosValueLabel.AutoSize = true;
-            this.sprite3XPosValueLabel.Location = new System.Drawing.Point(81, 16);
-            this.sprite3XPosValueLabel.Name = "sprite3XPosValueLabel";
-            this.sprite3XPosValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.sprite3XPosValueLabel.TabIndex = 2;
-            // 
-            // sprite3TilePosLabel
-            // 
-            this.sprite3TilePosLabel.AutoSize = true;
-            this.sprite3TilePosLabel.Location = new System.Drawing.Point(158, 33);
-            this.sprite3TilePosLabel.Name = "sprite3TilePosLabel";
-            this.sprite3TilePosLabel.Size = new System.Drawing.Size(48, 13);
-            this.sprite3TilePosLabel.TabIndex = 5;
-            this.sprite3TilePosLabel.Text = "Tile Pos:";
-            // 
-            // sprite3OAMAddressLabel
-            // 
-            this.sprite3OAMAddressLabel.AutoSize = true;
-            this.sprite3OAMAddressLabel.Location = new System.Drawing.Point(158, 16);
-            this.sprite3OAMAddressLabel.Name = "sprite3OAMAddressLabel";
-            this.sprite3OAMAddressLabel.Size = new System.Drawing.Size(34, 13);
-            this.sprite3OAMAddressLabel.TabIndex = 4;
-            this.sprite3OAMAddressLabel.Text = "OAM:";
-            // 
-            // sprite3TileNumberLabel
-            // 
-            this.sprite3TileNumberLabel.AutoSize = true;
-            this.sprite3TileNumberLabel.Location = new System.Drawing.Point(99, 16);
-            this.sprite3TileNumberLabel.Name = "sprite3TileNumberLabel";
-            this.sprite3TileNumberLabel.Size = new System.Drawing.Size(37, 13);
-            this.sprite3TileNumberLabel.TabIndex = 3;
-            this.sprite3TileNumberLabel.Text = "Tile #:";
-            // 
-            // sprite3YPosLabel
-            // 
-            this.sprite3YPosLabel.AutoSize = true;
-            this.sprite3YPosLabel.Location = new System.Drawing.Point(41, 34);
-            this.sprite3YPosLabel.Name = "sprite3YPosLabel";
-            this.sprite3YPosLabel.Size = new System.Drawing.Size(38, 13);
-            this.sprite3YPosLabel.TabIndex = 2;
-            this.sprite3YPosLabel.Text = "Y Pos:";
-            // 
-            // sprite3XPosLabel
-            // 
-            this.sprite3XPosLabel.AutoSize = true;
-            this.sprite3XPosLabel.Location = new System.Drawing.Point(41, 15);
-            this.sprite3XPosLabel.Name = "sprite3XPosLabel";
-            this.sprite3XPosLabel.Size = new System.Drawing.Size(38, 13);
-            this.sprite3XPosLabel.TabIndex = 1;
-            this.sprite3XPosLabel.Text = "X Pos:";
-            // 
-            // sprite3PictureBox
-            // 
-            this.sprite3PictureBox.BackColor = System.Drawing.Color.LightGray;
-            this.sprite3PictureBox.Location = new System.Drawing.Point(6, 16);
-            this.sprite3PictureBox.Name = "sprite3PictureBox";
-            this.sprite3PictureBox.Size = new System.Drawing.Size(32, 32);
-            this.sprite3PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sprite3PictureBox.TabIndex = 0;
-            this.sprite3PictureBox.TabStop = false;
             // 
             // sprite4GroupBox
             // 
@@ -623,11 +280,380 @@
             this.sprite4PictureBox.TabIndex = 0;
             this.sprite4PictureBox.TabStop = false;
             // 
+            // sprite3GroupBox
+            // 
+            this.sprite3GroupBox.Controls.Add(this.sprite3TileAddressValueLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3OAMAddressValueLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3TileNumberValueLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3YPosValueLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3XPosValueLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3TilePosLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3OAMAddressLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3TileNumberLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3YPosLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3XPosLabel);
+            this.sprite3GroupBox.Controls.Add(this.sprite3PictureBox);
+            this.sprite3GroupBox.Location = new System.Drawing.Point(6, 127);
+            this.sprite3GroupBox.Name = "sprite3GroupBox";
+            this.sprite3GroupBox.Size = new System.Drawing.Size(248, 53);
+            this.sprite3GroupBox.TabIndex = 11;
+            this.sprite3GroupBox.TabStop = false;
+            this.sprite3GroupBox.Text = "3";
+            // 
+            // sprite3TileAddressValueLabel
+            // 
+            this.sprite3TileAddressValueLabel.AutoSize = true;
+            this.sprite3TileAddressValueLabel.Location = new System.Drawing.Point(209, 34);
+            this.sprite3TileAddressValueLabel.Name = "sprite3TileAddressValueLabel";
+            this.sprite3TileAddressValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite3TileAddressValueLabel.TabIndex = 9;
+            // 
+            // sprite3OAMAddressValueLabel
+            // 
+            this.sprite3OAMAddressValueLabel.AutoSize = true;
+            this.sprite3OAMAddressValueLabel.Location = new System.Drawing.Point(209, 17);
+            this.sprite3OAMAddressValueLabel.Name = "sprite3OAMAddressValueLabel";
+            this.sprite3OAMAddressValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite3OAMAddressValueLabel.TabIndex = 8;
+            // 
+            // sprite3TileNumberValueLabel
+            // 
+            this.sprite3TileNumberValueLabel.AutoSize = true;
+            this.sprite3TileNumberValueLabel.Location = new System.Drawing.Point(135, 17);
+            this.sprite3TileNumberValueLabel.Name = "sprite3TileNumberValueLabel";
+            this.sprite3TileNumberValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite3TileNumberValueLabel.TabIndex = 7;
+            // 
+            // sprite3YPosValueLabel
+            // 
+            this.sprite3YPosValueLabel.AutoSize = true;
+            this.sprite3YPosValueLabel.Location = new System.Drawing.Point(81, 35);
+            this.sprite3YPosValueLabel.Name = "sprite3YPosValueLabel";
+            this.sprite3YPosValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite3YPosValueLabel.TabIndex = 6;
+            // 
+            // sprite3XPosValueLabel
+            // 
+            this.sprite3XPosValueLabel.AutoSize = true;
+            this.sprite3XPosValueLabel.Location = new System.Drawing.Point(81, 16);
+            this.sprite3XPosValueLabel.Name = "sprite3XPosValueLabel";
+            this.sprite3XPosValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite3XPosValueLabel.TabIndex = 2;
+            // 
+            // sprite3TilePosLabel
+            // 
+            this.sprite3TilePosLabel.AutoSize = true;
+            this.sprite3TilePosLabel.Location = new System.Drawing.Point(158, 33);
+            this.sprite3TilePosLabel.Name = "sprite3TilePosLabel";
+            this.sprite3TilePosLabel.Size = new System.Drawing.Size(48, 13);
+            this.sprite3TilePosLabel.TabIndex = 5;
+            this.sprite3TilePosLabel.Text = "Tile Pos:";
+            // 
+            // sprite3OAMAddressLabel
+            // 
+            this.sprite3OAMAddressLabel.AutoSize = true;
+            this.sprite3OAMAddressLabel.Location = new System.Drawing.Point(158, 16);
+            this.sprite3OAMAddressLabel.Name = "sprite3OAMAddressLabel";
+            this.sprite3OAMAddressLabel.Size = new System.Drawing.Size(34, 13);
+            this.sprite3OAMAddressLabel.TabIndex = 4;
+            this.sprite3OAMAddressLabel.Text = "OAM:";
+            // 
+            // sprite3TileNumberLabel
+            // 
+            this.sprite3TileNumberLabel.AutoSize = true;
+            this.sprite3TileNumberLabel.Location = new System.Drawing.Point(99, 16);
+            this.sprite3TileNumberLabel.Name = "sprite3TileNumberLabel";
+            this.sprite3TileNumberLabel.Size = new System.Drawing.Size(37, 13);
+            this.sprite3TileNumberLabel.TabIndex = 3;
+            this.sprite3TileNumberLabel.Text = "Tile #:";
+            // 
+            // sprite3YPosLabel
+            // 
+            this.sprite3YPosLabel.AutoSize = true;
+            this.sprite3YPosLabel.Location = new System.Drawing.Point(41, 34);
+            this.sprite3YPosLabel.Name = "sprite3YPosLabel";
+            this.sprite3YPosLabel.Size = new System.Drawing.Size(38, 13);
+            this.sprite3YPosLabel.TabIndex = 2;
+            this.sprite3YPosLabel.Text = "Y Pos:";
+            // 
+            // sprite3XPosLabel
+            // 
+            this.sprite3XPosLabel.AutoSize = true;
+            this.sprite3XPosLabel.Location = new System.Drawing.Point(41, 15);
+            this.sprite3XPosLabel.Name = "sprite3XPosLabel";
+            this.sprite3XPosLabel.Size = new System.Drawing.Size(38, 13);
+            this.sprite3XPosLabel.TabIndex = 1;
+            this.sprite3XPosLabel.Text = "X Pos:";
+            // 
+            // sprite3PictureBox
+            // 
+            this.sprite3PictureBox.BackColor = System.Drawing.Color.LightGray;
+            this.sprite3PictureBox.Location = new System.Drawing.Point(6, 16);
+            this.sprite3PictureBox.Name = "sprite3PictureBox";
+            this.sprite3PictureBox.Size = new System.Drawing.Size(32, 32);
+            this.sprite3PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sprite3PictureBox.TabIndex = 0;
+            this.sprite3PictureBox.TabStop = false;
+            // 
+            // sprite2GroupBox
+            // 
+            this.sprite2GroupBox.Controls.Add(this.sprite2TileAddressValueLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2OAMAddressValueLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2TileNumberValueLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2YPosValueLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2XPosValueLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2TilePosLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2OAMAddressLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2TileNumberLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2YPosLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2XPosLabel);
+            this.sprite2GroupBox.Controls.Add(this.sprite2PictureBox);
+            this.sprite2GroupBox.Location = new System.Drawing.Point(6, 73);
+            this.sprite2GroupBox.Name = "sprite2GroupBox";
+            this.sprite2GroupBox.Size = new System.Drawing.Size(248, 53);
+            this.sprite2GroupBox.TabIndex = 10;
+            this.sprite2GroupBox.TabStop = false;
+            this.sprite2GroupBox.Text = "2";
+            // 
+            // sprite2TileAddressValueLabel
+            // 
+            this.sprite2TileAddressValueLabel.AutoSize = true;
+            this.sprite2TileAddressValueLabel.Location = new System.Drawing.Point(209, 34);
+            this.sprite2TileAddressValueLabel.Name = "sprite2TileAddressValueLabel";
+            this.sprite2TileAddressValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite2TileAddressValueLabel.TabIndex = 9;
+            // 
+            // sprite2OAMAddressValueLabel
+            // 
+            this.sprite2OAMAddressValueLabel.AutoSize = true;
+            this.sprite2OAMAddressValueLabel.Location = new System.Drawing.Point(209, 17);
+            this.sprite2OAMAddressValueLabel.Name = "sprite2OAMAddressValueLabel";
+            this.sprite2OAMAddressValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite2OAMAddressValueLabel.TabIndex = 8;
+            // 
+            // sprite2TileNumberValueLabel
+            // 
+            this.sprite2TileNumberValueLabel.AutoSize = true;
+            this.sprite2TileNumberValueLabel.Location = new System.Drawing.Point(135, 17);
+            this.sprite2TileNumberValueLabel.Name = "sprite2TileNumberValueLabel";
+            this.sprite2TileNumberValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite2TileNumberValueLabel.TabIndex = 7;
+            // 
+            // sprite2YPosValueLabel
+            // 
+            this.sprite2YPosValueLabel.AutoSize = true;
+            this.sprite2YPosValueLabel.Location = new System.Drawing.Point(81, 35);
+            this.sprite2YPosValueLabel.Name = "sprite2YPosValueLabel";
+            this.sprite2YPosValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite2YPosValueLabel.TabIndex = 6;
+            // 
+            // sprite2XPosValueLabel
+            // 
+            this.sprite2XPosValueLabel.AutoSize = true;
+            this.sprite2XPosValueLabel.Location = new System.Drawing.Point(81, 16);
+            this.sprite2XPosValueLabel.Name = "sprite2XPosValueLabel";
+            this.sprite2XPosValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite2XPosValueLabel.TabIndex = 2;
+            // 
+            // sprite2TilePosLabel
+            // 
+            this.sprite2TilePosLabel.AutoSize = true;
+            this.sprite2TilePosLabel.Location = new System.Drawing.Point(158, 33);
+            this.sprite2TilePosLabel.Name = "sprite2TilePosLabel";
+            this.sprite2TilePosLabel.Size = new System.Drawing.Size(48, 13);
+            this.sprite2TilePosLabel.TabIndex = 5;
+            this.sprite2TilePosLabel.Text = "Tile Pos:";
+            // 
+            // sprite2OAMAddressLabel
+            // 
+            this.sprite2OAMAddressLabel.AutoSize = true;
+            this.sprite2OAMAddressLabel.Location = new System.Drawing.Point(158, 16);
+            this.sprite2OAMAddressLabel.Name = "sprite2OAMAddressLabel";
+            this.sprite2OAMAddressLabel.Size = new System.Drawing.Size(34, 13);
+            this.sprite2OAMAddressLabel.TabIndex = 4;
+            this.sprite2OAMAddressLabel.Text = "OAM:";
+            // 
+            // sprite2TileNumberLabel
+            // 
+            this.sprite2TileNumberLabel.AutoSize = true;
+            this.sprite2TileNumberLabel.Location = new System.Drawing.Point(99, 16);
+            this.sprite2TileNumberLabel.Name = "sprite2TileNumberLabel";
+            this.sprite2TileNumberLabel.Size = new System.Drawing.Size(37, 13);
+            this.sprite2TileNumberLabel.TabIndex = 3;
+            this.sprite2TileNumberLabel.Text = "Tile #:";
+            // 
+            // sprite2YPosLabel
+            // 
+            this.sprite2YPosLabel.AutoSize = true;
+            this.sprite2YPosLabel.Location = new System.Drawing.Point(41, 34);
+            this.sprite2YPosLabel.Name = "sprite2YPosLabel";
+            this.sprite2YPosLabel.Size = new System.Drawing.Size(38, 13);
+            this.sprite2YPosLabel.TabIndex = 2;
+            this.sprite2YPosLabel.Text = "Y Pos:";
+            // 
+            // sprite2XPosLabel
+            // 
+            this.sprite2XPosLabel.AutoSize = true;
+            this.sprite2XPosLabel.Location = new System.Drawing.Point(41, 15);
+            this.sprite2XPosLabel.Name = "sprite2XPosLabel";
+            this.sprite2XPosLabel.Size = new System.Drawing.Size(38, 13);
+            this.sprite2XPosLabel.TabIndex = 1;
+            this.sprite2XPosLabel.Text = "X Pos:";
+            // 
+            // sprite2PictureBox
+            // 
+            this.sprite2PictureBox.BackColor = System.Drawing.Color.LightGray;
+            this.sprite2PictureBox.Location = new System.Drawing.Point(6, 16);
+            this.sprite2PictureBox.Name = "sprite2PictureBox";
+            this.sprite2PictureBox.Size = new System.Drawing.Size(32, 32);
+            this.sprite2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sprite2PictureBox.TabIndex = 0;
+            this.sprite2PictureBox.TabStop = false;
+            // 
+            // sprite1GroupBox
+            // 
+            this.sprite1GroupBox.Controls.Add(this.sprite1TileAddressValueLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1OAMAddressValueLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1TileNumberValueLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1YPosValueLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1XPosValueLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1TilePosLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1OAMAddressLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1TileNumberLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1YPosLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1XPosLabel);
+            this.sprite1GroupBox.Controls.Add(this.sprite1PictureBox);
+            this.sprite1GroupBox.Location = new System.Drawing.Point(6, 19);
+            this.sprite1GroupBox.Name = "sprite1GroupBox";
+            this.sprite1GroupBox.Size = new System.Drawing.Size(248, 53);
+            this.sprite1GroupBox.TabIndex = 1;
+            this.sprite1GroupBox.TabStop = false;
+            this.sprite1GroupBox.Text = "1";
+            // 
+            // sprite1TileAddressValueLabel
+            // 
+            this.sprite1TileAddressValueLabel.AutoSize = true;
+            this.sprite1TileAddressValueLabel.Location = new System.Drawing.Point(209, 34);
+            this.sprite1TileAddressValueLabel.Name = "sprite1TileAddressValueLabel";
+            this.sprite1TileAddressValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite1TileAddressValueLabel.TabIndex = 9;
+            // 
+            // sprite1OAMAddressValueLabel
+            // 
+            this.sprite1OAMAddressValueLabel.AutoSize = true;
+            this.sprite1OAMAddressValueLabel.Location = new System.Drawing.Point(209, 17);
+            this.sprite1OAMAddressValueLabel.Name = "sprite1OAMAddressValueLabel";
+            this.sprite1OAMAddressValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite1OAMAddressValueLabel.TabIndex = 8;
+            // 
+            // sprite1TileNumberValueLabel
+            // 
+            this.sprite1TileNumberValueLabel.AutoSize = true;
+            this.sprite1TileNumberValueLabel.Location = new System.Drawing.Point(135, 17);
+            this.sprite1TileNumberValueLabel.Name = "sprite1TileNumberValueLabel";
+            this.sprite1TileNumberValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite1TileNumberValueLabel.TabIndex = 7;
+            // 
+            // sprite1YPosValueLabel
+            // 
+            this.sprite1YPosValueLabel.AutoSize = true;
+            this.sprite1YPosValueLabel.Location = new System.Drawing.Point(81, 35);
+            this.sprite1YPosValueLabel.Name = "sprite1YPosValueLabel";
+            this.sprite1YPosValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite1YPosValueLabel.TabIndex = 6;
+            // 
+            // sprite1XPosValueLabel
+            // 
+            this.sprite1XPosValueLabel.AutoSize = true;
+            this.sprite1XPosValueLabel.Location = new System.Drawing.Point(81, 16);
+            this.sprite1XPosValueLabel.Name = "sprite1XPosValueLabel";
+            this.sprite1XPosValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.sprite1XPosValueLabel.TabIndex = 2;
+            // 
+            // sprite1TilePosLabel
+            // 
+            this.sprite1TilePosLabel.AutoSize = true;
+            this.sprite1TilePosLabel.Location = new System.Drawing.Point(158, 33);
+            this.sprite1TilePosLabel.Name = "sprite1TilePosLabel";
+            this.sprite1TilePosLabel.Size = new System.Drawing.Size(48, 13);
+            this.sprite1TilePosLabel.TabIndex = 5;
+            this.sprite1TilePosLabel.Text = "Tile Pos:";
+            // 
+            // sprite1OAMAddressLabel
+            // 
+            this.sprite1OAMAddressLabel.AutoSize = true;
+            this.sprite1OAMAddressLabel.Location = new System.Drawing.Point(158, 16);
+            this.sprite1OAMAddressLabel.Name = "sprite1OAMAddressLabel";
+            this.sprite1OAMAddressLabel.Size = new System.Drawing.Size(34, 13);
+            this.sprite1OAMAddressLabel.TabIndex = 4;
+            this.sprite1OAMAddressLabel.Text = "OAM:";
+            // 
+            // sprite1TileNumberLabel
+            // 
+            this.sprite1TileNumberLabel.AutoSize = true;
+            this.sprite1TileNumberLabel.Location = new System.Drawing.Point(99, 16);
+            this.sprite1TileNumberLabel.Name = "sprite1TileNumberLabel";
+            this.sprite1TileNumberLabel.Size = new System.Drawing.Size(37, 13);
+            this.sprite1TileNumberLabel.TabIndex = 3;
+            this.sprite1TileNumberLabel.Text = "Tile #:";
+            // 
+            // sprite1YPosLabel
+            // 
+            this.sprite1YPosLabel.AutoSize = true;
+            this.sprite1YPosLabel.Location = new System.Drawing.Point(41, 34);
+            this.sprite1YPosLabel.Name = "sprite1YPosLabel";
+            this.sprite1YPosLabel.Size = new System.Drawing.Size(38, 13);
+            this.sprite1YPosLabel.TabIndex = 2;
+            this.sprite1YPosLabel.Text = "Y Pos:";
+            // 
+            // sprite1XPosLabel
+            // 
+            this.sprite1XPosLabel.AutoSize = true;
+            this.sprite1XPosLabel.Location = new System.Drawing.Point(41, 15);
+            this.sprite1XPosLabel.Name = "sprite1XPosLabel";
+            this.sprite1XPosLabel.Size = new System.Drawing.Size(38, 13);
+            this.sprite1XPosLabel.TabIndex = 1;
+            this.sprite1XPosLabel.Text = "X Pos:";
+            // 
+            // sprite1PictureBox
+            // 
+            this.sprite1PictureBox.BackColor = System.Drawing.Color.LightGray;
+            this.sprite1PictureBox.Location = new System.Drawing.Point(6, 16);
+            this.sprite1PictureBox.Name = "sprite1PictureBox";
+            this.sprite1PictureBox.Size = new System.Drawing.Size(32, 32);
+            this.sprite1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sprite1PictureBox.TabIndex = 0;
+            this.sprite1PictureBox.TabStop = false;
+            // 
+            // pageLeftButton
+            // 
+            this.pageLeftButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageLeftButton.Location = new System.Drawing.Point(111, 242);
+            this.pageLeftButton.Name = "pageLeftButton";
+            this.pageLeftButton.Size = new System.Drawing.Size(24, 15);
+            this.pageLeftButton.TabIndex = 6;
+            this.pageLeftButton.Text = "<";
+            this.pageLeftButton.UseVisualStyleBackColor = true;
+            this.pageLeftButton.Click += new System.EventHandler(this.pageLeftButton_Click);
+            // 
+            // pageRightButton
+            // 
+            this.pageRightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageRightButton.Location = new System.Drawing.Point(141, 242);
+            this.pageRightButton.Name = "pageRightButton";
+            this.pageRightButton.Size = new System.Drawing.Size(24, 15);
+            this.pageRightButton.TabIndex = 7;
+            this.pageRightButton.Text = ">";
+            this.pageRightButton.UseVisualStyleBackColor = true;
+            this.pageRightButton.Click += new System.EventHandler(this.pageRightButton_Click);
+            // 
             // GraphicView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 319);
+            this.Controls.Add(this.pageRightButton);
+            this.Controls.Add(this.pageLeftButton);
             this.Controls.Add(this.spriteViewGroupBox);
             this.Controls.Add(this.spriteViewRadioButton);
             this.Controls.Add(this.refreshButton);
@@ -640,18 +666,18 @@
             this.Text = "GameBeak - Graphic View";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.spriteViewGroupBox.ResumeLayout(false);
-            this.sprite1GroupBox.ResumeLayout(false);
-            this.sprite1GroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprite1PictureBox)).EndInit();
-            this.sprite2GroupBox.ResumeLayout(false);
-            this.sprite2GroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprite2PictureBox)).EndInit();
-            this.sprite3GroupBox.ResumeLayout(false);
-            this.sprite3GroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprite3PictureBox)).EndInit();
             this.sprite4GroupBox.ResumeLayout(false);
             this.sprite4GroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprite4PictureBox)).EndInit();
+            this.sprite3GroupBox.ResumeLayout(false);
+            this.sprite3GroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sprite3PictureBox)).EndInit();
+            this.sprite2GroupBox.ResumeLayout(false);
+            this.sprite2GroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sprite2PictureBox)).EndInit();
+            this.sprite1GroupBox.ResumeLayout(false);
+            this.sprite1GroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sprite1PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -713,5 +739,7 @@
         private System.Windows.Forms.Label sprite2YPosLabel;
         private System.Windows.Forms.Label sprite2XPosLabel;
         private System.Windows.Forms.PictureBox sprite2PictureBox;
+        private System.Windows.Forms.Button pageLeftButton;
+        private System.Windows.Forms.Button pageRightButton;
     }
 }
