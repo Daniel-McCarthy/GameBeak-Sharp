@@ -50,12 +50,14 @@ namespace GameBeak_Frontend.Forms
             return new GameBeak.Color(color.R, color.G, color.B, color.A);
         }
 
+        //Ok Button / Set Selected Palette and Close
         private void okButton_Click(object sender, EventArgs e)
         {
             setPalette();
             this.Close();
         }
 
+        //Cancel Button / Close Window
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -77,6 +79,7 @@ namespace GameBeak_Frontend.Forms
             paletteNameListBox.SelectedIndex = 0;
         }
 
+        //Set Color of Preview Box
         private void setPreviewColor(PictureBox preview, Color previewColor)
         {
             preview.BackColor = previewColor;
@@ -330,6 +333,83 @@ namespace GameBeak_Frontend.Forms
         private void paletteNameListBox_DoubleClick(object sender, EventArgs e)
         {
             setPalette();
+        }
+
+
+        //Set Palette Color Dialogues
+        private void bgColorPreview1_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bgColorPreview1, 0);
+        }
+
+        private void bgColorPreview2_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bgColorPreview2, 1);
+        }
+
+        private void bgColorPreview3_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bgColorPreview3, 2);
+        }
+
+        private void bgColorPreview4_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bgColorPreview4, 3);
+        }
+
+        private void bp0ColorPreview1_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp0ColorPreview1, 4);
+        }
+
+        private void bp0ColorPreview2_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp0ColorPreview2, 5);
+        }
+
+        private void bp0ColorPreview3_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp0ColorPreview3, 6);
+        }
+
+        private void bp0ColorPreview4_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp0ColorPreview4, 7);
+        }
+
+        private void bp1ColorPreview1_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp1ColorPreview1, 8);
+        }
+
+        private void bp1ColorPreview2_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp1ColorPreview2, 9);
+        }
+
+        private void bp1ColorPreview3_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp1ColorPreview3, 10);
+        }
+
+        private void bp1ColorPreview4_DoubleClick(object sender, EventArgs e)
+        {
+            setPaletteColorDialogue(bp1ColorPreview4, 11);
+        }
+
+        private void setPaletteColorDialogue(PictureBox box, int previewIndex)
+        {
+            colorDialog1.ShowDialog();
+
+            Color selectedColor = colorDialog1.Color;
+
+            //Set Preview Color
+            box.BackColor = selectedColor;
+
+            //Set Palette Color
+            int index = paletteNameListBox.SelectedIndex;
+            palettes[(index * 12) + previewIndex] = selectedColor;
+
         }
     }
 }

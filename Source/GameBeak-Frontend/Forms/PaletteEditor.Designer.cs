@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.paletteSelectGroupBox.SuspendLayout();
             this.palettePreviewGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bgColorPreview1)).BeginInit();
@@ -129,6 +130,7 @@
             this.bgColorPreview1.Size = new System.Drawing.Size(32, 32);
             this.bgColorPreview1.TabIndex = 0;
             this.bgColorPreview1.TabStop = false;
+            this.bgColorPreview1.DoubleClick += new System.EventHandler(this.bgColorPreview1_DoubleClick);
             // 
             // bgColorPreview2
             // 
@@ -138,6 +140,7 @@
             this.bgColorPreview2.Size = new System.Drawing.Size(32, 32);
             this.bgColorPreview2.TabIndex = 1;
             this.bgColorPreview2.TabStop = false;
+            this.bgColorPreview2.DoubleClick += new System.EventHandler(this.bgColorPreview2_DoubleClick);
             // 
             // bgColorPreview4
             // 
@@ -147,6 +150,7 @@
             this.bgColorPreview4.Size = new System.Drawing.Size(32, 32);
             this.bgColorPreview4.TabIndex = 3;
             this.bgColorPreview4.TabStop = false;
+            this.bgColorPreview4.DoubleClick += new System.EventHandler(this.bgColorPreview4_DoubleClick);
             // 
             // bgColorPreview3
             // 
@@ -156,6 +160,7 @@
             this.bgColorPreview3.Size = new System.Drawing.Size(32, 32);
             this.bgColorPreview3.TabIndex = 2;
             this.bgColorPreview3.TabStop = false;
+            this.bgColorPreview3.DoubleClick += new System.EventHandler(this.bgColorPreview3_DoubleClick);
             // 
             // cancelButton
             // 
@@ -175,6 +180,7 @@
             this.bp0ColorPreview4.Size = new System.Drawing.Size(32, 32);
             this.bp0ColorPreview4.TabIndex = 7;
             this.bp0ColorPreview4.TabStop = false;
+            this.bp0ColorPreview4.DoubleClick += new System.EventHandler(this.bp0ColorPreview4_DoubleClick);
             // 
             // bp0ColorPreview3
             // 
@@ -184,6 +190,7 @@
             this.bp0ColorPreview3.Size = new System.Drawing.Size(32, 32);
             this.bp0ColorPreview3.TabIndex = 6;
             this.bp0ColorPreview3.TabStop = false;
+            this.bp0ColorPreview3.DoubleClick += new System.EventHandler(this.bp0ColorPreview3_DoubleClick);
             // 
             // bp0ColorPreview2
             // 
@@ -193,6 +200,7 @@
             this.bp0ColorPreview2.Size = new System.Drawing.Size(32, 32);
             this.bp0ColorPreview2.TabIndex = 5;
             this.bp0ColorPreview2.TabStop = false;
+            this.bp0ColorPreview2.DoubleClick += new System.EventHandler(this.bp0ColorPreview2_DoubleClick);
             // 
             // bp0ColorPreview1
             // 
@@ -202,6 +210,7 @@
             this.bp0ColorPreview1.Size = new System.Drawing.Size(32, 32);
             this.bp0ColorPreview1.TabIndex = 4;
             this.bp0ColorPreview1.TabStop = false;
+            this.bp0ColorPreview1.DoubleClick += new System.EventHandler(this.bp0ColorPreview1_DoubleClick);
             // 
             // bp1ColorPreview4
             // 
@@ -211,6 +220,7 @@
             this.bp1ColorPreview4.Size = new System.Drawing.Size(32, 32);
             this.bp1ColorPreview4.TabIndex = 11;
             this.bp1ColorPreview4.TabStop = false;
+            this.bp1ColorPreview4.DoubleClick += new System.EventHandler(this.bp1ColorPreview4_DoubleClick);
             // 
             // bp1ColorPreview3
             // 
@@ -220,6 +230,7 @@
             this.bp1ColorPreview3.Size = new System.Drawing.Size(32, 32);
             this.bp1ColorPreview3.TabIndex = 10;
             this.bp1ColorPreview3.TabStop = false;
+            this.bp1ColorPreview3.DoubleClick += new System.EventHandler(this.bp1ColorPreview3_DoubleClick);
             // 
             // bp1ColorPreview2
             // 
@@ -229,6 +240,7 @@
             this.bp1ColorPreview2.Size = new System.Drawing.Size(32, 32);
             this.bp1ColorPreview2.TabIndex = 9;
             this.bp1ColorPreview2.TabStop = false;
+            this.bp1ColorPreview2.DoubleClick += new System.EventHandler(this.bp1ColorPreview2_DoubleClick);
             // 
             // bp1ColorPreview1
             // 
@@ -238,6 +250,7 @@
             this.bp1ColorPreview1.Size = new System.Drawing.Size(32, 32);
             this.bp1ColorPreview1.TabIndex = 8;
             this.bp1ColorPreview1.TabStop = false;
+            this.bp1ColorPreview1.DoubleClick += new System.EventHandler(this.bp1ColorPreview1_DoubleClick);
             // 
             // label1
             // 
@@ -322,5 +335,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
