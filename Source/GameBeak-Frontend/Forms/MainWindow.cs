@@ -161,7 +161,7 @@ namespace GameBeak_Frontend
                 Core.beakInput.setKeyInput(4, true);
             }
 
-            if(e.KeyCode == Keys.RShiftKey)
+            if(e.KeyCode == Keys.ShiftKey)
             {
                 Core.beakInput.setKeyInput(5, true);
             }
@@ -206,7 +206,7 @@ namespace GameBeak_Frontend
                 Core.beakInput.setKeyInput(4, false);
             }
 
-            if (e.KeyCode == Keys.RShiftKey)
+            if (e.KeyCode == Keys.ShiftKey)
             {
                 Core.beakInput.setKeyInput(5, false);
             }
