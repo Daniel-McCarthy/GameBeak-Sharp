@@ -239,6 +239,9 @@ namespace GameBeak_Frontend.Forms
                 spriteViewGroupBox.Visible = false;
                 spriteViewGroupBox.Enabled = false;
 
+                pageLeftButton.Visible = pageLeftButton.Enabled = false;
+                pageRightButton.Visible = pageRightButton.Enabled = false;
+
                 pictureBox1.Visible = true;
 
                 if (tileViewRadioButton.Checked)
@@ -255,6 +258,8 @@ namespace GameBeak_Frontend.Forms
                 updateSpriteView();
                 spriteViewGroupBox.Visible = true;
                 spriteViewGroupBox.Enabled = true;
+                pageLeftButton.Visible = pageLeftButton.Enabled = true;
+                pageRightButton.Visible = pageRightButton.Enabled = true;
                 pictureBox1.Visible = false;
             }
         }
