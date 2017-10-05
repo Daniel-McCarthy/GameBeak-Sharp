@@ -313,6 +313,7 @@
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Save All to File";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // PaletteEditor
             // 

@@ -454,6 +454,7 @@ namespace GameBeak_Frontend.Forms
             setPalettePreviews(paletteNameListBox.SelectedIndex);
         }
 
+        //Remove Palette From List
         private void deleteButton_Click(object sender, EventArgs e)
         {
             int paletteLocation = paletteNameListBox.SelectedIndex;
@@ -475,6 +476,95 @@ namespace GameBeak_Frontend.Forms
                 }
             }
 
+        }
+
+        //Save Current Palettes to Palettes File
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            path = Path.Combine(path, "palettes.xml");
+
+            //If no copy, make one
+            bool palettesFileExists = File.Exists(path);
+            bool palettesFileCopyExists = File.Exists(path + ".copy");
+
+            if (palettesFileExists && !palettesFileCopyExists)
+            {
+                File.Copy(path, path + ".copy");
+            }
+
+            //Delete Original Palettes File
+            if(palettesFileExists)
+            {
+                File.Delete(path);
+            }
+
+            StreamWriter fileWriter = File.CreateText(path);
+
+            writeFile();
+
+            void writeFile()
+            {
+                writeFileStart();
+                writePalettes();
+                writeFileEnd();
+            }
+
+            void writeFileStart()
+            {
+                fileWriter.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+                fileWriter.WriteLine("<colorschemes>\n");
+            }
+
+            void writeFileEnd()
+            {
+                fileWriter.WriteLine("\t</colorschemes>");
+            }
+
+            void writePalettes()
+            {
+                int colorOffset = 0;
+
+                for (int i = 0; i < paletteNameListBox.Items.Count; i++)
+                {
+                    if ((palettes.Count - colorOffset) >= 12)
+                    {
+
+                        fileWriter.WriteLine("\t<scheme>");
+                        writePaletteName((string)paletteNameListBox.Items[i]);
+
+                        writeSchemeLine(colorOffset, 0, "bgp");
+                        writeSchemeLine(colorOffset, 4, "0bp0");
+                        writeSchemeLine(colorOffset, 8, "0bp1");
+
+                        fileWriter.WriteLine("\t</scheme>\n");
+                    }
+
+                    colorOffset += 12;
+                }
+            }
+
+            void writePaletteName(string name)
+            {
+                fileWriter.WriteLine("\t\t<name>" + name + "</name>");
+            }
+
+            void writeSchemeLine(int schemeIndex, int offset, string paletteType)
+            {
+                string color1 = argbToRGBAString(palettes[schemeIndex + offset + 0].ToArgb());
+                string color2 = argbToRGBAString(palettes[schemeIndex + offset + 1].ToArgb());
+                string color3 = argbToRGBAString(palettes[schemeIndex + offset + 2].ToArgb());
+                string color4 = argbToRGBAString(palettes[schemeIndex + offset + 3].ToArgb());
+
+                fileWriter.WriteLine("\t\t<" + paletteType  + ">" + color1 + '|' + color2 + '|' + color3 + '|' + color4 + "</" + paletteType  + ">");
+            }
+
+            string argbToRGBAString(int argb)
+            {
+                return (((argb >> 24) & 0xFF) | (argb << 8)).ToString("X8");
+            }
+
+            fileWriter.Close();
         }
     }
 }
