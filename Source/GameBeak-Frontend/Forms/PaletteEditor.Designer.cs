@@ -50,9 +50,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.paletteSelectGroupBox.SuspendLayout();
             this.palettePreviewGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bgColorPreview1)).BeginInit();
@@ -72,9 +72,9 @@
             // paletteSelectGroupBox
             // 
             this.paletteSelectGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.paletteSelectGroupBox.Controls.Add(this.button3);
-            this.paletteSelectGroupBox.Controls.Add(this.button2);
-            this.paletteSelectGroupBox.Controls.Add(this.button1);
+            this.paletteSelectGroupBox.Controls.Add(this.saveButton);
+            this.paletteSelectGroupBox.Controls.Add(this.deleteButton);
+            this.paletteSelectGroupBox.Controls.Add(this.newButton);
             this.paletteSelectGroupBox.Controls.Add(this.paletteNameListBox);
             this.paletteSelectGroupBox.Location = new System.Drawing.Point(12, 12);
             this.paletteSelectGroupBox.Name = "paletteSelectGroupBox";
@@ -285,32 +285,32 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "BP1:";
             // 
-            // button1
+            // newButton
             // 
-            this.button1.Location = new System.Drawing.Point(19, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "New";
-            this.button1.UseVisualStyleBackColor = true;
+            this.newButton.Location = new System.Drawing.Point(19, 120);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(55, 23);
+            this.newButton.TabIndex = 1;
+            this.newButton.Text = "New";
+            this.newButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // deleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(80, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(49, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deleteButton.Location = new System.Drawing.Point(80, 120);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(49, 23);
+            this.deleteButton.TabIndex = 2;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // saveButton
             // 
-            this.button3.Location = new System.Drawing.Point(135, 120);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Save All to File";
-            this.button3.UseVisualStyleBackColor = true;
+            this.saveButton.Location = new System.Drawing.Point(135, 120);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(108, 23);
+            this.saveButton.TabIndex = 3;
+            this.saveButton.Text = "Save All to File";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
             // PaletteEditor
             // 
@@ -369,8 +369,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button newButton;
     }
 }
