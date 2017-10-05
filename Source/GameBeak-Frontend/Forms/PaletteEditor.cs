@@ -314,20 +314,40 @@ namespace GameBeak_Frontend.Forms
 
         private void setPalettePreviews(int index)
         {
-            setPreviewColor(bgColorPreview1, palettes[(index * 12) + 0]);
-            setPreviewColor(bgColorPreview2, palettes[(index * 12) + 1]);
-            setPreviewColor(bgColorPreview3, palettes[(index * 12) + 2]);
-            setPreviewColor(bgColorPreview4, palettes[(index * 12) + 3]);
+            if (index > -1)
+            {
+                setPreviewColor(bgColorPreview1, palettes[(index * 12) + 0]);
+                setPreviewColor(bgColorPreview2, palettes[(index * 12) + 1]);
+                setPreviewColor(bgColorPreview3, palettes[(index * 12) + 2]);
+                setPreviewColor(bgColorPreview4, palettes[(index * 12) + 3]);
 
-            setPreviewColor(bp0ColorPreview1, palettes[(index * 12) + 4]);
-            setPreviewColor(bp0ColorPreview2, palettes[(index * 12) + 5]);
-            setPreviewColor(bp0ColorPreview3, palettes[(index * 12) + 6]);
-            setPreviewColor(bp0ColorPreview4, palettes[(index * 12) + 7]);
+                setPreviewColor(bp0ColorPreview1, palettes[(index * 12) + 4]);
+                setPreviewColor(bp0ColorPreview2, palettes[(index * 12) + 5]);
+                setPreviewColor(bp0ColorPreview3, palettes[(index * 12) + 6]);
+                setPreviewColor(bp0ColorPreview4, palettes[(index * 12) + 7]);
 
-            setPreviewColor(bp1ColorPreview1, palettes[(index * 12) + 8]);
-            setPreviewColor(bp1ColorPreview2, palettes[(index * 12) + 9]);
-            setPreviewColor(bp1ColorPreview3, palettes[(index * 12) + 10]);
-            setPreviewColor(bp1ColorPreview4, palettes[(index * 12) + 11]);
+                setPreviewColor(bp1ColorPreview1, palettes[(index * 12) + 8]);
+                setPreviewColor(bp1ColorPreview2, palettes[(index * 12) + 9]);
+                setPreviewColor(bp1ColorPreview3, palettes[(index * 12) + 10]);
+                setPreviewColor(bp1ColorPreview4, palettes[(index * 12) + 11]);
+            }
+            else
+            {
+                setPreviewColor(bgColorPreview1, Color.White);
+                setPreviewColor(bgColorPreview2, Color.White);
+                setPreviewColor(bgColorPreview3, Color.White);
+                setPreviewColor(bgColorPreview4, Color.White);
+
+                setPreviewColor(bp0ColorPreview1, Color.White);
+                setPreviewColor(bp0ColorPreview2, Color.White);
+                setPreviewColor(bp0ColorPreview3, Color.White);
+                setPreviewColor(bp0ColorPreview4, Color.White);
+
+                setPreviewColor(bp1ColorPreview1, Color.White);
+                setPreviewColor(bp1ColorPreview2, Color.White);
+                setPreviewColor(bp1ColorPreview3, Color.White);
+                setPreviewColor(bp1ColorPreview4, Color.White);
+            }
         }
 
         //Select Palette
@@ -428,6 +448,29 @@ namespace GameBeak_Frontend.Forms
             paletteNameListBox.SelectedIndex = paletteNameListBox.Items.Count - 1;
 
             setPalettePreviews(paletteNameListBox.SelectedIndex);
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            int paletteLocation = paletteNameListBox.SelectedIndex;
+
+            palettes.RemoveRange(paletteLocation * 12, 12);
+
+            paletteNameListBox.Items.RemoveAt(paletteLocation);
+
+            if (paletteNameListBox.Items.Count > 0)
+            {
+                if (paletteLocation <= 0)
+                {
+                    paletteNameListBox.SelectedIndex = 0;
+                }
+                else
+                {
+
+                    paletteNameListBox.SelectedIndex = paletteLocation - 1;
+                }
+            }
+
         }
     }
 }
