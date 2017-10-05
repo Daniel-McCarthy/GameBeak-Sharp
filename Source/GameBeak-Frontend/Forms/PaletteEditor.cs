@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.VisualBasic;
 
 using Core = GameBeak_Frontend.Classes.Core;
 using GameBeak = GameBeak_Frontend.Classes;
@@ -410,6 +411,23 @@ namespace GameBeak_Frontend.Forms
             int index = paletteNameListBox.SelectedIndex;
             palettes[(index * 12) + previewIndex] = selectedColor;
 
+        }
+
+        //Create New Color Palette
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            string name = Interaction.InputBox("Enter Palette Name:", "GameBeak  - Palette", "", 10, 10);
+
+            paletteNameListBox.Items.Add(name);
+
+            for (int i = 0; i < 12; i++)
+            {
+                palettes.Add(Color.White);
+            }
+
+            paletteNameListBox.SelectedIndex = paletteNameListBox.Items.Count - 1;
+
+            setPalettePreviews(paletteNameListBox.SelectedIndex);
         }
     }
 }
