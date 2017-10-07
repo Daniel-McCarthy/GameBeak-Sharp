@@ -257,6 +257,10 @@ namespace GameBeak_Frontend
             Core.paused = false;
         }
 
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Core.paused = true;
+        }
     }
 
 }
