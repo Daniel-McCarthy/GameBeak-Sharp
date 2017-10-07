@@ -161,9 +161,11 @@
             // 
             // resumeToolStripMenuItem
             // 
+            this.resumeToolStripMenuItem.Enabled = false;
             this.resumeToolStripMenuItem.Name = "resumeToolStripMenuItem";
             this.resumeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.resumeToolStripMenuItem.Text = "Resume";
+            this.resumeToolStripMenuItem.Click += new System.EventHandler(this.resumeToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 

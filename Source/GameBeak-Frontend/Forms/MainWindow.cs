@@ -251,6 +251,12 @@ namespace GameBeak_Frontend
                 paletteEditor.BringToFront();
             }
         }
+
+        private void resumeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Core.paused = false;
+        }
+
     }
 
 }
