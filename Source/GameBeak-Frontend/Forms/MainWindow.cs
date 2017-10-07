@@ -60,6 +60,9 @@ namespace GameBeak_Frontend
                 emulatorThread = new Thread(GameBeak_Frontend.Classes.GameBeak_Main.startEmulator);
                 emulatorThread.Start();
 
+                resumeToolStripMenuItem.Enabled = true;
+                pauseToolStripMenuItem.Enabled = true;
+
             }
             else
             {
