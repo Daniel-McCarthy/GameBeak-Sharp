@@ -10,6 +10,8 @@ namespace GameBeak_Frontend.Classes
 {
     class GPU
     {
+
+        //These are the default colors that will represent the 4 color palette of the GMB
         private static Color darkestPink = new Color(72, 24, 59, 255); //Pink Black //48183BFF
         private static Color darkPink = new Color(255, 131, 217, 255); //Dark Pink //FF83D9FF
         private static Color lightPink = new Color(255, 214, 245, 255); //Light Pink //FFD6F5FF
