@@ -67,8 +67,7 @@ namespace GameBeak.Forms
 
             }
 
-            //pictureBox1.Image = tileScreen;
-            //TODO: Write SFML.Image to System.Drawing.Image function, or use SFML to draw these
+            pictureBox1.Image = imageToBitmap(tileScreen);
         }
 
         void drawTile(int tileNumber, List<List<Color>> tile)
@@ -118,6 +117,7 @@ namespace GameBeak.Forms
                 tile.Add(row);
             }
 
+            System.Drawing.Bitmap sprite = new System.Drawing.Bitmap(8, 8);
        
             //Draw Tile to Picture Box
             for (int i = 0; i < 8; i++)
@@ -125,16 +125,13 @@ namespace GameBeak.Forms
                 for (int j = 0; j < 8; j++)
                 {
                     Color color = tile[0][j];
-                    spritePreview.SetPixel((uint)j, (uint)i, new Color(color.A, color.R, color.G, color.B));
+                    sprite.SetPixel(j, i,  System.Drawing.Color.FromArgb(color.A, color.R, color.G, color.B));
                 }
 
                 tile.Remove(tile.First());
             }
 
-
-
-            //pictureBox.Image = new Bitmap(spritePreview, new Size (spritePreview.Width * 4, spritePreview.Height * 4));
-            //TODO: Write SFML.Image to System.Drawing.Image function, or use SFML to draw these
+            pictureBox.Image = sprite;
         }
 
 
@@ -149,8 +146,7 @@ namespace GameBeak.Forms
                 fullScreen.SetPixel((uint)x, (uint)y, new Color(pixel.R, pixel.G, pixel.B, pixel.A));
             }
 
-            //pictureBox1.Image = fullScreen;
-            //TODO: Write SFML.Image to System.Drawing.Image function, or use SFML to draw these
+            pictureBox1.Image = imageToBitmap(fullScreen);
         }
 
         private void updateSpriteView()
@@ -301,5 +297,52 @@ namespace GameBeak.Forms
                 refresh();
             }
         }
+
+        public static System.Drawing.Bitmap imageToBitmap(Image input)
+        {
+            System.Drawing.Bitmap output = new System.Drawing.Bitmap((int)input.Size.X, (int)input.Size.Y);
+
+            for(int x = 0; x < output.Width; x++)
+            {
+                for(int y = 0; y < output.Height; y++)
+                {
+                    Color pixel = input.GetPixel((uint)x, (uint)y);
+                    int aRGB = (pixel.A << 24) | (pixel.R << 16) | (pixel.G << 8) | pixel.B;
+                    output.SetPixel(x, y, System.Drawing.Color.FromArgb(aRGB));
+                }
+
+            }
+
+            return output;
+        }
+
+        public static System.Drawing.Bitmap imageToBitmap(Image input, uint xScale, uint yScale)
+        {
+            int originalWidth = (int)input.Size.X;
+            int originalHeight = (int)input.Size.Y;
+            System.Drawing.Bitmap output = new System.Drawing.Bitmap((int)(input.Size.X * xScale), (int)(input.Size.Y * yScale));
+
+            for (int x = 0; x < originalWidth; x++)
+            {
+                for (int y = 0; y < originalHeight; y++)
+                {
+                    Color pixel = input.GetPixel((uint)x, (uint)y);
+                    int aRGB = (255 << 24) | (pixel.R << 16) | (pixel.G << 8) | pixel.B;
+
+                    for(int i = 0; i < xScale; i++)
+                    {
+                        for(int j = 0; j < yScale; j++)
+                        {
+                            output.SetPixel((x * (int)xScale) + i, (y * (int)yScale) + j, System.Drawing.Color.FromArgb(aRGB));
+                        }
+                    }
+                    
+                }
+
+            }
+
+            return output;
+        }
+
     }
 }
