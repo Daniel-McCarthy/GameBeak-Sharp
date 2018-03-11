@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameBeak", "GameBeak\GameBeak.vcxproj", "{725DA90C-2B15-45D7-AD07-02F920CC8B2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameBeak", "GameBeak-Frontend\GameBeak.csproj", "{FE054862-0B0F-4B5B-86F3-2699FB0E0516}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameBeak-Frontend", "GameBeak-Frontend\GameBeak-Frontend.csproj", "{FE054862-0B0F-4B5B-86F3-2699FB0E0516}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{240FA20E-FFA9-4DF0-8061-07BBF0CA0201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,16 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Debug|x64.ActiveCfg = Debug|x64
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Debug|x64.Build.0 = Debug|x64
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Debug|x86.ActiveCfg = Debug|Win32
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Debug|x86.Build.0 = Debug|Win32
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Release|Any CPU.ActiveCfg = Release|Win32
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Release|x64.ActiveCfg = Release|x64
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Release|x64.Build.0 = Release|x64
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Release|x86.ActiveCfg = Release|Win32
-		{725DA90C-2B15-45D7-AD07-02F920CC8B2D}.Release|x86.Build.0 = Release|Win32
 		{FE054862-0B0F-4B5B-86F3-2699FB0E0516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FE054862-0B0F-4B5B-86F3-2699FB0E0516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE054862-0B0F-4B5B-86F3-2699FB0E0516}.Debug|x64.ActiveCfg = Debug|Any CPU

@@ -1,4 +1,4 @@
-﻿namespace GameBeak_Frontend
+﻿namespace GameBeak
 {
     partial class AssemblyView
     {

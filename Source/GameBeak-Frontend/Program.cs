@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Core = GameBeak_Frontend.Classes.Core;
+using Core = GameBeak.Classes.Core;
 
-namespace GameBeak_Frontend
+namespace GameBeak
 {
     static class Program
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 
-namespace GameBeak_Frontend.Classes
+namespace GameBeak.Classes
 {
     class GPU
     {

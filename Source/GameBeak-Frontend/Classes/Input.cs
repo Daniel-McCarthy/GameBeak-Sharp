@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameBeak_Frontend.Classes
+namespace GameBeak.Classes
 {
     class Input
     {

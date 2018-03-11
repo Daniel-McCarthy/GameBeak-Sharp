@@ -1,4 +1,4 @@
-﻿namespace GameBeak_Frontend.Forms
+﻿namespace GameBeak.Forms
 {
     partial class PaletteEditor
     {

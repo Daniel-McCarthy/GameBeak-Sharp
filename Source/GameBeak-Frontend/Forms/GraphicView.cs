@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Core = GameBeak_Frontend.Classes.Core;
+using Core = GameBeak.Classes.Core;
+using SFML.Graphics;
 
-using gb = GameBeak_Frontend.Classes;
+using gb = GameBeak.Classes;
 
-namespace GameBeak_Frontend.Forms
+namespace GameBeak.Forms
 {
     public partial class GraphicView : Form
     {

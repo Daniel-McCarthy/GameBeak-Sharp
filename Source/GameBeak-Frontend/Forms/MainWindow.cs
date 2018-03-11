@@ -16,12 +16,12 @@ using System.Diagnostics;
 using System.Windows;
 
 //using sf = SFML.Graphics;
-using Core = GameBeak_Frontend.Classes.Core;
-using GameBeak = GameBeak_Frontend.Classes;
+using Core = GameBeak.Classes.Core;
+using GameBeak = GameBeak.Classes;
 using System.Threading;
-using GameBeak_Frontend.Forms;
+using GameBeak.Forms;
 
-namespace GameBeak_Frontend
+namespace GameBeak
 {
     public partial class MainWindow : Form
     {

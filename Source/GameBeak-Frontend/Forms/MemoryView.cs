@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Core = GameBeak_Frontend.Classes.Core;
-using GameBeak = GameBeak_Frontend.Classes;
+using Core = GameBeak.Classes.Core;
+using GameBeak = GameBeak.Classes;
 
-namespace GameBeak_Frontend
+namespace GameBeak
 {
 
     public partial class MemoryView : Form

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace GameBeak_Frontend.Classes
+namespace GameBeak.Classes
 {
     class GameWindow
     {
