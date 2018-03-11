@@ -15,7 +15,6 @@ namespace GameBeak.Classes
         //Mapped to standard keyboard keys:
         //[Up][Left][Right][Down][Z][X][Enter][RShift]
 
-
 	    bool keyUp = false;
         bool keyDown = false;
         bool keyLeft = false;

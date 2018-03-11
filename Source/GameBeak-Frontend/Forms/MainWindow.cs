@@ -57,7 +57,7 @@ namespace GameBeak
                 Core.paused = true;
 
                 //emulatorThread = new Thread(NativeMethods.initiateEmulator);
-                emulatorThread = new Thread(GameBeak_Frontend.Classes.GameBeak_Main.startEmulator);
+                emulatorThread = new Thread(global::GameBeak.Classes.GameBeak_Main.startEmulator);
                 emulatorThread.Start();
 
                 resumeToolStripMenuItem.Enabled = true;
@@ -72,23 +72,10 @@ namespace GameBeak
 
         public void updateScreen()
         {
-
-            //Convert SFML Image to Bitmap
-            Tuple<int, int> screenSize = Core.beakWindow.screen.getSize();
-
-            Bitmap bmp = new Bitmap(screenSize.Item1, screenSize.Item2);
-
-            for (int x = 0; x < screenSize.Item1; x++)
-            {
-                for (int y = 0; y < screenSize.Item2; y++)
-                {
-                    Color pixel = Color.FromArgb((int)Core.beakWindow.screen.getPixel(x, y).getARGBInt());
-                    bmp.SetPixel(x, y, pixel);
-                }
-            }
-
-            pictureBox1.Image = bmp;
-                
+            SFML.Graphics.Texture texture = new SFML.Graphics.Texture(Core.beakWindow.screen);
+            SFML.Graphics.Sprite sprite = new SFML.Graphics.Sprite(texture);
+            sprite.Scale = new SFML.System.Vector2f(2, 2);
+            drawCanvas.drawFrame(sprite);
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)

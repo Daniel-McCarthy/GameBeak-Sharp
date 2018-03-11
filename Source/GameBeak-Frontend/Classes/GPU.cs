@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SFML.Graphics;
 
 
 namespace GameBeak.Classes
@@ -347,7 +348,7 @@ namespace GameBeak.Classes
 
                             if (colorNumber > 0)
                             {
-                                if (!priority || (priority && (Core.beakWindow.getBGPixel((byte)(scrollX + x + j), (byte)(lineY + scrollY)) == bgColor)))
+                                if (!priority || (priority && (Core.beakWindow.getBGPixel((byte)(scrollX + x + j), (byte)(lineY + scrollY)).Equals(bgColor))))
                                 {
                                     Core.beakWindow.setSpritePixel((byte)(x + j), (byte)lineY, returnColor(colorNumber, ((palette) ? 1 : 0) + 1)); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
                                 }

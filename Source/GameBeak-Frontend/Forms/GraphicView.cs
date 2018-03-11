@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +15,9 @@ namespace GameBeak.Forms
 {
     public partial class GraphicView : Form
     {
-        private Bitmap tileScreen = new Bitmap(160, 160);
-        private Bitmap fullScreen = new Bitmap(256, 256);
-        private Bitmap spritePreview = new Bitmap(8, 8);
+        private Image tileScreen = new Image(160, 160);
+        private Image fullScreen = new Image(256, 256);
+        private Image spritePreview = new Image(8, 8);
         private bool canvasMode = true;
 
         private byte spritePage = 0;
@@ -37,7 +36,7 @@ namespace GameBeak.Forms
         {
             ushort baseAddress = 0x8000;
 
-            List<List<gb.Color>> tile = new List<List<gb.Color>>();
+            List<List<Color>> tile = new List<List<Color>>();
 
             for (int i = 0; i < 360; i++)
             {
@@ -52,7 +51,7 @@ namespace GameBeak.Forms
                     byte rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + j));
                     byte rowHalf2 = Core.beakMemory.readMemory((ushort)(tileAddress + j + 1));
 
-                    List<gb.Color> row = new List<gb.Color>();
+                    List<Color> row = new List<Color>();
 
                     for (int k = 0; k < 8; k++)
                     {
@@ -68,10 +67,11 @@ namespace GameBeak.Forms
 
             }
 
-            pictureBox1.Image = tileScreen;
+            //pictureBox1.Image = tileScreen;
+            //TODO: Write SFML.Image to System.Drawing.Image function, or use SFML to draw these
         }
 
-        void drawTile(int tileNumber, List<List<gb.Color>> tile)
+        void drawTile(int tileNumber, List<List<Color>> tile)
         {
             int y = tileNumber / 20;
             int x = tileNumber - (20 * y);
@@ -80,8 +80,8 @@ namespace GameBeak.Forms
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    gb.Color color = tile[0][j];
-                    tileScreen.SetPixel((x * 8) + j, (y * 8) + i, Color.FromArgb(color.a, color.r, color.g, color.b));
+                    Color color = tile[0][j];
+                    tileScreen.SetPixel((uint)((x * 8) + j), (uint)((y * 8) + i), new Color(color.R, color.G, color.B, color.A));
                 }
 
                 tile.Remove(tile.First());
@@ -89,11 +89,12 @@ namespace GameBeak.Forms
 
         }
 
+        
         void drawSpriteIcon(PictureBox pictureBox, byte tileNumber)
         {
             ushort baseAddress = 0x8000;
 
-            List<List<gb.Color>> tile = new List<List<gb.Color>>();
+            List<List<Color>> tile = new List<List<Color>>();
 
 
             ushort tileOffset = (ushort)(tileNumber * 16);
@@ -105,7 +106,7 @@ namespace GameBeak.Forms
                 byte rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + j));
                 byte rowHalf2 = Core.beakMemory.readMemory((ushort)(tileAddress + j + 1));
 
-                List<gb.Color> row = new List<gb.Color>();
+                List<Color> row = new List<Color>();
 
                 for (int k = 0; k < 8; k++)
                 {
@@ -123,8 +124,8 @@ namespace GameBeak.Forms
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    gb.Color color = tile[0][j];
-                    spritePreview.SetPixel(j, i, Color.FromArgb(color.a, color.r, color.g, color.b));
+                    Color color = tile[0][j];
+                    spritePreview.SetPixel((uint)j, (uint)i, new Color(color.A, color.R, color.G, color.B));
                 }
 
                 tile.Remove(tile.First());
@@ -132,8 +133,10 @@ namespace GameBeak.Forms
 
 
 
-            pictureBox.Image = new Bitmap(spritePreview, new Size (spritePreview.Width * 4, spritePreview.Height * 4));
+            //pictureBox.Image = new Bitmap(spritePreview, new Size (spritePreview.Width * 4, spritePreview.Height * 4));
+            //TODO: Write SFML.Image to System.Drawing.Image function, or use SFML to draw these
         }
+
 
         private void drawFullView()
         {
@@ -142,11 +145,12 @@ namespace GameBeak.Forms
                 int y = (i / 256);
                 int x = (i - (256 * y));
 
-                gb.Color pixel = Core.beakWindow.getBGPixel((byte)x, (byte)y);
-                fullScreen.SetPixel(x, y, Color.FromArgb(pixel.a, pixel.r, pixel.g, pixel.b));
+                Color pixel = Core.beakWindow.getBGPixel((byte)x, (byte)y);
+                fullScreen.SetPixel((uint)x, (uint)y, new Color(pixel.R, pixel.G, pixel.B, pixel.A));
             }
 
-            pictureBox1.Image = fullScreen;
+            //pictureBox1.Image = fullScreen;
+            //TODO: Write SFML.Image to System.Drawing.Image function, or use SFML to draw these
         }
 
         private void updateSpriteView()

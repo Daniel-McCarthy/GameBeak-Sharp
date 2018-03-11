@@ -154,7 +154,7 @@ namespace GameBeak.Forms
                         byte b = colorValues.First();
                         colorValues.RemoveAt(0);
 
-                        Color color = Color.FromArgb((255 << 24) | (r << 16) | (g << 8) | b);
+                        Color color = new Color(r, g, b, 255);
 
 
                         palettes.Add(color);
@@ -426,14 +426,14 @@ namespace GameBeak.Forms
         {
             colorDialog1.ShowDialog();
 
-            Color selectedColor = colorDialog1.Color;
+            System.Drawing.Color selectedColor = colorDialog1.Color;
 
             //Set Preview Color
             box.BackColor = selectedColor;
 
             //Set Palette Color
             int index = paletteNameListBox.SelectedIndex;
-            palettes[(index * 12) + previewIndex] = selectedColor;
+            palettes[(index * 12) + previewIndex] = new Color(selectedColor.R, selectedColor.G, selectedColor.B);
 
         }
 
@@ -551,10 +551,10 @@ namespace GameBeak.Forms
 
             void writeSchemeLine(int schemeIndex, int offset, string paletteType)
             {
-                string color1 = argbToRGBAString(palettes[schemeIndex + offset + 0].ToArgb());
-                string color2 = argbToRGBAString(palettes[schemeIndex + offset + 1].ToArgb());
-                string color3 = argbToRGBAString(palettes[schemeIndex + offset + 2].ToArgb());
-                string color4 = argbToRGBAString(palettes[schemeIndex + offset + 3].ToArgb());
+                string color1 = palettes[schemeIndex + offset + 0].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 0].ToArgb());
+                string color2 = palettes[schemeIndex + offset + 1].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 1].ToArgb());
+                string color3 = palettes[schemeIndex + offset + 2].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 2].ToArgb());
+                string color4 = palettes[schemeIndex + offset + 3].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 3].ToArgb());
 
                 fileWriter.WriteLine("\t\t<" + paletteType  + ">" + color1 + '|' + color2 + '|' + color3 + '|' + color4 + "</" + paletteType  + ">");
             }
