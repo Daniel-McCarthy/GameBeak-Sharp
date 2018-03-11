@@ -13,7 +13,7 @@ using System.Diagnostics;
 //using SFML;
 //using SFML.Graphics;
 //using SFML.Window;
-using System.Windows;
+//using System.Windows;
 
 //using sf = SFML.Graphics;
 using Core = GameBeak.Classes.Core;
@@ -32,9 +32,16 @@ namespace GameBeak
         private GraphicView graphicView;
         private PaletteEditor paletteEditor;
 
+        Classes.Canvas drawCanvas = new Classes.Canvas();
+        public SFML.Graphics.Sprite frame;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            //Add drawing canvas to screen
+            Controls.Add(drawCanvas);
+            drawCanvas.Location = new Point(0, 27);
         }
 
 

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic;
+using SFML.Graphics;
 
 using Core = GameBeak.Classes.Core;
 using GameBeak = GameBeak.Classes;
@@ -50,9 +50,9 @@ namespace GameBeak.Forms
 
         }
 
-        private GameBeak.Color convertColor(Color color)
+        private Color convertColor(Color color)
         {
-            return new GameBeak.Color(color.R, color.G, color.B, color.A);
+            return new Color(color.R, color.G, color.B, color.A);
         }
 
         //Ok Button / Set Selected Palette and Close
@@ -87,7 +87,7 @@ namespace GameBeak.Forms
         //Set Color of Preview Box
         private void setPreviewColor(PictureBox preview, Color previewColor)
         {
-            preview.BackColor = previewColor;
+            preview.BackColor = System.Drawing.Color.FromArgb(previewColor.A, previewColor.R, previewColor.G, previewColor.B);
         }
 
         public void loadPalettesFromXML(FileStream inputFile)
@@ -559,10 +559,12 @@ namespace GameBeak.Forms
                 fileWriter.WriteLine("\t\t<" + paletteType  + ">" + color1 + '|' + color2 + '|' + color3 + '|' + color4 + "</" + paletteType  + ">");
             }
 
+            /*
             string argbToRGBAString(int argb)
             {
                 return (((argb >> 24) & 0xFF) | (argb << 8)).ToString("X8");
             }
+            */
 
             fileWriter.Close();
         }
