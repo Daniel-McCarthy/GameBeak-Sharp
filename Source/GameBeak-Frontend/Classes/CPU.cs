@@ -3129,26 +3129,17 @@ namespace GameBeak.Classes
         public void opcode86()
         {
             //Add data at HL to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL())) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL())) - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.readMemory(beakMemory.getHL()) + beakMemory.getA()) > 0x0F));
-                //beakMemory.setHFlag(((beakMemory.getA() | beakMemory.readMemory(beakMemory.getHL())) <= 0x0F) && (beakMemory.getA() + (beakMemory.readMemory(beakMemory.getHL())) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL())));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+            byte data = Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL());
+            int result = Core.beakMemory.getA() + data;
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (data & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 2;
             tClock += 8;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode87()
@@ -3267,25 +3258,18 @@ namespace GameBeak.Classes
         public void opcode8E()
         {
             //Add data at HL and Carry flag to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) + Convert.ToByte(Core.beakMemory.getCFlag())) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) + Convert.ToByte(Core.beakMemory.getCFlag())) - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) & 0x0F) + Convert.ToByte(Core.beakMemory.getCFlag())) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.readMemory(beakMemory.getHL()) + beakMemory.getA() + beakMemory.getCFlag()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) + Convert.ToByte(Core.beakMemory.getCFlag())));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+            int data = Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL());
+            int carry = (Core.beakMemory.getCFlag() ? 1 : 0);
+            int result = Core.beakMemory.getA() + data + carry;
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (data & 0x0F) + carry) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 2;
             tClock += 8;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode8F()
