@@ -3038,145 +3038,92 @@ namespace GameBeak.Classes
         public void opcode80()
         {
             //Add B to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.getB()) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + Core.beakMemory.getB()) - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getB() & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.getB() + beakMemory.getA()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getB()));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+            int result = Core.beakMemory.getA() + Core.beakMemory.getB();
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getB() & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 1;
             tClock += 4;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode81()
         {
             //Add C to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.getC()) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getC() - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getC() & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.getC() + beakMemory.getA()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getC()));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+
+            int result = Core.beakMemory.getA() + Core.beakMemory.getC();
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getC() & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 1;
             tClock += 4;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode82()
         {
             //Add D to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.getD()) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)(((Core.beakMemory.getA() + Core.beakMemory.getD()) - 256)));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getD() & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.getC() + beakMemory.getA()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getD()));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+            int result = Core.beakMemory.getA() + Core.beakMemory.getD();
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getD() & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 1;
             tClock += 4;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode83()
         {
             //Add E to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.getE()) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + Core.beakMemory.getE()) - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getE() & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.getE() + beakMemory.getA()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getE()));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+            int result = Core.beakMemory.getA() + Core.beakMemory.getE();
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getE() & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 1;
             tClock += 4;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode84()
         {
             //Add H to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.getH()) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + Core.beakMemory.getH()) - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getH() & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.getH() + beakMemory.getA()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getH()));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+            int result = Core.beakMemory.getA() + Core.beakMemory.getH();
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getH() & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 1;
             tClock += 4;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode85()
         {
             //Add L to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.getL()) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + Core.beakMemory.getL()) - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getL() & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.getL() + beakMemory.getA()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getL()));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+            int result = Core.beakMemory.getA() + Core.beakMemory.getL();
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getL() & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 1;
             tClock += 4;
-
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode86()
@@ -3207,25 +3154,18 @@ namespace GameBeak.Classes
         public void opcode87()
         {
             //Add A to A
-            if ((Core.beakMemory.getA() + Core.beakMemory.getA()) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + Core.beakMemory.getA()) - 256));//0xFF);
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getA() & 0x0F)) > 0x0F);
-                //beakMemory.setHFlag(((beakMemory.getA() | beakMemory.getA()) <= 0x0F) && ((beakMemory.getA() + beakMemory.getA()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + Core.beakMemory.getA()));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
+
+            int result = Core.beakMemory.getA() + Core.beakMemory.getA();
+
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (Core.beakMemory.getA() & 0x0F)) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
+            Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
+            Core.beakMemory.setNFlag(false);
+
             mClock += 1;
             tClock += 4;
 
-            Core.beakMemory.setZFlag((Core.beakMemory.getA() == 0) ? true : false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcode88()
