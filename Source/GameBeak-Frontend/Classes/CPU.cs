@@ -3293,7 +3293,7 @@ namespace GameBeak.Classes
             //Sub B from A
             if ((Core.beakMemory.getA() - Core.beakMemory.getB()) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getB()) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getB()) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3320,7 +3320,7 @@ namespace GameBeak.Classes
             //Sub C from A
             if ((Core.beakMemory.getA() - Core.beakMemory.getC()) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getC()) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getC()) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3347,7 +3347,7 @@ namespace GameBeak.Classes
             //Sub D from A
             if ((Core.beakMemory.getA() - Core.beakMemory.getD()) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getD()) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getD()) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3374,7 +3374,7 @@ namespace GameBeak.Classes
             //Sub E from A
             if ((Core.beakMemory.getA() - Core.beakMemory.getE()) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getE()) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getE()) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3401,7 +3401,7 @@ namespace GameBeak.Classes
             //Sub B from H
             if ((Core.beakMemory.getA() - Core.beakMemory.getH()) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getH()) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getH()) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3428,7 +3428,7 @@ namespace GameBeak.Classes
             //Sub L from A
             if ((Core.beakMemory.getA() - Core.beakMemory.getL()) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getL()) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getL()) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3454,7 +3454,7 @@ namespace GameBeak.Classes
             //Sub data at HL from A
             if ((Core.beakMemory.getA() - Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL())) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL())) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL())) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3481,7 +3481,7 @@ namespace GameBeak.Classes
             //Sub A from A
             if ((Core.beakMemory.getA() - Core.beakMemory.getA()) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getA()) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - Core.beakMemory.getA()) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3508,7 +3508,7 @@ namespace GameBeak.Classes
             //Sub B and Carry flag from A
             if ((Core.beakMemory.getA() - (Core.beakMemory.getB() + Convert.ToByte(Core.beakMemory.getCFlag()))) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - (Core.beakMemory.getB() + Convert.ToByte(Core.beakMemory.getCFlag()))) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - (Core.beakMemory.getB() + Convert.ToByte(Core.beakMemory.getCFlag()))) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
@@ -3531,7 +3531,7 @@ namespace GameBeak.Classes
             //Sub C and Carry flag from A
             if ((Core.beakMemory.getA() - (Core.beakMemory.getC() + Convert.ToByte(Core.beakMemory.getCFlag()))) < 0x00)
             {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - (Core.beakMemory.getC() + Convert.ToByte(Core.beakMemory.getCFlag()))) + 256));//0xFF);
+                Core.beakMemory.setA((byte)((Core.beakMemory.getA() - (Core.beakMemory.getC() + Convert.ToByte(Core.beakMemory.getCFlag()))) & 0xFF));
                 Core.beakMemory.setHFlag(true);
                 Core.beakMemory.setCFlag(true);
             }
