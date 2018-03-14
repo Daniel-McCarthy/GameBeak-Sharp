@@ -4322,26 +4322,17 @@ namespace GameBeak.Classes
         public void opcodeCE(byte n)
         {
             //Add n and Carry flag to A
-            //beakMemory.setA(beakMemory.getA() + n + beakMemory.getCFlag());
-            if ((Core.beakMemory.getA() + n + Convert.ToByte(Core.beakMemory.getCFlag())) > 0xFF)
-            {
-                Core.beakMemory.setA((byte)((Core.beakMemory.getA() + n + Convert.ToByte(Core.beakMemory.getCFlag())) & 0xFF));
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(((Core.beakMemory.getA() & 0x0F) + (n & 0x0F) + Convert.ToByte(Core.beakMemory.getCFlag())) > 0x0F);
-                //beakMemory.setHFlag((beakMemory.getA() <= 0x0F) && ((beakMemory.getA() + n + beakMemory.getCFlag()) > 0x0F));
-                Core.beakMemory.setA((byte)(Core.beakMemory.getA() + n + Convert.ToByte(Core.beakMemory.getCFlag())));
-                //beakMemory.setHFlag((((beakMemory.getA()) & 0x0F) == 0xF) ? 1 : 0);
-                Core.beakMemory.setCFlag(false);
-            }
-            mClock += 2;
-            tClock += 8;
+            int carry = (Core.beakMemory.getCFlag() ? 1 : 0);
+            int result = Core.beakMemory.getA() + n + carry;
 
+            Core.beakMemory.setHFlag((((Core.beakMemory.getA() & 0x0F) + (n & 0x0F) + carry) & 0x10) > 0);
+            Core.beakMemory.setA((byte)(result & 0xFF));
+            Core.beakMemory.setCFlag(result > 0xFF);
             Core.beakMemory.setZFlag(Core.beakMemory.getA() == 0);
             Core.beakMemory.setNFlag(false);
+
+            mClock += 2;
+            tClock += 8;
         }
 
         public void opcodeCF()
