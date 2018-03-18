@@ -182,7 +182,7 @@ namespace GameBeak.Classes
 
         public void writeRom0ToRam()
         {
-            for (int i = 0; i < 0x3FFF; i++)
+            for (int i = 0; i <= 0x3FFF; i++)
             {
                 ramMap[i] = rom[i];
             }
@@ -190,7 +190,7 @@ namespace GameBeak.Classes
 
         public void writeFullRomToRam()
         {
-            for (int i = 0; i < 0x7FFF; i++)
+            for (int i = 0; i <= 0x7FFF; i++)
             {
                 ramMap[i] = rom[i];
             }

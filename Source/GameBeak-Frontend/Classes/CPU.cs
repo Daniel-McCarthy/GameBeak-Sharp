@@ -2325,7 +2325,7 @@ namespace GameBeak.Classes
         public void opcode2F()
         {
             //CPL - Flip all bits in A
-            Core.beakMemory.setA((byte)~Core.beakMemory.getA());
+            Core.beakMemory.setA((byte)(Core.beakMemory.getA() ^ 0xFF));
             mClock += 1;
             tClock += 4;
 
@@ -7759,10 +7759,6 @@ namespace GameBeak.Classes
         {
             repeat = newRepeat;
         }
-
-
-
-
 
 
 
