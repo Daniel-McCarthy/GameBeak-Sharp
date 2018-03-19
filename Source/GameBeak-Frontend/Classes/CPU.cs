@@ -1769,34 +1769,15 @@ namespace GameBeak.Classes
 
         public void opcode07()
         {
-            /*
+            
             //Rotate A Left - Set C flag to old bit 7
-            beakMemory.setCFlag(((beakMemory.getA() & 0x01) == 1) ? true : false);
-            beakMemory.setA(rotateLeft(beakMemory.getA()));
-            mClock += 2;
-            tClock += 8;
-            */
-
-            //Rotate A Left, put previous bit 7 into Carry flag
-            if (Core.beakMemory.getA() != 0)
-            {
-                Core.beakMemory.setCFlag((Core.beakMemory.getA() & 0x01) > 0);
-            }
-            else
-            {
-                Core.beakMemory.setZFlag(false);
-                Core.beakMemory.setCFlag(false);
-            }
-
-            //beakMemory.setA(beakMemory.getA() << 1);
             Core.beakMemory.setA(Binary.rotateLeft(Core.beakMemory.getA()));
-
-            mClock += 1;
-            tClock += 4;
-
+            Core.beakMemory.setCFlag(((Core.beakMemory.getA() & 0x01) == 1) ? true : false);
             Core.beakMemory.setNFlag(false);
             Core.beakMemory.setHFlag(false);
-
+            Core.beakMemory.setZFlag(false);
+            mClock += 1;
+            tClock += 4;
         }
 
         public void opcode08(ushort nn)
