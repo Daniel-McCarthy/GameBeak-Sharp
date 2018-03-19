@@ -7420,7 +7420,7 @@ namespace GameBeak.Classes
         {
             //Set Bit 6 of data at HL
             ushort hl = (ushort)Core.beakMemory.getHL();
-            Core.beakMemory.writeMemory(hl, (byte)(Core.beakMemory.readMemory((ushort)((hl) | 0x40))));
+            Core.beakMemory.writeMemory(hl, (byte)(Core.beakMemory.readMemory((ushort)(hl)) | 0x40));
             mClock += 3;
             tClock += 12;
         }
