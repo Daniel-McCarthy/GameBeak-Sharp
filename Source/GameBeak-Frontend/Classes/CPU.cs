@@ -2042,7 +2042,7 @@ namespace GameBeak.Classes
             //RRA - Rotate A Right - Store old bit 0 in Carry Flag - Current Carry flag becomes new bit 7
             //Rotate A Right - Set left most bit to current carry flag
             byte cFlag = (Core.beakMemory.getCFlag() == true) ? (byte)0x80 : (byte)0x00;
-            Core.beakMemory.setCFlag((((Core.beakMemory.getA() & 0x80) >> 7) == 1) ? true : false);
+            Core.beakMemory.setCFlag(((Core.beakMemory.getA() & 0x01) == 1) ? true : false);
             Core.beakMemory.setA((byte)((Core.beakMemory.getA() >> 1) | cFlag));
             mClock += 1;
             tClock += 4;
