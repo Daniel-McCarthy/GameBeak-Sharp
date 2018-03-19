@@ -1794,27 +1794,15 @@ namespace GameBeak.Classes
 
             ushort hl = (ushort)Core.beakMemory.getHL();
             ushort bc = (ushort)Core.beakMemory.getBC();
-            uint totalSum = (uint)(hl + bc);
-            uint halfCarrySum = (uint)((hl & 0x0FFF) + (bc & 0x0FFF));
+            int totalSum = hl + bc;
 
-            if (totalSum > 0xFFFF)
-            {
-                int overflow = (int)(totalSum & 0xFFFF);
-                Core.beakMemory.setHL((short)(0 + overflow));
-                Core.beakMemory.setCFlag(true);
-                Core.beakMemory.setHFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(halfCarrySum > 0x0FFF);
-                Core.beakMemory.setHL((short)(Core.beakMemory.getHL() + Core.beakMemory.getBC()));
-                //TODO: Find out of H can be set by half overflow? Haven't found a circumstance in which it does yet
-                Core.beakMemory.setCFlag(false);
-            }
+            Core.beakMemory.setHFlag(((hl & 0x0FFF) > (totalSum & 0x0FFF)));
+            Core.beakMemory.setHL((short)(totalSum & 0xFFFF));
+            Core.beakMemory.setCFlag(totalSum > 0xFFFF);
+            
             mClock += 2;
             tClock += 8;
 
-            //beakMemory.setZFlag(beakMemory.getHL() == 0); //From testing, this opcode leaves Z as it was
             Core.beakMemory.setNFlag(false);
         }
 
