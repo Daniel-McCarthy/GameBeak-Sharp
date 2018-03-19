@@ -5114,8 +5114,8 @@ namespace GameBeak.Classes
         {
             //Rotate data at HL Left
 
-            byte oldBit = (byte)((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) & 0x8000) >> 0xF);
-            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), (byte)((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) << 1) | Convert.ToByte(Core.beakMemory.getCFlag())));
+            byte oldBit = (byte)((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) & 0x80) >> 7);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), (byte)(((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) << 1) & 0xFF) | Convert.ToByte(Core.beakMemory.getCFlag())));
             Core.beakMemory.setCFlag(oldBit > 0);
 
             mClock += 3;
@@ -5244,7 +5244,7 @@ namespace GameBeak.Classes
             //Rotate/Shift HL Right
 
             byte oldBit = (byte)(Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) & 0x01);
-            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), (byte)((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) >> 1) | (Convert.ToByte(Core.beakMemory.getCFlag()) << 0xF)));
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), (byte)((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) >> 1) | (Convert.ToByte(Core.beakMemory.getCFlag()) << 7)));
             Core.beakMemory.setCFlag(oldBit > 0);
 
             mClock += 3;
@@ -5365,8 +5365,8 @@ namespace GameBeak.Classes
         {
             //Shift data at HL Left - Set Carry to old Bit 7
 
-            Core.beakMemory.setCFlag(((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) & 0x8000) >> 0xF) > 0);
-            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), (byte)(Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) << 1));
+            Core.beakMemory.setCFlag(((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) & 0x80) >> 7) > 0);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), (byte)((Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) << 1) & 0xFF));
 
             mClock += 3;
             tClock += 12;
