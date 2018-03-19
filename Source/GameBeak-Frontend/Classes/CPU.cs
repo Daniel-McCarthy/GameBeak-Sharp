@@ -1970,28 +1970,17 @@ namespace GameBeak.Classes
 
             ushort hl = (ushort)Core.beakMemory.getHL();
             ushort de = (ushort)Core.beakMemory.getDE();
-            uint totalSum = (uint)(hl + de);
-            uint halfCarrySum = (uint)((hl & 0x0FFF) + (de & 0x0FFF));
+            int totalSum = hl + de;
 
-            if (totalSum > 0xFFFF)
-            {
-                short overflow = (short)(totalSum & 0xFFFF);
-                Core.beakMemory.setHL((short)(0 + overflow));
-                Core.beakMemory.setCFlag(true);
-                Core.beakMemory.setHFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHFlag(halfCarrySum > 0x0FFF);
-                Core.beakMemory.setHL((short)(Core.beakMemory.getHL() + Core.beakMemory.getDE()));
-                //TODO: Find out if half carry happens?
-                Core.beakMemory.setCFlag(false);
-            }
+            Core.beakMemory.setHFlag(((hl & 0x0FFF) > (totalSum & 0x0FFF)));
+            Core.beakMemory.setHL((short)(totalSum & 0xFFFF));
+            Core.beakMemory.setCFlag(totalSum > 0xFFFF);
+
             mClock += 2;
             tClock += 8;
 
-            //beakMemory.setZFlag(beakMemory.getHL() == 0);
             Core.beakMemory.setNFlag(false);
+
         }
 
         public void opcode1A()
