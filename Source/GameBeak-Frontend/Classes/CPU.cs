@@ -2382,21 +2382,17 @@ namespace GameBeak.Classes
         public void opcode39()
         {
             //Add SP to HL
-            if ((Core.beakMemory.getHL() + Core.beakMemory.stackPointer) > 0xFFFF)
-            {
-                Core.beakMemory.setHL((short)((Core.beakMemory.getHL() + Core.beakMemory.stackPointer) & 0xFFFF));
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-            else
-            {
-                Core.beakMemory.setHL((short)(Core.beakMemory.getHL() + Core.beakMemory.stackPointer));
-                //Todo: Check if half carry can occur?
-            }
+            ushort hl = (ushort)Core.beakMemory.getHL();
+            ushort sp = (ushort)Core.beakMemory.stackPointer;
+            int totalSum = hl + sp;
+
+            Core.beakMemory.setHFlag(((hl & 0x0FFF) > (totalSum & 0x0FFF)));
+            Core.beakMemory.setHL((short)(totalSum & 0xFFFF));
+            Core.beakMemory.setCFlag(totalSum > 0xFFFF);
+
             mClock += 2;
             tClock += 8;
 
-            //No Z flag from what I've found
             Core.beakMemory.setNFlag(false);
         }
 
