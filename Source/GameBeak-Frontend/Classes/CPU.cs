@@ -2137,49 +2137,38 @@ namespace GameBeak.Classes
             //DAA Load decimal representation of A into A
 
             byte aValue = Core.beakMemory.getA();
-
-            if (Core.beakMemory.getNFlag())
+     
+            if (!Core.beakMemory.getNFlag())
             {
-                if (Core.beakMemory.getCFlag())
-                {
-                    Core.beakMemory.setCFlag(true);
 
-                    if (Core.beakMemory.getHFlag())
-                    {
-                        aValue += 0x9A;
-                    }
-                    else
-                    {
-                        aValue += 0xA0;
-                    }
-
-                }
-                else if (Core.beakMemory.getHFlag())
-                {
-                    aValue += 0xFA;
-                    Core.beakMemory.setCFlag(false);
-                }
-            }
-            else
-            {
-                if (Core.beakMemory.getHFlag() || ((aValue & 0x0F) > 9))
-                {
-                    aValue += 0x6;
-                    Core.beakMemory.setCFlag(false);
-                }
-
-                if (Core.beakMemory.getCFlag() || (aValue > 0x99))
+                if(Core.beakMemory.getCFlag() || (aValue > 0x99))
                 {
                     aValue += 0x60;
                     Core.beakMemory.setCFlag(true);
                 }
+
+                if (Core.beakMemory.getHFlag() || ((aValue & 0x0F) > 0x09))
+                {
+                    aValue += 0x06;
+                }
+            }
+            else
+            {
+                if(Core.beakMemory.getHFlag())
+                {
+                    aValue -= 0x06;
+                }
+
+                if(Core.beakMemory.getCFlag())
+                {
+                    aValue -= 0x60;
+                }
             }
 
-            //beakMemory.setNFlag(false);
-            Core.beakMemory.setHFlag(false);
+            Core.beakMemory.setA(aValue);
             Core.beakMemory.setZFlag(aValue == 0);
-            Core.beakMemory.setA((byte)(aValue & 0xFF));
-
+            Core.beakMemory.setHFlag(false);
+ 
             mClock += 1;
             tClock += 4;
         }
