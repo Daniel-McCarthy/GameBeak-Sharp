@@ -4220,7 +4220,7 @@ namespace GameBeak.Classes
         {
             //Subtract n from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= n;
 
             Core.beakMemory.setCFlag(n > Core.beakMemory.getA()); //(n > a)//Core.beakMemory.setCFlag(result < 0xFF);
