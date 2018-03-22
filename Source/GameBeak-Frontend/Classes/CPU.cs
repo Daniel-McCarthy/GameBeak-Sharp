@@ -5468,7 +5468,7 @@ namespace GameBeak.Classes
         public void opcodeCB33()
         {
             //Swap nibbles in E
-            byte e = Core.beakMemory.getC();
+            byte e = Core.beakMemory.getE();
             e = (byte)(((e & 0x0F) << 4) | ((e & 0xF0) >> 4));
             Core.beakMemory.setE(e);
             mClock += 2;
