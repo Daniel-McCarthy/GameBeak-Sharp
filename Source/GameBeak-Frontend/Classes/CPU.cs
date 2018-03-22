@@ -5294,8 +5294,9 @@ namespace GameBeak.Classes
         {
             //Shift B Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.getB() & 0x01) > 0);
-            Core.beakMemory.setB((byte)(Core.beakMemory.getB() >> 1));
+            byte oldValue = Core.beakMemory.getB();
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.setB((byte)((oldValue & 0x80) | (oldValue >> 1)));
 
             mClock += 2;
             tClock += 8;
@@ -5309,8 +5310,9 @@ namespace GameBeak.Classes
         {
             //Shift C Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.getC() & 0x01) > 0);
-            Core.beakMemory.setC((byte)(Core.beakMemory.getC() >> 1));
+            byte oldValue = Core.beakMemory.getC();
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.setC((byte)((oldValue & 0x80) | (oldValue >> 1)));
 
             mClock += 2;
             tClock += 8;
@@ -5324,8 +5326,9 @@ namespace GameBeak.Classes
         {
             //Shift D Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.getD() & 0x01) > 0);
-            Core.beakMemory.setD((byte)(Core.beakMemory.getD() >> 1));
+            byte oldValue = Core.beakMemory.getD();
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.setD((byte)((oldValue & 0x80) | (oldValue >> 1)));
 
             mClock += 2;
             tClock += 8;
@@ -5339,8 +5342,9 @@ namespace GameBeak.Classes
         {
             //Shift E Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.getE() & 0x01) > 0);
-            Core.beakMemory.setE((byte)(Core.beakMemory.getE() >> 1));
+            byte oldValue = Core.beakMemory.getE();
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.setE((byte)((oldValue & 0x80) | (oldValue >> 1)));
 
             mClock += 2;
             tClock += 8;
@@ -5354,8 +5358,9 @@ namespace GameBeak.Classes
         {
             //Shift H Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.getH() & 0x01) > 0);
-            Core.beakMemory.setH((byte)(Core.beakMemory.getH() >> 1));
+            byte oldValue = Core.beakMemory.getH();
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.setH((byte)((oldValue & 0x80) | (oldValue >> 1)));
 
 
             mClock += 2;
@@ -5370,8 +5375,9 @@ namespace GameBeak.Classes
         {
             //Shift L Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.getL() & 0x01) > 0);
-            Core.beakMemory.setL((byte)(Core.beakMemory.getL() >> 1));
+            byte oldValue = Core.beakMemory.getL();
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.setL((byte)((oldValue & 0x80) | (oldValue >> 1)));
 
 
             mClock += 2;
@@ -5386,13 +5392,14 @@ namespace GameBeak.Classes
         {
             //Shift data at HL Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.readMemory((ushort)(Core.beakMemory.getHL())) & 0x01) > 0);
-            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), (byte)(Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) >> 1));
+            byte oldValue = Core.beakMemory.readMemory((ushort)(Core.beakMemory.getHL()));
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.writeMemory((ushort)Core.beakMemory.getHL(), ((byte)((oldValue & 0x80) | (oldValue >> 1))));
 
             mClock += 3;
             tClock += 12;
 
-            Core.beakMemory.setZFlag(Core.beakMemory.getHL() == 0);
+            Core.beakMemory.setZFlag(Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL()) == 0);
             Core.beakMemory.setNFlag(false);
             Core.beakMemory.setHFlag(false);
         }
@@ -5401,9 +5408,10 @@ namespace GameBeak.Classes
         {
             //Shift A Right - Set Carry to old Bit 0
 
-            Core.beakMemory.setCFlag((Core.beakMemory.getA() & 0x01) > 0);
-            Core.beakMemory.setA((byte)(Core.beakMemory.getA() >> 1));
-            
+            byte oldValue = Core.beakMemory.getA();
+            Core.beakMemory.setCFlag((oldValue & 0x01) > 0);
+            Core.beakMemory.setA((byte)((oldValue & 0x80) | (oldValue >> 1)));
+
             mClock += 2;
             tClock += 8;
 
