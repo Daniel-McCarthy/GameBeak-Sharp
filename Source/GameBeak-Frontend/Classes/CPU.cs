@@ -3234,7 +3234,7 @@ namespace GameBeak.Classes
         {
             //Sub B from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getB();
 
             Core.beakMemory.setCFlag(Core.beakMemory.getB() > Core.beakMemory.getA());
@@ -3251,7 +3251,7 @@ namespace GameBeak.Classes
         {
             //Sub C from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getC();
 
             Core.beakMemory.setCFlag(Core.beakMemory.getC() > Core.beakMemory.getA());
@@ -3268,7 +3268,7 @@ namespace GameBeak.Classes
         {
             //Sub D from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getD();
 
             Core.beakMemory.setCFlag(Core.beakMemory.getD() > Core.beakMemory.getA());
@@ -3285,7 +3285,7 @@ namespace GameBeak.Classes
         {
             //Sub E from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getE();
 
             Core.beakMemory.setCFlag(Core.beakMemory.getE() > Core.beakMemory.getA());
@@ -3302,7 +3302,7 @@ namespace GameBeak.Classes
         {
             //Sub H from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getH();
 
             Core.beakMemory.setCFlag(Core.beakMemory.getH() > Core.beakMemory.getA());
@@ -3319,7 +3319,7 @@ namespace GameBeak.Classes
         {
             //Sub L from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getL();
 
             Core.beakMemory.setCFlag(Core.beakMemory.getL() > Core.beakMemory.getA()); 
@@ -3336,7 +3336,7 @@ namespace GameBeak.Classes
         {
             //Sub data at HL from A
 
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             byte data = Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL());
             result -= data;
 
@@ -3353,8 +3353,8 @@ namespace GameBeak.Classes
         public void opcode97()
         {
             //Sub A from A
-            
-            byte result = Core.beakMemory.getA();
+
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getA();
 
             Core.beakMemory.setCFlag(Core.beakMemory.getA() > Core.beakMemory.getA()); //(n > a)//Core.beakMemory.setCFlag(result < 0xFF);
@@ -3374,7 +3374,7 @@ namespace GameBeak.Classes
             //Sub B and Carry flag from A
 
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getB();
             result -= carry;
 
@@ -3393,7 +3393,7 @@ namespace GameBeak.Classes
             //Sub C and Carry flag from A
 
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getC();
             result -= carry;
 
@@ -3412,7 +3412,7 @@ namespace GameBeak.Classes
             //Sub D and Carry flag from A
 
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getD();
             result -= carry;
 
@@ -3430,7 +3430,7 @@ namespace GameBeak.Classes
         {
             //Sub E and Carry flag from A
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getE();
             result -= carry;
 
@@ -3448,7 +3448,7 @@ namespace GameBeak.Classes
         {
             //Sub H and Carry flag from A
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getH();
             result -= carry;
 
@@ -3467,7 +3467,7 @@ namespace GameBeak.Classes
             //Sub L and Carry flag from A
 
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getL();
             result -= carry;
 
@@ -3487,7 +3487,7 @@ namespace GameBeak.Classes
 
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
             byte data = Core.beakMemory.readMemory((ushort)Core.beakMemory.getHL());
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= data;
             result -= carry;
 
@@ -3506,7 +3506,7 @@ namespace GameBeak.Classes
             //Sub A and Carry flag from A
 
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= Core.beakMemory.getA();
             result -= carry;
 
@@ -4314,7 +4314,7 @@ namespace GameBeak.Classes
             //Sub n and Carry flag from A
 
             byte carry = (byte)(Core.beakMemory.getCFlag() ? 1 : 0);
-            byte result = Core.beakMemory.getA();
+            int result = Core.beakMemory.getA();
             result -= n;
             result -= carry;
 
