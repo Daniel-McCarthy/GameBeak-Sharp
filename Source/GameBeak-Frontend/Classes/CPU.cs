@@ -4404,25 +4404,16 @@ namespace GameBeak.Classes
         {
             //Add n to Stack Pointer
 
-            if ((Core.beakMemory.stackPointer + (sbyte)n) > 0xFFFF)
-	        {
-                Core.beakMemory.setStackPointer(((ushort)((Core.beakMemory.stackPointer + (sbyte)n) & 0xFFFF)));
-                Core.beakMemory.setHFlag(true);
-                Core.beakMemory.setCFlag(true);
-            }
-	        else
-	        {
-                Core.beakMemory.setHFlag(((Core.beakMemory.stackPointer & 0x0F) + ((sbyte)n & 0x0F)) > 0x0F);
-                Core.beakMemory.setStackPointer((ushort)(Core.beakMemory.stackPointer + (sbyte)n));
-                //beakMemory.setHFlag((stackPointer & 0x00FF) == 0xF0);
-                Core.beakMemory.setCFlag(false);
-            }
-            mClock += 4;
-            tClock += 16;
+            int result = Core.beakMemory.stackPointer + n;
 
-            //beakMemory.setZFlag(stackPointer > 0); //From tests in BGB this is not set
+            Core.beakMemory.setStackPointer((byte)(result));
+            Core.beakMemory.setHFlag((result & 0x10) > 0);
+            Core.beakMemory.setCFlag((result & 0x100) > 0);
             Core.beakMemory.setZFlag(false);
             Core.beakMemory.setNFlag(false);
+
+            mClock += 4;
+            tClock += 16;
         }
 
         public void opcodeE9()
