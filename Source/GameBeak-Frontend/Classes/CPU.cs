@@ -4395,11 +4395,12 @@ namespace GameBeak.Classes
 
             int result = Core.beakMemory.stackPointer + n;
 
-            Core.beakMemory.setStackPointer((byte)(result));
-            Core.beakMemory.setHFlag((result & 0x10) > 0);
-            Core.beakMemory.setCFlag((result & 0x100) > 0);
+            Core.beakMemory.setCFlag((result & 0xFF) < (Core.beakMemory.stackPointer & 0xFF));
+            Core.beakMemory.setHFlag((result & 0x0F) < (Core.beakMemory.stackPointer & 0x0F));
             Core.beakMemory.setZFlag(false);
             Core.beakMemory.setNFlag(false);
+
+            Core.beakMemory.setStackPointer((ushort)(result & 0xFFFF));
 
             mClock += 4;
             tClock += 16;
@@ -4521,23 +4522,17 @@ namespace GameBeak.Classes
         {
             //Load SP + n into HL
 
-            if ((Core.beakMemory.stackPointer + n) > 0xFF)
-            {
-                Core.beakMemory.setCFlag(true);
-            }
+            int result = Core.beakMemory.stackPointer + (sbyte)n;
 
-            if (((Core.beakMemory.stackPointer & 0x0F) + (n & 0x0F)) > 0x0F)
-            {
-                Core.beakMemory.setHFlag(true);
-            }
+            Core.beakMemory.setCFlag((result & 0xFF) < (Core.beakMemory.stackPointer & 0xFF));
+            Core.beakMemory.setHFlag((result & 0x0F) < (Core.beakMemory.stackPointer & 0x0F));
+            Core.beakMemory.setZFlag(false);
+            Core.beakMemory.setNFlag(false);
 
-            Core.beakMemory.setHL((short)(Core.beakMemory.stackPointer + n));
+            Core.beakMemory.setHL((short)(result & 0xFFFF));
 
             mClock += 3;
             tClock += 12;
-
-            Core.beakMemory.setZFlag(false);
-            Core.beakMemory.setNFlag(false);
         }
 
         public void opcodeF9()
