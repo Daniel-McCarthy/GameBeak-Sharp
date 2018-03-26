@@ -2299,7 +2299,7 @@ namespace GameBeak
             Core.beakCPU.interrupt = false;
             Core.beakCPU.halt = false;
             Core.beakCPU.stop = false;
-            Core.beakCPU.repeat = false;
+            Core.repeat = false;
             Core.beakCPU.interruptsEnabled = true;
             Core.beakCPU.tClock = 0;
             Core.beakCPU.mClock = 0;

@@ -11,7 +11,6 @@ namespace GameBeak.Classes
         public bool interrupt = false;
         public bool halt = false;
         public bool stop = false; //Button input should set this back to false
-        public bool repeat = false;
 
         public bool interruptsEnabled = true;
         public int tClock = 0;
@@ -19,14 +18,6 @@ namespace GameBeak.Classes
 
         public void selectOpcode(byte opcode)
         {
-            if (repeat)
-            {
-                //Sets memory pointer back one.
-                //If opcode is one byte it should repeat.
-                //If opcode requires operands, the opcode itself will be the first operand
-                Core.beakMemory.memoryPointer--;
-                repeat = false;
-            }
 
             if (Core.enableInterruptsNextCycle)
             {

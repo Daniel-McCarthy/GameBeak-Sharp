@@ -48,6 +48,8 @@ namespace GameBeak.Classes
         public static bool breakPointEnabled = true;
         public static ConcurrentDictionary<string, short> breakpoints = new ConcurrentDictionary<string, short>();
 
+        public static bool repeat = false; //Halt bug
+
         //extern Audio beakAudio;
 
         //extern KeyInput beakInput;
@@ -99,7 +101,17 @@ namespace GameBeak.Classes
                     //if (!cpu.checkForHaltOrInterrupt())
                     if (!Core.beakCPU.checkForHaltOrInterrupt())
                     {
+
                         Core.beakCPU.selectOpcode(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
+
+                        //Halt bug
+                        if (Core.repeat)
+                        {
+                            Core.beakMemory.memoryPointer--;
+                            Core.repeat = false;
+                        }
+
+
                     }
                     else
                     {
