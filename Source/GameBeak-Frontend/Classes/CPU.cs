@@ -10,6 +10,7 @@ namespace GameBeak.Classes
     {
         public bool interrupt = false;
         public bool halt = false;
+        public byte haltMode = 0;
         public bool stop = false; //Button input should set this back to false
 
         public bool interruptsEnabled = true;
@@ -2872,17 +2873,33 @@ namespace GameBeak.Classes
         {
             //Halt
 
-            if (checkForInterrupt() && !interruptsEnabled) //If interrupt true while IME is disabled, repeat next opcode.
+            if(interruptsEnabled == true) //If IME == 1
             {
-                repeat = true;
+                //Enter Halt Normally
+                haltMode = 1;
+                halt = true;
             }
             else
             {
-                halt = true; //Halt should only be set if the first case is not true.
+
+                if (checkForInterrupt())
+                {
+                    //Halt is not entered, halt bug occurs
+                    haltMode = 0;
+                    halt = false;
+                    Core.repeat = true;
+                }
+                else
+                {
+                    //Halt Entered, but does not jump to interrupt vector
+                    haltMode = 2;
+                    halt = true;
+                }
             }
 
             mClock += 1;
             tClock += 4;
+
         }
 
         public void opcode77()
@@ -7528,38 +7545,40 @@ namespace GameBeak.Classes
             Otherwise, it will return false and the next assembly instruction will be executed as normal.
             */
 
-            if (interruptsEnabled) //IME
+            bool pendingInterrupt = checkForInterrupt();
+
+            if (pendingInterrupt)
             {
-                if (checkForInterrupt())
+                if (halt)
                 {
-                    //End halt mode
-                    if (halt)
+                    if (haltMode == 1)
                     {
-                        halt = false;
-                        mClock += 1;
-                        tClock += 4;
+                        //Halt Mode == 1, normal halt mode execution
+                        //Halt Mode 2 does not clear IF or jump
+                        executeInterrupt();
                     }
 
-                    executeInterrupt();
-                    return true; //Temporary? This allows the opcode it is jumped to to be logged/shown in debugger instead of appearing skipped. Could cause a side effect by skipping a loop?
+                    halt = false;
+                    haltMode = 0;
+                    mClock += 1;
+                    tClock += 4;
+
                 }
-                else if (halt)
+                else
                 {
-                    return true;
+                    if (interruptsEnabled) //if IME == 1
+                    {
+                        //Not halting, normal interrupt execution
+                        executeInterrupt();
+                    }
                 }
             }
             else
             {
-
-                if (halt)
+                if(halt)
                 {
-                    halt = false;
-                    mClock += 1;
-                    tClock += 4;
-
-                    return true; //BGB and No$GB never escape DI+Halt
+                    return true;
                 }
-
             }
 
             return false;
@@ -7601,7 +7620,7 @@ namespace GameBeak.Classes
 
         public bool returnRepeat()
         {
-            return repeat;
+            return Core.repeat;
         }
 
         public void setTClock(int newTClock)
@@ -7630,7 +7649,7 @@ namespace GameBeak.Classes
         }
         public void setRepeat(bool newRepeat)
         {
-            repeat = newRepeat;
+            Core.repeat = newRepeat;
         }
 
 
