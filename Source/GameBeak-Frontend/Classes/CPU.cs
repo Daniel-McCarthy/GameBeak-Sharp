@@ -7463,20 +7463,11 @@ namespace GameBeak.Classes
             byte IE = Core.beakMemory.readMemory(0xFFFF);
             byte IF = Core.beakMemory.readMemory(0xFF0F);
 
-            for (int i = 0; i < 8; i++)
-            {
-                if ((IE & 0x01) == 1 && (IF & 0x01) == 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    IE >>= 1;
-                    IF >>= 1;
-                }
-            }
-
-            return false;
+            //The interrupt bits are within 0x1 an 0x1F
+            //If a bit is enabled in both IE and IF, (IE & IF) will keep them
+            //If a bit is within the interrupt bit range (x & 0x1F) will keep them
+            //If the resulting value is not 0, then at least one interrupt is pending
+            return ((IE & IF & 0x1F) != 0);
         }
 
         public void executeInterrupt()
