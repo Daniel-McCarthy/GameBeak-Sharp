@@ -101,11 +101,8 @@ namespace GameBeak.Classes
                             {
                                 drawScreenFromMaps(Core.beakGPU.getScrollX(), Core.beakGPU.getScrollY());
 
-                                if (screenUpdate == null || screenUpdate.IsCompleted)
-                                {
-                                    screenUpdate = Task.Run(() => Core.mainWindow.updateScreen());
-                                }
-
+                                Core.mainWindow.updateScreen();
+                                
                                 screenUpdateWatch.Stop();
                                 if(screenUpdateWatch.ElapsedMilliseconds == 0)
                                 {
