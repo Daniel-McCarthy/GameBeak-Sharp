@@ -124,7 +124,7 @@ namespace GameBeak.Classes
                     {
                         for (int i = 0; i < romFile.Length; i++)
                         {
-                            rom[i] = rom[i];
+                            rom[i] = romFile[i];
                         }
                     }
                     else
