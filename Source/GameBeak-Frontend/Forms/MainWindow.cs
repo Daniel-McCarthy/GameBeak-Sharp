@@ -54,11 +54,13 @@ namespace GameBeak
 
             if(File.Exists(filePath))
             {
-                byte[] rom = File.ReadAllBytes(filePath);
+                //byte[] rom = File.ReadAllBytes(filePath);
 
                 //NativeMethods.setRom(rom, rom.Length);
                 Core.beakMemory.memoryPointer = 0x0100;
-                Core.beakMemory.loadRom(rom);
+                //Core.beakMemory.loadRom(rom);
+
+                Core.beakMemory.loadRom(filePath, true);
 
                 //NativeMethods.setPauseState(true);
                 Core.paused = true;

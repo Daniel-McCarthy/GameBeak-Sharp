@@ -175,7 +175,29 @@ namespace GameBeak.Classes
             return true;
         }
 
+        /*
+        Load Rom and Attempt to Load Save if selected
+        */
+        
+        public bool loadRom(string path, bool findAndLoadSaveFile)
+        {
 
+            loadRom(path);
+
+            if (findAndLoadSaveFile)
+            {
+                //Attempt to open file, if it was successful close it and call the full loadSave function
+                string savePath = path.Substring(0, path.LastIndexOf('.')) + ".sav";
+
+                if(File.Exists(savePath))
+                {
+                    loadSaveFile(savePath);
+
+                }
+            }
+
+            return true;
+        }
 
 
 
