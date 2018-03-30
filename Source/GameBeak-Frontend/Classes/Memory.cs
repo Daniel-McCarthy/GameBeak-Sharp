@@ -1022,12 +1022,13 @@ namespace GameBeak.Classes
             setStackPointer((ushort)0xFFFE);
 
             Random random1 = new Random();
-            for (ushort i = 0xC000; i < 0xDFFF; i++)
+            for (ushort i = 0xC000; i <= 0xDFFF; i++)
             {
                 byte randNum = (byte)random1.Next(0xFF);
                 writeMemory(i, randNum);
             }
 
+            //Initialize High Ram (0xFFFF is not a part of high ram)
             for (ushort i = 0xFF80; i < 0xFFFF; i++)
             {
                 byte randNum = (byte)random1.Next(0xFF);
