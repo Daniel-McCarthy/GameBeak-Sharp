@@ -1075,5 +1075,37 @@ namespace GameBeak.Classes
 
         }
 
+
+        
+        bool loadSaveFile(string filepath)
+        {
+            byte[] saveFile = File.ReadAllBytes(filepath);
+
+            if (saveFile != null)
+            {
+                int fileLength = saveFile.Length;
+
+                if (fileLength >= 0x2000)
+                {
+                    ushort address = 0xA000;
+                    for (ushort i = 0x0; i <= 0x1FFF; i++)
+                    {
+                        ramMap[address + i] = saveFile[i];
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: Save file does not exist.");
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }
