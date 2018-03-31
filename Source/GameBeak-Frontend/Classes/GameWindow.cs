@@ -321,6 +321,9 @@ namespace GameBeak.Classes
             spritePixels[x + (y * 256)] = new Color(color);
         }
 
+        /*
+         * Draw the full window (only what is on-screen) to Image screen variable
+         */
         public void drawScreenFromMaps(byte scrollX, byte scrollY)
         {
 
@@ -420,13 +423,12 @@ namespace GameBeak.Classes
                 }
             }
 
-            //drawImageToScreen(screen);
-
             for (int i = 0; i < (256 * 256); i++)
             {
                 spritePixels[i].A = 0;
             }
-            
+
+            //drawImageToScreen(screen);
 
         }
 
