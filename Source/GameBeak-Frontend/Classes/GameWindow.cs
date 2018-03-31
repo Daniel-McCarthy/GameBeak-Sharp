@@ -430,7 +430,10 @@ namespace GameBeak.Classes
 
         }
 
-        public void drawFullScreenMaps()
+        /*
+         * Draw the full window (including data extending outside screen) to an Image file
+         */
+        public Image drawFullScreenMaps()
         {
 
             Image fullScreen = new Image(256, 256, Color.Transparent);
@@ -524,6 +527,7 @@ namespace GameBeak.Classes
             }
 
             //drawImageToScreen(fullScreen);
+            return fullScreen;
         }
 
 
