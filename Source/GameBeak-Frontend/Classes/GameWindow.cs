@@ -22,8 +22,6 @@ namespace GameBeak.Classes
 
         private Stopwatch screenUpdateWatch = new Stopwatch();
 
-        private Task screenUpdate;
-
         public GameWindow()
         {
             Color pink = new Color(Core.beakGPU.returnColor(0, 0));
