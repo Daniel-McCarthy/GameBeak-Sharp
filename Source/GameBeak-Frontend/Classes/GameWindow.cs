@@ -386,7 +386,7 @@ namespace GameBeak.Classes
                     {
                         for (int j = 0; (j + y + yShift) < 144; j++)
                         {
-                            screen.SetPixel((uint)(x + xShift + i), (uint)(y + yShift + j), new Color(windowPixels[(xShift + i) + ((yShift + j) * 256)]));
+                            screen.SetPixel((uint)(x + xShift + i  - 1), (uint)(y + yShift + j), new Color(windowPixels[(xShift + i) + ((yShift + j) * 256)]));
                         }
 
                     }
