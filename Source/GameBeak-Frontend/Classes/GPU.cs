@@ -13,10 +13,10 @@ namespace GameBeak.Classes
     {
 
         //These are the default colors that will represent the 4 color palette of the GMB
-        private static Color darkestPink = new Color(72, 24, 59, 255); //Pink Black //48183BFF
-        private static Color darkPink = new Color(255, 131, 217, 255); //Dark Pink //FF83D9FF
-        private static Color lightPink = new Color(255, 214, 245, 255); //Light Pink //FFD6F5FF
-        private static Color lightestPink = new Color(255, 241, 254, 255); //Pink WHITE //FFF1FEFF
+        private static Color darkestPink = new Color(82, 05, 40, 255); //Pink Black //520528FF
+        private static Color darkPink = new Color(255, 116, 217, 255); //Dark Pink //FF74D9FF
+        private static Color lightPink = new Color(255, 186, 222, 255); //Light Pink //FFBADEFF
+        private static Color lightestPink = new Color(255, 240, 245, 255); //Pink WHITE //FFF0F5FF
 
         public List<Color> gameBeakPalette = new List<Color>
         {
