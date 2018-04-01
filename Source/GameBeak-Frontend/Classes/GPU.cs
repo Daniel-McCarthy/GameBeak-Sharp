@@ -275,11 +275,6 @@ namespace GameBeak.Classes
 
             int y = 0;
             byte x = 0;
-            int tileY = 0;
-            int tileX = 0;
-            int tileIndex = 0;
-            int tileIDAddress = 0;
-            int tileID = 0;
             int tileOffset = 0;
             int tileAddress = 0;
             byte rowHalf1 = 0;
