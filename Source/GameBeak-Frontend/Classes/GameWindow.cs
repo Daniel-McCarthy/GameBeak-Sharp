@@ -17,6 +17,7 @@ namespace GameBeak.Classes
         private Color[] windowPixels = new Color[256 * 256];
         private Color[] spritePixels = new Color[256 * 256];
         private Color[] tileDebugPixels = new Color[256 * 256];
+        private byte[] scrollXValues = new byte[256];
         private int gpuMode = 1; //BGB defaults this to 1, V-Blank. This should be true.
         private bool poweringOn = true;
 
@@ -227,6 +228,7 @@ namespace GameBeak.Classes
                         if (Core.beakGPU.getBackGroundEnabled())
                         {
                             Core.beakGPU.drawLineFromBGMap((byte)(Core.beakGPU.getScrollY() + ly));
+                            scrollXValues[(byte)(Core.beakGPU.getScrollY() + ly)] = Core.beakGPU.getScrollX();
                         }
                     }
                 }
@@ -335,11 +337,11 @@ namespace GameBeak.Classes
 
                 for (int i = 0; i < 160; i++)
                 {
-                    x = (byte)(scrollX + i);
-
+                    
                     for (int j = 0; j < 144; j++)
                     {
                         y = (byte)(scrollY + j);
+                        x = (byte)(scrollXValues[y] + i);
 
                         screen.SetPixel((uint)i, (uint)j, new Color(bgPixels[x + (y * 256)]));
                     }
