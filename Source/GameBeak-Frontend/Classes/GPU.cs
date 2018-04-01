@@ -330,7 +330,7 @@ namespace GameBeak.Classes
 
                         if (yFlip)
                         {
-                            lineToDraw = ((spriteSize) ? 15 : 8) - lineToDraw;
+                            lineToDraw = ((spriteSize) ? 15 : 7) - lineToDraw;
                         }
 
                         rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + (lineToDraw * 2)));
