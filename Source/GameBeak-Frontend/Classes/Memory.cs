@@ -28,6 +28,8 @@ namespace GameBeak.Classes
         public short stackPointer = 0;
         public short memoryPointer = 0x0100;
 
+        public String romFilePath = "";
+
 
         public void readRomHeader()
         {

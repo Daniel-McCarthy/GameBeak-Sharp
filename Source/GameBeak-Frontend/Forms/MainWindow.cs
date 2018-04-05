@@ -61,6 +61,7 @@ namespace GameBeak
                 //Core.beakMemory.loadRom(rom);
 
                 Core.beakMemory.loadRom(filePath, true);
+                Core.beakMemory.romFilePath = filePath;
 
                 //NativeMethods.setPauseState(true);
                 Core.paused = true;
