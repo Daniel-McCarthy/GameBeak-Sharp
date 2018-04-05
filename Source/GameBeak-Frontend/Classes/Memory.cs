@@ -1143,6 +1143,22 @@ namespace GameBeak.Classes
 
             return memory;
         }
+
+        public bool createSaveFile(string fileName, bool overwrite)
+        {
+            byte[] saveData = returnSaveDataFromMemory();
+
+            string savePath = filePath.Substring(filePath.LastIndexOf('.')) + ".sav";
+            bool fileExists = File.Exists(savePath);
+
+            if(!fileExists || overwrite)
+            {
+                File.WriteAllBytes(savePath, saveData);
+                return true;
+            }
+
+            return false;
+        }
    
     }
 }
