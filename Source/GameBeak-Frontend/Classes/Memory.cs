@@ -1129,5 +1129,18 @@ namespace GameBeak.Classes
             return true;
         }
 
+        public byte[] returnSaveDataFromMemory()
+        {
+            byte[] memory = new byte[0x2000];
+
+            ushort address = 0xA000;
+            for(int i = 0; i <= 0x1FFF; i++)
+            {
+                memory[i] = ramMap[address + i];
+            }
+
+            return memory;
+        }
+   
     }
 }
