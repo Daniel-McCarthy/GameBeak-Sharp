@@ -7453,8 +7453,8 @@ namespace GameBeak.Classes
                         //Set Timer Overflow Interrupt Flag
                         Core.beakMemory.writeMemory((ushort)0xFF0F, (byte)(Core.beakMemory.readMemory(0xFF0F) | 0x4));
 
-                        //Reset TIMA Value
-                        Core.beakMemory.writeMemory((ushort)0xFF05, (byte)0);
+                        //Load TMA value into TIMA
+                        Core.beakMemory.writeMemory((ushort)0xFF05, Core.beakMemory.readMemory(0xFF06));
                     }
                     else
                     {
