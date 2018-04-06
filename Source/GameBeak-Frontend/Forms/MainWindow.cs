@@ -1,23 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.IO;
-using System.Diagnostics;
-//using SFML;
-//using SFML.Graphics;
-//using SFML.Window;
-//using System.Windows;
 
-//using sf = SFML.Graphics;
 using Core = GameBeak.Classes.Core;
-using GameBeak = GameBeak.Classes;
+
 using System.Threading;
 using GameBeak.Forms;
 
@@ -54,19 +41,13 @@ namespace GameBeak
 
             if(File.Exists(filePath))
             {
-                //byte[] rom = File.ReadAllBytes(filePath);
-
-                //NativeMethods.setRom(rom, rom.Length);
                 Core.beakMemory.memoryPointer = 0x0100;
-                //Core.beakMemory.loadRom(rom);
 
                 Core.beakMemory.loadRom(filePath, true);
                 Core.beakMemory.romFilePath = filePath;
 
-                //NativeMethods.setPauseState(true);
                 Core.paused = true;
 
-                //emulatorThread = new Thread(NativeMethods.initiateEmulator);
                 emulatorThread = new Thread(global::GameBeak.Classes.GameBeak_Main.startEmulator);
                 emulatorThread.Start();
 
