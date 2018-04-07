@@ -58,6 +58,7 @@ namespace GameBeak
             else
             {
                 MessageBox.Show(filePath);
+                Core.beakMemory.romFilePath = "";
             }
         }
 
