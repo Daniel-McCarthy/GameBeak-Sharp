@@ -1146,15 +1146,18 @@ namespace GameBeak.Classes
 
         public bool createSaveFile(string fileName, bool overwrite)
         {
-            byte[] saveData = returnSaveDataFromMemory();
-
-            string savePath = romFilePath.Substring(romFilePath.LastIndexOf('.')) + ".sav";
-            bool fileExists = File.Exists(savePath);
-
-            if(!fileExists || overwrite)
+            if (ramEnabled)
             {
-                File.WriteAllBytes(savePath, saveData);
-                return true;
+                byte[] saveData = returnSaveDataFromMemory();
+
+                string savePath = romFilePath.Substring(0, romFilePath.LastIndexOf('.')) + ".sav";
+                bool fileExists = File.Exists(savePath);
+
+                if (!fileExists || overwrite)
+                {
+                    File.WriteAllBytes(savePath, saveData);
+                    return true;
+                }
             }
 
             return false;
