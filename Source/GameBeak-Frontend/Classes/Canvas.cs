@@ -146,6 +146,14 @@ namespace GameBeak.Classes
             {
                 Core.beakInput.setKeyInput(7, true);
             }
+
+            if (e.KeyCode == Keys.F1)
+            {
+                if (Core.beakMemory.romFilePath != "")
+                {
+                    Core.beakMemory.createSaveFile(Core.beakMemory.romFilePath, true);
+                }
+            }
         }
 
         public void Canvas_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
