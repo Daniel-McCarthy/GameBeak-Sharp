@@ -43,8 +43,11 @@ namespace GameBeak.Classes
         {
             if (InvokeRequired)
             {
-                refreshDelegate del = new refreshDelegate(refresh);
-                Invoke(del);
+                if (Core.run)
+                {
+                    refreshDelegate del = new refreshDelegate(refresh);
+                    Invoke(del);
+                }
             }
             else
             {
@@ -59,8 +62,11 @@ namespace GameBeak.Classes
 
             if (InvokeRequired)
             {
-                setColorDelegate del = new setColorDelegate(setClearColor);
-                Invoke(del, new object[] { color });
+                if (Core.run)
+                {
+                    setColorDelegate del = new setColorDelegate(setClearColor);
+                    Invoke(del, new object[] { color });
+                }
             }
             else
             {
@@ -74,8 +80,11 @@ namespace GameBeak.Classes
         {
             if (InvokeRequired)
             {
-                drawFrameDelegate del = new drawFrameDelegate(drawFrame);
-                Invoke(del, new object[] { newFrame });
+                if (Core.run)
+                {
+                    drawFrameDelegate del = new drawFrameDelegate(drawFrame);
+                    Invoke(del, new object[] { newFrame });
+                }
             }
             else
             {
@@ -89,8 +98,11 @@ namespace GameBeak.Classes
         {
             if (InvokeRequired)
             {
-                clearScreenDelegate del = new clearScreenDelegate(clearScreen);
-                Invoke(del);
+                if(Core.run)
+                { 
+                    clearScreenDelegate del = new clearScreenDelegate(clearScreen);
+                    Invoke(del);
+                }
             }
             else
             {
