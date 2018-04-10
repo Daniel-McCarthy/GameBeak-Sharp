@@ -73,8 +73,29 @@ namespace GameBeak
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-            if(emulatorThread != null)
-                emulatorThread.Abort();
+            //Tell the thread to stop when it finishes it's current loop
+            Core.run = false;
+
+            int loops = 0;
+            while(emulatorThread.IsAlive)
+            {
+                //Attempt to wait for the thread to be ready to be stopped.
+                if(emulatorThread.ThreadState == ThreadState.WaitSleepJoin)
+                {
+                    Thread.Sleep(800);
+                    emulatorThread.Abort();
+                }
+
+                //If the thread is not exiting after several attempts to check, just end it.
+                if (loops++ > 20)
+                {
+                    emulatorThread.Abort();
+                }
+
+                //Wait before trying again
+                Thread.Sleep(100);
+
+            }
         }
 
         private void assemblyViewToolStripMenuItem_Click(object sender, EventArgs e)
