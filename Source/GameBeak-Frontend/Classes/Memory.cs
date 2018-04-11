@@ -14,6 +14,7 @@ namespace GameBeak.Classes
         private byte[] externalRam = new byte[0x1E000];
         private byte[] rom = new byte[0x500000];
         private string title = "";
+        private byte cartridgeType = 0;
         private bool ramEnabled = false;
         private ushort romBankNumber = 0;
         private ushort ramBankNumber = 0; //originally byte
@@ -48,7 +49,7 @@ namespace GameBeak.Classes
             FD Bandai Tama5 | FE HuC3 | FF HuC1 + Ram + Battery |
             */
 
-            byte cartridgeType = rom[0x147];
+            cartridgeType = rom[0x147];
             byte romSize = rom[0x148];
             memoryControllerMode = cartridgeType;
             if (memoryControllerMode == 0)
