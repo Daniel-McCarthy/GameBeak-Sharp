@@ -18,7 +18,7 @@ namespace GameBeak.Classes
         private Color[] spritePixels = new Color[256 * 256];
         private Color[] tileDebugPixels = new Color[256 * 256];
         private byte[] scrollXValues = new byte[256];
-        private int gpuMode = 1; //BGB defaults this to 1, V-Blank. This should be true.
+        public int gpuMode = 1; //BGB defaults this to 1, V-Blank. This should be true.
         private bool poweringOn = true;
 
         private Stopwatch screenUpdateWatch = new Stopwatch();

@@ -1175,5 +1175,298 @@ namespace GameBeak.Classes
             return false;
         }
    
+        
+        void loadSaveState()
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "save1.egg");
+
+
+
+            if(File.Exists(path))
+            {
+                StreamReader eggStreamReader = new StreamReader(path);
+
+                string line;
+                List<byte> colorValues = new List<byte>();
+
+                bool quit = false;
+                bool setRomBank = false;
+                bool setRamBank = false;
+
+                while (!eggStreamReader.EndOfStream && !quit)
+                {
+                    line = eggStreamReader.ReadLine();
+
+                    if (line.Contains("[Title:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+
+                        line = line.Substring(last, line.Length - last);
+
+                        if (title != line)
+                        {
+                            quit = true;
+                        }
+                    }
+                    else if (line.Contains("[MBC:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last - 2);
+
+
+                        uint mbc = Convert.ToUInt32(line, 16);
+
+                        switch (mbc)
+                        {
+                            case 1:
+                            case 2:
+                            case 3:
+                                {
+                                    //MBC1
+                                    setRomBank = true;
+                                    setRamBank = true;
+                                    break;
+                                }
+                            case 5:
+                            case 6:
+                                {
+                                    //MBC2
+                                    setRomBank = true;
+                                    break;
+                                }
+                            //case 0x0B:
+                            //case 0x0C:
+                            //case 0x0D:
+                            case 0x11:
+                            case 0x12:
+                            case 0x13:
+                                {
+                                    //MBC3
+                                    setRomBank = true;
+                                    setRamBank = true;
+                                    break;
+                                }
+                            case 0x19:
+                            case 0x1A:
+                            case 0x1B:
+                            case 0x1C:
+                            case 0x1D:
+                            case 0x1E:
+                                {
+                                    //MBC5
+                                    setRomBank = true;
+                                    setRamBank = true;
+                                    break;
+                                }
+                                //case 0x20:
+                                //case 0x22:
+                                //case 0xFD:
+                                //case 0xFE:
+                                //case 0xFF:
+
+
+                        }
+
+
+                    }
+                    else if (line.Contains("[Rom Bank:]"))
+                    {
+                        if (setRomBank == true)
+                        {
+                            int last = line.LastIndexOf(']') + 1;
+                            line = line.Substring(last, line.Length - last - 2);
+
+                            uint romBank = Convert.ToUInt32(line, 16);
+
+                            //Change Rom Bank based on which memory controller it is
+                            switch (memoryControllerMode)
+                            {
+                                case 1:
+                                case 2:
+                                case 3:
+                                    {
+                                        //MBC1
+                                        changeMBC1RomBanks((ushort)romBank);
+                                        break;
+                                    }
+                                case 5:
+                                case 6:
+                                    {
+                                        //MBC2
+                                        changeMBC2RomBanks((ushort)romBank);
+                                        break;
+                                    }
+                                //case 0x0B:
+                                //case 0x0C:
+                                //case 0x0D:
+                                case 0x11:
+                                case 0x12:
+                                case 0x13:
+                                    {
+                                        //MBC3
+                                        changeMBC3RomBanks((ushort)romBank);
+                                        break;
+                                    }
+                                case 0x19:
+                                case 0x1A:
+                                case 0x1B:
+                                case 0x1C:
+                                case 0x1D:
+                                case 0x1E:
+                                    {
+                                        //MBC5
+                                        changeMBC5RomBanks((ushort)romBank);
+                                        break;
+                                    }
+                            }
+                        }
+                    }
+                    else if (line.Contains("[Ram Bank:]"))
+                    {
+                        if (setRamBank == true)
+                        {
+                            int last = line.LastIndexOf(']') + 1;
+                            line = line.Substring(last, line.Length - last);
+
+                            uint ramBank = Convert.ToUInt32(line, 16);
+
+
+                            changeRamBanks((ushort)ramBank);
+                        }
+                    }
+                    else if (line.Contains("[AF:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint af = Convert.ToUInt32(line, 16);
+
+                        setAF((short)af);
+                    }
+                    else if (line.Contains("[BC:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint bc = Convert.ToUInt32(line, 16);
+
+                        setBC((short)bc);
+                    }
+                    else if (line.Contains("[DE:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint de = Convert.ToUInt32(line, 16);
+
+                        setDE((short)de);
+                    }
+                    else if (line.Contains("[HL:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint hl = Convert.ToUInt32(line, 16);
+
+                        setHL((short)hl);
+                    }
+                    else if (line.Contains("[PC:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint pc = Convert.ToUInt32(line, 16);
+
+                        memoryPointer = (short)pc;
+                    }
+                    else if (line.Contains("[SP:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint sp = Convert.ToUInt32(line, 16);
+
+                        stackPointer = (short)sp;
+                    }
+                    else if (line.Contains("[HALT:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint halt = Convert.ToUInt32(line, 16);
+
+                        Core.beakCPU.setHalt(halt > 0);
+                    }
+                    else if (line.Contains("[Interrupt:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint interruptVal = Convert.ToUInt32(line, 16);
+
+                        Core.beakCPU.setInterrupt(interruptVal > 0);
+                    }
+                    else if (line.Contains("[PendingIMESet:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint imeSet = Convert.ToUInt32(line, 16);
+
+                        Core.enableInterruptsNextCycle = (imeSet > 0);
+                    }
+                    else if (line.Contains("[IME:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint ime = Convert.ToUInt32(line, 16);
+
+                        Core.beakCPU.setIME(ime > 0);
+                    }
+                    else if (line.Contains("[Repeat:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint repeat = Convert.ToUInt32(line, 16);
+
+                        Core.beakCPU.setRepeat(repeat > 0);
+                    }
+                    else if (line.Contains("[Clocks:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint clocksVal = Convert.ToUInt32(line, 16);
+
+                        Core.clocks = (int)clocksVal;
+                    }
+                    else if (line.Contains("[GPUMode:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        uint gpuMode = Convert.ToUInt32(line, 16);
+
+                        Core.beakWindow.gpuMode = (int)gpuMode;
+                    }
+                    else if (line.Contains("[Memory:]"))
+                    {
+                        int last = line.LastIndexOf(']') + 1;
+                        line = line.Substring(last, line.Length - last);
+
+                        for (int i = 0x8000; i <= 0xFFFF; i++)
+                        {
+                            int nextDelimiter = line.IndexOf(';');
+                            Core.beakMemory.ramMap[i] = Convert.ToByte(line.Substring(0, nextDelimiter), 16);
+                            line = line.Substring(nextDelimiter + 1, line.Length - (nextDelimiter + 1));
+                        }
+                    }
+                }
+            }
+            //paused = true;
+        }
+
     }
 }
