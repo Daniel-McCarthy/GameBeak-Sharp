@@ -1175,6 +1175,42 @@ namespace GameBeak.Classes
             return false;
         }
    
+        void saveState()
+        {
+            
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+
+            StreamWriter file = new StreamWriter(Path.Combine(path, "save1.egg"));
+
+            file.WriteLine("[Title:]" + title);
+            file.WriteLine("[MBC:]" + memoryControllerMode.ToString("X"));
+            file.WriteLine("[Rom Bank:]" + romBankNumber.ToString("X"));
+            file.WriteLine("[Ram Bank:]" + ramBankNumber.ToString("X"));
+            file.WriteLine("[AF:]" + regAF).ToString("X"));
+            file.WriteLine("[BC:]" + (regBC).ToString("X"));
+            file.WriteLine("[DE:]" + (regDE).ToString("X"));
+            file.WriteLine("[HL:]" + (regHL).ToString("X"));
+            file.WriteLine("[PC:]" + (memoryPointer).ToString("X"));
+            file.WriteLine("[SP:]" + (stackPointer).ToString("X"));
+            file.WriteLine("[Halt:]" + (Core.beakCPU.returnHalt().ToString("X")));
+            file.WriteLine("[Interrupt:]" + (Core.beakCPU.returnInterrupt().ToString("X")));
+            file.WriteLine("[PendingIMESet:]" + (enableInterruptsNextCycle).ToString("X"));
+            file.WriteLine("[IME:]" + (cpu.returnIME().ToString("X")));
+            file.WriteLine("[Repeat:]" + (cpu.returnRepeat().ToString("X")));
+            file.WriteLine("[Clocks:]" + (clocks).ToString("X"));
+            file.WriteLine("[GPUMode:]" + (beakWindow.gpuMode).ToString("X"));
+            file.Write("[Memory:]");
+
+            for (int i = 0x8000; i <= 0xFFFF; i++)
+            {
+                byte ram = beakRam[i];
+
+                file << beakRam[i].ToString("X") << ';';
+            }
+
+            file.Close();
+
+        }
         
         void loadSaveState()
         {
