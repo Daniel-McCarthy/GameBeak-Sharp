@@ -1186,26 +1186,26 @@ namespace GameBeak.Classes
             file.WriteLine("[MBC:]" + memoryControllerMode.ToString("X"));
             file.WriteLine("[Rom Bank:]" + romBankNumber.ToString("X"));
             file.WriteLine("[Ram Bank:]" + ramBankNumber.ToString("X"));
-            file.WriteLine("[AF:]" + regAF).ToString("X"));
+            file.WriteLine("[AF:]" + (regAF).ToString("X"));
             file.WriteLine("[BC:]" + (regBC).ToString("X"));
             file.WriteLine("[DE:]" + (regDE).ToString("X"));
             file.WriteLine("[HL:]" + (regHL).ToString("X"));
             file.WriteLine("[PC:]" + (memoryPointer).ToString("X"));
             file.WriteLine("[SP:]" + (stackPointer).ToString("X"));
-            file.WriteLine("[Halt:]" + (Core.beakCPU.returnHalt().ToString("X")));
-            file.WriteLine("[Interrupt:]" + (Core.beakCPU.returnInterrupt().ToString("X")));
-            file.WriteLine("[PendingIMESet:]" + (enableInterruptsNextCycle).ToString("X"));
-            file.WriteLine("[IME:]" + (cpu.returnIME().ToString("X")));
-            file.WriteLine("[Repeat:]" + (cpu.returnRepeat().ToString("X")));
-            file.WriteLine("[Clocks:]" + (clocks).ToString("X"));
-            file.WriteLine("[GPUMode:]" + (beakWindow.gpuMode).ToString("X"));
+            file.WriteLine("[Halt:]" + Convert.ToInt32(Core.beakCPU.returnHalt()).ToString("X"));
+            file.WriteLine("[Interrupt:]" + Convert.ToInt32(Core.beakCPU.returnInterrupt()).ToString("X"));
+            file.WriteLine("[PendingIMESet:]" + Convert.ToInt32(Core.enableInterruptsNextCycle).ToString("X"));
+            file.WriteLine("[IME:]" + Convert.ToInt32(Core.beakCPU.returnIME()).ToString("X"));
+            file.WriteLine("[Repeat:]" + Convert.ToInt32(Core.beakCPU.returnRepeat()).ToString("X"));
+            file.WriteLine("[Clocks:]" + (Core.clocks).ToString("X"));
+            file.WriteLine("[GPUMode:]" + (Core.beakWindow.gpuMode).ToString("X"));
             file.Write("[Memory:]");
 
             for (int i = 0x8000; i <= 0xFFFF; i++)
             {
-                byte ram = beakRam[i];
+                byte ram = ramMap[i];
 
-                file << beakRam[i].ToString("X") << ';';
+                file.Write(ramMap[i].ToString("X") + ';');
             }
 
             file.Close();
