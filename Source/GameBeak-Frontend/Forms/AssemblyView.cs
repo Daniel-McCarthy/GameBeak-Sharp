@@ -1559,7 +1559,7 @@ namespace GameBeak
                                 {
                                     short argument = (short)((Core.beakMemory.readMemory((ushort)(address + 1))) | (Core.beakMemory.readMemory((ushort)(address + 2)) << 8));
                                     string hexArgument = argument.ToString("X4");
-                                    opcodeString = "C4 " + hexArgument + " jp z, " + hexArgument;
+                                    opcodeString = "CA " + hexArgument + " jp z, " + hexArgument;
                                     bytesRead = 3;
                                     break;
                                 }
