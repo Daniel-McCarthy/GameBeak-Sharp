@@ -810,7 +810,7 @@ namespace GameBeak
                                 }
                             case 7:
                                 {
-                                    opcodeString = "56 ld d, a";
+                                    opcodeString = "57 ld d, a";
                                     bytesRead = 1;
                                     break;
                                 }
