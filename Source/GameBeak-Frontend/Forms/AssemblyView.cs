@@ -2235,7 +2235,7 @@ namespace GameBeak
 
         public void removeBreakPoint(string address)
         {
-            short parsedAddress = short.Parse(address, System.Globalization.NumberStyles.HexNumber);
+            ushort parsedAddress = ushort.Parse(address, System.Globalization.NumberStyles.HexNumber);
             Core.breakpoints.TryRemove(address, out parsedAddress);
         }
 
@@ -2243,7 +2243,7 @@ namespace GameBeak
         {
             if(!isBreakPointSet(address))
             {
-                Core.breakpoints.TryAdd(address ,short.Parse(address, System.Globalization.NumberStyles.HexNumber));
+                Core.breakpoints.TryAdd(address, ushort.Parse(address, System.Globalization.NumberStyles.HexNumber));
             }
         }
 

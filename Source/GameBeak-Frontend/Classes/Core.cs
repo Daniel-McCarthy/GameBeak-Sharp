@@ -46,7 +46,7 @@ namespace GameBeak.Classes
         //extern byte filterSetting;
 
         public static bool breakPointEnabled = true;
-        public static ConcurrentDictionary<string, short> breakpoints = new ConcurrentDictionary<string, short>();
+        public static ConcurrentDictionary<string, ushort> breakpoints = new ConcurrentDictionary<string, ushort>();
 
         public static bool repeat = false; //Halt bug
 
