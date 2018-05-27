@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 using Core = GameBeak.Classes.Core;
 using GameBeak = GameBeak.Classes;
+using GameBeak.Forms;
 
 namespace GameBeak
 {
@@ -2308,6 +2309,23 @@ namespace GameBeak
             //May need to reset more values in memory, like rom bank values, and perhaps some gpu values
 
             Core.paused = false;
+        }
+
+        private void addBreakpointByAddressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (BreakpointInputBox hexInputBox = new BreakpointInputBox())
+            {
+                if (hexInputBox.ShowDialog() == DialogResult.OK)
+                {
+                    string userAddressInput = hexInputBox.inputTextBox.Text;
+                    ushort address = ushort.Parse(userAddressInput, System.Globalization.NumberStyles.HexNumber);
+
+                    if (!Core.breakpoints.ContainsKey(userAddressInput))
+                    {
+                        Core.breakpoints.TryAdd(userAddressInput, address);
+                    }
+                }
+            }
         }
     }
 }

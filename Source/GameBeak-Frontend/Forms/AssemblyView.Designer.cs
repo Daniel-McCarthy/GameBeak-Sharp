@@ -51,6 +51,10 @@
             this.hFlagValue = new System.Windows.Forms.Label();
             this.nFlagLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.scrollYValueLabel = new System.Windows.Forms.Label();
+            this.scrollXValueLabel = new System.Windows.Forms.Label();
+            this.scrollYLabel = new System.Windows.Forms.Label();
+            this.scrollXLabel = new System.Windows.Forms.Label();
             this.lcdModeValueLabel = new System.Windows.Forms.Label();
             this.lcdLYValueLabel = new System.Windows.Forms.Label();
             this.lcdStatValueLabel = new System.Windows.Forms.Label();
@@ -77,16 +81,16 @@
             this.spLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
-            this.scrollXLabel = new System.Windows.Forms.Label();
-            this.scrollYLabel = new System.Windows.Forms.Label();
-            this.scrollYValueLabel = new System.Windows.Forms.Label();
-            this.scrollXValueLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.breakpointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBreakpointByAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.interruptGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -95,7 +99,7 @@
             this.listBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(255, 12);
+            this.listBox1.Location = new System.Drawing.Point(255, 34);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(374, 292);
             this.listBox1.TabIndex = 2;
@@ -104,7 +108,7 @@
             // 
             // stepButton
             // 
-            this.stepButton.Location = new System.Drawing.Point(255, 310);
+            this.stepButton.Location = new System.Drawing.Point(255, 332);
             this.stepButton.Name = "stepButton";
             this.stepButton.Size = new System.Drawing.Size(74, 44);
             this.stepButton.TabIndex = 4;
@@ -114,7 +118,7 @@
             // 
             // runButton
             // 
-            this.runButton.Location = new System.Drawing.Point(410, 310);
+            this.runButton.Location = new System.Drawing.Point(410, 332);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(67, 44);
             this.runButton.TabIndex = 5;
@@ -124,7 +128,7 @@
             // 
             // pauseButton
             // 
-            this.pauseButton.Location = new System.Drawing.Point(483, 310);
+            this.pauseButton.Location = new System.Drawing.Point(483, 332);
             this.pauseButton.Name = "pauseButton";
             this.pauseButton.Size = new System.Drawing.Size(71, 44);
             this.pauseButton.TabIndex = 6;
@@ -141,7 +145,7 @@
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 34);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 342);
             this.panel1.TabIndex = 3;
@@ -336,6 +340,44 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Other Values";
+            // 
+            // scrollYValueLabel
+            // 
+            this.scrollYValueLabel.AutoSize = true;
+            this.scrollYValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollYValueLabel.Location = new System.Drawing.Point(131, 116);
+            this.scrollYValueLabel.Name = "scrollYValueLabel";
+            this.scrollYValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.scrollYValueLabel.TabIndex = 17;
+            // 
+            // scrollXValueLabel
+            // 
+            this.scrollXValueLabel.AutoSize = true;
+            this.scrollXValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollXValueLabel.Location = new System.Drawing.Point(131, 100);
+            this.scrollXValueLabel.Name = "scrollXValueLabel";
+            this.scrollXValueLabel.Size = new System.Drawing.Size(0, 16);
+            this.scrollXValueLabel.TabIndex = 16;
+            // 
+            // scrollYLabel
+            // 
+            this.scrollYLabel.AutoSize = true;
+            this.scrollYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollYLabel.Location = new System.Drawing.Point(13, 113);
+            this.scrollYLabel.Name = "scrollYLabel";
+            this.scrollYLabel.Size = new System.Drawing.Size(114, 16);
+            this.scrollYLabel.TabIndex = 15;
+            this.scrollYLabel.Text = "Scroll Y (FF42):";
+            // 
+            // scrollXLabel
+            // 
+            this.scrollXLabel.AutoSize = true;
+            this.scrollXLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollXLabel.Location = new System.Drawing.Point(13, 97);
+            this.scrollXLabel.Name = "scrollXLabel";
+            this.scrollXLabel.Size = new System.Drawing.Size(113, 16);
+            this.scrollXLabel.TabIndex = 14;
+            this.scrollXLabel.Text = "Scroll X (FF43):";
             // 
             // lcdModeValueLabel
             // 
@@ -580,7 +622,7 @@
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(335, 310);
+            this.refreshButton.Location = new System.Drawing.Point(335, 332);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(69, 44);
             this.refreshButton.TabIndex = 7;
@@ -590,7 +632,7 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(560, 310);
+            this.resetButton.Location = new System.Drawing.Point(560, 332);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(69, 44);
             this.resetButton.TabIndex = 8;
@@ -598,50 +640,37 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
-            // scrollXLabel
+            // menuStrip1
             // 
-            this.scrollXLabel.AutoSize = true;
-            this.scrollXLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scrollXLabel.Location = new System.Drawing.Point(13, 97);
-            this.scrollXLabel.Name = "scrollXLabel";
-            this.scrollXLabel.Size = new System.Drawing.Size(113, 16);
-            this.scrollXLabel.TabIndex = 14;
-            this.scrollXLabel.Text = "Scroll X (FF43):";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.breakpointsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(641, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // scrollYLabel
+            // breakpointsToolStripMenuItem
             // 
-            this.scrollYLabel.AutoSize = true;
-            this.scrollYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scrollYLabel.Location = new System.Drawing.Point(13, 113);
-            this.scrollYLabel.Name = "scrollYLabel";
-            this.scrollYLabel.Size = new System.Drawing.Size(114, 16);
-            this.scrollYLabel.TabIndex = 15;
-            this.scrollYLabel.Text = "Scroll Y (FF42):";
+            this.breakpointsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addBreakpointByAddressToolStripMenuItem});
+            this.breakpointsToolStripMenuItem.Name = "breakpointsToolStripMenuItem";
+            this.breakpointsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.breakpointsToolStripMenuItem.Text = "Breakpoints";
             // 
-            // scrollYValueLabel
+            // addBreakpointByAddressToolStripMenuItem
             // 
-            this.scrollYValueLabel.AutoSize = true;
-            this.scrollYValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scrollYValueLabel.Location = new System.Drawing.Point(131, 116);
-            this.scrollYValueLabel.Name = "scrollYValueLabel";
-            this.scrollYValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.scrollYValueLabel.TabIndex = 17;
-            // 
-            // scrollXValueLabel
-            // 
-            this.scrollXValueLabel.AutoSize = true;
-            this.scrollXValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scrollXValueLabel.Location = new System.Drawing.Point(131, 100);
-            this.scrollXValueLabel.Name = "scrollXValueLabel";
-            this.scrollXValueLabel.Size = new System.Drawing.Size(0, 16);
-            this.scrollXValueLabel.TabIndex = 16;
+            this.addBreakpointByAddressToolStripMenuItem.Name = "addBreakpointByAddressToolStripMenuItem";
+            this.addBreakpointByAddressToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.addBreakpointByAddressToolStripMenuItem.Text = "Add Breakpoint by Address";
+            this.addBreakpointByAddressToolStripMenuItem.Click += new System.EventHandler(this.addBreakpointByAddressToolStripMenuItem_Click);
             // 
             // AssemblyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(122)))), ((int)(((byte)(175)))));
-            this.ClientSize = new System.Drawing.Size(641, 360);
+            this.ClientSize = new System.Drawing.Size(641, 381);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.pauseButton);
@@ -649,7 +678,9 @@
             this.Controls.Add(this.stepButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "AssemblyView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameBeak - Assembly View";
@@ -665,7 +696,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -722,5 +756,8 @@
         private System.Windows.Forms.Label scrollXLabel;
         private System.Windows.Forms.Label scrollYValueLabel;
         private System.Windows.Forms.Label scrollXValueLabel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem breakpointsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBreakpointByAddressToolStripMenuItem;
     }
 }
