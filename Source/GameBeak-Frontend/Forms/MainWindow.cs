@@ -83,7 +83,7 @@ namespace GameBeak
             Core.run = false;
 
             int loops = 0;
-            while(emulatorThread.IsAlive)
+            while(emulatorThread != null && emulatorThread.IsAlive)
             {
                 //Attempt to wait for the thread to be ready to be stopped.
                 if(emulatorThread.ThreadState == ThreadState.WaitSleepJoin)
