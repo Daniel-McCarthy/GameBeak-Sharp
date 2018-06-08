@@ -34,6 +34,7 @@ namespace GameBeak.Classes
         public static GameWindow beakWindow;
         public static CPU beakCPU;
         public static Input beakInput;
+        public static Rom rom;
 
         public static int clocks;
 
@@ -56,7 +57,7 @@ namespace GameBeak.Classes
         public static void startEmulator()
         {
             Core.beakMemory.initializeGameBoyValues();
-            Core.beakMemory.readRomHeader();
+            Core.rom.readRomHeader();
 
             int clocksSinceLastTimerTIMAIncrement = 0;
             int clocksSinceLastTimerDIVIncrement = 0;

@@ -12,14 +12,8 @@ namespace GameBeak.Classes
     {
         private byte[] ramMap = new byte[0x10000];
         private byte[] externalRam = new byte[0x1E000];
-        private byte[] rom = new byte[0x500000];
-        private string title = "";
-        private byte cartridgeType = 0;
         private bool ramEnabled = false;
-        private ushort romBankNumber = 0;
-        private ushort ramBankNumber = 0; //originally byte
         private bool bankingMode = false; //0: Rom 1: Ram
-        private int memoryControllerMode = 0;
 
         private short regAF = 0;
         private short regBC = 0;
@@ -28,91 +22,6 @@ namespace GameBeak.Classes
 
         public short stackPointer = 0;
         public short memoryPointer = 0x0100;
-
-        public String romFilePath = "";
-
-
-        public void readRomHeader()
-        {
-
-            for (int i = 0; i < 16; i++)
-            {
-                title += (char)rom[0x134 + i];
-            }
-
-            //0x147 Catridge type
-            /*
-            00 Rom only | 01 MBC1 | 02 MBC1 + Ram | 03 MBC1 + Ram + Battery | 05 MBC2 | 06 MBC2 + Battery | 08 Rom + Ram |
-            09 Rom + Ram + Battery | 0B MMM01 | 0C MMM01 + Ram | 0D MMM01 + Ram + Battery | 11 MBC3 | 12 MBC3 + Ram |
-            13 MBC3 + Ram + Battery | 19 MBC5 | 1A MBC5 + Ram | 1B MBC5 + Ram + Battery | 1C MBC5 + Rumble | 1D MBC5 + Rumble + Ram |
-            1E MBC5 + Rumble + Ram + Battery | 20 MBC6 | 22 MBC7 + Sensor + Rumble + Ram + Battery | FC Pocket Camera |
-            FD Bandai Tama5 | FE HuC3 | FF HuC1 + Ram + Battery |
-            */
-
-            cartridgeType = rom[0x147];
-            byte romSize = rom[0x148];
-            memoryControllerMode = cartridgeType;
-            if (memoryControllerMode == 0)
-            {
-                //None
-                writeFullRomToRam();
-            }
-            else if (memoryControllerMode <= 3)
-            {
-                //MBC1
-                writeRom0ToRam();
-
-                changeMBC1RomBanks(1);
-            }
-            else if (memoryControllerMode <= 6)
-            {
-                //MBC2
-                writeRom0ToRam();
-
-                changeMBC2RomBanks(1);
-            }
-            else if (memoryControllerMode <= 9)
-            {
-                //8: Rom+Ram
-                //9: Rom+Ram+Battery
-
-                writeFullRomToRam();
-            }
-            else if (memoryControllerMode <= 0x0D)
-            {
-                //0B: MMM01
-                //0C: MMM01+Ram
-                //0D: MMM01+Ram+Battery
-
-                writeRom0ToRam();
-            }
-            else if (memoryControllerMode <= 0x10)
-            {
-                //0F: MBC3+Timer+Battery
-                //10: MBC3+Timer+Ram+Battery
-                //11: MBC3
-                //12: MBC3+Ram
-                //13: MBC3+Ram+Battery
-
-                writeRom0ToRam();
-
-                changeMBC3RomBanks(1);
-            }
-            else if (memoryControllerMode <= 0x1E)
-            {
-
-                writeRom0ToRam();
-
-                changeMBC5RomBanks(1);
-            }
-            else
-            {
-
-                writeFullRomToRam();
-                //writeRom0ToRam();
-            }
-
-        }
 
 
         public bool loadRom(string path)
@@ -125,10 +34,7 @@ namespace GameBeak.Classes
                 {
                     if (romFile.Length <= 0x500000)
                     {
-                        for (int i = 0; i < romFile.Length; i++)
-                        {
-                            rom[i] = romFile[i];
-                        }
+                        Core.rom = new Rom(romFile);
                     }
                     else
                     {
@@ -158,10 +64,7 @@ namespace GameBeak.Classes
             {
                 if (romFile.Length <= 0x500000)
                 {
-                    for (int i = 0; i < romFile.Length; i++)
-                    {
-                        rom[i] = romFile[i];
-                    }
+                    Core.rom = new Rom(romFile);
                 }
                 else
                 {
@@ -207,17 +110,17 @@ namespace GameBeak.Classes
 
         public void writeRom0ToRam()
         {
-            for (int i = 0; i <= 0x3FFF; i++)
+            for (uint i = 0; i <= 0x3FFF; i++)
             {
-                ramMap[i] = rom[i];
+                ramMap[i] = Core.rom.readByte(i);
             }
         }
 
         public void writeFullRomToRam()
         {
-            for (int i = 0; i <= 0x7FFF; i++)
+            for (uint i = 0; i <= 0x7FFF; i++)
             {
-                ramMap[i] = rom[i];
+                ramMap[i] = Core.rom.readByte(i);
             }
         }
 
@@ -231,15 +134,15 @@ namespace GameBeak.Classes
             if ((bankNumber >= 0) && (bankNumber <= 0x1F))
             {
 
-                int bankAddress = 0x4000 * bankNumber;
+                uint bankAddress = (uint)(0x4000 * bankNumber);
 
-                int fixedBankAddress = 0x4000;
-                for (int i = 0; i < 0x4000; i++)
+                uint fixedBankAddress = 0x4000;
+                for (uint i = 0; i < 0x4000; i++)
                 {
-                    ramMap[fixedBankAddress + i] = rom[bankAddress + i];
+                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
                 }
 
-                romBankNumber = bankNumber;
+                Core.rom.romBankNumber = bankNumber;
             }
         }
 
@@ -253,15 +156,15 @@ namespace GameBeak.Classes
             if ((bankNumber >= 0) && (bankNumber <= 0x0F))
             {
 
-                int bankAddress = 0x4000 * bankNumber;
+                uint bankAddress = (uint)(0x4000 * bankNumber);
 
-                int fixedBankAddress = 0x4000;
-                for (int i = 0; i < 0x4000; i++)
+                uint fixedBankAddress = 0x4000;
+                for (uint i = 0; i < 0x4000; i++)
                 {
-                    ramMap[fixedBankAddress + i] = rom[bankAddress + i];
+                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
                 }
 
-                romBankNumber = bankNumber;
+                Core.rom.romBankNumber = bankNumber;
             }
         }
 
@@ -275,15 +178,15 @@ namespace GameBeak.Classes
             if ((bankNumber >= 0) && (bankNumber <= 0x7F))
             {
 
-                int bankAddress = 0x4000 * bankNumber;
+                uint bankAddress = (uint)(0x4000 * bankNumber);
 
-                int fixedBankAddress = 0x4000;
-                for (int i = 0; i < 0x4000; i++)
+                uint fixedBankAddress = 0x4000;
+                for (uint i = 0; i < 0x4000; i++)
                 {
-                    ramMap[fixedBankAddress + i] = rom[bankAddress + i];
+                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
                 }
 
-                romBankNumber = bankNumber;
+                Core.rom.romBankNumber = bankNumber;
             }
         }
 
@@ -292,21 +195,21 @@ namespace GameBeak.Classes
             if ((bankNumber >= 0) && (bankNumber <= 0x1FF))
             {
 
-                int bankAddress = 0x4000 * bankNumber;
+                uint bankAddress = (uint)(0x4000 * bankNumber);
 
-                int fixedBankAddress = 0x4000;
-                for (int i = 0; i < 0x4000; i++)
+                uint fixedBankAddress = 0x4000;
+                for (uint i = 0; i < 0x4000; i++)
                 {
-                    ramMap[fixedBankAddress + i] = rom[bankAddress + i];
+                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
                 }
 
-                romBankNumber = bankNumber;
+                Core.rom.romBankNumber = bankNumber;
             }
         }
 
         public void changeRamBanks(ushort bankNumber)
         {
-            ushort externalAddress = (ushort)(ramBankNumber * (short)0x2000);
+            ushort externalAddress = (ushort)(Core.rom.ramBankNumber * 0x2000);
 
             //Save Old Beak Ram Data to External Ram Array
             for (int i = 0; i < 0x2000; i++)
@@ -314,8 +217,8 @@ namespace GameBeak.Classes
                 externalRam[externalAddress + i] = ramMap[0xA000 + i];
             }
 
-            ramBankNumber = bankNumber;
-            externalAddress = (ushort)(ramBankNumber * 0x2000);
+            Core.rom.ramBankNumber = bankNumber;
+            externalAddress = (ushort)(Core.rom.ramBankNumber * 0x2000);
 
             //Load New External Ram data to Beak Ram
             for (int i = 0; i < 0x2000; i++)
@@ -344,9 +247,9 @@ namespace GameBeak.Classes
             else if (address >= 0x2000 && address <= 0x3FFF)
             {
                 //Set Rom Bank Number 5 bits
-                byte newBankNumber = (byte)((romBankNumber & 0xE0) | (value & 0x1F));
+                byte newBankNumber = (byte)((Core.rom.romBankNumber & 0xE0) | (value & 0x1F));
 
-                if (romBankNumber != newBankNumber)
+                if (Core.rom.romBankNumber != newBankNumber)
                 {
                     changeMBC1RomBanks(newBankNumber);
                 }
@@ -358,8 +261,8 @@ namespace GameBeak.Classes
                 if (!bankingMode)
                 {
                     //Change Rom Bank
-                    byte newBankNumber = (byte)((romBankNumber & 0x1F) | ((value & 0x03) << 5));
-                    if (romBankNumber != newBankNumber)
+                    byte newBankNumber = (byte)((Core.rom.romBankNumber & 0x1F) | ((value & 0x03) << 5));
+                    if (Core.rom.romBankNumber != newBankNumber)
                     {
                         changeMBC1RomBanks(newBankNumber);
                     }
@@ -369,7 +272,7 @@ namespace GameBeak.Classes
                     //Change Ram Bank
                     byte newBankNumber = (byte)(value & 0x03);
 
-                    if (ramBankNumber != newBankNumber)
+                    if (Core.rom.ramBankNumber != newBankNumber)
                     {
                         changeRamBanks(newBankNumber);
                     }
@@ -412,7 +315,7 @@ namespace GameBeak.Classes
                 //Set Rom Bank Number 5 bits
                 byte newBankNumber = (byte)(value & 0x0F);
 
-                if (romBankNumber != newBankNumber)
+                if (Core.rom.romBankNumber != newBankNumber)
                 {
                     changeMBC2RomBanks(newBankNumber);
                 }
@@ -441,7 +344,7 @@ namespace GameBeak.Classes
                 //Set Rom Bank Number 7 bits
                 byte newBankNumber = (byte)(value & 0x7F);
 
-                if (romBankNumber != newBankNumber)
+                if (Core.rom.romBankNumber != newBankNumber)
                 {
                     changeMBC3RomBanks(newBankNumber);
                 }
@@ -456,7 +359,7 @@ namespace GameBeak.Classes
                     //Change Ram Bank
                     byte newBankNumber = (byte)(value & 0x03);
 
-                    if (ramBankNumber != newBankNumber)
+                    if (Core.rom.ramBankNumber != newBankNumber)
                     {
                         changeRamBanks(newBankNumber);
                     }
@@ -520,9 +423,9 @@ namespace GameBeak.Classes
             else if (address >= 0x2000 && address <= 0x2FFF)
             {
                 //Set Low 8 bits of Rom Bank Number
-                byte newBankNumber = (byte)((romBankNumber & 0x100) | (value)); //Keeps the 9th bit of current rom bank number, joins entire value.
+                byte newBankNumber = (byte)((Core.rom.romBankNumber & 0x100) | (value)); //Keeps the 9th bit of current rom bank number, joins entire value.
 
-                if (romBankNumber != newBankNumber)
+                if (Core.rom.romBankNumber != newBankNumber)
                 {
                     changeMBC5RomBanks(newBankNumber);
                 }
@@ -536,9 +439,9 @@ namespace GameBeak.Classes
                     value = 1;
                 }
 
-                byte newBankNumber = (byte)((romBankNumber & 0xFF) | (value << 8));
+                byte newBankNumber = (byte)((Core.rom.romBankNumber & 0xFF) | (value << 8));
 
-                if (romBankNumber != newBankNumber)
+                if (Core.rom.romBankNumber != newBankNumber)
                 {
                     changeMBC5RomBanks(newBankNumber);
                 }
@@ -552,7 +455,7 @@ namespace GameBeak.Classes
                     //Change Ram Bank
                     byte newBankNumber = (byte)(value & 0x0F);
 
-                    if (ramBankNumber != newBankNumber)
+                    if (Core.rom.ramBankNumber != newBankNumber)
                     {
                         changeRamBanks(newBankNumber);
                     }
@@ -623,28 +526,28 @@ namespace GameBeak.Classes
 
         public bool writeMemory(ushort address, byte value)
         {
-            if (memoryControllerMode > 0 && address <= 0x7FFF)
+            if (Core.rom.mapperSetting > 0 && address <= 0x7FFF)
             {
-                if (memoryControllerMode <= 3)
+                if (Core.rom.mapperSetting <= 3)
                 {
                     writeMBC1Value(address, value);
                 }
-                else if (memoryControllerMode <= 6)
+                else if (Core.rom.mapperSetting <= 6)
                 {
                     writeMBC2Value(address, value);
                 }
-                else if (memoryControllerMode <= 9)
+                else if (Core.rom.mapperSetting <= 9)
                 {
                     //8: Rom+Ram
                     //9: Rom+Ram+Battery
                 }
-                else if (memoryControllerMode <= 0x0D)
+                else if (Core.rom.mapperSetting <= 0x0D)
                 {
                     //0B: MMM01
                     //0C: MMM01+Ram
                     //0D: MMM01+Ram+Battery
                 }
-                else if (memoryControllerMode <= 0x10)
+                else if (Core.rom.mapperSetting <= 0x10)
                 {
                     //0F: MBC3+Timer+Battery
                     //10: MBC3+Timer+Ram+Battery
@@ -655,7 +558,7 @@ namespace GameBeak.Classes
                     //Add this later: MBC3 is not currently ready (RTC)
                     writeMBC3Value(address, value);
                 }
-                else if (memoryControllerMode <= 0x1E)
+                else if (Core.rom.mapperSetting <= 0x1E)
                 {
                     writeMBC5Value(address, value);
                 }
@@ -1155,14 +1058,14 @@ namespace GameBeak.Classes
             FD Bandai Tama5 | FE HuC3 | FF HuC1 + Ram + Battery |
             */
 
-            bool romUsesRam = cartridgeType == 0x02 || cartridgeType == 0x03 || cartridgeType == 0x06 || cartridgeType == 0x08 || cartridgeType == 0x09 || cartridgeType == 0x0C || cartridgeType == 0x0D
-                || cartridgeType == 0x12 || cartridgeType == 0x13 || cartridgeType == 0x1A || cartridgeType == 0x1B || cartridgeType == 0x1D || cartridgeType == 0x1E || cartridgeType == 0x22 || cartridgeType == 0xFF;
+            bool romUsesRam = Core.rom.cartridgeType == 0x02 || Core.rom.cartridgeType == 0x03 || Core.rom.cartridgeType == 0x06 || Core.rom.cartridgeType == 0x08 || Core.rom.cartridgeType == 0x09 || Core.rom.cartridgeType == 0x0C || Core.rom.cartridgeType == 0x0D
+                || Core.rom.cartridgeType == 0x12 || Core.rom.cartridgeType == 0x13 || Core.rom.cartridgeType == 0x1A || Core.rom.cartridgeType == 0x1B || Core.rom.cartridgeType == 0x1D || Core.rom.cartridgeType == 0x1E || Core.rom.cartridgeType == 0x22 || Core.rom.cartridgeType == 0xFF;
 
             if (romUsesRam)
             {
                 byte[] saveData = returnSaveDataFromMemory();
 
-                string savePath = romFilePath.Substring(0, romFilePath.LastIndexOf('.')) + ".sav";
+                string savePath = Core.rom.romFilePath.Substring(0, Core.rom.romFilePath.LastIndexOf('.')) + ".sav";
                 bool fileExists = File.Exists(savePath);
 
                 if (!fileExists || overwrite)
@@ -1182,10 +1085,10 @@ namespace GameBeak.Classes
 
             StreamWriter file = new StreamWriter(Path.Combine(path, "save1.egg"));
 
-            file.WriteLine("[Title:]" + title);
-            file.WriteLine("[MBC:]" + memoryControllerMode.ToString("X"));
-            file.WriteLine("[Rom Bank:]" + romBankNumber.ToString("X"));
-            file.WriteLine("[Ram Bank:]" + ramBankNumber.ToString("X"));
+            file.WriteLine("[Title:]" + Core.rom.title);
+            file.WriteLine("[MBC:]" + Core.rom.mapperSetting.ToString("X"));
+            file.WriteLine("[Rom Bank:]" + Core.rom.romBankNumber.ToString("X"));
+            file.WriteLine("[Ram Bank:]" + Core.rom.ramBankNumber.ToString("X"));
             file.WriteLine("[AF:]" + (regAF).ToString("X"));
             file.WriteLine("[BC:]" + (regBC).ToString("X"));
             file.WriteLine("[DE:]" + (regDE).ToString("X"));
@@ -1239,7 +1142,7 @@ namespace GameBeak.Classes
 
                         line = line.Substring(last, line.Length - last);
 
-                        if (title != line)
+                        if (Core.rom.title != line)
                         {
                             quit = true;
                         }
@@ -1315,7 +1218,7 @@ namespace GameBeak.Classes
                             uint romBank = Convert.ToUInt32(line, 16);
 
                             //Change Rom Bank based on which memory controller it is
-                            switch (memoryControllerMode)
+                            switch (Core.rom.mapperSetting)
                             {
                                 case 1:
                                 case 2:

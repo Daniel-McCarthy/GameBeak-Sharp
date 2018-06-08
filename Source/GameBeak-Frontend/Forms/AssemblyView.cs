@@ -2295,7 +2295,7 @@ namespace GameBeak
             Core.paused = true;
             Core.beakWindow.resetScreens();
             Core.beakMemory.initializeGameBoyValues();
-            Core.beakMemory.readRomHeader();
+            Core.rom.readRomHeader();
             Core.beakMemory.memoryPointer = 0x100;
 
             Core.beakCPU.interrupt = false;

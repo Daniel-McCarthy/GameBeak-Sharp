@@ -46,10 +46,10 @@ namespace GameBeak
                 Core.beakMemory.memoryPointer = 0x0100;
 
                 Core.beakMemory.loadRom(filePath, true);
-                Core.beakMemory.romFilePath = filePath;
+                Core.rom.romFilePath = filePath;
 
                 Core.beakMemory.initializeGameBoyValues();
-                Core.beakMemory.readRomHeader();
+                Core.rom.readRomHeader();
 
                 if (emulatorThread == null)
                 {
@@ -64,7 +64,7 @@ namespace GameBeak
             else
             {
                 MessageBox.Show(filePath);
-                Core.beakMemory.romFilePath = "";
+                Core.rom.romFilePath = "";
             }
         }
 
