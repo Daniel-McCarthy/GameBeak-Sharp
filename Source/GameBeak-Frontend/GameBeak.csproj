@@ -75,6 +75,11 @@
     <Compile Include="Classes\GameWindow.cs" />
     <Compile Include="Classes\GPU.cs" />
     <Compile Include="Classes\Input.cs" />
+    <Compile Include="Classes\Mappers\Mapper.cs" />
+    <Compile Include="Classes\Mappers\MBC1.cs" />
+    <Compile Include="Classes\Mappers\MBC2.cs" />
+    <Compile Include="Classes\Mappers\MBC3.cs" />
+    <Compile Include="Classes\Mappers\MBC5.cs" />
     <Compile Include="Classes\Memory.cs" />
     <Compile Include="Classes\Rom.cs" />
     <Compile Include="Forms\AssemblyView.cs">

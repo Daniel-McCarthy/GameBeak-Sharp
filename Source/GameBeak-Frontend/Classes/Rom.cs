@@ -67,14 +67,14 @@ namespace GameBeak.Classes
                 //MBC1
                 Core.beakMemory.writeRom0ToRam();
 
-                Core.beakMemory.changeMBC1RomBanks(1);
+                MBC1.changeMBC1RomBanks(1);
             }
             else if (mapperSetting <= 6)
             {
                 //MBC2
                 Core.beakMemory.writeRom0ToRam();
 
-                Core.beakMemory.changeMBC2RomBanks(1);
+                MBC2.changeMBC2RomBanks(1);
             }
             else if (mapperSetting <= 9)
             {
@@ -101,14 +101,14 @@ namespace GameBeak.Classes
 
                 Core.beakMemory.writeRom0ToRam();
 
-                Core.beakMemory.changeMBC3RomBanks(1);
+                MBC3.changeMBC3RomBanks(1);
             }
             else if (mapperSetting <= 0x1E)
             {
 
                 Core.beakMemory.writeRom0ToRam();
 
-                Core.beakMemory.changeMBC5RomBanks(1);
+                MBC5.changeMBC5RomBanks(1);
             }
             else
             {

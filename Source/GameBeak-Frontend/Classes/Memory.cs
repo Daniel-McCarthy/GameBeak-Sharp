@@ -12,8 +12,7 @@ namespace GameBeak.Classes
     {
         private byte[] ramMap = new byte[0x10000];
         private byte[] externalRam = new byte[0x1E000];
-        private bool ramEnabled = false;
-        private bool bankingMode = false; //0: Rom 1: Ram
+        public bool ramEnabled = false;
 
         private short regAF = 0;
         private short regBC = 0;
@@ -105,8 +104,18 @@ namespace GameBeak.Classes
             return true;
         }
 
+        public void writeToExternalRam(uint address, byte value)
+        {
+            if (address < externalRam.Length)
+            {
+                externalRam[address] = value;
+            }
+        }
 
-
+        public byte readFromExternalRam(uint address)
+        {
+            return externalRam[address];
+        }
 
         public void writeRom0ToRam()
         {
@@ -123,350 +132,6 @@ namespace GameBeak.Classes
                 ramMap[i] = Core.rom.readByte(i);
             }
         }
-
-        public void changeMBC1RomBanks(ushort bankNumber)
-        {
-            if (bankNumber == 0)
-            {
-                bankNumber++;
-            }
-
-            if ((bankNumber >= 0) && (bankNumber <= 0x1F))
-            {
-
-                uint bankAddress = (uint)(0x4000 * bankNumber);
-
-                uint fixedBankAddress = 0x4000;
-                for (uint i = 0; i < 0x4000; i++)
-                {
-                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
-                }
-
-                Core.rom.romBankNumber = bankNumber;
-            }
-        }
-
-        public void changeMBC2RomBanks(ushort bankNumber)
-        {
-            if (bankNumber == 0)
-            {
-                bankNumber++;
-            }
-
-            if ((bankNumber >= 0) && (bankNumber <= 0x0F))
-            {
-
-                uint bankAddress = (uint)(0x4000 * bankNumber);
-
-                uint fixedBankAddress = 0x4000;
-                for (uint i = 0; i < 0x4000; i++)
-                {
-                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
-                }
-
-                Core.rom.romBankNumber = bankNumber;
-            }
-        }
-
-        public void changeMBC3RomBanks(ushort bankNumber)
-        {
-            if (bankNumber == 0)
-            {
-                bankNumber++;
-            }
-
-            if ((bankNumber >= 0) && (bankNumber <= 0x7F))
-            {
-
-                uint bankAddress = (uint)(0x4000 * bankNumber);
-
-                uint fixedBankAddress = 0x4000;
-                for (uint i = 0; i < 0x4000; i++)
-                {
-                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
-                }
-
-                Core.rom.romBankNumber = bankNumber;
-            }
-        }
-
-        public void changeMBC5RomBanks(ushort bankNumber)
-        {
-            if ((bankNumber >= 0) && (bankNumber <= 0x1FF))
-            {
-
-                uint bankAddress = (uint)(0x4000 * bankNumber);
-
-                uint fixedBankAddress = 0x4000;
-                for (uint i = 0; i < 0x4000; i++)
-                {
-                    ramMap[fixedBankAddress + i] = Core.rom.readByte(bankAddress + i);
-                }
-
-                Core.rom.romBankNumber = bankNumber;
-            }
-        }
-
-        public void changeRamBanks(ushort bankNumber)
-        {
-            ushort externalAddress = (ushort)(Core.rom.ramBankNumber * 0x2000);
-
-            //Save Old Beak Ram Data to External Ram Array
-            for (int i = 0; i < 0x2000; i++)
-            {
-                externalRam[externalAddress + i] = ramMap[0xA000 + i];
-            }
-
-            Core.rom.ramBankNumber = bankNumber;
-            externalAddress = (ushort)(Core.rom.ramBankNumber * 0x2000);
-
-            //Load New External Ram data to Beak Ram
-            for (int i = 0; i < 0x2000; i++)
-            {
-                ramMap[0xA000 + i] = externalRam[externalAddress + i];
-            }
-
-        }
-
-        public void writeMBC1Value(ushort address, byte value)
-        {
-            if (address >= 0x0000 && address <= 0x1FFF)
-            {
-                //Ram Enable/Disable
-                if ((value & 0x0F) == 0x0A)
-                {
-                    //Enable Ram
-                    ramEnabled = true;
-                }
-                else
-                {
-                    //Disable Ram
-                    ramEnabled = false;
-                }
-            }
-            else if (address >= 0x2000 && address <= 0x3FFF)
-            {
-                //Set Rom Bank Number 5 bits
-                byte newBankNumber = (byte)((Core.rom.romBankNumber & 0xE0) | (value & 0x1F));
-
-                if (Core.rom.romBankNumber != newBankNumber)
-                {
-                    changeMBC1RomBanks(newBankNumber);
-                }
-
-            }
-            else if (address >= 0x4000 && address <= 0x5FFF)
-            {
-                //Set Ram Bank Number /OR/ Set Rom Bank Number 2 bits
-                if (!bankingMode)
-                {
-                    //Change Rom Bank
-                    byte newBankNumber = (byte)((Core.rom.romBankNumber & 0x1F) | ((value & 0x03) << 5));
-                    if (Core.rom.romBankNumber != newBankNumber)
-                    {
-                        changeMBC1RomBanks(newBankNumber);
-                    }
-                }
-                else
-                {
-                    //Change Ram Bank
-                    byte newBankNumber = (byte)(value & 0x03);
-
-                    if (Core.rom.ramBankNumber != newBankNumber)
-                    {
-                        changeRamBanks(newBankNumber);
-                    }
-                }
-
-            }
-            else if (address >= 0x6000 && address <= 0x7FFF)
-            {
-                //Rom Banking / Ram Banking Mode
-                if ((value & 0x01) > 0)
-                {
-                    bankingMode = true;
-                }
-                else
-                {
-                    bankingMode = false;
-                }
-            }
-
-        }
-
-        public void writeMBC2Value(ushort address, byte value)
-        {
-            if (address >= 0x0000 && address <= 0x1FFF)
-            {
-                //Ram Enable/Disable
-                if ((value & 0x0F) == 0x0A)
-                {
-                    //Enable Ram
-                    ramEnabled = true;
-                }
-                else
-                {
-                    //Disable Ram
-                    ramEnabled = false;
-                }
-            }
-            else if (address >= 0x2000 && address <= 0x3FFF)
-            {
-                //Set Rom Bank Number 5 bits
-                byte newBankNumber = (byte)(value & 0x0F);
-
-                if (Core.rom.romBankNumber != newBankNumber)
-                {
-                    changeMBC2RomBanks(newBankNumber);
-                }
-
-            }
-        }
-
-        public void writeMBC3Value(ushort address, byte value)
-        {
-            if (address >= 0x0000 && address <= 0x1FFF)
-            {
-                //Ram/RTC Register  Enable/Disable
-                if ((value & 0x0F) == 0x0A)
-                {
-                    //Enable Ram
-                    ramEnabled = true;
-                }
-                else
-                {
-                    //Disable Ram
-                    ramEnabled = false;
-                }
-            }
-            else if (address >= 0x2000 && address <= 0x3FFF)
-            {
-                //Set Rom Bank Number 7 bits
-                byte newBankNumber = (byte)(value & 0x7F);
-
-                if (Core.rom.romBankNumber != newBankNumber)
-                {
-                    changeMBC3RomBanks(newBankNumber);
-                }
-
-            }
-            else if (address >= 0x4000 && address <= 0x5FFF)
-            {
-                //Set Ram Bank Number /OR/ RTC Register Select
-
-                if ((value >= 0) && (value <= 3))
-                {
-                    //Change Ram Bank
-                    byte newBankNumber = (byte)(value & 0x03);
-
-                    if (Core.rom.ramBankNumber != newBankNumber)
-                    {
-                        changeRamBanks(newBankNumber);
-                    }
-                }
-
-                if ((value >= 8) && (value <= 0x0C))
-                {
-                    //RTC Register Select
-
-                    //Todo: Implement this
-                }
-
-            }
-            else if (address >= 0x6000 && address <= 0x7FFF)
-            {
-                //Latch Clock Write
-                //if ((previousRTCWrite == 0) && (value == 1))
-                if (value == 1)
-                {
-                    //Update RTC registers
-
-                    //LPSYSTEMTIME time;
-                    //GetSystemTime(time);
-
-
-                    /*
-                    08h  RTC S   Seconds   0-59 (0-3Bh)
-                    09h  RTC M	Minutes   0-59 (0-3Bh)
-                    0Ah  RTC H	Hours     0-23 (0-17h)
-                    0Bh  RTC DL	Lower 8 bits of Day Counter (0-FFh)
-                    0Ch  RTC DH	Upper 1 bit of Day Counter, Carry Bit, Halt Flag
-                    Bit 0	Most significant bit of Day Counter (Bit 8)
-                    Bit 6	Halt (0=Active, 1=Stop Timer)
-                    Bit 7	Day Counter Carry Bit (1=Counter Overflow)
-
-                    The Halt Flag is supposed to be set before <writing> to the RTC Registers.
-                    */
-
-                }
-                //Todo: Implement this
-            }
-
-        }
-
-        public void writeMBC5Value(ushort address, byte value)
-        {
-            if (address >= 0x0000 && address <= 0x1FFF)
-            {
-                //Ram Enable/Disable
-                if ((value & 0x0F) == 0x0A)
-                {
-                    //Enable Ram
-                    ramEnabled = true;
-                }
-                else
-                {
-                    //Disable Ram
-                    ramEnabled = false;
-                }
-            }
-            else if (address >= 0x2000 && address <= 0x2FFF)
-            {
-                //Set Low 8 bits of Rom Bank Number
-                byte newBankNumber = (byte)((Core.rom.romBankNumber & 0x100) | (value)); //Keeps the 9th bit of current rom bank number, joins entire value.
-
-                if (Core.rom.romBankNumber != newBankNumber)
-                {
-                    changeMBC5RomBanks(newBankNumber);
-                }
-
-            }
-            else if (address >= 0x3000 && address <= 0x3FFF)
-            {
-                //Set the 9th bit of Rom Bank Number
-                if (value > 0) //Ensure we are only setting 1 bit to newBankNumber
-                {
-                    value = 1;
-                }
-
-                byte newBankNumber = (byte)((Core.rom.romBankNumber & 0xFF) | (value << 8));
-
-                if (Core.rom.romBankNumber != newBankNumber)
-                {
-                    changeMBC5RomBanks(newBankNumber);
-                }
-
-            }
-            else if (address >= 0x4000 && address <= 0x5FFF)
-            {
-                //Set Ram Bank Number
-                if (bankingMode)
-                {
-                    //Change Ram Bank
-                    byte newBankNumber = (byte)(value & 0x0F);
-
-                    if (Core.rom.ramBankNumber != newBankNumber)
-                    {
-                        changeRamBanks(newBankNumber);
-                    }
-                }
-
-            }
-
-
-        }
-
-
 
         public byte readMemory(ushort address)
         {
@@ -530,11 +195,11 @@ namespace GameBeak.Classes
             {
                 if (Core.rom.mapperSetting <= 3)
                 {
-                    writeMBC1Value(address, value);
+                    MBC1.writeMBC1Value(address, value);
                 }
                 else if (Core.rom.mapperSetting <= 6)
                 {
-                    writeMBC2Value(address, value);
+                    MBC2.writeMBC2Value(address, value);
                 }
                 else if (Core.rom.mapperSetting <= 9)
                 {
@@ -556,11 +221,11 @@ namespace GameBeak.Classes
                     //13: MBC3+Ram+Battery
 
                     //Add this later: MBC3 is not currently ready (RTC)
-                    writeMBC3Value(address, value);
+                    MBC3.writeMBC3Value(address, value);
                 }
                 else if (Core.rom.mapperSetting <= 0x1E)
                 {
-                    writeMBC5Value(address, value);
+                    MBC5.writeMBC5Value(address, value);
                 }
                 //TODO: Add more MBC controllers
 
@@ -1225,14 +890,14 @@ namespace GameBeak.Classes
                                 case 3:
                                     {
                                         //MBC1
-                                        changeMBC1RomBanks((ushort)romBank);
+                                        MBC1.changeMBC1RomBanks((ushort)romBank);
                                         break;
                                     }
                                 case 5:
                                 case 6:
                                     {
                                         //MBC2
-                                        changeMBC2RomBanks((ushort)romBank);
+                                        MBC2.changeMBC2RomBanks((ushort)romBank);
                                         break;
                                     }
                                 //case 0x0B:
@@ -1243,7 +908,7 @@ namespace GameBeak.Classes
                                 case 0x13:
                                     {
                                         //MBC3
-                                        changeMBC3RomBanks((ushort)romBank);
+                                        MBC3.changeMBC3RomBanks((ushort)romBank);
                                         break;
                                     }
                                 case 0x19:
@@ -1254,7 +919,7 @@ namespace GameBeak.Classes
                                 case 0x1E:
                                     {
                                         //MBC5
-                                        changeMBC5RomBanks((ushort)romBank);
+                                        MBC5.changeMBC5RomBanks((ushort)romBank);
                                         break;
                                     }
                             }
@@ -1270,7 +935,7 @@ namespace GameBeak.Classes
                             uint ramBank = Convert.ToUInt32(line, 16);
 
 
-                            changeRamBanks((ushort)ramBank);
+                            Mapper.changeRamBanks((ushort)ramBank);
                         }
                     }
                     else if (line.Contains("[AF:]"))
