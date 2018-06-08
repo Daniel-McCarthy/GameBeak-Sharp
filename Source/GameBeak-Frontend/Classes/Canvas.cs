@@ -161,9 +161,9 @@ namespace GameBeak.Classes
 
             if (e.KeyCode == Keys.F1)
             {
-                if (Core.beakMemory.romFilePath != "")
+                if (Core.rom.romFilePath != "")
                 {
-                    Core.beakMemory.createSaveFile(Core.beakMemory.romFilePath, true);
+                    Core.beakMemory.createSaveFile(Core.rom.romFilePath, true);
                 }
             }
         }
