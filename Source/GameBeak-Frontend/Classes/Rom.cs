@@ -119,30 +119,6 @@ namespace GameBeak.Classes
 
         }
 
-        public bool loadRom(string path)
-        {
-            if (File.Exists(path))
-            {
-                byte[] newRomData = File.ReadAllBytes(path);
-
-                if (newRomData != null && newRomData.Length > 0)
-                {
-                    romData = newRomData;
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Error: Rom was unable to be opened or contains no data.");
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Error: Rom does not exist.");
-                return false;
-            }
-        }
-
         public byte readByte(uint address)
         {
             return romData[address];
