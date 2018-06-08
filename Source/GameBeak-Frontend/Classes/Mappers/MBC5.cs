@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameBeak.Classes
+namespace GameBeak.Classes.Mappers
 {
-    class MBC5 : Mapper
+    public class MBC5 : Mapper
     {
         public static void writeMBC5Value(ushort address, byte value)
         {

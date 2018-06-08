@@ -195,11 +195,12 @@ namespace GameBeak.Classes
             {
                 if (Core.rom.mapperSetting <= 3)
                 {
-                    MBC1.writeMBC1Value(address, value);
+                    
+                    Mappers.MBC1.writeMBC1Value(address, value);
                 }
                 else if (Core.rom.mapperSetting <= 6)
                 {
-                    MBC2.writeMBC2Value(address, value);
+                    Mappers.MBC2.writeMBC2Value(address, value);
                 }
                 else if (Core.rom.mapperSetting <= 9)
                 {
@@ -221,11 +222,11 @@ namespace GameBeak.Classes
                     //13: MBC3+Ram+Battery
 
                     //Add this later: MBC3 is not currently ready (RTC)
-                    MBC3.writeMBC3Value(address, value);
+                    Mappers.MBC3.writeMBC3Value(address, value);
                 }
                 else if (Core.rom.mapperSetting <= 0x1E)
                 {
-                    MBC5.writeMBC5Value(address, value);
+                    Mappers.MBC5.writeMBC5Value(address, value);
                 }
                 //TODO: Add more MBC controllers
 
@@ -890,14 +891,14 @@ namespace GameBeak.Classes
                                 case 3:
                                     {
                                         //MBC1
-                                        MBC1.changeMBC1RomBanks((ushort)romBank);
+                                        Mappers.MBC1.changeMBC1RomBanks((ushort)romBank);
                                         break;
                                     }
                                 case 5:
                                 case 6:
                                     {
                                         //MBC2
-                                        MBC2.changeMBC2RomBanks((ushort)romBank);
+                                        Mappers.MBC2.changeMBC2RomBanks((ushort)romBank);
                                         break;
                                     }
                                 //case 0x0B:
@@ -908,7 +909,7 @@ namespace GameBeak.Classes
                                 case 0x13:
                                     {
                                         //MBC3
-                                        MBC3.changeMBC3RomBanks((ushort)romBank);
+                                        Mappers.MBC3.changeMBC3RomBanks((ushort)romBank);
                                         break;
                                     }
                                 case 0x19:
@@ -919,7 +920,7 @@ namespace GameBeak.Classes
                                 case 0x1E:
                                     {
                                         //MBC5
-                                        MBC5.changeMBC5RomBanks((ushort)romBank);
+                                        Mappers.MBC5.changeMBC5RomBanks((ushort)romBank);
                                         break;
                                     }
                             }
@@ -935,7 +936,7 @@ namespace GameBeak.Classes
                             uint ramBank = Convert.ToUInt32(line, 16);
 
 
-                            Mapper.changeRamBanks((ushort)ramBank);
+                            Mappers.Mapper.changeRamBanks((ushort)ramBank);
                         }
                     }
                     else if (line.Contains("[AF:]"))

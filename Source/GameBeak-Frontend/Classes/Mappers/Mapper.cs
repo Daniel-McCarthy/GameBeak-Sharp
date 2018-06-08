@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameBeak.Classes
+namespace GameBeak.Classes.Mappers
 {
-    class Mapper
+    public class Mapper
     {
         static public bool bankingMode = false; //0: Rom 1: Ram
 
