@@ -10,7 +10,7 @@ namespace GameBeak.Classes
 {
     public class Rom
     {
-        private byte[] romData;
+        private byte[] romData = new byte[0x500000];
         public bool loadSuccessful = false;
 
         public byte mapperSetting = 0;
@@ -30,7 +30,10 @@ namespace GameBeak.Classes
 
         public Rom(byte[] fileData)
         {
-            romData = fileData;
+            for(int i = 0; i < fileData.Length; i++)
+            {
+                romData[i] = fileData[i];
+            }
         }
 
         public Rom()
