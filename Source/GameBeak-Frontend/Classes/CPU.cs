@@ -1775,7 +1775,7 @@ namespace GameBeak.Classes
         public void opcode08(ushort nn)
         {
             //Load SP into data at NN
-            Core.beakMemory.writeMemory(nn, (short)Core.beakMemory.stackPointer);
+            Core.beakMemory.writeMemory(nn, Core.beakMemory.stackPointer);
             mClock += 5;
             tClock += 20;
         }

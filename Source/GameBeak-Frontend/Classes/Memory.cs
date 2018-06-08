@@ -286,6 +286,14 @@ namespace GameBeak.Classes
             }
         }
 
+        public bool writeMemory(ushort address, short value)
+        {
+            bool firstWrite = writeMemory((ushort)(address + 1), (byte)((value & 0xFF00) >> 8));
+            bool secondWrite = writeMemory((ushort)(address), (byte)(value & 0x00FF));
+
+            return firstWrite && secondWrite;
+        }
+
         public void toggleZFlag()
         {
             byte flag = getF();
