@@ -57,7 +57,6 @@ namespace GameBeak.Classes
         public static void startEmulator()
         {
             Core.beakMemory.initializeGameBoyValues();
-            Core.rom.readRomHeader();
 
             int clocksSinceLastTimerTIMAIncrement = 0;
             int clocksSinceLastTimerDIVIncrement = 0;
