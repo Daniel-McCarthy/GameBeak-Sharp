@@ -424,6 +424,7 @@ namespace GameBeak.Forms
 
         private void setPaletteColorDialogue(PictureBox box, int previewIndex)
         {
+            colorDialog1.Color = box.BackColor;
             colorDialog1.ShowDialog();
 
             System.Drawing.Color selectedColor = colorDialog1.Color;
