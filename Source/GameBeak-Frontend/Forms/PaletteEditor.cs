@@ -551,20 +551,13 @@ namespace GameBeak.Forms
 
             void writeSchemeLine(int schemeIndex, int offset, string paletteType)
             {
-                string color1 = palettes[schemeIndex + offset + 0].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 0].ToArgb());
-                string color2 = palettes[schemeIndex + offset + 1].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 1].ToArgb());
-                string color3 = palettes[schemeIndex + offset + 2].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 2].ToArgb());
-                string color4 = palettes[schemeIndex + offset + 3].ToString();//argbToRGBAString(palettes[schemeIndex + offset + 3].ToArgb());
+                string color1 = palettes[schemeIndex + offset + 0].ToInteger().ToString("X8");
+                string color2 = palettes[schemeIndex + offset + 1].ToInteger().ToString("X8");
+                string color3 = palettes[schemeIndex + offset + 2].ToInteger().ToString("X8");
+                string color4 = palettes[schemeIndex + offset + 3].ToInteger().ToString("X8");
 
                 fileWriter.WriteLine("\t\t<" + paletteType  + ">" + color1 + '|' + color2 + '|' + color3 + '|' + color4 + "</" + paletteType  + ">");
             }
-
-            /*
-            string argbToRGBAString(int argb)
-            {
-                return (((argb >> 24) & 0xFF) | (argb << 8)).ToString("X8");
-            }
-            */
 
             fileWriter.Close();
         }
