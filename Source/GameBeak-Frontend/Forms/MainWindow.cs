@@ -64,7 +64,11 @@ namespace GameBeak
             else
             {
                 MessageBox.Show(filePath);
-                Core.rom.romFilePath = "";
+
+                if (Core.rom != null)
+                {
+                    Core.rom.romFilePath = "";
+                }
             }
         }
 
