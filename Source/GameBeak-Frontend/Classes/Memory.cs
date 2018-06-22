@@ -189,7 +189,7 @@ namespace GameBeak.Classes
             ramMap[address] = value;
         }
 
-        public bool writeMemory(ushort address, byte value)
+        public void writeMemory(ushort address, byte value)
         {
             if (Core.rom.mapperSetting > 0 && address <= 0x7FFF)
             {
@@ -230,7 +230,6 @@ namespace GameBeak.Classes
                 }
                 //TODO: Add more MBC controllers
 
-                return true;
             }
             else
             {
@@ -240,20 +239,17 @@ namespace GameBeak.Classes
 				    {
                         //Initiate DMA Transfer Register
                         transferDMA(value);
-                        return true;
                     }
 				    else if (address == (ushort)0xFF41)
 				    {
                         //Set LCDC Status
-                        ramMap[address] = (byte)((ramMap[address] & 0x87) | (value & 0x78) | 0x80); //Bit 7 is always 1, Bit 0, 1, and 2 are read Only
-                        return true;                                                                 //&0x87 clears bits 3, 4, 5, 6 from Stat. &0xF8 clears all but bit bit 0, 1, 2, and 7 from value being written.
+                        ramMap[address] = (byte)((ramMap[address] & 0x87) | (value & 0x78) | 0x80); //Bit 7 is always 1, Bit 0, 1, and 2 are read only. //&0x87 clears bits 3, 4, 5, 6 from Stat. &0xF8 clears all but bit bit 0, 1, 2, and 7 from value being written.
                     }
 				    else if (address == (ushort)0xFF68)
 				    {
                         //Set GBC Background Palette Index
                         ramMap[address] = (byte)(0x40 | (value));
                         //Bit 7: Increment on Write //Bit 6: Unused //Bit 5-0 Index (0-35)
-                        return true;
                     }
 				    else
 				    {
@@ -268,20 +264,7 @@ namespace GameBeak.Classes
                         }
 
                         ramMap[address] = value;
-
-                        if (ramMap[address] == value)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
                     }
-                }
-                else
-                {
-                    return false;
                 }
             }
         }
