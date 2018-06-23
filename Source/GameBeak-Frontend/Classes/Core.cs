@@ -59,7 +59,6 @@ namespace GameBeak.Classes
     {
         public static void startEmulator()
         {
-            Core.beakMemory.initializeGameBoyValues();
 
             int clocksSinceLastTimerTIMAIncrement = 0;
             int clocksSinceLastTimerDIVIncrement = 0;
