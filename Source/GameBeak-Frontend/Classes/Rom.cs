@@ -15,6 +15,7 @@ namespace GameBeak.Classes
 
         public byte mapperSetting = 0;
         private bool hasGBCFunctionality = false;
+        private bool hasSGBFunctionality = false;
         private byte romSize = 0;
         private byte romByteSize = 0;
 
@@ -60,6 +61,7 @@ namespace GameBeak.Classes
             */
 
             hasGBCFunctionality = readByte(0x143) != 0;
+            hasSGBFunctionality = readByte(0x146) == 3;
             mapperSetting = readByte(0x147);
             romSize = readByte(0x148);
             if (mapperSetting == 0)
