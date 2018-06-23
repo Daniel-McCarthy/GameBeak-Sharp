@@ -189,6 +189,11 @@ namespace GameBeak.Classes
             return hasGBCFunctionality;
         }
 
+        public bool isSGBRom()
+        {
+            return hasSGBFunctionality;
+        }
+
         public bool getUsesProgramRam()
         {
             return usesProgramRam;
