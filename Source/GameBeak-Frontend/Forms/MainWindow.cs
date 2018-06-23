@@ -48,10 +48,18 @@ namespace GameBeak
                 Core.beakMemory.loadRom(filePath, true);
                 Core.rom.romFilePath = filePath;
 
-                Core.beakMemory.initializeGameBoyValues();
                 Core.rom.readRomHeader();
 
                 Core.GBCMode = (Core.rom.isGBCRom() && !Core.ForceDMGMode);
+
+                if(Core.GBCMode)
+                {
+                    Core.beakMemory.initializeGameBoyColorValues();
+                }
+                else
+                {
+                    Core.beakMemory.initializeGameBoyValues();
+                }
 
                 if (emulatorThread == null)
                 {
