@@ -46,6 +46,9 @@ namespace GameBeak.Classes
         public static byte paletteSetting;
         //extern byte filterSetting;
 
+        public static bool GBCMode = false;
+        public static bool ForceDMGMode = false;
+
         public static bool breakPointEnabled = true;
         public static ConcurrentDictionary<string, ushort> breakpoints = new ConcurrentDictionary<string, ushort>();
 
