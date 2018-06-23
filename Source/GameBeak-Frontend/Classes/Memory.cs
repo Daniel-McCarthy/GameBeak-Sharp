@@ -147,9 +147,15 @@ namespace GameBeak.Classes
                 paused = true;
             }
             */
+
             if (address == 0xFF41)
             {
                 return (byte)(ramMap[address] | 0x80);
+            }
+            else if (address == 0xFF4F && Core.GBCMode)
+            {
+                // Read VRAM Bank Number
+                return (byte)(0b11111110 | (vramBank & 0b00000001));
             }
             else
             {
