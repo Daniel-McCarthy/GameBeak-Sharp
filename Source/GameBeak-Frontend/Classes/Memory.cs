@@ -11,6 +11,7 @@ namespace GameBeak.Classes
     class Memory
     {
         private byte[] ramMap = new byte[0x10000];
+        private byte[] internalRam = new byte[0x8000]; //CGB Only
         private byte[] externalRam = new byte[0x1E000];
         public bool ramEnabled = false;
 
@@ -22,6 +23,8 @@ namespace GameBeak.Classes
         public short stackPointer = 0;
         public short memoryPointer = 0x0100;
 
+        //GBC Only Registers
+        private byte internalRamBank = 1; //CGB Only
 
         public bool loadRom(string path)
         {
@@ -274,6 +277,36 @@ namespace GameBeak.Classes
             writeMemory((ushort)(address + 1), (byte)((value & 0xFF00) >> 8));
             writeMemory((ushort)(address), (byte)(value & 0x00FF));
         }
+
+
+        public void swapInternalRamBank(byte newBank)
+        {
+            if (internalRamBank != newBank)
+            {
+                if (newBank < 8)
+                {
+                    ushort oldBankAddress = (ushort)(internalRamBank * 0x1000);
+                    ushort bankAddress = (ushort)(newBank * 0x1000);
+                    ushort ramAddress = 0xD000; //0xC000-CFFF is bank 0; //0xD000-DFFF is swappable
+
+                    //Write current GB ram data to internal ram bank
+                    for (int i = 0; i < 0x1000; i++)
+                    {
+                        internalRam[oldBankAddress + i] = ramMap[ramAddress + i];
+                    }
+
+                    //Write new internal ram bank data to GB ram
+                    for (int i = 0; i < 0x1000; i++)
+                    {
+                        ramMap[ramAddress + i] = internalRam[bankAddress + i];
+                    }
+
+                    // Set new bank number to the internal ram bank value.
+                    internalRamBank = newBank;
+                }
+            }
+        }
+
 
         public void toggleZFlag()
         {
