@@ -294,7 +294,6 @@ namespace GameBeak.Classes
                         ramMap[address] = (byte)(0x40 | (value));
                         // Bit 7: Increment on Write setting //Bit 6: Unused //Bit 0,1,2,3,4,5 Index (0-3F)
                     }
-				    else
                     else if (address == 0xFF69 && Core.GBCMode)
                     {
                         // Write to Background Palette Ram.
@@ -317,6 +316,17 @@ namespace GameBeak.Classes
                             ramMap[0xFF68] = newIndexData;
                         }
                     }
+                    else if (address == 0xFF70 && Core.GBCMode)
+                    {
+                        // Swap Internal Ram Bank at 0xD000
+                        byte bankValue = (byte)(value & 0b111);
+
+                        if (bankValue == 0)
+                            bankValue = 1;
+
+                        swapInternalRamBank(bankValue);
+                    }
+                    else
 				    {
                         if (address >= 0xC000 && address <= 0xDDFF)
                         {
