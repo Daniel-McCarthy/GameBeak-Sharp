@@ -51,6 +51,8 @@ namespace GameBeak
                 Core.beakMemory.initializeGameBoyValues();
                 Core.rom.readRomHeader();
 
+                Core.GBCMode = (Core.rom.isGBCRom() && !Core.ForceDMGMode);
+
                 if (emulatorThread == null)
                 {
                     emulatorThread = new Thread(global::GameBeak.Classes.GameBeak_Main.startEmulator);
