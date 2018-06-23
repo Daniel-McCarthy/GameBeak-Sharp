@@ -11,6 +11,7 @@ namespace GameBeak.Classes
     class Memory
     {
         private byte[] ramMap = new byte[0x10000];
+        private byte[] externalVRAMBank = new byte[0x2000]; //CGB Only
         private byte[] internalRam = new byte[0x8000]; //CGB Only
         private byte[] externalRam = new byte[0x1E000];
         public bool ramEnabled = false;
@@ -25,6 +26,7 @@ namespace GameBeak.Classes
 
         //GBC Only Registers
         private byte internalRamBank = 1; //CGB Only
+        private byte vramBank = 0; //CGB Only
 
         public bool loadRom(string path)
         {
@@ -278,6 +280,25 @@ namespace GameBeak.Classes
             writeMemory((ushort)(address), (byte)(value & 0x00FF));
         }
 
+        public void swapVRAMBank(byte newBank)
+        {
+            // Mask away unused data.
+            newBank &= 0b00000001;
+
+            if (vramBank != newBank)
+            {
+                // Swap bank in GB vram with bank in external VRAM.
+                for (int i = 0; i < 0x2000; i++)
+                {
+                    byte temporarySwapByte = externalVRAMBank[i];   // Hold new data from external bank.
+                    externalVRAMBank[i] = ramMap[0x8000 + i];       // Write previous bank data to external bank.
+                    ramMap[0x8000 + 1] = temporarySwapByte;         // Write new bank data to GB VRAM region.
+                }
+
+                // Set new bank number to the vram bank value.
+                vramBank = newBank;
+            }
+        }
 
         public void swapInternalRamBank(byte newBank)
         {
