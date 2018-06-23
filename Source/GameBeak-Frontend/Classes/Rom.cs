@@ -184,6 +184,11 @@ namespace GameBeak.Classes
             return programRamBattery;
         }
 
+        public bool isGBCRom()
+        {
+            return hasGBCFunctionality;
+        }
+
         public bool getUsesProgramRam()
         {
             return usesProgramRam;
