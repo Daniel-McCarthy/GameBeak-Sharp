@@ -25,6 +25,7 @@ namespace GameBeak.Classes
         public short memoryPointer = 0x0100;
 
         //GBC Only Registers
+        private byte[] backgroundPaletteRam = new byte[0x40];
         private byte internalRamBank = 1; //CGB Only
         private byte vramBank = 0; //CGB Only
 
