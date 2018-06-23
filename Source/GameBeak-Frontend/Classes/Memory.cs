@@ -271,6 +271,23 @@ namespace GameBeak.Classes
                         // Swap VRAM Bank
                         swapVRAMBank(value);
                     }
+                    else if (address == 0xFF55 && Core.GBCMode)
+                    {
+                        // Initiate GBC HDMA Transfer.
+                        ushort sourceAddress = (ushort)((ramMap[0xFF51] << 8) | ramMap[0xFF52]);
+                        ushort targetAddress = (ushort)((ramMap[0xFF53] << 8) | ramMap[0xFF54]);
+
+                        // Mask off low 4 bits from addresses.
+                        sourceAddress &= 0xFFF0;
+                        targetAddress &= 0x1FF0;
+
+                        int byteTransferAmount = value * 16;
+
+                        for(int i = 0; i < byteTransferAmount; i++)
+                        {
+                            ramMap[0x8000 + targetAddress + i] = ramMap[sourceAddress + i];
+                        }
+                    }
                     else if (address == 0xFF68 && Core.GBCMode)
 				    {
                         // Set GBC Background Palette Index
