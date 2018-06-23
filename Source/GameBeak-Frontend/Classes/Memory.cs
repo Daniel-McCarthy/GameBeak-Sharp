@@ -782,6 +782,72 @@ namespace GameBeak.Classes
 
         }
 
+        public void initializeGameBoyColorValues()
+        {
+
+            setA(0x11); //AF: 0x1180
+            setF(0x80);
+            setB(0x00); //BC: 0x0000
+            setC(0x00);
+            setD(0xFF); //DE: 0xFF56
+            setE(0x56);
+            setH(0x00); //HL: 0x000D
+            setL(0x0D);
+            setStackPointer((ushort)0xFFFE);
+
+            Random random1 = new Random();
+            for (ushort i = 0xC000; i <= 0xDFFF; i++)
+            {
+                byte randNum = (byte)random1.Next(0xFF);
+                writeMemory(i, randNum);
+            }
+
+            //Initialize High Ram (0xFFFF is not a part of high ram)
+            for (ushort i = 0xFF80; i < 0xFFFF; i++)
+            {
+                byte randNum = (byte)random1.Next(0xFF);
+                writeMemory(i, randNum);
+            }
+
+            ramMap[(ushort)0xFF00] = ((byte)0xCF); //Joypad
+            ramMap[(ushort)0xFF04] = ((byte)0xAB);
+            ramMap[(ushort)0xFF05] = ((byte)0x00); //TIMA
+            ramMap[(ushort)0xFF06] = ((byte)0x00); //TMA
+            ramMap[(ushort)0xFF07] = ((byte)0x00); //TAC
+            ramMap[(ushort)0xFF0F] = ((byte)0xE1); //IF
+            ramMap[(ushort)0xFF10] = ((byte)0x80); //NR10
+            ramMap[(ushort)0xFF11] = ((byte)0xBF); //NR11
+            ramMap[(ushort)0xFF12] = ((byte)0xF3); //NR12
+            ramMap[(ushort)0xFF14] = ((byte)0xBF); //NR14
+            ramMap[(ushort)0xFF16] = ((byte)0x3F); //NR21
+            ramMap[(ushort)0xFF17] = ((byte)0x00); //NR22
+            ramMap[(ushort)0xFF19] = ((byte)0xBF); //NR24
+            ramMap[(ushort)0xFF1A] = ((byte)0x7F); //NR30
+            ramMap[(ushort)0xFF1B] = ((byte)0xFF); //NR31
+            ramMap[(ushort)0xFF1C] = ((byte)0x9F); //NR32
+            ramMap[(ushort)0xFF1E] = ((byte)0xBF); //NR33
+            ramMap[(ushort)0xFF20] = ((byte)0xFF); //NR41
+            ramMap[(ushort)0xFF21] = ((byte)0x00); //NR42
+            ramMap[(ushort)0xFF22] = ((byte)0x00); //NR43
+            ramMap[(ushort)0xFF23] = ((byte)0xBF); //NR30
+            ramMap[(ushort)0xFF24] = ((byte)0x77); //NR50
+            ramMap[(ushort)0xFF25] = ((byte)0xF3); //NR51
+            ramMap[(ushort)0xFF26] = ((byte)0xF1); //NR52 //F1 for GB //F0 for SGB
+            ramMap[(ushort)0xFF40] = ((byte)0x91); //LCD Ctrl
+            ramMap[(ushort)0xFF41] = ((byte)0x85); //LCD Status
+            ramMap[(ushort)0xFF42] = ((byte)0x00); //SCY
+            ramMap[(ushort)0xFF43] = ((byte)0x00); //SCX
+            ramMap[(ushort)0xFF44] = ((byte)0x00); //LY
+            ramMap[(ushort)0xFF45] = ((byte)0x00); //LYC
+            ramMap[(ushort)0xFF47] = ((byte)0xFC); //BGP
+            ramMap[(ushort)0xFF48] = ((byte)0xFF); //OBP0
+            ramMap[(ushort)0xFF49] = ((byte)0xFF); //0BP1
+            ramMap[(ushort)0xFF4A] = ((byte)0x00); //WY
+            ramMap[(ushort)0xFF4B] = ((byte)0x00); //WX
+            ramMap[(ushort)0xFFFF] = ((byte)0x00); //IE
+
+
+        }
 
         
         bool loadSaveFile(string filepath)
