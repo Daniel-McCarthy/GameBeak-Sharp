@@ -14,6 +14,7 @@ namespace GameBeak.Classes
         public bool loadSuccessful = false;
 
         public byte mapperSetting = 0;
+        private bool hasGBCFunctionality = false;
         private byte romSize = 0;
         private byte romByteSize = 0;
 
@@ -58,6 +59,7 @@ namespace GameBeak.Classes
             FD Bandai Tama5 | FE HuC3 | FF HuC1 + Ram + Battery |
             */
 
+            hasGBCFunctionality = readByte(0x143) != 0;
             mapperSetting = readByte(0x147);
             romSize = readByte(0x148);
             if (mapperSetting == 0)
