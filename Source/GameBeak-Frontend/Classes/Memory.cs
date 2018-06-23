@@ -295,6 +295,28 @@ namespace GameBeak.Classes
                         // Bit 7: Increment on Write setting //Bit 6: Unused //Bit 0,1,2,3,4,5 Index (0-3F)
                     }
 				    else
+                    else if (address == 0xFF69 && Core.GBCMode)
+                    {
+                        // Write to Background Palette Ram.
+
+                        // BG Index: Bits 0,1,2,3,4,5: Index value. Bit 6: Unused. Bit 7: Auto-increment index on write. 0: Disabed, 1: Enabled.
+                        byte bgIndexData = ramMap[0xFF68];
+                        bool bgIndexAutoIncrement = (bgIndexData & 0x80) != 0;
+
+                        // Retrieve index data for palette ram write.
+                        byte index = (byte)(bgIndexData & 0b00111111);
+
+                        // Write data to palette ram at index.
+                        backgroundPaletteRam[index] = value;
+
+                        // Increment index data if auto-increment is enabled.
+                        if (bgIndexAutoIncrement)
+                        {
+                            byte newIndexData = (byte)(index + 1);
+                            newIndexData |= 0b11000000; // Set unused and auto-increment bits to enabled.
+                            ramMap[0xFF68] = newIndexData;
+                        }
+                    }
 				    {
                         if (address >= 0xC000 && address <= 0xDDFF)
                         {
