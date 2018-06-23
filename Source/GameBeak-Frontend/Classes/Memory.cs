@@ -252,9 +252,9 @@ namespace GameBeak.Classes
                     }
 				    else if (address == (ushort)0xFF68)
 				    {
-                        //Set GBC Background Palette Index
+                        // Set GBC Background Palette Index
                         ramMap[address] = (byte)(0x40 | (value));
-                        //Bit 7: Increment on Write //Bit 6: Unused //Bit 5-0 Index (0-35)
+                        // Bit 7: Increment on Write setting //Bit 6: Unused //Bit 0,1,2,3,4,5 Index (0-3F)
                     }
 				    else
 				    {
