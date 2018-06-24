@@ -150,6 +150,28 @@ namespace GameBeak.Classes
             return backgroundPaletteRam[address];
         }
 
+        public byte readVRAMBankRam(ushort address, byte bank)
+        {
+            //In GBC mode there are two swappable banks. The current vramBank is loaded in the ramMap. The other bank is loaded in an external bank.
+            //Therefore if the selected bank isn't the current vram bank, the bank must me in the external bank.
+
+            //If not in GBC mode, then then only bank available is bank 0, which will always be loaded in the ram map in this mode.
+
+            if(Core.GBCMode && vramBank != bank)
+            {
+                if(address >= 0x8000)
+                {
+                    address -= 0x8000;
+                }
+
+                return externalVRAMBank[address];
+            }
+            else
+            {
+                return ramMap[address];
+            }
+        }
+
         public byte readMemory(ushort address)
         {
             /*
@@ -901,7 +923,6 @@ namespace GameBeak.Classes
 
         }
 
-        
         bool loadSaveFile(string filepath)
         {
             byte[] saveFile = File.ReadAllBytes(filepath);
