@@ -170,6 +170,8 @@ namespace GameBeak.Classes
             }
             else if (address == 0xFF69 && Core.GBCMode)
             {
+                // Read Background Palette Ram Data.
+
                 // BG Index: Bits 0,1,2,3,4,5: Index value. Bit 6: Unused. Bit 7: Auto-increment index on write. 0: Disabed, 1: Enabled.
                 byte bgIndexData = ramMap[0xFF68];
                 // Retrieve index data for palette ram read.
