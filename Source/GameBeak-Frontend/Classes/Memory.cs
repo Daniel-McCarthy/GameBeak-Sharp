@@ -327,6 +327,12 @@ namespace GameBeak.Classes
                             ramMap[0xFF68] = newIndexData;
                         }
                     }
+                    else if (address == 0xFF6A && Core.GBCMode)
+                    {
+                        // Set GBC Sprite Palette Index
+                        ramMap[address] = (byte)(0x40 | (value));
+                        // Bit 7: Increment on Write setting //Bit 6: Unused //Bit 0,1,2,3,4,5 Index (0-3F)
+                    }
                     else if (address == 0xFF70 && Core.GBCMode)
                     {
                         // Swap Internal Ram Bank at 0xD000
