@@ -333,6 +333,28 @@ namespace GameBeak.Classes
                         ramMap[address] = (byte)(0x40 | (value));
                         // Bit 7: Increment on Write setting //Bit 6: Unused //Bit 0,1,2,3,4,5 Index (0-3F)
                     }
+                    else if (address == 0xFF6B && Core.GBCMode)
+                    {
+                        // Write to Sprite Palette Ram.
+
+                        // Sprite Index: Bits 0,1,2,3,4,5: Index value. Bit 6: Unused. Bit 7: Auto-increment index on write. 0: Disabed, 1: Enabled.
+                        byte spriteIndexData = ramMap[0xFF6A];
+                        bool spriteIndexAutoIncrement = (spriteIndexData & 0x80) != 0;
+
+                        // Retrieve index data for palette ram write.
+                        byte index = (byte)(spriteIndexData & 0b00111111);
+
+                        // Write data to palette ram at index.
+                        spritePaletteRam[index] = value;
+
+                        // Increment index data if auto-increment is enabled.
+                        if (spriteIndexAutoIncrement)
+                        {
+                            byte newIndexData = (byte)(index + 1);
+                            newIndexData |= 0b11000000; // Set unused and auto-increment bits to enabled.
+                            ramMap[0xFF6A] = newIndexData;
+                        }
+                    }
                     else if (address == 0xFF70 && Core.GBCMode)
                     {
                         // Swap Internal Ram Bank at 0xD000
