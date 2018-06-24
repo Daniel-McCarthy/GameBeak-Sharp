@@ -140,6 +140,11 @@ namespace GameBeak.Classes
             }
         }
 
+        public byte readSpritePaletteRam(byte address)
+        {
+            return spritePaletteRam[address];
+        }
+
         public byte readMemory(ushort address)
         {
             /*
