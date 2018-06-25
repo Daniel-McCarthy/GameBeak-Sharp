@@ -998,8 +998,8 @@ namespace GameBeak.Classes
             FD Bandai Tama5 | FE HuC3 | FF HuC1 + Ram + Battery |
             */
 
-            bool romUsesRam = Core.rom.cartridgeType == 0x02 || Core.rom.cartridgeType == 0x03 || Core.rom.cartridgeType == 0x06 || Core.rom.cartridgeType == 0x08 || Core.rom.cartridgeType == 0x09 || Core.rom.cartridgeType == 0x0C || Core.rom.cartridgeType == 0x0D
-                || Core.rom.cartridgeType == 0x12 || Core.rom.cartridgeType == 0x13 || Core.rom.cartridgeType == 0x1A || Core.rom.cartridgeType == 0x1B || Core.rom.cartridgeType == 0x1D || Core.rom.cartridgeType == 0x1E || Core.rom.cartridgeType == 0x22 || Core.rom.cartridgeType == 0xFF;
+            bool romUsesRam = Core.rom.mapperSetting == 0x02 || Core.rom.mapperSetting == 0x03 || Core.rom.mapperSetting == 0x06 || Core.rom.mapperSetting == 0x08 || Core.rom.mapperSetting == 0x09 || Core.rom.mapperSetting == 0x0C || Core.rom.mapperSetting == 0x0D
+                || Core.rom.mapperSetting == 0x12 || Core.rom.mapperSetting == 0x13 || Core.rom.mapperSetting == 0x1A || Core.rom.mapperSetting == 0x1B || Core.rom.mapperSetting == 0x1D || Core.rom.mapperSetting == 0x1E || Core.rom.mapperSetting == 0x22 || Core.rom.mapperSetting == 0xFF;
 
             if (romUsesRam)
             {
