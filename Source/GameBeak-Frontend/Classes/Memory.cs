@@ -185,6 +185,17 @@ namespace GameBeak.Classes
             {
                 return (byte)(ramMap[address] | 0x80);
             }
+            else if (address == 0xFF4D && Core.GBCMode)
+            {
+                // Get Speed Mode
+
+                byte returnValue = 0;
+                returnValue |= (byte)(Core.beakCPU.preparingSpeedChange ? 1 : 0);
+                returnValue |= (byte)(Core.beakCPU.doubleSpeedMode ? 0x80 : 0);
+
+                return returnValue;
+
+            }
             else if (address == 0xFF4F && Core.GBCMode)
             {
                 // Read VRAM Bank Number
