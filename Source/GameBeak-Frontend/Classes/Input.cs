@@ -36,6 +36,7 @@ namespace GameBeak.Classes
 
         public void readInput()
         {
+            Core.beakCPU.stop = false;
             byte keyInput = getKeyInput();
             bool interrupt = false;
 
@@ -172,6 +173,7 @@ namespace GameBeak.Classes
 
         public void setKeyInput(int keyCode, bool enabled)
         {
+            Core.beakCPU.stop = false;
 
             switch (keyCode)
             {
