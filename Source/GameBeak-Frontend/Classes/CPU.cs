@@ -17,6 +17,9 @@ namespace GameBeak.Classes
         public int tClock = 0;
         public int mClock = 0;
 
+        public bool doubleSpeedMode = false;
+        public bool preparingSpeedChange = false;
+
         public void selectOpcode(byte opcode)
         {
 
