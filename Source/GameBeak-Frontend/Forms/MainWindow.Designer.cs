@@ -226,6 +226,9 @@
         private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resumeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modelEmulationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forceDMGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem automaticSelectionToolStripMenuItem;
     }
 }
 
