@@ -96,7 +96,7 @@ namespace GameBeak.Classes
                     Core.beakInput.readInput();
 
                     
-                    if (!Core.beakCPU.checkForHaltOrInterrupt())
+                    if (!Core.beakCPU.stop && !Core.beakCPU.checkForHaltOrInterrupt())
                     {
 
                         Core.beakCPU.selectOpcode(Core.beakMemory.readMemory((ushort)Core.beakMemory.memoryPointer++));
@@ -112,6 +112,11 @@ namespace GameBeak.Classes
                     }
                     else
                     {
+                        if(Core.beakCPU.stop)
+                        {
+                            Core.beakCPU.executeStop();
+                        }
+
                         Core.beakCPU.selectOpcode(0); //Gets stuck at a halt without this, because no cycles are occuring (no opcode is running) the vblank interrupt never occurs
                     }
 
