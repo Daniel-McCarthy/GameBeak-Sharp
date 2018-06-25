@@ -24,6 +24,11 @@ namespace GameBeak.Classes
         bool keyA = false;
         bool keyB = false;
 
+        public bool isAnyKeyPressed()
+        {
+            return keyUp || keyDown || keyLeft || keyRight || keyStart || keySelect || keyA || keyB;
+        }
+
         byte getKeyInput()
         {
             return Core.beakMemory.readMemory(0xFF00);
