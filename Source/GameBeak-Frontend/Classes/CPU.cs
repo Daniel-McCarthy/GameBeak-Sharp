@@ -1877,6 +1877,7 @@ namespace GameBeak.Classes
             // Stop
             stop = true;
 
+            executeStop();
 
             // Skip operand byte.
             Core.beakMemory.memoryPointer++;
@@ -7603,6 +7604,37 @@ namespace GameBeak.Classes
             //0060 High to Low P10-P13 Interrupt Start Address
         }
 
+        public void executeStop()
+        {
+            if(Core.beakInput.isAnyKeyPressed())
+            {
+                stop = false;
+            }
+            else
+
+            if (interruptsEnabled)
+            {
+
+                byte IE = Core.beakMemory.readMemory(0xFFFF);
+                byte IF = Core.beakMemory.readMemory(0xFF0F);
+
+                if (((((IF & 0x10) >> 4) == 1) && ((IE & 0x10) >> 4 == 1)))
+                {
+                    //Joypad
+                    Core.beakMemory.memoryPointer = 0x0060;
+                    Core.beakMemory.writeMemory(0xFF0F, (byte)(IF & 0xEF)); //Clear bit in IF
+                }
+
+                stop = false;
+            }
+
+
+            if (preparingSpeedChange)
+            {
+                doubleSpeedMode = !doubleSpeedMode;
+                preparingSpeedChange = false;
+            }
+        }
 
         public int returnTClock()
         {
