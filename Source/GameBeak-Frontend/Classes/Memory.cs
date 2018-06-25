@@ -323,6 +323,17 @@ namespace GameBeak.Classes
                         //Set LCDC Status
                         ramMap[address] = (byte)((ramMap[address] & 0x87) | (value & 0x78) | 0x80); //Bit 7 is always 1, Bit 0, 1, and 2 are read only. //&0x87 clears bits 3, 4, 5, 6 from Stat. &0xF8 clears all but bit bit 0, 1, 2, and 7 from value being written.
                     }
+                    else if (address == 0xFF4D && Core.GBCMode)
+                    {
+                        // Set Speed Mode
+
+                        bool newSpeedSetting = (value & 0b0000 - 0001) == 1;
+
+                        if(Core.beakCPU.doubleSpeedMode != newSpeedSetting)
+                        {
+                            Core.beakCPU.preparingSpeedChange = true;
+                        }
+                    }
                     else if (address == 0xFF4F && Core.GBCMode)
                     {
                         // Swap VRAM Bank
