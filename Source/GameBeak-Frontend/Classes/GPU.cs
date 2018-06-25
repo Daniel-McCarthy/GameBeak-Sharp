@@ -426,8 +426,8 @@ namespace GameBeak.Classes
 
             ushort rgbData = (ushort)(paletteData1 << 8 | paletteData2);
             byte r = (byte)(rgbData & (0x1F));
-            byte g = (byte)((rgbData & (0x1F << 10)) >> 10);
-            byte b = (byte)((rgbData & (0x1F << 5)) >> 5);
+            byte g = (byte)((rgbData & (0x1F << 5)) >> 5);
+            byte b = (byte)((rgbData & (0x1F << 10)) >> 10);
 
             r <<= 3;
             g <<= 3;
@@ -446,8 +446,8 @@ namespace GameBeak.Classes
 
             ushort rgbData = (ushort)(paletteData1 << 8 | paletteData2);
             byte r = (byte)(rgbData & (0x1F));
-            byte g = (byte)((rgbData & (0x1F << 10)) >> 10);
-            byte b = (byte)((rgbData & (0x1F << 5)) >> 5);
+            byte g = (byte)((rgbData & (0x1F << 5)) >> 5);
+            byte b = (byte)((rgbData & (0x1F << 10)) >> 10);
 
             r <<= 3;
             g <<= 3;
