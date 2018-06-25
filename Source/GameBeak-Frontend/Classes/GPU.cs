@@ -416,6 +416,26 @@ namespace GameBeak.Classes
             //return gameBeakPalette[ returnHalfNibble( returnPalette(palette), colorNumber) ];
         }
 
+        public Color returnGBCSpriteColor(byte colorNumber, byte palette)
+        {
+            byte paletteAddress = (byte)(palette * 8);
+            byte colorIndex = (byte)(colorNumber * 2);
+
+            byte paletteData1 = Core.beakMemory.readSpritePaletteRam((byte)(paletteAddress + colorIndex + 1));
+            byte paletteData2 = Core.beakMemory.readSpritePaletteRam((byte)(paletteAddress + colorIndex + 0));
+
+            ushort rgbData = (ushort)(paletteData1 << 8 | paletteData2);
+            byte r = (byte)(rgbData & (0x1F));
+            byte g = (byte)((rgbData & (0x1F << 10)) >> 10);
+            byte b = (byte)((rgbData & (0x1F << 5)) >> 5);
+
+            r <<= 3;
+            g <<= 3;
+            b <<= 3;
+
+            return new Color(r, g, b);
+        }
+
         public byte returnPalette(byte palette)
         {
             //Palette: 0 = BGP
