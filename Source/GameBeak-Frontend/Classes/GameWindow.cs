@@ -110,9 +110,9 @@ namespace GameBeak.Classes
                                 else
                                 {
                                     
-                                    if(screenUpdateWatch.ElapsedMilliseconds < 19)
+                                    if(screenUpdateWatch.ElapsedMilliseconds < 17)
                                     {
-                                        Thread.Sleep((int)(19 - screenUpdateWatch.ElapsedMilliseconds));
+                                        Thread.Sleep((int)(17 - screenUpdateWatch.ElapsedMilliseconds));
                                     }
 
                                     screenUpdateWatch.Restart();
