@@ -122,7 +122,7 @@ namespace GameBeak.Classes
                         {
                             case 0:
                                 {
-                                    //10 not implemented
+                                    opcode10();
                                     break;
                                 }
                             case 1:
@@ -1869,7 +1869,15 @@ namespace GameBeak.Classes
 
         }
 
-        //Need to implement 10 STOP 
+        public void opcode10()
+        {
+            // Stop
+            stop = true;
+
+
+            // Skip operand byte.
+            Core.beakMemory.memoryPointer++;
+        }
 
         public void opcode11(short nn)
         {
