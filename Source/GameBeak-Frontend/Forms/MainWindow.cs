@@ -184,6 +184,19 @@ namespace GameBeak
         {
             Core.paused = true;
         }
-    }
 
+        private void forceDMGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Core.ForceDMGMode = true;
+            forceDMGToolStripMenuItem.Checked = true;
+            automaticSelectionToolStripMenuItem.Checked = false;
+        }
+
+        private void automaticSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Core.ForceDMGMode = false;
+            forceDMGToolStripMenuItem.Checked = false;
+            automaticSelectionToolStripMenuItem.Checked = true;
+        }
+    }
 }
