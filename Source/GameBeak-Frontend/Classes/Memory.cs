@@ -414,7 +414,7 @@ namespace GameBeak.Classes
                     }
                     else if (address == 0xFF70 && Core.GBCMode)
                     {
-                        // Swap Internal Ram Bank at 0xD000
+                        // Swap WRAM Bank at 0xD000
                         byte bankValue = (byte)(value & 0b111);
 
                         if (bankValue == 0)
@@ -458,7 +458,7 @@ namespace GameBeak.Classes
                 {
                     byte temporarySwapByte = externalVRAMBank[i];   // Hold new data from external bank.
                     externalVRAMBank[i] = ramMap[0x8000 + i];       // Write previous bank data to external bank.
-                    ramMap[0x8000 + 1] = temporarySwapByte;         // Write new bank data to GB VRAM region.
+                    ramMap[0x8000 + i] = temporarySwapByte;         // Write new bank data to GB VRAM region.
                 }
 
                 // Set new bank number to the vram bank value.
