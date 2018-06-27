@@ -309,7 +309,8 @@ namespace GameBeak.Classes
             bool priority = false;
             bool yFlip = false;
             bool xFlip = false;
-            bool palette = false;
+            bool dmgPaletteSetting = false;
+            byte gbcPaletteSetting = 0;
 
             byte scrollX = getScrollX();
             byte scrollY = getScrollY();
@@ -341,7 +342,9 @@ namespace GameBeak.Classes
                         priority = ((tileFlags & 0x80) >> 7) > 0; //If 1, displays in front of window. Otherwise is below window and above BG
                         yFlip = ((tileFlags & 0x40) >> 6) > 0; //Vertically flipped if 1, else 0.
                         xFlip = ((tileFlags & 0x20) >> 5) > 0; //Horizontally flipped if 1, else 0;
-                        palette = ((tileFlags & 0x10) >> 4) > 0; //Palette is OBJ0PAL if 0, else OBJ1PAL
+                        dmgPaletteSetting = ((tileFlags & 0x10) >> 4) > 0; //Palette is OBJ0PAL if 0, else OBJ1PAL
+                        gbcPaletteSetting = (byte)(tileFlags & 0b111);
+
 
                         tileOffset = tileNumber * 16;
                         tileAddress = baseAddress + tileOffset;
@@ -368,7 +371,18 @@ namespace GameBeak.Classes
                             {
                                 if (!priority || (priority && (Core.beakWindow.getBGPixel((byte)(scrollX + x + j), (byte)(lineY + scrollY)).Equals(bgColor))))
                                 {
-                                    Core.beakWindow.setSpritePixel((byte)(x + j), (byte)lineY, returnColor(colorNumber, ((palette) ? 1 : 0) + 1)); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
+                                    Color pixelColor;
+
+                                    if(!Core.GBCMode)
+                                    {
+                                        pixelColor = returnColor(colorNumber, ((dmgPaletteSetting) ? 1 : 0) + 1);
+                                    }
+                                    else
+                                    {
+                                        pixelColor = returnGBCSpriteColor(colorNumber, gbcPaletteSetting);
+                                    }
+
+                                    Core.beakWindow.setSpritePixel((byte)(x + j), (byte)lineY, pixelColor); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
                                 }
                             }
 
