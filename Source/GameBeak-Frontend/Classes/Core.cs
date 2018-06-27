@@ -131,13 +131,7 @@ namespace GameBeak.Classes
                     Core.beakCPU.mClock = 0;
                     Core.beakCPU.tClock = 0;
 
-                    /*
-                    if (checkForWriteBreakpoint(writeBreakpoint, writeBreakpointValue, breakpointValue, writeBreakpointAddress))
-                    {
-                        paused = true;
-                    }
-                    */
-
+                   
                 }
             }
         }
