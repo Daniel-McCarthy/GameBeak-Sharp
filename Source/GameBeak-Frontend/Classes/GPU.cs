@@ -241,6 +241,8 @@ namespace GameBeak.Classes
             int tileAddress = 0;
             byte rowHalf1 = 0;
             byte rowHalf2 = 0;
+            byte vramBankSelection = 0; //DMG only has bank 0.
+            byte gbcBGPalette = 0;
 
             for (int i = 0; i < 32; i++)
             {
@@ -250,7 +252,7 @@ namespace GameBeak.Classes
                 tileIndex = tileX + (32 * tileY);
                 tileIDAddress = mapAddress + tileIndex;
 
-                tileID = Core.beakMemory.readMemory((ushort)(tileIDAddress));
+                tileID = Core.beakMemory.readVRAMBankRam((ushort)(tileIDAddress), 0);
 
                 if (baseAddress == 0x8800)
                 {
@@ -267,12 +269,34 @@ namespace GameBeak.Classes
                 tileOffset = tileID * 16;
                 tileAddress = baseAddress + tileOffset;
 
-                rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + (lineToDraw * 2)));
-                rowHalf2 = Core.beakMemory.readMemory((ushort)(tileAddress + (lineToDraw * 2) + 1));
+                if (Core.GBCMode)
+                {
+                    byte tileFlags = Core.beakMemory.readVRAMBankRam((ushort)(tileIndex + 0x1C00), 1);
+                    gbcBGPalette = (byte)(tileFlags & 0b0111);
+                    vramBankSelection = (byte)((tileFlags & 0b1000) >> 3);
+                    bool horizontalFlip = (tileFlags & 0b0010 - 0000) > 0;
+                    bool verticalFlip = (tileFlags & 0b0100 - 0000) > 0;
+                    bool hasPriority = (tileFlags & 0b1000 - 0000) > 0;
+
+                }
+
+                rowHalf1 = Core.beakMemory.readVRAMBankRam((ushort)(tileAddress + (lineToDraw * 2)), 0);
+                rowHalf2 = Core.beakMemory.readVRAMBankRam((ushort)(tileAddress + (lineToDraw * 2) + 1), 0);
 
                 for (int j = 0; j < 8; j++)
                 {
-                    Core.beakWindow.setWindowPixel((byte)((i * 8) + j), (byte)lineY, returnColor(((rowHalf1 & 0x80) >> 7) | ((rowHalf2 & 0x80) >> 6), 0));
+                    Color pixelColor;
+
+                    if (!Core.GBCMode)
+                    {
+                        pixelColor = returnColor(((rowHalf1 & 0x80) >> 7) | ((rowHalf2 & 0x80) >> 6), 0);
+                    }
+                    else
+                    {
+                        pixelColor = returnGBCBackgroundColor((byte)(((rowHalf1 & 0x80) >> 7) | ((rowHalf2 & 0x80) >> 6)), gbcBGPalette);
+                    }
+
+                    Core.beakWindow.setWindowPixel((byte)((i * 8) + j), (byte)lineY, pixelColor);
                     rowHalf1 &= 0x7F;
                     rowHalf1 <<= 1;
                     rowHalf2 &= 0x7F;
