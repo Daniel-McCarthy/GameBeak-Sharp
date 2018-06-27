@@ -168,6 +168,11 @@ namespace GameBeak.Classes
             }
             else
             {
+                if (address < 0x8000)
+                {
+                    address += 0x8000;
+                }
+
                 return ramMap[address];
             }
         }
