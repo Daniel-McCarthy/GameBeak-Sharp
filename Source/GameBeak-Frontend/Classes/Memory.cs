@@ -787,6 +787,11 @@ namespace GameBeak.Classes
             writeMemory((ushort)0xFF44, newLY);
         }
 
+        public byte getVRAMBankNumber()
+        {
+            return vramBank;
+        }
+
         public void setStackPointer(ushort nn)
         {
             stackPointer = (short)nn;
