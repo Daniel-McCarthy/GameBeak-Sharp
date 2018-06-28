@@ -378,8 +378,8 @@ namespace GameBeak.Classes
                             lineToDraw = ((spriteSize) ? 15 : 7) - lineToDraw;
                         }
 
-                        rowHalf1 = Core.beakMemory.readMemory((ushort)(tileAddress + (lineToDraw * 2)));
-                        rowHalf2 = Core.beakMemory.readMemory((ushort)(tileAddress + (lineToDraw * 2) + 1));
+                        rowHalf1 = Core.beakMemory.readVRAMBankRam((ushort)(tileAddress + (lineToDraw * 2)), 0);
+                        rowHalf2 = Core.beakMemory.readVRAMBankRam((ushort)(tileAddress + (lineToDraw * 2) + 1), 0);
 
                         if (xFlip)
                         {
