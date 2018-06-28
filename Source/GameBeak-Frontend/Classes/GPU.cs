@@ -406,7 +406,7 @@ namespace GameBeak.Classes
                                         pixelColor = returnGBCSpriteColor(colorNumber, gbcPaletteSetting);
                                     }
 
-                                    Core.beakWindow.setSpritePixel((byte)(x + j), (byte)lineY, pixelColor); //Plus 1 because 0 is BG palette, so value must be 1 or 2 to access OBJ1 or OBj2.
+                                    Core.beakWindow.setSpritePixel((byte)(x + j), (byte)lineY, pixelColor);
                                 }
                             }
 
