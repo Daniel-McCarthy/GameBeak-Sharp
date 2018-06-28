@@ -1,7 +1,7 @@
 # GameBeak-Sharp
 Gameboy DMG Emulator with a fresh chicken theme
 
-GameBeak is a new emulator which supports the original DMG Gameboy. It is being developed with C# and the SFML framework.
+GameBeak is a new emulator which supports the original DMG and GBC Gameboys. It is being developed with C# and the SFML framework.
 It is planned to support Gameboy Color and Gameboy Advance games later on in development. It is the C# sister project to [GameBeak.](https://github.com/Daniel-McCarthy/GameBeak)
 
 ![ ](https://github.com/Daniel-McCarthy/GameBeak-Sharp/blob/master/Preview%20Images/GameBeak%20Preview-1.png)
@@ -10,6 +10,8 @@ It is planned to support Gameboy Color and Gameboy Advance games later on in dev
 ![ ](https://github.com/Daniel-McCarthy/GameBeak-Sharp/blob/master/Preview%20Images/GameBeak%20Preview-4.png)
 ![ ](https://github.com/Daniel-McCarthy/GameBeak-Sharp/blob/master/Preview%20Images/GameBeak%20Preview-5.png)
 ![ ](https://github.com/Daniel-McCarthy/GameBeak-Sharp/blob/master/Preview%20Images/GameBeak%20Preview-6.png)
+![ ](https://github.com/Daniel-McCarthy/GameBeak-Sharp/blob/master/Preview%20Images/GameBeak%20Preview-7.gif)
+![ ](https://github.com/Daniel-McCarthy/GameBeak-Sharp/blob/master/Preview%20Images/GameBeak%20Preview-8.gif)
 
 ---
 This is a personal learning project and not ready for use as a primary emulator.
