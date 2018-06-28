@@ -35,6 +35,9 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.paletteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modelEmulationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forceDMGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.automaticSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,9 +48,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.modelEmulationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.forceDMGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.automaticSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +77,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -87,15 +87,40 @@
             this.paletteToolStripMenuItem1,
             this.modelEmulationToolStripMenuItem});
             this.settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
-            this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem1.Text = "Settings";
             // 
             // paletteToolStripMenuItem1
             // 
             this.paletteToolStripMenuItem1.Name = "paletteToolStripMenuItem1";
-            this.paletteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.paletteToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
             this.paletteToolStripMenuItem1.Text = "Palette";
             this.paletteToolStripMenuItem1.Click += new System.EventHandler(this.paletteToolStripMenuItem_Click);
+            // 
+            // modelEmulationToolStripMenuItem
+            // 
+            this.modelEmulationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.forceDMGToolStripMenuItem,
+            this.automaticSelectionToolStripMenuItem});
+            this.modelEmulationToolStripMenuItem.Name = "modelEmulationToolStripMenuItem";
+            this.modelEmulationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.modelEmulationToolStripMenuItem.Text = "Model Emulation";
+            // 
+            // forceDMGToolStripMenuItem
+            // 
+            this.forceDMGToolStripMenuItem.Name = "forceDMGToolStripMenuItem";
+            this.forceDMGToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.forceDMGToolStripMenuItem.Text = "Force DMG";
+            this.forceDMGToolStripMenuItem.Click += new System.EventHandler(this.forceDMGToolStripMenuItem_Click);
+            // 
+            // automaticSelectionToolStripMenuItem
+            // 
+            this.automaticSelectionToolStripMenuItem.Checked = true;
+            this.automaticSelectionToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.automaticSelectionToolStripMenuItem.Name = "automaticSelectionToolStripMenuItem";
+            this.automaticSelectionToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.automaticSelectionToolStripMenuItem.Text = "Automatic Selection";
+            this.automaticSelectionToolStripMenuItem.Click += new System.EventHandler(this.automaticSelectionToolStripMenuItem_Click);
             // 
             // statusToolStripMenuItem
             // 
@@ -164,31 +189,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // modelEmulationToolStripMenuItem
-            // 
-            this.modelEmulationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.forceDMGToolStripMenuItem,
-            this.automaticSelectionToolStripMenuItem});
-            this.modelEmulationToolStripMenuItem.Name = "modelEmulationToolStripMenuItem";
-            this.modelEmulationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modelEmulationToolStripMenuItem.Text = "Model Emulation";
-            // 
-            // forceDMGToolStripMenuItem
-            // 
-            this.forceDMGToolStripMenuItem.Name = "forceDMGToolStripMenuItem";
-            this.forceDMGToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.forceDMGToolStripMenuItem.Text = "Force DMG";
-            this.forceDMGToolStripMenuItem.Click += new System.EventHandler(this.forceDMGToolStripMenuItem_Click);
-            // 
-            // automaticSelectionToolStripMenuItem
-            // 
-            this.automaticSelectionToolStripMenuItem.Checked = true;
-            this.automaticSelectionToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.automaticSelectionToolStripMenuItem.Name = "automaticSelectionToolStripMenuItem";
-            this.automaticSelectionToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.automaticSelectionToolStripMenuItem.Text = "Automatic Selection";
-            this.automaticSelectionToolStripMenuItem.Click += new System.EventHandler(this.automaticSelectionToolStripMenuItem_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +199,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameBeak";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.menuStrip1.ResumeLayout(false);
