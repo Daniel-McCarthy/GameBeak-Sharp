@@ -65,5 +65,13 @@ namespace GameBeak.Classes
             return new float[] { hue, saturation, lightness };
         }
 
+        public static void rgbToHSL(byte rVal, byte gVal, byte bVal, out float h, out float s, out float l)
+        {
+            float[] hsl = rgbToHSL(rVal, gVal, bVal);
+            h = hsl[0];
+            s = hsl[1];
+            l = hsl[2];
+        }
+
     }
 }
