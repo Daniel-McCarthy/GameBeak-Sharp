@@ -17,5 +17,14 @@ namespace GameBeak.Classes
             return Math.Max(a, Math.Max(b, c));
         }
 
+        private static byte minValue(byte a, byte b, byte c)
+        {
+            return Math.Min(a, Math.Min(b, c));
+        }
+        private static float minValue(float a, float b, float c)
+        {
+            return Math.Min(a, Math.Min(b, c));
+        }
+
     }
 }
