@@ -123,5 +123,13 @@ namespace GameBeak.Classes
             return new byte[] { r, g, b };
         }
 
+        public static void hslToRGB(float hVal, float sVal, float lVal, out byte rVal, out byte gVal, out byte bVal)
+        {
+            byte[] rgbValues = hslToRGB(hVal, sVal, lVal);
+            rVal = rgbValues[0];
+            gVal = rgbValues[1];
+            bVal = rgbValues[2];
+        }
+
     }
 }
