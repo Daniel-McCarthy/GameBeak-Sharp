@@ -83,7 +83,7 @@ namespace GameBeak.Classes
             float point2 = 0;
             float point3 = 0;
 
-            if (hVal > 0f && hVal <= 1f)
+            if (hVal <= 1f)
             {
                 point1 = chroma;
                 point2 = x;
