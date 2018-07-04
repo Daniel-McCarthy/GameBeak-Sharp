@@ -185,5 +185,60 @@ namespace GameBeak.Classes
             return new float[] { hue, saturation, value };
         }
 
+
+        /*
+         * Convert hsv float values to RGB byte values
+         */
+        public static byte[] hsvToRGB(float hVal, float sVal, float vVal)
+        {
+            float chroma = vVal * sVal; //chroma = (1 - Math.Abs((lVal * 2) - 1)) * sVal;
+            float x = chroma * (1 - Math.Abs(((hVal / 60f) % 2) - 1)); //(1 - Math.Abs((hVal % 2) - 1));
+            float m = vVal - chroma;
+
+            float point1 = 0;
+            float point2 = 0;
+            float point3 = 0;
+
+            if (hVal < 1f)
+            {
+                point1 = chroma;
+                point2 = x;
+            }
+            else if (hVal < 2f)
+            {
+                point1 = x;
+                point2 = chroma;
+            }
+            else if (hVal < 3f)
+            {
+                point2 = chroma;
+                point3 = x;
+            }
+            else if (hVal < 4f)
+            {
+                point2 = x;
+                point3 = chroma;
+            }
+            else if (hVal < 5f)
+            {
+                point1 = x;
+                point3 = chroma;
+            }
+            else if (hVal < 6f)
+            {
+                point1 = chroma;
+                point3 = x;
+            }
+
+
+            // Calculate RGB.
+
+            byte r = (byte)((point1 + m) * 255f);
+            byte g = (byte)((point2 + m) * 255f);
+            byte b = (byte)((point3 + m) * 255f);
+
+            return new byte[] { r, g, b };
+        }
+
     }
 }
