@@ -142,5 +142,48 @@ namespace GameBeak.Classes
             byte[] rgbValues = hslToRGB(hVal, sVal, lVal);
             return (255 << 24) | (rgbValues[0] << 16) | (rgbValues[1] << 8) | rgbValues[2];
         }
+
+        /*
+         * Convert RGB byte values to HSL float values
+         */
+        public static float[] rgbToHSV(byte rVal, byte gVal, byte bVal)
+        {
+            float r = rVal / 255f;
+            float g = gVal / 255f;
+            float b = bVal / 255f;
+            float max = maxValue(r, g, b);
+            float min = minValue(r, g, b);
+            float intensity = (r + g + b) * (1f / 3f);
+
+            // Calculate Chroma.
+            float chroma = max - min;
+
+            // Calculate Hue.
+            float hue = 0;
+
+            if (max == r)
+            {
+                hue = ((g - b) / chroma) % 6;
+            }
+            else if (max == g)
+            {
+                hue = ((b - r) / chroma) + 2;
+            }
+            else if (max == b)
+            {
+                hue = ((r - g) / chroma) + 4;
+            }
+
+            hue *= 60f;
+
+            // Calculate Saturation.
+            float saturation = (intensity == 0) ? 0 : (chroma / max); //(1 - (min / intensity));
+
+            // Calculate Value.
+            float value = max;
+
+            return new float[] { hue, saturation, value };
+        }
+
     }
 }
