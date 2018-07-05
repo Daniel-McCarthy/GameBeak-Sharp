@@ -185,6 +185,14 @@ namespace GameBeak.Classes
             return new float[] { hue, saturation, value };
         }
 
+        public static void rgbToHSV(byte rVal, byte gVal, byte bVal, out float h, out float s, out float v)
+        {
+            float[] hsl = rgbToHSV(rVal, gVal, bVal);
+            h = hsl[0];
+            s = hsl[1];
+            v = hsl[2];
+        }
+
 
         /*
          * Convert hsv float values to RGB byte values
