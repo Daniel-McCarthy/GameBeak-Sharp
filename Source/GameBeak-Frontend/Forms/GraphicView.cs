@@ -195,7 +195,7 @@ namespace GameBeak.Forms
             sprite3YPosValueLabel.Text = spriteY.ToString("X2");
             sprite3TileNumberValueLabel.Text = tileNumber.ToString("X2");
 
-            sprite1OAMAddressValueLabel.Text = 0xFE08.ToString("X4");
+            sprite3OAMAddressValueLabel.Text = 0xFE08.ToString("X4");
 
             drawSpriteIcon(sprite3PictureBox, tileNumber);
 
@@ -210,7 +210,7 @@ namespace GameBeak.Forms
             sprite4YPosValueLabel.Text = spriteY.ToString("X2");
             sprite4TileNumberValueLabel.Text = tileNumber.ToString("X2");
 
-            sprite1OAMAddressValueLabel.Text = 0xFE10.ToString("X4");
+            sprite4OAMAddressValueLabel.Text = 0xFE10.ToString("X4");
 
             drawSpriteIcon(sprite4PictureBox, tileNumber);
         }
