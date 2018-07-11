@@ -164,7 +164,7 @@ namespace GameBeak.Forms
             sprite1YPosValueLabel.Text = spriteY.ToString("X2");
             sprite1TileNumberValueLabel.Text = tileNumber.ToString("X2");
 
-            sprite1OAMAddressValueLabel.Text = 0xFE00.ToString("X4");
+            sprite1OAMAddressValueLabel.Text = (0xFE00 + (spritePage * 16)).ToString("X4");
 
             drawSpriteIcon(sprite1PictureBox, tileNumber);
 
@@ -179,7 +179,7 @@ namespace GameBeak.Forms
             sprite2YPosValueLabel.Text = spriteY.ToString("X2");
             sprite2TileNumberValueLabel.Text = tileNumber.ToString("X2");
 
-            sprite2OAMAddressValueLabel.Text = 0xFE04.ToString("X4");
+            sprite2OAMAddressValueLabel.Text = (0xFE00 + 4 + (spritePage * 16)).ToString("X4");
 
             drawSpriteIcon(sprite2PictureBox, tileNumber);
 
@@ -195,7 +195,7 @@ namespace GameBeak.Forms
             sprite3YPosValueLabel.Text = spriteY.ToString("X2");
             sprite3TileNumberValueLabel.Text = tileNumber.ToString("X2");
 
-            sprite3OAMAddressValueLabel.Text = 0xFE08.ToString("X4");
+            sprite3OAMAddressValueLabel.Text = (0xFE00 + 8 + (spritePage * 16)).ToString("X4");
 
             drawSpriteIcon(sprite3PictureBox, tileNumber);
 
@@ -210,7 +210,7 @@ namespace GameBeak.Forms
             sprite4YPosValueLabel.Text = spriteY.ToString("X2");
             sprite4TileNumberValueLabel.Text = tileNumber.ToString("X2");
 
-            sprite4OAMAddressValueLabel.Text = (0xFE0C).ToString("X4");
+            sprite4OAMAddressValueLabel.Text = (0xFE00 + 12 + (spritePage * 16)).ToString("X4");
 
             drawSpriteIcon(sprite4PictureBox, tileNumber);
         }
