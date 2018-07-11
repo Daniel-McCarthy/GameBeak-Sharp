@@ -291,7 +291,7 @@ namespace GameBeak.Forms
 
         private void pageRightButton_Click(object sender, EventArgs e)
         {
-            if(spritePage < 16)
+            if(spritePage < 9)
             {
                 spritePage++;
                 refresh();
