@@ -210,7 +210,7 @@ namespace GameBeak.Forms
             sprite4YPosValueLabel.Text = spriteY.ToString("X2");
             sprite4TileNumberValueLabel.Text = tileNumber.ToString("X2");
 
-            sprite4OAMAddressValueLabel.Text = 0xFE10.ToString("X4");
+            sprite4OAMAddressValueLabel.Text = (0xFE0C).ToString("X4");
 
             drawSpriteIcon(sprite4PictureBox, tileNumber);
         }
