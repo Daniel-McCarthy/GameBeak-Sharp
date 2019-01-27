@@ -26,9 +26,19 @@ namespace GameBeak
         {
             InitializeComponent();
 
-            //Add drawing canvas to screen
+            // Add drawing canvas to screen
+            drawCanvas.Size = new Size(320, 288);
+
+            // Move canvas below menu strip with small padding
+            Point canvasLocation = new Point(0, menuStrip1.Location.Y + menuStrip1.Height + 5);
+            drawCanvas.Location = canvasLocation;
             Controls.Add(drawCanvas);
-            drawCanvas.Location = new Point(0, 27);
+
+            // Set the window size to match the space required for the menu strip and canvas
+            Size windowSize = new Size(320, canvasLocation.Y + 288);
+            this.Size = windowSize;
+            this.MaximumSize = windowSize;
+            this.MinimumSize = windowSize;
         }
 
 
