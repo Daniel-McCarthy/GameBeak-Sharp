@@ -532,13 +532,22 @@ namespace GameBeak.Classes
             return fullScreen;
         }
 
-
-
         public int getGPUMode()
         {
             return gpuMode;
         }
 
+        public void resetGameWindow()
+        {
+            bgPixels = new Color[256 * 256];
+            windowPixels = new Color[256 * 256];
+            spritePixels = new Color[256 * 256];
+            tileDebugPixels = new Color[256 * 256];
+            scrollXValues = new byte[256];
+            gpuMode = 1;
+            poweringOn = true;
 
+            screenUpdateWatch = new Stopwatch();
+        }
     }
 }

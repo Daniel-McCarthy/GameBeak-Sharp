@@ -20,7 +20,7 @@ namespace GameBeak.Classes
 
             clocks = 4500;
 
-            run = true;
+            run = false;
             paused = false;
             step = false;
             enableInterruptsNextCycle = false;
@@ -134,6 +134,23 @@ namespace GameBeak.Classes
                    
                 }
             }
+        }
+
+        public static void resetCore()
+        {
+            Core.clocks = 4500;
+
+            Core.paused = true;
+            Core.step = false;
+            Core.enableInterruptsNextCycle = false;
+            // Don't change the users palette setting for consistency and convenience.
+
+            Core.beakMemory.resetMemory();
+            Core.beakWindow.resetGameWindow();
+            Core.beakCPU.resetCPU();
+            Core.beakInput.resetInput();
+            Core.rom.resetRom();
+            Mappers.Mapper.bankingMode = false;
         }
     }
 }

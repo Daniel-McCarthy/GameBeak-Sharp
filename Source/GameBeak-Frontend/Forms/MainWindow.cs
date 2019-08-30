@@ -47,13 +47,16 @@ namespace GameBeak
         */
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bool alreadyEmulating = Core.run;
             Core.paused = true;
             string filePath = (openFileDialog1.ShowDialog() == DialogResult.OK) ? openFileDialog1.FileName : "Error: No such file found.";
 
             if(File.Exists(filePath))
             { 
-
-                Core.beakMemory.memoryPointer = 0x0100;
+                if (alreadyEmulating)
+                {
+                    Classes.GameBeak_Main.resetCore();
+                }
 
                 Core.beakMemory.loadRom(filePath, true);
                 Core.rom.romFilePath = filePath;
@@ -70,6 +73,9 @@ namespace GameBeak
                 {
                     Core.beakMemory.initializeGameBoyValues();
                 }
+
+                Core.run = true;
+                Core.paused = false;
 
                 if (emulatorThread == null)
                 {

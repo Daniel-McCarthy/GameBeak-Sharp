@@ -15,7 +15,7 @@ namespace GameBeak.Classes
         //Mapped to standard keyboard keys:
         //[Up][Left][Right][Down][Z][X][Enter][RShift]
 
-	    bool keyUp = false;
+	      bool keyUp = false;
         bool keyDown = false;
         bool keyLeft = false;
         bool keyRight = false;
@@ -220,6 +220,16 @@ namespace GameBeak.Classes
             }
         }
 
-
+        public void resetInput()
+        {
+            keyUp = false;
+            keyDown = false;
+            keyLeft = false;
+            keyRight = false;
+            keyStart = false;
+            keySelect = false;
+            keyA = false;
+            keyB = false;
+        }
     }
 }

@@ -7693,7 +7693,19 @@ namespace GameBeak.Classes
             Core.repeat = newRepeat;
         }
 
+        public void resetCPU()
+        {
+            interrupt = false;
+            halt = false;
+            haltMode = 0;
+            stop = false;
 
+            interruptsEnabled = true;
+            tClock = 0;
+            mClock = 0;
 
+            doubleSpeedMode = false;
+            preparingSpeedChange = false;
+        }
     }
 }

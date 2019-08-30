@@ -1357,5 +1357,29 @@ namespace GameBeak.Classes
             //paused = true;
         }
 
+        public void resetMemory()
+        {
+            ramMap = new byte[0x10000];
+            externalVRAMBank = new byte[0x2000];
+            internalRam = new byte[0x8000];
+            externalRam = new byte[0x1E000];
+            ramEnabled = false;
+
+            // These will be over written on rom load
+            // once it is determined of the new rom
+            // is a GameBoy or GameBoy Color game.
+            regAF = 0;
+            regBC = 0;
+            regDE = 0;
+            regHL = 0;
+
+            stackPointer = 0;
+            memoryPointer = 0x0100;
+
+            backgroundPaletteRam = new byte[0x40];
+            spritePaletteRam = new byte[0x40];
+            internalRamBank = 1;
+            vramBank = 0;
+        }
     }
 }

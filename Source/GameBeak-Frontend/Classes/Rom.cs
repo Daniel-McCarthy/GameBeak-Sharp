@@ -198,5 +198,27 @@ namespace GameBeak.Classes
         {
             return usesProgramRam;
         }
+
+        public void resetRom()
+        {
+            romData = new byte[0x50000];
+            loadSuccessful = false;
+
+            mapperSetting = 0;
+            hasGBCFunctionality = false;
+            hasSGBFunctionality = false;
+            romSize = 0;
+            romByteSize = 0;
+
+            programRamBattery = false;
+            usesProgramRam = false;
+
+            romFilePath = "";
+            title = "";
+            cartridgeType = 0;
+            romBankNumber = 0;
+            ramBankNumber = 0;
+            bankingMode = false;
+        }
     }
 }
